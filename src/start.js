@@ -60,12 +60,6 @@ export const RecursiveCheck = async () => {
             const END_TIME = entry.ending;
             // const DURATION = entry.duration;
             const FREQUENCY = entry.frequency;
-            // const DB_COUNT =
-            //   entry.count ||
-            //   (() => {
-            //     PROJECT_REF.set({ count: 0 });
-            //     return 0;
-            //   })();
             /**
              * We run this checks so we can premarturely end a project
              * IF specific conditions are met
@@ -120,7 +114,10 @@ export const RecursiveCheck = async () => {
                     // console.log("Adding Points");
                     // const hasOpted = await ctcAdmin.unsafeViews.Info.opted(chainAddress);
                     // if (!hasOpted) await ctcAdmin.a.User.optin();
-                    await setReward(WALLET, chainAddress || dataBaseAddress, FLOOR * 0.4 * (1 / 365));
+                    await setReward(WALLET, chainAddress || dataBaseAddress, FLOOR * 0.4 * (1 / 365)).catch(async () => {
+                        console.log("Error, trying again");
+                        await setReward(WALLET, dataBaseAddress, FLOOR * 0.4 * (1 / 365)).catch(() => console.error("Error, trying again"));
+                    });
                     // console.log({ res });
                     obj[asset]["eligiblePoints"] = 0;
                     // console.log(`Setting reward for ${chainAddress} \n`);
@@ -144,7 +141,7 @@ schedule("*/5 * * * *", () => {
     cnt++;
     RecursiveCheck()
         .then(() => {
-        console.log({ res: "success", });
+        console.log({ res: "success" });
         console.log("Finishing Cron Job");
     })
         .catch(console.error);

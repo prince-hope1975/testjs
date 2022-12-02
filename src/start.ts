@@ -1,4 +1,4 @@
-import {  getFormattedHoldersInfo } from "./index.js";
+import { getFormattedHoldersInfo } from "./index.js";
 import { loadStdlib } from "@reach-sh/stdlib";
 import {
   readDataFromSnapShot,
@@ -20,7 +20,6 @@ let PERIOD = 24;
 // we are trying to keep count of the number of times we have run this function
 // so we can stop it after a certain number of times
 let count = 0;
-
 
 // GEt data
 //  Compare if data is the same
@@ -81,12 +80,6 @@ export const RecursiveCheck = async () => {
       const END_TIME = entry.ending;
       // const DURATION = entry.duration;
       const FREQUENCY = entry.frequency;
-      // const DB_COUNT =
-      //   entry.count ||
-      //   (() => {
-      //     PROJECT_REF.set({ count: 0 });
-      //     return 0;
-      //   })();
 
       /**
        * We run this checks so we can premarturely end a project
@@ -157,7 +150,14 @@ export const RecursiveCheck = async () => {
             WALLET,
             chainAddress || dataBaseAddress,
             FLOOR * 0.4 * (1 / 365)
-          );
+          ).catch(async () => {
+            console.log("Error, trying again");
+            await setReward(
+              WALLET,
+              dataBaseAddress,
+              FLOOR * 0.4 * (1 / 365)
+            ).catch(() => console.error("Error, trying again"));
+          });
           // console.log({ res });
           obj[asset]["eligiblePoints"] = 0;
           // console.log(`Setting reward for ${chainAddress} \n`);
@@ -187,13 +187,13 @@ type uniqueQuery = {
 };
 
 // const APY = 10 / 365 / 24;
-let cnt =0
+let cnt = 0;
 schedule("*/5 * * * *", () => {
   console.log("Starting Cron Job", cnt);
-  cnt++
+  cnt++;
   RecursiveCheck()
     .then(() => {
-      console.log({ res: "success" ,});
+      console.log({ res: "success" });
       console.log("Finishing Cron Job");
     })
     .catch(console.error);
