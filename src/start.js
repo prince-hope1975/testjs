@@ -1,4 +1,4 @@
-import { getHolderAddressOfNFT, getFormattedHoldersInfo } from "./index.js";
+import { getFormattedHoldersInfo } from "./index.js";
 import { loadStdlib } from "@reach-sh/stdlib";
 import { readDataFromSnapShot, db, } from "./common/utils/backend/firebase/index.js";
 import { setReward } from "./common/utils/contract/helpers.js";
@@ -13,13 +13,6 @@ let PERIOD = 24;
 // we are trying to keep count of the number of times we have run this function
 // so we can stop it after a certain number of times
 let count = 0;
-const retryRequests = async (item) => {
-    if (item.address) {
-        return item;
-    }
-    // @ts-ignore
-    return await retryRequests(await getHolderAddressOfNFT(item.assetId));
-};
 // GEt data
 //  Compare if data is the same
 //  if it's the same add a point over 24 hours
