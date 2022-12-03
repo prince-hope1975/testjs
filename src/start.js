@@ -9,10 +9,8 @@ import dotenv from "dotenv";
 dotenv.config();
 const reach = loadStdlib("ALGO");
 reach.setProviderByName("TestNet");
-let PERIOD = 24;
 // we are trying to keep count of the number of times we have run this function
 // so we can stop it after a certain number of times
-let count = 0;
 // GEt data
 //  Compare if data is the same
 //  if it's the same add a point over 24 hours
@@ -25,21 +23,23 @@ export const RecursiveCheck = async () => {
     const RETRIEVED_DATA = await readDataFromSnapShot(USERS_REF);
     const WALLET = await reach.newAccountFromMnemonic(process?.env?.MNEMONIC || "");
     // console.log({ address: WALLET.networkAccount.addr });
-    let val = {};
+    // let val: jsonSchema = {};
     const entries = Object.entries(RETRIEVED_DATA);
     /**
      * We map through all the assets to be able to store the locally so we can use it in our server
      * We use it for authentication to confirm if our user has the asset in their wallet
      */
-    entries.forEach(([_, project]) => {
-        const entry = Object.entries(project);
-        entry.forEach(([name, { assets, expectedAPY, ending, isActive, started }]) => {
-            val = {
-                ...val,
-                [name]: { assets, expectedAPY, ending, isActive, started },
-            };
-        });
-    });
+    // entries.forEach(([_, project]) => {
+    //   const entry = Object.entries(project);
+    //   entry.forEach(
+    //     ([name, p]) => {
+    //       val = {
+    //         ...val,
+    //         [name]: p,
+    //       };
+    //     }
+    //   );
+    // });
     // usersRepo.createAll(val);
     /**
      * Map through both the data in the centralized database and that gotten from the chain and use that data
@@ -55,23 +55,21 @@ export const RecursiveCheck = async () => {
             const ASSET_INFO_REF = PROJECT_REF.child("assetInfo");
             const RETRIEVED_ASSET_INFO = entry.assetInfo;
             const RETRIEVED_ASSETS = entry.assets;
-            const IS_ACTIVE = entry.isActive || true;
+            const IS_ACTIVE = entry.isActive;
             const END_TIME = entry.ending;
-            // const DURATION = entry.duration;
-            const FREQUENCY = entry.frequency;
+            const INFO = entry.info;
+            // const FREQUENCY = entry.frequency;
             /**
              * We run this checks so we can premarturely end a project
              * IF specific conditions are met
              */
             if (!IS_ACTIVE) {
-                return;
+                return console.log("Project is not active");
             }
             if (END_TIME < new Date().getTime()) {
-                PROJECT_REF.set({ ...entry, Active: false });
+                await PROJECT_REF.set({ ...entry, isActive: false });
                 return console.log({ ended: "Rewards have ended" });
             }
-            if (FREQUENCY <= count)
-                return;
             const assetInfosFromChain = await getFormattedHoldersInfo(RETRIEVED_ASSETS);
             let obj = {};
             const chainAddressAndAssetId = assetInfosFromChain.reduce((a, v) => ({ ...a, ...v }), {});
@@ -113,9 +111,9 @@ export const RecursiveCheck = async () => {
                     // console.log("Adding Points");
                     // const hasOpted = await ctcAdmin.unsafeViews.Info.opted(chainAddress);
                     // if (!hasOpted) await ctcAdmin.a.User.optin();
-                    await setReward(WALLET, chainAddress || dataBaseAddress, FLOOR * 0.4 * (1 / 365)).catch(async () => {
+                    await setReward(WALLET, chainAddress || dataBaseAddress, FLOOR * 0.4 * (1 / 365), INFO).catch(async () => {
                         console.log("Error, trying again");
-                        await setReward(WALLET, dataBaseAddress, FLOOR * 0.4 * (1 / 365)).catch(() => console.error("Error, trying again"));
+                        await setReward(WALLET, dataBaseAddress, FLOOR * 0.4 * (1 / 365), INFO).catch(() => console.error("Error, trying again"));
                     });
                     obj[asset]["eligiblePoints"] = 0;
                 }
@@ -126,7 +124,7 @@ export const RecursiveCheck = async () => {
 };
 // const APY = 10 / 365 / 24;
 let cnt = 0;
-schedule("*/5 * * * *", () => {
+schedule("*/10 * * * *", () => {
     console.log("Starting Cron Job", cnt);
     cnt++;
     RecursiveCheck()
@@ -136,5 +134,6 @@ schedule("*/5 * * * *", () => {
     })
         .catch(console.error);
 });
+// schedule a cron job to run every 10 minutes
 export default RecursiveCheck;
 // run a cron job every 5 minutes

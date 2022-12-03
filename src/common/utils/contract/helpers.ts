@@ -121,7 +121,7 @@ export const setReward = async (
   acc: any,
   address: string,
   amt: number,
-  ctcInfo: typeof info = info
+  ctcInfo: typeof info 
 ) => {
   // @ts-ignore
   const ctcAdmin = acc.contract(backend, reach.bigNumberToNumber(ctcInfo));

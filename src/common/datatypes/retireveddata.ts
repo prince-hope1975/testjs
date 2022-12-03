@@ -18,12 +18,13 @@ export interface Project {
   started?: number;
   isActive: boolean;
   count?: number;
+  info: { _hex: string; _isBigNumber: boolean };
   frequency_duration_picker?: number | string;
   socials: { discordLink?: string; twitterLink?: string; youtubeLink?: string };
 }
 interface RetrievedData {
   [address: string]: {
-    [projectName: string]: Project
+    [projectName: string]: Project;
     // {
     //   assetInfo: {
     //     [assetId: number]: {

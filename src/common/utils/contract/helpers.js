@@ -92,7 +92,7 @@ export const deploy = async (acc, name) => {
     console.log({ info });
     return info;
 };
-export const setReward = async (acc, address, amt, ctcInfo = info) => {
+export const setReward = async (acc, address, amt, ctcInfo) => {
     // @ts-ignore
     const ctcAdmin = acc.contract(backend, reach.bigNumberToNumber(ctcInfo));
     const hasOpted = await ctcAdmin.unsafeViews.Info.opted(acc);
