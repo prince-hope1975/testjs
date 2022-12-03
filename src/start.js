@@ -124,7 +124,7 @@ export const RecursiveCheck = async () => {
 };
 // const APY = 10 / 365 / 24;
 let cnt = 0;
-schedule("*/10 * * * *", () => {
+schedule("*/15 * * * *", () => {
     console.log("Starting Cron Job", cnt);
     cnt++;
     RecursiveCheck()
