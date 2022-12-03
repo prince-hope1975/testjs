@@ -121,17 +121,21 @@ export const setReward = async (
   acc: any,
   address: string,
   amt: number,
-  ctcInfo: typeof info 
+  ctcInfo: typeof info
 ) => {
-  // @ts-ignore
-  const ctcAdmin = acc.contract(backend, reach.bigNumberToNumber(ctcInfo));
-  const hasOpted = await ctcAdmin.unsafeViews.Info.opted(acc);
-  if (!hasOpted) await ctcAdmin.a.User.optin();
-  const result = await ctcAdmin.a.Admin.setReward(
-    reach.formatAddress(address),
-    reach.parseCurrency(amt)
-  );
-  return result;
+  try {
+    // @ts-ignore
+    const ctcAdmin = acc.contract(backend, reach.bigNumberToNumber(ctcInfo));
+    const hasOpted = await ctcAdmin.unsafeViews.Info.opted(address);
+    if (!hasOpted) await ctcAdmin.a.User.optin();
+    const result = await ctcAdmin.a.Admin.setReward(
+      reach.formatAddress(address),
+      reach.parseCurrency(amt)
+    );
+    return result;
+  } catch (error) {
+    console.error("An error occured", error);
+  }
 };
 export const editUserReward = async (
   acc: any,
