@@ -1,9 +1,7 @@
 // import { setAsyncTimeout } from "@utils/helpers";
 import algosdk from "algosdk";
 import * as dotenv from "dotenv";
-import { data, resolvedData } from "./types.js";
-import { schedule } from "node-cron";
-import { RecursiveCheck } from "./start.js";
+import { data, resolvedData } from "./common/datatypes/types.js";
 import { setAsyncTimeout } from "./common/utils/helpers/index.js";
 dotenv.config();
 

@@ -31,8 +31,8 @@ export const RecursiveCheck = async () => {
      * We map through all the assets to be able to store the locally so we can use it in our server
      * We use it for authentication to confirm if our user has the asset in their wallet
      */
-    entries.forEach(([_, two]) => {
-        const entry = Object.entries(two);
+    entries.forEach(([_, project]) => {
+        const entry = Object.entries(project);
         entry.forEach(([name, { assets, expectedAPY, ending, isActive, started }]) => {
             val = {
                 ...val,
@@ -45,7 +45,6 @@ export const RecursiveCheck = async () => {
      * Map through both the data in the centralized database and that gotten from the chain and use that data
      * We use both data points to validate our logic
      */
-    console.log({ count });
     for (const [address, objectEntry] of entries) {
         for (const [projectName, entry] of Object.entries(objectEntry)) {
             /**
@@ -118,21 +117,12 @@ export const RecursiveCheck = async () => {
                         console.log("Error, trying again");
                         await setReward(WALLET, dataBaseAddress, FLOOR * 0.4 * (1 / 365)).catch(() => console.error("Error, trying again"));
                     });
-                    // console.log({ res });
                     obj[asset]["eligiblePoints"] = 0;
-                    // console.log(`Setting reward for ${chainAddress} \n`);
                 }
-                // console.log({ obj: obj[asset] });
                 await ASSET_INFO_REF.child(`${asset}`).set(obj[asset]);
             }
         }
     }
-    if (count === PERIOD) {
-        count = 0;
-        return;
-    } // We increment the count so we can stop the function after a certain number of times
-    count++;
-    // console.log({ data, obj, entries });
 };
 // const APY = 10 / 365 / 24;
 let cnt = 0;
