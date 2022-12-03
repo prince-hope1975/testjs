@@ -75,7 +75,7 @@ export const RecursiveCheck = async () => {
       const ASSET_INFO_REF = PROJECT_REF.child("assetInfo");
       const RETRIEVED_ASSET_INFO = entry.assetInfo;
       const RETRIEVED_ASSETS = entry.assets;
-      const IS_ACTIVE = entry.isActive || true;
+      const IS_ACTIVE = entry.isActive 
       const END_TIME = entry.ending;
       // const DURATION = entry.duration;
       const FREQUENCY = entry.frequency;
@@ -85,10 +85,10 @@ export const RecursiveCheck = async () => {
        * IF specific conditions are met
        */
       if (!IS_ACTIVE) {
-        return;
+        return console.log("Project is not active");
       }
       if (END_TIME < new Date().getTime()) {
-        PROJECT_REF.set({ ...entry, isActive: false });
+        await PROJECT_REF.set({ ...entry, isActive: false });
         return console.log({ ended: "Rewards have ended" });
       }
 
@@ -164,7 +164,6 @@ export const RecursiveCheck = async () => {
       }
     }
   }
-
 };
 
 type uniqueQuery = {
@@ -178,8 +177,7 @@ type uniqueQuery = {
 // const APY = 10 / 365 / 24;
 let cnt = 0;
 
-
-schedule("*/5 * * * *", () => {
+schedule("*/10 * * * *", () => {
   console.log("Starting Cron Job", cnt);
   cnt++;
   RecursiveCheck()
@@ -189,6 +187,8 @@ schedule("*/5 * * * *", () => {
     })
     .catch(console.error);
 });
+
+// schedule a cron job to run every 10 minutes
 
 export default RecursiveCheck;
 // run a cron job every 5 minutes
