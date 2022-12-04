@@ -89,7 +89,8 @@ export const RecursiveCheck = async () => {
       }
       if (END_TIME < new Date().getTime()) {
         await PROJECT_REF.set({ ...entry, isActive: false });
-        return console.log({ ended: "Rewards have ended" });
+         console.log({ ended: "Rewards have ended" });
+         continue
       }
 
       const assetInfosFromChain = await getFormattedHoldersInfo(
