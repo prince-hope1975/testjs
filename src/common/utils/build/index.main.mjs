@@ -39,22 +39,30 @@ export function _getViews(s, viewlib) {
   );
   const ctc2 = stdlib.T_UInt;
   const ctc3 = stdlib.T_Bool;
-  const ctc4 = stdlib.T_Null;
-  const ctc5 = stdlib.T_Data({
-    None: ctc4,
+  const ctc4 = stdlib.T_Object({
+    i: ctc2,
+    scale: ctc2,
+  });
+  const ctc5 = stdlib.T_Object({
+    i: ctc4,
+    sign: ctc3,
+  });
+  const ctc6 = stdlib.T_Null;
+  const ctc7 = stdlib.T_Data({
+    None: ctc6,
     Some: ctc2,
   });
-  const ctc6 = stdlib.T_Data({
-    None: ctc4,
-    Some: ctc4,
+  const ctc8 = stdlib.T_Data({
+    None: ctc6,
+    Some: ctc6,
   });
-  const map0_ctc = ctc5;
+  const map0_ctc = ctc7;
 
-  const map1_ctc = ctc6;
+  const map1_ctc = ctc8;
 
-  const map2_ctc = ctc6;
+  const map2_ctc = ctc8;
 
-  const map3_ctc = ctc6;
+  const map3_ctc = ctc8;
 
   const Info_Admins = async (i, svs, args) => {
     if (
@@ -63,22 +71,32 @@ export function _getViews(s, viewlib) {
         stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "3")
       )
     ) {
-      const [v1484, v1485, v1506, v1523, v1524, v1525, v1526, v1527, v1528] =
-        svs;
-      return await (async (_v1493) => {
-        const v1493 = stdlib.protect(ctc0, _v1493, null);
+      const [
+        v1509,
+        v1510,
+        v1533,
+        v1554,
+        v1555,
+        v1556,
+        v1557,
+        v1558,
+        v1559,
+        v1560,
+      ] = svs;
+      return await (async (_v1518) => {
+        const v1518 = stdlib.protect(ctc0, _v1518, null);
 
-        const v1494 = stdlib.protect(
+        const v1519 = stdlib.protect(
           map1_ctc,
-          await viewlib.viewMapRef(1, v1493),
+          await viewlib.viewMapRef(1, v1518),
           null
         );
-        const v1495 = {
+        const v1520 = {
           None: 0,
           Some: 1,
-        }[v1494[0]];
-        const v1496 = stdlib.eq(
-          v1495,
+        }[v1519[0]];
+        const v1521 = stdlib.eq(
+          v1520,
           stdlib.checkedBigNumberify(
             "reach standard library:38:41:application",
             stdlib.UInt_max,
@@ -86,7 +104,33 @@ export function _getViews(s, viewlib) {
           )
         );
 
-        return v1496;
+        return v1521;
+      })(...args);
+    }
+
+    stdlib.assert(false, "illegal view");
+  };
+  const Info_balance = async (i, svs, args) => {
+    if (
+      stdlib.eq(
+        i,
+        stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "3")
+      )
+    ) {
+      const [
+        v1509,
+        v1510,
+        v1533,
+        v1554,
+        v1555,
+        v1556,
+        v1557,
+        v1558,
+        v1559,
+        v1560,
+      ] = svs;
+      return await (async () => {
+        return v1533;
       })(...args);
     }
 
@@ -99,22 +143,32 @@ export function _getViews(s, viewlib) {
         stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "3")
       )
     ) {
-      const [v1484, v1485, v1506, v1523, v1524, v1525, v1526, v1527, v1528] =
-        svs;
-      return await (async (_v1497) => {
-        const v1497 = stdlib.protect(ctc0, _v1497, null);
+      const [
+        v1509,
+        v1510,
+        v1533,
+        v1554,
+        v1555,
+        v1556,
+        v1557,
+        v1558,
+        v1559,
+        v1560,
+      ] = svs;
+      return await (async (_v1522) => {
+        const v1522 = stdlib.protect(ctc0, _v1522, null);
 
-        const v1498 = stdlib.protect(
+        const v1523 = stdlib.protect(
           map3_ctc,
-          await viewlib.viewMapRef(3, v1497),
+          await viewlib.viewMapRef(3, v1522),
           null
         );
-        const v1499 = {
+        const v1524 = {
           None: 0,
           Some: 1,
-        }[v1498[0]];
-        const v1500 = stdlib.eq(
-          v1499,
+        }[v1523[0]];
+        const v1525 = stdlib.eq(
+          v1524,
           stdlib.checkedBigNumberify(
             "reach standard library:38:41:application",
             stdlib.UInt_max,
@@ -122,7 +176,7 @@ export function _getViews(s, viewlib) {
           )
         );
 
-        return v1500;
+        return v1525;
       })(...args);
     }
 
@@ -135,26 +189,36 @@ export function _getViews(s, viewlib) {
         stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "3")
       )
     ) {
-      const [v1484, v1485, v1506, v1523, v1524, v1525, v1526, v1527, v1528] =
-        svs;
-      return await (async (_v1490) => {
-        const v1490 = stdlib.protect(ctc0, _v1490, null);
+      const [
+        v1509,
+        v1510,
+        v1533,
+        v1554,
+        v1555,
+        v1556,
+        v1557,
+        v1558,
+        v1559,
+        v1560,
+      ] = svs;
+      return await (async (_v1515) => {
+        const v1515 = stdlib.protect(ctc0, _v1515, null);
 
-        const v1491 = stdlib.protect(
+        const v1516 = stdlib.protect(
           map0_ctc,
-          await viewlib.viewMapRef(0, v1490),
+          await viewlib.viewMapRef(0, v1515),
           null
         );
-        const v1492 = stdlib.fromSome(
-          v1491,
+        const v1517 = stdlib.fromSome(
+          v1516,
           stdlib.checkedBigNumberify(
-            "./index.rsh:63:49:decimal",
+            "./index.rsh:65:49:decimal",
             stdlib.UInt_max,
             "0"
           )
         );
 
-        return v1492;
+        return v1517;
       })(...args);
     }
 
@@ -167,10 +231,20 @@ export function _getViews(s, viewlib) {
         stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "3")
       )
     ) {
-      const [v1484, v1485, v1506, v1523, v1524, v1525, v1526, v1527, v1528] =
-        svs;
+      const [
+        v1509,
+        v1510,
+        v1533,
+        v1554,
+        v1555,
+        v1556,
+        v1557,
+        v1558,
+        v1559,
+        v1560,
+      ] = svs;
       return await (async () => {
-        return v1525;
+        return v1558;
       })(...args);
     }
 
@@ -183,10 +257,20 @@ export function _getViews(s, viewlib) {
         stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "3")
       )
     ) {
-      const [v1484, v1485, v1506, v1523, v1524, v1525, v1526, v1527, v1528] =
-        svs;
+      const [
+        v1509,
+        v1510,
+        v1533,
+        v1554,
+        v1555,
+        v1556,
+        v1557,
+        v1558,
+        v1559,
+        v1560,
+      ] = svs;
       return await (async () => {
-        return v1525;
+        return v1557;
       })(...args);
     }
 
@@ -199,10 +283,20 @@ export function _getViews(s, viewlib) {
         stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "3")
       )
     ) {
-      const [v1484, v1485, v1506, v1523, v1524, v1525, v1526, v1527, v1528] =
-        svs;
+      const [
+        v1509,
+        v1510,
+        v1533,
+        v1554,
+        v1555,
+        v1556,
+        v1557,
+        v1558,
+        v1559,
+        v1560,
+      ] = svs;
       return await (async () => {
-        return v1527;
+        return v1559;
       })(...args);
     }
 
@@ -215,10 +309,20 @@ export function _getViews(s, viewlib) {
         stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "3")
       )
     ) {
-      const [v1484, v1485, v1506, v1523, v1524, v1525, v1526, v1527, v1528] =
-        svs;
+      const [
+        v1509,
+        v1510,
+        v1533,
+        v1554,
+        v1555,
+        v1556,
+        v1557,
+        v1558,
+        v1559,
+        v1560,
+      ] = svs;
       return await (async () => {
-        return v1528;
+        return v1560;
       })(...args);
     }
 
@@ -231,6 +335,11 @@ export function _getViews(s, viewlib) {
           decode: Info_Admins,
           dom: [ctc0],
           rng: ctc3,
+        },
+        balance: {
+          decode: Info_balance,
+          dom: [],
+          rng: ctc2,
         },
         opted: {
           decode: Info_opted,
@@ -265,7 +374,7 @@ export function _getViews(s, viewlib) {
       },
     },
     views: {
-      3: [ctc0, ctc1, ctc2, ctc2, ctc3, ctc2, ctc2, ctc2, ctc2],
+      3: [ctc0, ctc1, ctc2, ctc2, ctc3, ctc5, ctc2, ctc2, ctc2, ctc2],
     },
   };
 }
@@ -318,20 +427,28 @@ export async function _Admin_addAdmin3(ctcTop, interact) {
     stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "30")
   );
   const ctc6 = stdlib.T_Bool;
-  const ctc7 = stdlib.T_Tuple([ctc4]);
-  const ctc8 = stdlib.T_Tuple([ctc1]);
-  const ctc9 = stdlib.T_Tuple([ctc4, ctc1]);
-  const ctc10 = stdlib.T_Tuple([]);
-  const ctc11 = stdlib.T_Data({
-    Admin_addAdmin0_90: ctc7,
-    Admin_deposit0_90: ctc8,
-    Admin_editUserReward0_90: ctc9,
-    Admin_endContractAndTransfer0_90: ctc10,
-    Admin_revokeAdmin0_90: ctc7,
-    Admin_setReward0_90: ctc9,
-    User_claim0_90: ctc8,
-    User_claimAll0_90: ctc10,
-    User_optin0_90: ctc10,
+  const ctc7 = stdlib.T_Object({
+    i: ctc1,
+    scale: ctc1,
+  });
+  const ctc8 = stdlib.T_Object({
+    i: ctc7,
+    sign: ctc6,
+  });
+  const ctc9 = stdlib.T_Tuple([ctc4]);
+  const ctc10 = stdlib.T_Tuple([ctc1]);
+  const ctc11 = stdlib.T_Tuple([ctc4, ctc1]);
+  const ctc12 = stdlib.T_Tuple([]);
+  const ctc13 = stdlib.T_Data({
+    Admin_addAdmin0_98: ctc9,
+    Admin_deposit0_98: ctc10,
+    Admin_editUserReward0_98: ctc11,
+    Admin_endContractAndTransfer0_98: ctc12,
+    Admin_revokeAdmin0_98: ctc9,
+    Admin_setReward0_98: ctc11,
+    User_claim0_98: ctc10,
+    User_claimAll0_98: ctc12,
+    User_optin0_98: ctc12,
   });
 
   const map0_ctc = ctc2;
@@ -366,75 +483,76 @@ export async function _Admin_addAdmin3(ctcTop, interact) {
     ty: map3_ctc,
   });
 
-  const [v1484, v1485, v1506, v1523, v1524, v1525, v1526, v1527, v1528] =
+  const [v1509, v1510, v1533, v1554, v1555, v1556, v1557, v1558, v1559, v1560] =
     await ctc.getState(
       stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "3"),
-      [ctc4, ctc5, ctc1, ctc1, ctc6, ctc1, ctc1, ctc1, ctc1]
+      [ctc4, ctc5, ctc1, ctc1, ctc6, ctc8, ctc1, ctc1, ctc1, ctc1]
     );
-  const v1586 = ctc.selfAddress();
-  const v1588 = stdlib.protect(ctc7, await interact.in(), {
+  const v1619 = ctc.selfAddress();
+  const v1621 = stdlib.protect(ctc9, await interact.in(), {
     at: "./index.rsh:1:23:application",
     fs: [
-      "at ./index.rsh:156:34:application call to [unknown function] (defined at: ./index.rsh:156:34:function exp)",
-      'at ./index.rsh:70:37:application call to "runAdmin_addAdmin0_90" (defined at: ./index.rsh:156:10:function exp)',
-      "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:70:37:function exp)",
+      "at ./index.rsh:160:34:application call to [unknown function] (defined at: ./index.rsh:160:34:function exp)",
+      'at ./index.rsh:72:37:application call to "runAdmin_addAdmin0_98" (defined at: ./index.rsh:160:10:function exp)',
+      "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:72:37:function exp)",
     ],
     msg: "in",
     who: "Admin_addAdmin",
   });
-  const v1591 = stdlib.addressEq(v1586, v1484);
-  const v1592 = stdlib.protect(
+  const v1624 = stdlib.addressEq(v1619, v1509);
+  const v1625 = stdlib.protect(
     map1_ctc,
-    await stdlib.mapRef(map1, v1586),
+    await stdlib.mapRef(map1, v1619),
     null
   );
-  const v1593 = {
+  const v1626 = {
     None: 0,
     Some: 1,
-  }[v1592[0]];
-  const v1594 = stdlib.eq(
-    v1593,
+  }[v1625[0]];
+  const v1627 = stdlib.eq(
+    v1626,
     stdlib.checkedBigNumberify(
       "reach standard library:38:41:application",
       stdlib.UInt_max,
       "1"
     )
   );
-  const v1595 = v1591 ? true : v1594;
-  stdlib.assert(v1595, {
+  const v1628 = v1624 ? true : v1627;
+  stdlib.assert(v1628, {
     at: "reach standard library:57:5:application",
     fs: [
-      'at ./index.rsh:157:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
-      "at ./index.rsh:156:34:application call to [unknown function] (defined at: ./index.rsh:156:34:function exp)",
-      'at ./index.rsh:70:37:application call to "runAdmin_addAdmin0_90" (defined at: ./index.rsh:156:10:function exp)',
-      "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:70:37:function exp)",
+      'at ./index.rsh:161:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
+      "at ./index.rsh:160:34:application call to [unknown function] (defined at: ./index.rsh:160:34:function exp)",
+      'at ./index.rsh:72:37:application call to "runAdmin_addAdmin0_98" (defined at: ./index.rsh:160:10:function exp)',
+      "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:72:37:function exp)",
     ],
     msg: "You Are unable to register another Admin",
     who: "Admin_addAdmin",
   });
-  const v1602 = ["Admin_addAdmin0_90", v1588];
+  const v1635 = ["Admin_addAdmin0_98", v1621];
 
   const txn1 = await ctc.sendrecv({
     args: [
-      v1484,
-      v1485,
-      v1506,
-      v1523,
-      v1524,
-      v1525,
-      v1526,
-      v1527,
-      v1528,
-      v1602,
+      v1509,
+      v1510,
+      v1533,
+      v1554,
+      v1555,
+      v1556,
+      v1557,
+      v1558,
+      v1559,
+      v1560,
+      v1635,
     ],
     evt_cnt: 1,
     funcNum: 2,
     lct: stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "0"),
     onlyIf: true,
-    out_tys: [ctc11],
+    out_tys: [ctc13],
     pay: [
       stdlib.checkedBigNumberify(
-        "./index.rsh:162:9:decimal",
+        "./index.rsh:166:9:decimal",
         stdlib.UInt_max,
         "0"
       ),
@@ -454,76 +572,78 @@ export async function _Admin_addAdmin3(ctcTop, interact) {
       stdlib.simMapDupe(sim_r, 3, map3);
 
       const {
-        data: [v1714],
-        secs: v1716,
-        time: v1715,
-        didSend: v957,
-        from: v1713,
+        data: [v1747],
+        secs: v1749,
+        time: v1748,
+        didSend: v965,
+        from: v1746,
       } = txn1;
 
-      switch (v1714[0]) {
-        case "Admin_addAdmin0_90": {
-          const v1717 = v1714[1];
+      switch (v1747[0]) {
+        case "Admin_addAdmin0_98": {
+          const v1750 = v1747[1];
           sim_r.txns.push({
             kind: "api",
             who: "Admin_addAdmin",
           });
           stdlib.protect(
             map1_ctc,
-            await stdlib.simMapRef(sim_r, 1, v1713),
+            await stdlib.simMapRef(sim_r, 1, v1746),
             null
           );
-          const v1773 =
-            v1717[
+          const v1806 =
+            v1750[
               stdlib.checkedBigNumberify(
-                "./index.rsh:156:10:spread",
+                "./index.rsh:160:10:spread",
                 stdlib.UInt_max,
                 "0"
               )
             ];
-          await stdlib.simMapSet(sim_r, 1, v1773, null);
-          const v1782 = null;
-          const v1783 = await txn1.getOutput(
+          await stdlib.simMapSet(sim_r, 1, v1806, null);
+          const v1815 = null;
+          const v1816 = await txn1.getOutput(
             "Admin_addAdmin",
-            "v1782",
+            "v1815",
             ctc0,
-            v1782
+            v1815
           );
 
-          const v1795 = {
-            bal: v1523,
-            keepGoing: v1524,
-            total_amount_claimed: v1525,
-            total_rewards_allcoated: v1526,
-            total_users_claim: v1527,
-            usersNo: v1528,
+          const v1829 = {
+            bal: v1554,
+            keepGoing: v1555,
+            percent: v1556,
+            total_amount_claimed: v1557,
+            total_rewards_allcoated: v1558,
+            total_users_claim: v1559,
+            usersNo: v1560,
           };
-          const v8080 = v1506;
-          const v8081 = v1795.keepGoing;
-          if (v8081) {
-            const v8082 = v1795.bal;
-            const v8084 = v1795.total_amount_claimed;
-            const v8085 = v1795.total_rewards_allcoated;
-            const v8086 = v1795.total_users_claim;
-            const v8087 = v1795.usersNo;
+          const v8290 = v1533;
+          const v8291 = v1829.keepGoing;
+          if (v8291) {
+            const v8292 = v1829.bal;
+            const v8294 = v1829.percent;
+            const v8295 = v1829.total_amount_claimed;
+            const v8296 = v1829.total_rewards_allcoated;
+            const v8297 = v1829.total_users_claim;
+            const v8298 = v1829.usersNo;
             sim_r.isHalt = false;
           } else {
-            const v8091 = stdlib.sub(v1506, v1506);
+            const v8303 = stdlib.sub(v1533, v1533);
             sim_r.txns.push({
               kind: "from",
-              to: v1484,
+              to: v1509,
               tok: undefined /* Nothing */,
             });
-            const v8092 = stdlib.le(await ctc.getBalance(), v8091)
+            const v8304 = stdlib.le(await ctc.getBalance(), v8303)
               ? stdlib.checkedBigNumberify(
-                  "./index.rsh:294:29:application",
+                  "./index.rsh:298:29:application",
                   stdlib.UInt_max,
                   "0"
                 )
-              : stdlib.safeSub(await ctc.getBalance(), v8091);
+              : stdlib.safeSub(await ctc.getBalance(), v8303);
             sim_r.txns.push({
               kind: "from",
-              to: v1484,
+              to: v1509,
               tok: undefined /* Nothing */,
             });
             sim_r.txns.push({
@@ -534,43 +654,43 @@ export async function _Admin_addAdmin3(ctcTop, interact) {
           }
           break;
         }
-        case "Admin_deposit0_90": {
-          const v2130 = v1714[1];
+        case "Admin_deposit0_98": {
+          const v2178 = v1747[1];
 
           break;
         }
-        case "Admin_editUserReward0_90": {
-          const v2543 = v1714[1];
+        case "Admin_editUserReward0_98": {
+          const v2606 = v1747[1];
 
           break;
         }
-        case "Admin_endContractAndTransfer0_90": {
-          const v2956 = v1714[1];
+        case "Admin_endContractAndTransfer0_98": {
+          const v3034 = v1747[1];
 
           break;
         }
-        case "Admin_revokeAdmin0_90": {
-          const v3369 = v1714[1];
+        case "Admin_revokeAdmin0_98": {
+          const v3462 = v1747[1];
 
           break;
         }
-        case "Admin_setReward0_90": {
-          const v3782 = v1714[1];
+        case "Admin_setReward0_98": {
+          const v3890 = v1747[1];
 
           break;
         }
-        case "User_claim0_90": {
-          const v4195 = v1714[1];
+        case "User_claim0_98": {
+          const v4318 = v1747[1];
 
           break;
         }
-        case "User_claimAll0_90": {
-          const v4608 = v1714[1];
+        case "User_claimAll0_98": {
+          const v4746 = v1747[1];
 
           break;
         }
-        case "User_optin0_90": {
-          const v5021 = v1714[1];
+        case "User_optin0_98": {
+          const v5174 = v1747[1];
 
           break;
         }
@@ -579,73 +699,73 @@ export async function _Admin_addAdmin3(ctcTop, interact) {
     },
     soloSend: false,
     timeoutAt: undefined /* mto */,
-    tys: [ctc4, ctc5, ctc1, ctc1, ctc6, ctc1, ctc1, ctc1, ctc1, ctc11],
+    tys: [ctc4, ctc5, ctc1, ctc1, ctc6, ctc8, ctc1, ctc1, ctc1, ctc1, ctc13],
     waitIfNotPresent: false,
   });
   const {
-    data: [v1714],
-    secs: v1716,
-    time: v1715,
-    didSend: v957,
-    from: v1713,
+    data: [v1747],
+    secs: v1749,
+    time: v1748,
+    didSend: v965,
+    from: v1746,
   } = txn1;
-  switch (v1714[0]) {
-    case "Admin_addAdmin0_90": {
-      const v1717 = v1714[1];
+  switch (v1747[0]) {
+    case "Admin_addAdmin0_98": {
+      const v1750 = v1747[1];
       undefined /* setApiDetails */;
-      const v1723 = stdlib.addressEq(v1713, v1484);
-      const v1724 = stdlib.protect(
+      const v1756 = stdlib.addressEq(v1746, v1509);
+      const v1757 = stdlib.protect(
         map1_ctc,
-        await stdlib.mapRef(map1, v1713),
+        await stdlib.mapRef(map1, v1746),
         null
       );
-      const v1725 = {
+      const v1758 = {
         None: 0,
         Some: 1,
-      }[v1724[0]];
-      const v1726 = stdlib.eq(
-        v1725,
+      }[v1757[0]];
+      const v1759 = stdlib.eq(
+        v1758,
         stdlib.checkedBigNumberify(
           "reach standard library:38:41:application",
           stdlib.UInt_max,
           "1"
         )
       );
-      const v1727 = v1723 ? true : v1726;
-      stdlib.assert(v1727, {
+      const v1760 = v1756 ? true : v1759;
+      stdlib.assert(v1760, {
         at: "reach standard library:57:5:application",
         fs: [
-          'at ./index.rsh:157:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
-          "at ./index.rsh:156:34:application call to [unknown function] (defined at: ./index.rsh:156:34:function exp)",
-          "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:156:34:function exp)",
-          "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:70:37:function exp)",
+          'at ./index.rsh:161:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
+          "at ./index.rsh:160:34:application call to [unknown function] (defined at: ./index.rsh:160:34:function exp)",
+          "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:160:34:function exp)",
+          "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:72:37:function exp)",
         ],
         msg: "You Are unable to register another Admin",
         who: "Admin_addAdmin",
       });
-      const v1773 =
-        v1717[
+      const v1806 =
+        v1750[
           stdlib.checkedBigNumberify(
-            "./index.rsh:156:10:spread",
+            "./index.rsh:160:10:spread",
             stdlib.UInt_max,
             "0"
           )
         ];
-      await stdlib.mapSet(map1, v1773, null);
-      const v1782 = null;
-      const v1783 = await txn1.getOutput(
+      await stdlib.mapSet(map1, v1806, null);
+      const v1815 = null;
+      const v1816 = await txn1.getOutput(
         "Admin_addAdmin",
-        "v1782",
+        "v1815",
         ctc0,
-        v1782
+        v1815
       );
-      if (v957) {
-        stdlib.protect(ctc0, await interact.out(v1717, v1783), {
-          at: "./index.rsh:156:11:application",
+      if (v965) {
+        stdlib.protect(ctc0, await interact.out(v1750, v1816), {
+          at: "./index.rsh:160:11:application",
           fs: [
-            "at ./index.rsh:156:11:application call to [unknown function] (defined at: ./index.rsh:156:11:function exp)",
-            'at ./index.rsh:165:14:application call to "ret" (defined at: ./index.rsh:163:15:function exp)',
-            "at ./index.rsh:163:15:application call to [unknown function] (defined at: ./index.rsh:163:15:function exp)",
+            "at ./index.rsh:160:11:application call to [unknown function] (defined at: ./index.rsh:160:11:function exp)",
+            'at ./index.rsh:169:14:application call to "ret" (defined at: ./index.rsh:167:15:function exp)',
+            "at ./index.rsh:167:15:application call to [unknown function] (defined at: ./index.rsh:167:15:function exp)",
           ],
           msg: "out",
           who: "Admin_addAdmin",
@@ -653,73 +773,75 @@ export async function _Admin_addAdmin3(ctcTop, interact) {
       } else {
       }
 
-      const v1795 = {
-        bal: v1523,
-        keepGoing: v1524,
-        total_amount_claimed: v1525,
-        total_rewards_allcoated: v1526,
-        total_users_claim: v1527,
-        usersNo: v1528,
+      const v1829 = {
+        bal: v1554,
+        keepGoing: v1555,
+        percent: v1556,
+        total_amount_claimed: v1557,
+        total_rewards_allcoated: v1558,
+        total_users_claim: v1559,
+        usersNo: v1560,
       };
-      const v8080 = v1506;
-      const v8081 = v1795.keepGoing;
-      if (v8081) {
-        const v8082 = v1795.bal;
-        const v8084 = v1795.total_amount_claimed;
-        const v8085 = v1795.total_rewards_allcoated;
-        const v8086 = v1795.total_users_claim;
-        const v8087 = v1795.usersNo;
+      const v8290 = v1533;
+      const v8291 = v1829.keepGoing;
+      if (v8291) {
+        const v8292 = v1829.bal;
+        const v8294 = v1829.percent;
+        const v8295 = v1829.total_amount_claimed;
+        const v8296 = v1829.total_rewards_allcoated;
+        const v8297 = v1829.total_users_claim;
+        const v8298 = v1829.usersNo;
         return;
       } else {
-        const v8091 = stdlib.sub(v1506, v1506);
-        const v8092 = stdlib.le(await ctc.getBalance(), v8091)
+        const v8303 = stdlib.sub(v1533, v1533);
+        const v8304 = stdlib.le(await ctc.getBalance(), v8303)
           ? stdlib.checkedBigNumberify(
-              "./index.rsh:294:29:application",
+              "./index.rsh:298:29:application",
               stdlib.UInt_max,
               "0"
             )
-          : stdlib.safeSub(await ctc.getBalance(), v8091);
+          : stdlib.safeSub(await ctc.getBalance(), v8303);
         return;
       }
       break;
     }
-    case "Admin_deposit0_90": {
-      const v2130 = v1714[1];
+    case "Admin_deposit0_98": {
+      const v2178 = v1747[1];
       return;
       break;
     }
-    case "Admin_editUserReward0_90": {
-      const v2543 = v1714[1];
+    case "Admin_editUserReward0_98": {
+      const v2606 = v1747[1];
       return;
       break;
     }
-    case "Admin_endContractAndTransfer0_90": {
-      const v2956 = v1714[1];
+    case "Admin_endContractAndTransfer0_98": {
+      const v3034 = v1747[1];
       return;
       break;
     }
-    case "Admin_revokeAdmin0_90": {
-      const v3369 = v1714[1];
+    case "Admin_revokeAdmin0_98": {
+      const v3462 = v1747[1];
       return;
       break;
     }
-    case "Admin_setReward0_90": {
-      const v3782 = v1714[1];
+    case "Admin_setReward0_98": {
+      const v3890 = v1747[1];
       return;
       break;
     }
-    case "User_claim0_90": {
-      const v4195 = v1714[1];
+    case "User_claim0_98": {
+      const v4318 = v1747[1];
       return;
       break;
     }
-    case "User_claimAll0_90": {
-      const v4608 = v1714[1];
+    case "User_claimAll0_98": {
+      const v4746 = v1747[1];
       return;
       break;
     }
-    case "User_optin0_90": {
-      const v5021 = v1714[1];
+    case "User_optin0_98": {
+      const v5174 = v1747[1];
       return;
       break;
     }
@@ -757,20 +879,28 @@ export async function _Admin_deposit3(ctcTop, interact) {
     stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "30")
   );
   const ctc6 = stdlib.T_Bool;
-  const ctc7 = stdlib.T_Tuple([ctc1]);
-  const ctc8 = stdlib.T_Tuple([ctc4]);
-  const ctc9 = stdlib.T_Tuple([ctc4, ctc1]);
-  const ctc10 = stdlib.T_Tuple([]);
-  const ctc11 = stdlib.T_Data({
-    Admin_addAdmin0_90: ctc8,
-    Admin_deposit0_90: ctc7,
-    Admin_editUserReward0_90: ctc9,
-    Admin_endContractAndTransfer0_90: ctc10,
-    Admin_revokeAdmin0_90: ctc8,
-    Admin_setReward0_90: ctc9,
-    User_claim0_90: ctc7,
-    User_claimAll0_90: ctc10,
-    User_optin0_90: ctc10,
+  const ctc7 = stdlib.T_Object({
+    i: ctc1,
+    scale: ctc1,
+  });
+  const ctc8 = stdlib.T_Object({
+    i: ctc7,
+    sign: ctc6,
+  });
+  const ctc9 = stdlib.T_Tuple([ctc1]);
+  const ctc10 = stdlib.T_Tuple([ctc4]);
+  const ctc11 = stdlib.T_Tuple([ctc4, ctc1]);
+  const ctc12 = stdlib.T_Tuple([]);
+  const ctc13 = stdlib.T_Data({
+    Admin_addAdmin0_98: ctc10,
+    Admin_deposit0_98: ctc9,
+    Admin_editUserReward0_98: ctc11,
+    Admin_endContractAndTransfer0_98: ctc12,
+    Admin_revokeAdmin0_98: ctc10,
+    Admin_setReward0_98: ctc11,
+    User_claim0_98: ctc9,
+    User_claimAll0_98: ctc12,
+    User_optin0_98: ctc12,
   });
 
   const map0_ctc = ctc2;
@@ -805,81 +935,82 @@ export async function _Admin_deposit3(ctcTop, interact) {
     ty: map3_ctc,
   });
 
-  const [v1484, v1485, v1506, v1523, v1524, v1525, v1526, v1527, v1528] =
+  const [v1509, v1510, v1533, v1554, v1555, v1556, v1557, v1558, v1559, v1560] =
     await ctc.getState(
       stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "3"),
-      [ctc4, ctc5, ctc1, ctc1, ctc6, ctc1, ctc1, ctc1, ctc1]
+      [ctc4, ctc5, ctc1, ctc1, ctc6, ctc8, ctc1, ctc1, ctc1, ctc1]
     );
-  const v1529 = ctc.selfAddress();
-  const v1531 = stdlib.protect(ctc7, await interact.in(), {
+  const v1562 = ctc.selfAddress();
+  const v1564 = stdlib.protect(ctc9, await interact.in(), {
     at: "./index.rsh:1:23:application",
     fs: [
-      "at ./index.rsh:95:32:application call to [unknown function] (defined at: ./index.rsh:95:32:function exp)",
-      'at ./index.rsh:70:37:application call to "runAdmin_deposit0_90" (defined at: ./index.rsh:95:10:function exp)',
-      "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:70:37:function exp)",
+      "at ./index.rsh:99:32:application call to [unknown function] (defined at: ./index.rsh:99:32:function exp)",
+      'at ./index.rsh:72:37:application call to "runAdmin_deposit0_98" (defined at: ./index.rsh:99:10:function exp)',
+      "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:72:37:function exp)",
     ],
     msg: "in",
     who: "Admin_deposit",
   });
-  const v1532 =
-    v1531[
+  const v1565 =
+    v1564[
       stdlib.checkedBigNumberify(
         "./index.rsh:1:23:application",
         stdlib.UInt_max,
         "0"
       )
     ];
-  const v1534 = stdlib.addressEq(v1529, v1484);
-  const v1535 = stdlib.protect(
+  const v1567 = stdlib.addressEq(v1562, v1509);
+  const v1568 = stdlib.protect(
     map1_ctc,
-    await stdlib.mapRef(map1, v1529),
+    await stdlib.mapRef(map1, v1562),
     null
   );
-  const v1536 = {
+  const v1569 = {
     None: 0,
     Some: 1,
-  }[v1535[0]];
-  const v1537 = stdlib.eq(
-    v1536,
+  }[v1568[0]];
+  const v1570 = stdlib.eq(
+    v1569,
     stdlib.checkedBigNumberify(
       "reach standard library:38:41:application",
       stdlib.UInt_max,
       "1"
     )
   );
-  const v1538 = v1534 ? true : v1537;
-  stdlib.assert(v1538, {
+  const v1571 = v1567 ? true : v1570;
+  stdlib.assert(v1571, {
     at: "reach standard library:57:5:application",
     fs: [
-      'at ./index.rsh:96:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
-      "at ./index.rsh:95:32:application call to [unknown function] (defined at: ./index.rsh:95:32:function exp)",
-      'at ./index.rsh:70:37:application call to "runAdmin_deposit0_90" (defined at: ./index.rsh:95:10:function exp)',
-      "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:70:37:function exp)",
+      'at ./index.rsh:100:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
+      "at ./index.rsh:99:32:application call to [unknown function] (defined at: ./index.rsh:99:32:function exp)",
+      'at ./index.rsh:72:37:application call to "runAdmin_deposit0_98" (defined at: ./index.rsh:99:10:function exp)',
+      "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:72:37:function exp)",
     ],
     msg: "Only Admins can deposit",
     who: "Admin_deposit",
   });
-  const v1545 = ["Admin_deposit0_90", v1531];
+  const v1578 = ["Admin_deposit0_98", v1564];
 
   const txn1 = await ctc.sendrecv({
     args: [
-      v1484,
-      v1485,
-      v1506,
-      v1523,
-      v1524,
-      v1525,
-      v1526,
-      v1527,
-      v1528,
-      v1545,
+      v1509,
+      v1510,
+      v1533,
+      v1554,
+      v1555,
+      v1556,
+      v1557,
+      v1558,
+      v1559,
+      v1560,
+      v1578,
     ],
     evt_cnt: 1,
     funcNum: 2,
     lct: stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "0"),
     onlyIf: true,
-    out_tys: [ctc11],
-    pay: [v1532, []],
+    out_tys: [ctc13],
+    pay: [v1565, []],
     sim_p: async (txn1) => {
       const sim_r = { txns: [], mapRefs: [], maps: [] };
       let sim_txn_ctr = stdlib.UInt_max;
@@ -894,87 +1025,89 @@ export async function _Admin_deposit3(ctcTop, interact) {
       stdlib.simMapDupe(sim_r, 3, map3);
 
       const {
-        data: [v1714],
-        secs: v1716,
-        time: v1715,
-        didSend: v957,
-        from: v1713,
+        data: [v1747],
+        secs: v1749,
+        time: v1748,
+        didSend: v965,
+        from: v1746,
       } = txn1;
 
-      switch (v1714[0]) {
-        case "Admin_addAdmin0_90": {
-          const v1717 = v1714[1];
+      switch (v1747[0]) {
+        case "Admin_addAdmin0_98": {
+          const v1750 = v1747[1];
 
           break;
         }
-        case "Admin_deposit0_90": {
-          const v2130 = v1714[1];
+        case "Admin_deposit0_98": {
+          const v2178 = v1747[1];
           sim_r.txns.push({
             kind: "api",
             who: "Admin_deposit",
           });
-          const v2143 =
-            v2130[
+          const v2191 =
+            v2178[
               stdlib.checkedBigNumberify(
-                "./index.rsh:95:10:spread",
+                "./index.rsh:99:10:spread",
                 stdlib.UInt_max,
                 "0"
               )
             ];
           stdlib.protect(
             map1_ctc,
-            await stdlib.simMapRef(sim_r, 1, v1713),
+            await stdlib.simMapRef(sim_r, 1, v1746),
             null
           );
-          const v2184 = stdlib.add(v1506, v2143);
+          const v2232 = stdlib.add(v1533, v2191);
           sim_r.txns.push({
-            amt: v2143,
+            amt: v2191,
             kind: "to",
             tok: undefined /* Nothing */,
           });
-          const v2219 = null;
-          const v2220 = await txn1.getOutput(
+          const v2268 = null;
+          const v2269 = await txn1.getOutput(
             "Admin_deposit",
-            "v2219",
+            "v2268",
             ctc0,
-            v2219
+            v2268
           );
 
-          const v2232 = stdlib.safeAdd(v1523, v2143);
-          const v2233 = {
-            bal: v2232,
-            keepGoing: v1524,
-            total_amount_claimed: v1525,
-            total_rewards_allcoated: v1526,
-            total_users_claim: v1527,
-            usersNo: v1528,
+          const v2282 = stdlib.safeAdd(v1554, v2191);
+          const v2283 = {
+            bal: v2282,
+            keepGoing: v1555,
+            percent: v1556,
+            total_amount_claimed: v1557,
+            total_rewards_allcoated: v1558,
+            total_users_claim: v1559,
+            usersNo: v1560,
           };
-          const v8320 = v2184;
-          const v8321 = v2233.keepGoing;
-          if (v8321) {
-            const v8322 = v2233.bal;
-            const v8324 = v2233.total_amount_claimed;
-            const v8325 = v2233.total_rewards_allcoated;
-            const v8326 = v2233.total_users_claim;
-            const v8327 = v2233.usersNo;
+          const v8562 = v2232;
+          const v8563 = v2283.keepGoing;
+          if (v8563) {
+            const v8564 = v2283.bal;
+            const v8566 = v2283.percent;
+            const v8567 = v2283.total_amount_claimed;
+            const v8568 = v2283.total_rewards_allcoated;
+            const v8569 = v2283.total_users_claim;
+            const v8570 = v2283.usersNo;
             sim_r.isHalt = false;
           } else {
-            const v8331 = stdlib.sub(v2184, v2184);
+            const v8575 = stdlib.sub(v2232, v2232);
             sim_r.txns.push({
               kind: "from",
-              to: v1484,
+              to: v1509,
               tok: undefined /* Nothing */,
             });
-            const v8332 = stdlib.le(await ctc.getBalance(), v8331)
+            const v8576 = stdlib.le(await ctc.getBalance(), v8575)
               ? stdlib.checkedBigNumberify(
-                  "./index.rsh:294:29:application",
+                  "./index.rsh:298:29:application",
                   stdlib.UInt_max,
                   "0"
                 )
-              : stdlib.safeSub(await ctc.getBalance(), v8331);
+              : stdlib.safeSub(await ctc.getBalance(), v8575);
             sim_r.txns.push({
               kind: "from",
-              to: v1484,
+              to: v1509,
               tok: undefined /* Nothing */,
             });
             sim_r.txns.push({
@@ -985,38 +1118,38 @@ export async function _Admin_deposit3(ctcTop, interact) {
           }
           break;
         }
-        case "Admin_editUserReward0_90": {
-          const v2543 = v1714[1];
+        case "Admin_editUserReward0_98": {
+          const v2606 = v1747[1];
 
           break;
         }
-        case "Admin_endContractAndTransfer0_90": {
-          const v2956 = v1714[1];
+        case "Admin_endContractAndTransfer0_98": {
+          const v3034 = v1747[1];
 
           break;
         }
-        case "Admin_revokeAdmin0_90": {
-          const v3369 = v1714[1];
+        case "Admin_revokeAdmin0_98": {
+          const v3462 = v1747[1];
 
           break;
         }
-        case "Admin_setReward0_90": {
-          const v3782 = v1714[1];
+        case "Admin_setReward0_98": {
+          const v3890 = v1747[1];
 
           break;
         }
-        case "User_claim0_90": {
-          const v4195 = v1714[1];
+        case "User_claim0_98": {
+          const v4318 = v1747[1];
 
           break;
         }
-        case "User_claimAll0_90": {
-          const v4608 = v1714[1];
+        case "User_claimAll0_98": {
+          const v4746 = v1747[1];
 
           break;
         }
-        case "User_optin0_90": {
-          const v5021 = v1714[1];
+        case "User_optin0_98": {
+          const v5174 = v1747[1];
 
           break;
         }
@@ -1025,73 +1158,73 @@ export async function _Admin_deposit3(ctcTop, interact) {
     },
     soloSend: false,
     timeoutAt: undefined /* mto */,
-    tys: [ctc4, ctc5, ctc1, ctc1, ctc6, ctc1, ctc1, ctc1, ctc1, ctc11],
+    tys: [ctc4, ctc5, ctc1, ctc1, ctc6, ctc8, ctc1, ctc1, ctc1, ctc1, ctc13],
     waitIfNotPresent: false,
   });
   const {
-    data: [v1714],
-    secs: v1716,
-    time: v1715,
-    didSend: v957,
-    from: v1713,
+    data: [v1747],
+    secs: v1749,
+    time: v1748,
+    didSend: v965,
+    from: v1746,
   } = txn1;
-  switch (v1714[0]) {
-    case "Admin_addAdmin0_90": {
-      const v1717 = v1714[1];
+  switch (v1747[0]) {
+    case "Admin_addAdmin0_98": {
+      const v1750 = v1747[1];
       return;
       break;
     }
-    case "Admin_deposit0_90": {
-      const v2130 = v1714[1];
+    case "Admin_deposit0_98": {
+      const v2178 = v1747[1];
       undefined /* setApiDetails */;
-      const v2143 =
-        v2130[
+      const v2191 =
+        v2178[
           stdlib.checkedBigNumberify(
-            "./index.rsh:95:10:spread",
+            "./index.rsh:99:10:spread",
             stdlib.UInt_max,
             "0"
           )
         ];
-      const v2144 = stdlib.addressEq(v1713, v1484);
-      const v2145 = stdlib.protect(
+      const v2192 = stdlib.addressEq(v1746, v1509);
+      const v2193 = stdlib.protect(
         map1_ctc,
-        await stdlib.mapRef(map1, v1713),
+        await stdlib.mapRef(map1, v1746),
         null
       );
-      const v2146 = {
+      const v2194 = {
         None: 0,
         Some: 1,
-      }[v2145[0]];
-      const v2147 = stdlib.eq(
-        v2146,
+      }[v2193[0]];
+      const v2195 = stdlib.eq(
+        v2194,
         stdlib.checkedBigNumberify(
           "reach standard library:38:41:application",
           stdlib.UInt_max,
           "1"
         )
       );
-      const v2148 = v2144 ? true : v2147;
-      stdlib.assert(v2148, {
+      const v2196 = v2192 ? true : v2195;
+      stdlib.assert(v2196, {
         at: "reach standard library:57:5:application",
         fs: [
-          'at ./index.rsh:96:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
-          "at ./index.rsh:95:32:application call to [unknown function] (defined at: ./index.rsh:95:32:function exp)",
-          "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:95:32:function exp)",
-          "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:70:37:function exp)",
+          'at ./index.rsh:100:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
+          "at ./index.rsh:99:32:application call to [unknown function] (defined at: ./index.rsh:99:32:function exp)",
+          "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:99:32:function exp)",
+          "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:72:37:function exp)",
         ],
         msg: "Only Admins can deposit",
         who: "Admin_deposit",
       });
-      const v2184 = stdlib.add(v1506, v2143);
-      const v2219 = null;
-      const v2220 = await txn1.getOutput("Admin_deposit", "v2219", ctc0, v2219);
-      if (v957) {
-        stdlib.protect(ctc0, await interact.out(v2130, v2220), {
-          at: "./index.rsh:95:11:application",
+      const v2232 = stdlib.add(v1533, v2191);
+      const v2268 = null;
+      const v2269 = await txn1.getOutput("Admin_deposit", "v2268", ctc0, v2268);
+      if (v965) {
+        stdlib.protect(ctc0, await interact.out(v2178, v2269), {
+          at: "./index.rsh:99:11:application",
           fs: [
-            "at ./index.rsh:95:11:application call to [unknown function] (defined at: ./index.rsh:95:11:function exp)",
-            'at ./index.rsh:100:14:application call to "ret" (defined at: ./index.rsh:99:15:function exp)',
-            "at ./index.rsh:99:15:application call to [unknown function] (defined at: ./index.rsh:99:15:function exp)",
+            "at ./index.rsh:99:11:application call to [unknown function] (defined at: ./index.rsh:99:11:function exp)",
+            'at ./index.rsh:104:14:application call to "ret" (defined at: ./index.rsh:103:15:function exp)',
+            "at ./index.rsh:103:15:application call to [unknown function] (defined at: ./index.rsh:103:15:function exp)",
           ],
           msg: "out",
           who: "Admin_deposit",
@@ -1099,69 +1232,71 @@ export async function _Admin_deposit3(ctcTop, interact) {
       } else {
       }
 
-      const v2232 = stdlib.safeAdd(v1523, v2143);
-      const v2233 = {
-        bal: v2232,
-        keepGoing: v1524,
-        total_amount_claimed: v1525,
-        total_rewards_allcoated: v1526,
-        total_users_claim: v1527,
-        usersNo: v1528,
+      const v2282 = stdlib.safeAdd(v1554, v2191);
+      const v2283 = {
+        bal: v2282,
+        keepGoing: v1555,
+        percent: v1556,
+        total_amount_claimed: v1557,
+        total_rewards_allcoated: v1558,
+        total_users_claim: v1559,
+        usersNo: v1560,
       };
-      const v8320 = v2184;
-      const v8321 = v2233.keepGoing;
-      if (v8321) {
-        const v8322 = v2233.bal;
-        const v8324 = v2233.total_amount_claimed;
-        const v8325 = v2233.total_rewards_allcoated;
-        const v8326 = v2233.total_users_claim;
-        const v8327 = v2233.usersNo;
+      const v8562 = v2232;
+      const v8563 = v2283.keepGoing;
+      if (v8563) {
+        const v8564 = v2283.bal;
+        const v8566 = v2283.percent;
+        const v8567 = v2283.total_amount_claimed;
+        const v8568 = v2283.total_rewards_allcoated;
+        const v8569 = v2283.total_users_claim;
+        const v8570 = v2283.usersNo;
         return;
       } else {
-        const v8331 = stdlib.sub(v2184, v2184);
-        const v8332 = stdlib.le(await ctc.getBalance(), v8331)
+        const v8575 = stdlib.sub(v2232, v2232);
+        const v8576 = stdlib.le(await ctc.getBalance(), v8575)
           ? stdlib.checkedBigNumberify(
-              "./index.rsh:294:29:application",
+              "./index.rsh:298:29:application",
               stdlib.UInt_max,
               "0"
             )
-          : stdlib.safeSub(await ctc.getBalance(), v8331);
+          : stdlib.safeSub(await ctc.getBalance(), v8575);
         return;
       }
       break;
     }
-    case "Admin_editUserReward0_90": {
-      const v2543 = v1714[1];
+    case "Admin_editUserReward0_98": {
+      const v2606 = v1747[1];
       return;
       break;
     }
-    case "Admin_endContractAndTransfer0_90": {
-      const v2956 = v1714[1];
+    case "Admin_endContractAndTransfer0_98": {
+      const v3034 = v1747[1];
       return;
       break;
     }
-    case "Admin_revokeAdmin0_90": {
-      const v3369 = v1714[1];
+    case "Admin_revokeAdmin0_98": {
+      const v3462 = v1747[1];
       return;
       break;
     }
-    case "Admin_setReward0_90": {
-      const v3782 = v1714[1];
+    case "Admin_setReward0_98": {
+      const v3890 = v1747[1];
       return;
       break;
     }
-    case "User_claim0_90": {
-      const v4195 = v1714[1];
+    case "User_claim0_98": {
+      const v4318 = v1747[1];
       return;
       break;
     }
-    case "User_claimAll0_90": {
-      const v4608 = v1714[1];
+    case "User_claimAll0_98": {
+      const v4746 = v1747[1];
       return;
       break;
     }
-    case "User_optin0_90": {
-      const v5021 = v1714[1];
+    case "User_optin0_98": {
+      const v5174 = v1747[1];
       return;
       break;
     }
@@ -1199,20 +1334,28 @@ export async function _Admin_editUserReward3(ctcTop, interact) {
     stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "30")
   );
   const ctc6 = stdlib.T_Bool;
-  const ctc7 = stdlib.T_Tuple([ctc4, ctc1]);
-  const ctc8 = stdlib.T_Tuple([ctc4]);
-  const ctc9 = stdlib.T_Tuple([ctc1]);
-  const ctc10 = stdlib.T_Tuple([]);
-  const ctc11 = stdlib.T_Data({
-    Admin_addAdmin0_90: ctc8,
-    Admin_deposit0_90: ctc9,
-    Admin_editUserReward0_90: ctc7,
-    Admin_endContractAndTransfer0_90: ctc10,
-    Admin_revokeAdmin0_90: ctc8,
-    Admin_setReward0_90: ctc7,
-    User_claim0_90: ctc9,
-    User_claimAll0_90: ctc10,
-    User_optin0_90: ctc10,
+  const ctc7 = stdlib.T_Object({
+    i: ctc1,
+    scale: ctc1,
+  });
+  const ctc8 = stdlib.T_Object({
+    i: ctc7,
+    sign: ctc6,
+  });
+  const ctc9 = stdlib.T_Tuple([ctc4, ctc1]);
+  const ctc10 = stdlib.T_Tuple([ctc4]);
+  const ctc11 = stdlib.T_Tuple([ctc1]);
+  const ctc12 = stdlib.T_Tuple([]);
+  const ctc13 = stdlib.T_Data({
+    Admin_addAdmin0_98: ctc10,
+    Admin_deposit0_98: ctc11,
+    Admin_editUserReward0_98: ctc9,
+    Admin_endContractAndTransfer0_98: ctc12,
+    Admin_revokeAdmin0_98: ctc10,
+    Admin_setReward0_98: ctc9,
+    User_claim0_98: ctc11,
+    User_claimAll0_98: ctc12,
+    User_optin0_98: ctc12,
   });
 
   const map0_ctc = ctc2;
@@ -1247,75 +1390,76 @@ export async function _Admin_editUserReward3(ctcTop, interact) {
     ty: map3_ctc,
   });
 
-  const [v1484, v1485, v1506, v1523, v1524, v1525, v1526, v1527, v1528] =
+  const [v1509, v1510, v1533, v1554, v1555, v1556, v1557, v1558, v1559, v1560] =
     await ctc.getState(
       stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "3"),
-      [ctc4, ctc5, ctc1, ctc1, ctc6, ctc1, ctc1, ctc1, ctc1]
+      [ctc4, ctc5, ctc1, ctc1, ctc6, ctc8, ctc1, ctc1, ctc1, ctc1]
     );
-  const v1564 = ctc.selfAddress();
-  const v1566 = stdlib.protect(ctc7, await interact.in(), {
+  const v1597 = ctc.selfAddress();
+  const v1599 = stdlib.protect(ctc9, await interact.in(), {
     at: "./index.rsh:1:23:application",
     fs: [
-      "at ./index.rsh:144:45:application call to [unknown function] (defined at: ./index.rsh:144:45:function exp)",
-      'at ./index.rsh:70:37:application call to "runAdmin_editUserReward0_90" (defined at: ./index.rsh:144:10:function exp)',
-      "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:70:37:function exp)",
+      "at ./index.rsh:148:45:application call to [unknown function] (defined at: ./index.rsh:148:45:function exp)",
+      'at ./index.rsh:72:37:application call to "runAdmin_editUserReward0_98" (defined at: ./index.rsh:148:10:function exp)',
+      "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:72:37:function exp)",
     ],
     msg: "in",
     who: "Admin_editUserReward",
   });
-  const v1571 = stdlib.addressEq(v1564, v1484);
-  const v1572 = stdlib.protect(
+  const v1604 = stdlib.addressEq(v1597, v1509);
+  const v1605 = stdlib.protect(
     map1_ctc,
-    await stdlib.mapRef(map1, v1564),
+    await stdlib.mapRef(map1, v1597),
     null
   );
-  const v1573 = {
+  const v1606 = {
     None: 0,
     Some: 1,
-  }[v1572[0]];
-  const v1574 = stdlib.eq(
-    v1573,
+  }[v1605[0]];
+  const v1607 = stdlib.eq(
+    v1606,
     stdlib.checkedBigNumberify(
       "reach standard library:38:41:application",
       stdlib.UInt_max,
       "1"
     )
   );
-  const v1575 = v1571 ? true : v1574;
-  stdlib.assert(v1575, {
+  const v1608 = v1604 ? true : v1607;
+  stdlib.assert(v1608, {
     at: "reach standard library:57:5:application",
     fs: [
-      'at ./index.rsh:145:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
-      "at ./index.rsh:144:45:application call to [unknown function] (defined at: ./index.rsh:144:45:function exp)",
-      'at ./index.rsh:70:37:application call to "runAdmin_editUserReward0_90" (defined at: ./index.rsh:144:10:function exp)',
-      "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:70:37:function exp)",
+      'at ./index.rsh:149:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
+      "at ./index.rsh:148:45:application call to [unknown function] (defined at: ./index.rsh:148:45:function exp)",
+      'at ./index.rsh:72:37:application call to "runAdmin_editUserReward0_98" (defined at: ./index.rsh:148:10:function exp)',
+      "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:72:37:function exp)",
     ],
     msg: "Only Admins can deposit",
     who: "Admin_editUserReward",
   });
-  const v1584 = ["Admin_editUserReward0_90", v1566];
+  const v1617 = ["Admin_editUserReward0_98", v1599];
 
   const txn1 = await ctc.sendrecv({
     args: [
-      v1484,
-      v1485,
-      v1506,
-      v1523,
-      v1524,
-      v1525,
-      v1526,
-      v1527,
-      v1528,
-      v1584,
+      v1509,
+      v1510,
+      v1533,
+      v1554,
+      v1555,
+      v1556,
+      v1557,
+      v1558,
+      v1559,
+      v1560,
+      v1617,
     ],
     evt_cnt: 1,
     funcNum: 2,
     lct: stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "0"),
     onlyIf: true,
-    out_tys: [ctc11],
+    out_tys: [ctc13],
     pay: [
       stdlib.checkedBigNumberify(
-        "./index.rsh:148:9:decimal",
+        "./index.rsh:152:9:decimal",
         stdlib.UInt_max,
         "0"
       ),
@@ -1335,94 +1479,96 @@ export async function _Admin_editUserReward3(ctcTop, interact) {
       stdlib.simMapDupe(sim_r, 3, map3);
 
       const {
-        data: [v1714],
-        secs: v1716,
-        time: v1715,
-        didSend: v957,
-        from: v1713,
+        data: [v1747],
+        secs: v1749,
+        time: v1748,
+        didSend: v965,
+        from: v1746,
       } = txn1;
 
-      switch (v1714[0]) {
-        case "Admin_addAdmin0_90": {
-          const v1717 = v1714[1];
+      switch (v1747[0]) {
+        case "Admin_addAdmin0_98": {
+          const v1750 = v1747[1];
 
           break;
         }
-        case "Admin_deposit0_90": {
-          const v2130 = v1714[1];
+        case "Admin_deposit0_98": {
+          const v2178 = v1747[1];
 
           break;
         }
-        case "Admin_editUserReward0_90": {
-          const v2543 = v1714[1];
+        case "Admin_editUserReward0_98": {
+          const v2606 = v1747[1];
           sim_r.txns.push({
             kind: "api",
             who: "Admin_editUserReward",
           });
           stdlib.protect(
             map1_ctc,
-            await stdlib.simMapRef(sim_r, 1, v1713),
+            await stdlib.simMapRef(sim_r, 1, v1746),
             null
           );
-          const v2649 =
-            v2543[
+          const v2714 =
+            v2606[
               stdlib.checkedBigNumberify(
-                "./index.rsh:144:10:spread",
+                "./index.rsh:148:10:spread",
                 stdlib.UInt_max,
                 "0"
               )
             ];
-          const v2650 =
-            v2543[
+          const v2715 =
+            v2606[
               stdlib.checkedBigNumberify(
-                "./index.rsh:144:10:spread",
+                "./index.rsh:148:10:spread",
                 stdlib.UInt_max,
                 "1"
               )
             ];
-          await stdlib.simMapSet(sim_r, 0, v2649, v2650);
-          const v2659 = null;
-          const v2660 = await txn1.getOutput(
+          await stdlib.simMapSet(sim_r, 0, v2714, v2715);
+          const v2724 = null;
+          const v2725 = await txn1.getOutput(
             "Admin_editUserReward",
-            "v2659",
+            "v2724",
             ctc0,
-            v2659
+            v2724
           );
 
-          const v2673 = {
-            bal: v1523,
-            keepGoing: v1524,
-            total_amount_claimed: v1525,
-            total_rewards_allcoated: v1526,
-            total_users_claim: v1527,
-            usersNo: v1528,
+          const v2739 = {
+            bal: v1554,
+            keepGoing: v1555,
+            percent: v1556,
+            total_amount_claimed: v1557,
+            total_rewards_allcoated: v1558,
+            total_users_claim: v1559,
+            usersNo: v1560,
           };
-          const v8560 = v1506;
-          const v8561 = v2673.keepGoing;
-          if (v8561) {
-            const v8562 = v2673.bal;
-            const v8564 = v2673.total_amount_claimed;
-            const v8565 = v2673.total_rewards_allcoated;
-            const v8566 = v2673.total_users_claim;
-            const v8567 = v2673.usersNo;
+          const v8834 = v1533;
+          const v8835 = v2739.keepGoing;
+          if (v8835) {
+            const v8836 = v2739.bal;
+            const v8838 = v2739.percent;
+            const v8839 = v2739.total_amount_claimed;
+            const v8840 = v2739.total_rewards_allcoated;
+            const v8841 = v2739.total_users_claim;
+            const v8842 = v2739.usersNo;
             sim_r.isHalt = false;
           } else {
-            const v8571 = stdlib.sub(v1506, v1506);
+            const v8847 = stdlib.sub(v1533, v1533);
             sim_r.txns.push({
               kind: "from",
-              to: v1484,
+              to: v1509,
               tok: undefined /* Nothing */,
             });
-            const v8572 = stdlib.le(await ctc.getBalance(), v8571)
+            const v8848 = stdlib.le(await ctc.getBalance(), v8847)
               ? stdlib.checkedBigNumberify(
-                  "./index.rsh:294:29:application",
+                  "./index.rsh:298:29:application",
                   stdlib.UInt_max,
                   "0"
                 )
-              : stdlib.safeSub(await ctc.getBalance(), v8571);
+              : stdlib.safeSub(await ctc.getBalance(), v8847);
             sim_r.txns.push({
               kind: "from",
-              to: v1484,
+              to: v1509,
               tok: undefined /* Nothing */,
             });
             sim_r.txns.push({
@@ -1433,33 +1579,33 @@ export async function _Admin_editUserReward3(ctcTop, interact) {
           }
           break;
         }
-        case "Admin_endContractAndTransfer0_90": {
-          const v2956 = v1714[1];
+        case "Admin_endContractAndTransfer0_98": {
+          const v3034 = v1747[1];
 
           break;
         }
-        case "Admin_revokeAdmin0_90": {
-          const v3369 = v1714[1];
+        case "Admin_revokeAdmin0_98": {
+          const v3462 = v1747[1];
 
           break;
         }
-        case "Admin_setReward0_90": {
-          const v3782 = v1714[1];
+        case "Admin_setReward0_98": {
+          const v3890 = v1747[1];
 
           break;
         }
-        case "User_claim0_90": {
-          const v4195 = v1714[1];
+        case "User_claim0_98": {
+          const v4318 = v1747[1];
 
           break;
         }
-        case "User_claimAll0_90": {
-          const v4608 = v1714[1];
+        case "User_claimAll0_98": {
+          const v4746 = v1747[1];
 
           break;
         }
-        case "User_optin0_90": {
-          const v5021 = v1714[1];
+        case "User_optin0_98": {
+          const v5174 = v1747[1];
 
           break;
         }
@@ -1468,91 +1614,91 @@ export async function _Admin_editUserReward3(ctcTop, interact) {
     },
     soloSend: false,
     timeoutAt: undefined /* mto */,
-    tys: [ctc4, ctc5, ctc1, ctc1, ctc6, ctc1, ctc1, ctc1, ctc1, ctc11],
+    tys: [ctc4, ctc5, ctc1, ctc1, ctc6, ctc8, ctc1, ctc1, ctc1, ctc1, ctc13],
     waitIfNotPresent: false,
   });
   const {
-    data: [v1714],
-    secs: v1716,
-    time: v1715,
-    didSend: v957,
-    from: v1713,
+    data: [v1747],
+    secs: v1749,
+    time: v1748,
+    didSend: v965,
+    from: v1746,
   } = txn1;
-  switch (v1714[0]) {
-    case "Admin_addAdmin0_90": {
-      const v1717 = v1714[1];
+  switch (v1747[0]) {
+    case "Admin_addAdmin0_98": {
+      const v1750 = v1747[1];
       return;
       break;
     }
-    case "Admin_deposit0_90": {
-      const v2130 = v1714[1];
+    case "Admin_deposit0_98": {
+      const v2178 = v1747[1];
       return;
       break;
     }
-    case "Admin_editUserReward0_90": {
-      const v2543 = v1714[1];
+    case "Admin_editUserReward0_98": {
+      const v2606 = v1747[1];
       undefined /* setApiDetails */;
-      const v2566 = stdlib.addressEq(v1713, v1484);
-      const v2567 = stdlib.protect(
+      const v2629 = stdlib.addressEq(v1746, v1509);
+      const v2630 = stdlib.protect(
         map1_ctc,
-        await stdlib.mapRef(map1, v1713),
+        await stdlib.mapRef(map1, v1746),
         null
       );
-      const v2568 = {
+      const v2631 = {
         None: 0,
         Some: 1,
-      }[v2567[0]];
-      const v2569 = stdlib.eq(
-        v2568,
+      }[v2630[0]];
+      const v2632 = stdlib.eq(
+        v2631,
         stdlib.checkedBigNumberify(
           "reach standard library:38:41:application",
           stdlib.UInt_max,
           "1"
         )
       );
-      const v2570 = v2566 ? true : v2569;
-      stdlib.assert(v2570, {
+      const v2633 = v2629 ? true : v2632;
+      stdlib.assert(v2633, {
         at: "reach standard library:57:5:application",
         fs: [
-          'at ./index.rsh:145:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
-          "at ./index.rsh:144:45:application call to [unknown function] (defined at: ./index.rsh:144:45:function exp)",
-          "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:144:45:function exp)",
-          "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:70:37:function exp)",
+          'at ./index.rsh:149:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
+          "at ./index.rsh:148:45:application call to [unknown function] (defined at: ./index.rsh:148:45:function exp)",
+          "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:148:45:function exp)",
+          "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:72:37:function exp)",
         ],
         msg: "Only Admins can deposit",
         who: "Admin_editUserReward",
       });
-      const v2649 =
-        v2543[
+      const v2714 =
+        v2606[
           stdlib.checkedBigNumberify(
-            "./index.rsh:144:10:spread",
+            "./index.rsh:148:10:spread",
             stdlib.UInt_max,
             "0"
           )
         ];
-      const v2650 =
-        v2543[
+      const v2715 =
+        v2606[
           stdlib.checkedBigNumberify(
-            "./index.rsh:144:10:spread",
+            "./index.rsh:148:10:spread",
             stdlib.UInt_max,
             "1"
           )
         ];
-      await stdlib.mapSet(map0, v2649, v2650);
-      const v2659 = null;
-      const v2660 = await txn1.getOutput(
+      await stdlib.mapSet(map0, v2714, v2715);
+      const v2724 = null;
+      const v2725 = await txn1.getOutput(
         "Admin_editUserReward",
-        "v2659",
+        "v2724",
         ctc0,
-        v2659
+        v2724
       );
-      if (v957) {
-        stdlib.protect(ctc0, await interact.out(v2543, v2660), {
-          at: "./index.rsh:144:11:application",
+      if (v965) {
+        stdlib.protect(ctc0, await interact.out(v2606, v2725), {
+          at: "./index.rsh:148:11:application",
           fs: [
-            "at ./index.rsh:144:11:application call to [unknown function] (defined at: ./index.rsh:144:11:function exp)",
-            'at ./index.rsh:151:14:application call to "ret" (defined at: ./index.rsh:149:15:function exp)',
-            "at ./index.rsh:149:15:application call to [unknown function] (defined at: ./index.rsh:149:15:function exp)",
+            "at ./index.rsh:148:11:application call to [unknown function] (defined at: ./index.rsh:148:11:function exp)",
+            'at ./index.rsh:155:14:application call to "ret" (defined at: ./index.rsh:153:15:function exp)',
+            "at ./index.rsh:153:15:application call to [unknown function] (defined at: ./index.rsh:153:15:function exp)",
           ],
           msg: "out",
           who: "Admin_editUserReward",
@@ -1560,63 +1706,65 @@ export async function _Admin_editUserReward3(ctcTop, interact) {
       } else {
       }
 
-      const v2673 = {
-        bal: v1523,
-        keepGoing: v1524,
-        total_amount_claimed: v1525,
-        total_rewards_allcoated: v1526,
-        total_users_claim: v1527,
-        usersNo: v1528,
+      const v2739 = {
+        bal: v1554,
+        keepGoing: v1555,
+        percent: v1556,
+        total_amount_claimed: v1557,
+        total_rewards_allcoated: v1558,
+        total_users_claim: v1559,
+        usersNo: v1560,
       };
-      const v8560 = v1506;
-      const v8561 = v2673.keepGoing;
-      if (v8561) {
-        const v8562 = v2673.bal;
-        const v8564 = v2673.total_amount_claimed;
-        const v8565 = v2673.total_rewards_allcoated;
-        const v8566 = v2673.total_users_claim;
-        const v8567 = v2673.usersNo;
+      const v8834 = v1533;
+      const v8835 = v2739.keepGoing;
+      if (v8835) {
+        const v8836 = v2739.bal;
+        const v8838 = v2739.percent;
+        const v8839 = v2739.total_amount_claimed;
+        const v8840 = v2739.total_rewards_allcoated;
+        const v8841 = v2739.total_users_claim;
+        const v8842 = v2739.usersNo;
         return;
       } else {
-        const v8571 = stdlib.sub(v1506, v1506);
-        const v8572 = stdlib.le(await ctc.getBalance(), v8571)
+        const v8847 = stdlib.sub(v1533, v1533);
+        const v8848 = stdlib.le(await ctc.getBalance(), v8847)
           ? stdlib.checkedBigNumberify(
-              "./index.rsh:294:29:application",
+              "./index.rsh:298:29:application",
               stdlib.UInt_max,
               "0"
             )
-          : stdlib.safeSub(await ctc.getBalance(), v8571);
+          : stdlib.safeSub(await ctc.getBalance(), v8847);
         return;
       }
       break;
     }
-    case "Admin_endContractAndTransfer0_90": {
-      const v2956 = v1714[1];
+    case "Admin_endContractAndTransfer0_98": {
+      const v3034 = v1747[1];
       return;
       break;
     }
-    case "Admin_revokeAdmin0_90": {
-      const v3369 = v1714[1];
+    case "Admin_revokeAdmin0_98": {
+      const v3462 = v1747[1];
       return;
       break;
     }
-    case "Admin_setReward0_90": {
-      const v3782 = v1714[1];
+    case "Admin_setReward0_98": {
+      const v3890 = v1747[1];
       return;
       break;
     }
-    case "User_claim0_90": {
-      const v4195 = v1714[1];
+    case "User_claim0_98": {
+      const v4318 = v1747[1];
       return;
       break;
     }
-    case "User_claimAll0_90": {
-      const v4608 = v1714[1];
+    case "User_claimAll0_98": {
+      const v4746 = v1747[1];
       return;
       break;
     }
-    case "User_optin0_90": {
-      const v5021 = v1714[1];
+    case "User_optin0_98": {
+      const v5174 = v1747[1];
       return;
       break;
     }
@@ -1654,20 +1802,28 @@ export async function _Admin_endContractAndTransfer3(ctcTop, interact) {
     stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "30")
   );
   const ctc6 = stdlib.T_Bool;
-  const ctc7 = stdlib.T_Tuple([]);
-  const ctc8 = stdlib.T_Tuple([ctc4]);
-  const ctc9 = stdlib.T_Tuple([ctc1]);
-  const ctc10 = stdlib.T_Tuple([ctc4, ctc1]);
-  const ctc11 = stdlib.T_Data({
-    Admin_addAdmin0_90: ctc8,
-    Admin_deposit0_90: ctc9,
-    Admin_editUserReward0_90: ctc10,
-    Admin_endContractAndTransfer0_90: ctc7,
-    Admin_revokeAdmin0_90: ctc8,
-    Admin_setReward0_90: ctc10,
-    User_claim0_90: ctc9,
-    User_claimAll0_90: ctc7,
-    User_optin0_90: ctc7,
+  const ctc7 = stdlib.T_Object({
+    i: ctc1,
+    scale: ctc1,
+  });
+  const ctc8 = stdlib.T_Object({
+    i: ctc7,
+    sign: ctc6,
+  });
+  const ctc9 = stdlib.T_Tuple([]);
+  const ctc10 = stdlib.T_Tuple([ctc4]);
+  const ctc11 = stdlib.T_Tuple([ctc1]);
+  const ctc12 = stdlib.T_Tuple([ctc4, ctc1]);
+  const ctc13 = stdlib.T_Data({
+    Admin_addAdmin0_98: ctc10,
+    Admin_deposit0_98: ctc11,
+    Admin_editUserReward0_98: ctc12,
+    Admin_endContractAndTransfer0_98: ctc9,
+    Admin_revokeAdmin0_98: ctc10,
+    Admin_setReward0_98: ctc12,
+    User_claim0_98: ctc11,
+    User_claimAll0_98: ctc9,
+    User_optin0_98: ctc9,
   });
 
   const map0_ctc = ctc2;
@@ -1702,57 +1858,58 @@ export async function _Admin_endContractAndTransfer3(ctcTop, interact) {
     ty: map3_ctc,
   });
 
-  const [v1484, v1485, v1506, v1523, v1524, v1525, v1526, v1527, v1528] =
+  const [v1509, v1510, v1533, v1554, v1555, v1556, v1557, v1558, v1559, v1560] =
     await ctc.getState(
       stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "3"),
-      [ctc4, ctc5, ctc1, ctc1, ctc6, ctc1, ctc1, ctc1, ctc1]
+      [ctc4, ctc5, ctc1, ctc1, ctc6, ctc8, ctc1, ctc1, ctc1, ctc1]
     );
-  const v1654 = ctc.selfAddress();
-  const v1656 = stdlib.protect(ctc7, await interact.in(), {
+  const v1687 = ctc.selfAddress();
+  const v1689 = stdlib.protect(ctc9, await interact.in(), {
     at: "./index.rsh:1:23:application",
     fs: [
-      "at ./index.rsh:281:44:application call to [unknown function] (defined at: ./index.rsh:281:44:function exp)",
-      'at ./index.rsh:70:37:application call to "runAdmin_endContractAndTransfer0_90" (defined at: ./index.rsh:281:10:function exp)',
-      "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:70:37:function exp)",
+      "at ./index.rsh:285:44:application call to [unknown function] (defined at: ./index.rsh:285:44:function exp)",
+      'at ./index.rsh:72:37:application call to "runAdmin_endContractAndTransfer0_98" (defined at: ./index.rsh:285:10:function exp)',
+      "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:72:37:function exp)",
     ],
     msg: "in",
     who: "Admin_endContractAndTransfer",
   });
-  const v1657 = stdlib.addressEq(v1484, v1654);
-  stdlib.assert(v1657, {
+  const v1690 = stdlib.addressEq(v1509, v1687);
+  stdlib.assert(v1690, {
     at: "reach standard library:57:5:application",
     fs: [
-      'at ./index.rsh:282:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
-      "at ./index.rsh:281:44:application call to [unknown function] (defined at: ./index.rsh:281:44:function exp)",
-      'at ./index.rsh:70:37:application call to "runAdmin_endContractAndTransfer0_90" (defined at: ./index.rsh:281:10:function exp)',
-      "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:70:37:function exp)",
+      'at ./index.rsh:286:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
+      "at ./index.rsh:285:44:application call to [unknown function] (defined at: ./index.rsh:285:44:function exp)",
+      'at ./index.rsh:72:37:application call to "runAdmin_endContractAndTransfer0_98" (defined at: ./index.rsh:285:10:function exp)',
+      "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:72:37:function exp)",
     ],
     msg: "Cannot end contract without being Deployer",
     who: "Admin_endContractAndTransfer",
   });
-  const v1662 = ["Admin_endContractAndTransfer0_90", v1656];
+  const v1695 = ["Admin_endContractAndTransfer0_98", v1689];
 
   const txn1 = await ctc.sendrecv({
     args: [
-      v1484,
-      v1485,
-      v1506,
-      v1523,
-      v1524,
-      v1525,
-      v1526,
-      v1527,
-      v1528,
-      v1662,
+      v1509,
+      v1510,
+      v1533,
+      v1554,
+      v1555,
+      v1556,
+      v1557,
+      v1558,
+      v1559,
+      v1560,
+      v1695,
     ],
     evt_cnt: 1,
     funcNum: 2,
     lct: stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "0"),
     onlyIf: true,
-    out_tys: [ctc11],
+    out_tys: [ctc13],
     pay: [
       stdlib.checkedBigNumberify(
-        "./index.rsh:284:9:decimal",
+        "./index.rsh:288:9:decimal",
         stdlib.UInt_max,
         "0"
       ),
@@ -1772,77 +1929,79 @@ export async function _Admin_endContractAndTransfer3(ctcTop, interact) {
       stdlib.simMapDupe(sim_r, 3, map3);
 
       const {
-        data: [v1714],
-        secs: v1716,
-        time: v1715,
-        didSend: v957,
-        from: v1713,
+        data: [v1747],
+        secs: v1749,
+        time: v1748,
+        didSend: v965,
+        from: v1746,
       } = txn1;
 
-      switch (v1714[0]) {
-        case "Admin_addAdmin0_90": {
-          const v1717 = v1714[1];
+      switch (v1747[0]) {
+        case "Admin_addAdmin0_98": {
+          const v1750 = v1747[1];
 
           break;
         }
-        case "Admin_deposit0_90": {
-          const v2130 = v1714[1];
+        case "Admin_deposit0_98": {
+          const v2178 = v1747[1];
 
           break;
         }
-        case "Admin_editUserReward0_90": {
-          const v2543 = v1714[1];
+        case "Admin_editUserReward0_98": {
+          const v2606 = v1747[1];
 
           break;
         }
-        case "Admin_endContractAndTransfer0_90": {
-          const v2956 = v1714[1];
+        case "Admin_endContractAndTransfer0_98": {
+          const v3034 = v1747[1];
           sim_r.txns.push({
             kind: "api",
             who: "Admin_endContractAndTransfer",
           });
-          const v3091 = null;
-          const v3092 = await txn1.getOutput(
+          const v3172 = null;
+          const v3173 = await txn1.getOutput(
             "Admin_endContractAndTransfer",
-            "v3091",
+            "v3172",
             ctc0,
-            v3091
+            v3172
           );
 
-          const v3103 = {
-            bal: v1523,
-            keepGoing: v1524,
-            total_amount_claimed: v1525,
-            total_rewards_allcoated: v1526,
-            total_users_claim: v1527,
-            usersNo: v1528,
+          const v3185 = {
+            bal: v1554,
+            keepGoing: v1555,
+            percent: v1556,
+            total_amount_claimed: v1557,
+            total_rewards_allcoated: v1558,
+            total_users_claim: v1559,
+            usersNo: v1560,
           };
-          const v8800 = v1506;
-          const v8801 = v3103.keepGoing;
-          if (v8801) {
-            const v8802 = v3103.bal;
-            const v8804 = v3103.total_amount_claimed;
-            const v8805 = v3103.total_rewards_allcoated;
-            const v8806 = v3103.total_users_claim;
-            const v8807 = v3103.usersNo;
+          const v9106 = v1533;
+          const v9107 = v3185.keepGoing;
+          if (v9107) {
+            const v9108 = v3185.bal;
+            const v9110 = v3185.percent;
+            const v9111 = v3185.total_amount_claimed;
+            const v9112 = v3185.total_rewards_allcoated;
+            const v9113 = v3185.total_users_claim;
+            const v9114 = v3185.usersNo;
             sim_r.isHalt = false;
           } else {
-            const v8811 = stdlib.sub(v1506, v1506);
+            const v9119 = stdlib.sub(v1533, v1533);
             sim_r.txns.push({
               kind: "from",
-              to: v1484,
+              to: v1509,
               tok: undefined /* Nothing */,
             });
-            const v8812 = stdlib.le(await ctc.getBalance(), v8811)
+            const v9120 = stdlib.le(await ctc.getBalance(), v9119)
               ? stdlib.checkedBigNumberify(
-                  "./index.rsh:294:29:application",
+                  "./index.rsh:298:29:application",
                   stdlib.UInt_max,
                   "0"
                 )
-              : stdlib.safeSub(await ctc.getBalance(), v8811);
+              : stdlib.safeSub(await ctc.getBalance(), v9119);
             sim_r.txns.push({
               kind: "from",
-              to: v1484,
+              to: v1509,
               tok: undefined /* Nothing */,
             });
             sim_r.txns.push({
@@ -1853,28 +2012,28 @@ export async function _Admin_endContractAndTransfer3(ctcTop, interact) {
           }
           break;
         }
-        case "Admin_revokeAdmin0_90": {
-          const v3369 = v1714[1];
+        case "Admin_revokeAdmin0_98": {
+          const v3462 = v1747[1];
 
           break;
         }
-        case "Admin_setReward0_90": {
-          const v3782 = v1714[1];
+        case "Admin_setReward0_98": {
+          const v3890 = v1747[1];
 
           break;
         }
-        case "User_claim0_90": {
-          const v4195 = v1714[1];
+        case "User_claim0_98": {
+          const v4318 = v1747[1];
 
           break;
         }
-        case "User_claimAll0_90": {
-          const v4608 = v1714[1];
+        case "User_claimAll0_98": {
+          const v4746 = v1747[1];
 
           break;
         }
-        case "User_optin0_90": {
-          const v5021 = v1714[1];
+        case "User_optin0_98": {
+          const v5174 = v1747[1];
 
           break;
         }
@@ -1883,61 +2042,61 @@ export async function _Admin_endContractAndTransfer3(ctcTop, interact) {
     },
     soloSend: false,
     timeoutAt: undefined /* mto */,
-    tys: [ctc4, ctc5, ctc1, ctc1, ctc6, ctc1, ctc1, ctc1, ctc1, ctc11],
+    tys: [ctc4, ctc5, ctc1, ctc1, ctc6, ctc8, ctc1, ctc1, ctc1, ctc1, ctc13],
     waitIfNotPresent: false,
   });
   const {
-    data: [v1714],
-    secs: v1716,
-    time: v1715,
-    didSend: v957,
-    from: v1713,
+    data: [v1747],
+    secs: v1749,
+    time: v1748,
+    didSend: v965,
+    from: v1746,
   } = txn1;
-  switch (v1714[0]) {
-    case "Admin_addAdmin0_90": {
-      const v1717 = v1714[1];
+  switch (v1747[0]) {
+    case "Admin_addAdmin0_98": {
+      const v1750 = v1747[1];
       return;
       break;
     }
-    case "Admin_deposit0_90": {
-      const v2130 = v1714[1];
+    case "Admin_deposit0_98": {
+      const v2178 = v1747[1];
       return;
       break;
     }
-    case "Admin_editUserReward0_90": {
-      const v2543 = v1714[1];
+    case "Admin_editUserReward0_98": {
+      const v2606 = v1747[1];
       return;
       break;
     }
-    case "Admin_endContractAndTransfer0_90": {
-      const v2956 = v1714[1];
+    case "Admin_endContractAndTransfer0_98": {
+      const v3034 = v1747[1];
       undefined /* setApiDetails */;
-      const v2986 = stdlib.addressEq(v1484, v1713);
-      stdlib.assert(v2986, {
+      const v3064 = stdlib.addressEq(v1509, v1746);
+      stdlib.assert(v3064, {
         at: "reach standard library:57:5:application",
         fs: [
-          'at ./index.rsh:282:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
-          "at ./index.rsh:281:44:application call to [unknown function] (defined at: ./index.rsh:281:44:function exp)",
-          "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:281:44:function exp)",
-          "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:70:37:function exp)",
+          'at ./index.rsh:286:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
+          "at ./index.rsh:285:44:application call to [unknown function] (defined at: ./index.rsh:285:44:function exp)",
+          "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:285:44:function exp)",
+          "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:72:37:function exp)",
         ],
         msg: "Cannot end contract without being Deployer",
         who: "Admin_endContractAndTransfer",
       });
-      const v3091 = null;
-      const v3092 = await txn1.getOutput(
+      const v3172 = null;
+      const v3173 = await txn1.getOutput(
         "Admin_endContractAndTransfer",
-        "v3091",
+        "v3172",
         ctc0,
-        v3091
+        v3172
       );
-      if (v957) {
-        stdlib.protect(ctc0, await interact.out(v2956, v3092), {
-          at: "./index.rsh:281:11:application",
+      if (v965) {
+        stdlib.protect(ctc0, await interact.out(v3034, v3173), {
+          at: "./index.rsh:285:11:application",
           fs: [
-            "at ./index.rsh:281:11:application call to [unknown function] (defined at: ./index.rsh:281:11:function exp)",
-            'at ./index.rsh:286:14:application call to "ret" (defined at: ./index.rsh:285:15:function exp)',
-            "at ./index.rsh:285:15:application call to [unknown function] (defined at: ./index.rsh:285:15:function exp)",
+            "at ./index.rsh:285:11:application call to [unknown function] (defined at: ./index.rsh:285:11:function exp)",
+            'at ./index.rsh:290:14:application call to "ret" (defined at: ./index.rsh:289:15:function exp)',
+            "at ./index.rsh:289:15:application call to [unknown function] (defined at: ./index.rsh:289:15:function exp)",
           ],
           msg: "out",
           who: "Admin_endContractAndTransfer",
@@ -1945,58 +2104,60 @@ export async function _Admin_endContractAndTransfer3(ctcTop, interact) {
       } else {
       }
 
-      const v3103 = {
-        bal: v1523,
-        keepGoing: v1524,
-        total_amount_claimed: v1525,
-        total_rewards_allcoated: v1526,
-        total_users_claim: v1527,
-        usersNo: v1528,
+      const v3185 = {
+        bal: v1554,
+        keepGoing: v1555,
+        percent: v1556,
+        total_amount_claimed: v1557,
+        total_rewards_allcoated: v1558,
+        total_users_claim: v1559,
+        usersNo: v1560,
       };
-      const v8800 = v1506;
-      const v8801 = v3103.keepGoing;
-      if (v8801) {
-        const v8802 = v3103.bal;
-        const v8804 = v3103.total_amount_claimed;
-        const v8805 = v3103.total_rewards_allcoated;
-        const v8806 = v3103.total_users_claim;
-        const v8807 = v3103.usersNo;
+      const v9106 = v1533;
+      const v9107 = v3185.keepGoing;
+      if (v9107) {
+        const v9108 = v3185.bal;
+        const v9110 = v3185.percent;
+        const v9111 = v3185.total_amount_claimed;
+        const v9112 = v3185.total_rewards_allcoated;
+        const v9113 = v3185.total_users_claim;
+        const v9114 = v3185.usersNo;
         return;
       } else {
-        const v8811 = stdlib.sub(v1506, v1506);
-        const v8812 = stdlib.le(await ctc.getBalance(), v8811)
+        const v9119 = stdlib.sub(v1533, v1533);
+        const v9120 = stdlib.le(await ctc.getBalance(), v9119)
           ? stdlib.checkedBigNumberify(
-              "./index.rsh:294:29:application",
+              "./index.rsh:298:29:application",
               stdlib.UInt_max,
               "0"
             )
-          : stdlib.safeSub(await ctc.getBalance(), v8811);
+          : stdlib.safeSub(await ctc.getBalance(), v9119);
         return;
       }
       break;
     }
-    case "Admin_revokeAdmin0_90": {
-      const v3369 = v1714[1];
+    case "Admin_revokeAdmin0_98": {
+      const v3462 = v1747[1];
       return;
       break;
     }
-    case "Admin_setReward0_90": {
-      const v3782 = v1714[1];
+    case "Admin_setReward0_98": {
+      const v3890 = v1747[1];
       return;
       break;
     }
-    case "User_claim0_90": {
-      const v4195 = v1714[1];
+    case "User_claim0_98": {
+      const v4318 = v1747[1];
       return;
       break;
     }
-    case "User_claimAll0_90": {
-      const v4608 = v1714[1];
+    case "User_claimAll0_98": {
+      const v4746 = v1747[1];
       return;
       break;
     }
-    case "User_optin0_90": {
-      const v5021 = v1714[1];
+    case "User_optin0_98": {
+      const v5174 = v1747[1];
       return;
       break;
     }
@@ -2034,20 +2195,28 @@ export async function _Admin_revokeAdmin3(ctcTop, interact) {
     stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "30")
   );
   const ctc6 = stdlib.T_Bool;
-  const ctc7 = stdlib.T_Tuple([ctc4]);
-  const ctc8 = stdlib.T_Tuple([ctc1]);
-  const ctc9 = stdlib.T_Tuple([ctc4, ctc1]);
-  const ctc10 = stdlib.T_Tuple([]);
-  const ctc11 = stdlib.T_Data({
-    Admin_addAdmin0_90: ctc7,
-    Admin_deposit0_90: ctc8,
-    Admin_editUserReward0_90: ctc9,
-    Admin_endContractAndTransfer0_90: ctc10,
-    Admin_revokeAdmin0_90: ctc7,
-    Admin_setReward0_90: ctc9,
-    User_claim0_90: ctc8,
-    User_claimAll0_90: ctc10,
-    User_optin0_90: ctc10,
+  const ctc7 = stdlib.T_Object({
+    i: ctc1,
+    scale: ctc1,
+  });
+  const ctc8 = stdlib.T_Object({
+    i: ctc7,
+    sign: ctc6,
+  });
+  const ctc9 = stdlib.T_Tuple([ctc4]);
+  const ctc10 = stdlib.T_Tuple([ctc1]);
+  const ctc11 = stdlib.T_Tuple([ctc4, ctc1]);
+  const ctc12 = stdlib.T_Tuple([]);
+  const ctc13 = stdlib.T_Data({
+    Admin_addAdmin0_98: ctc9,
+    Admin_deposit0_98: ctc10,
+    Admin_editUserReward0_98: ctc11,
+    Admin_endContractAndTransfer0_98: ctc12,
+    Admin_revokeAdmin0_98: ctc9,
+    Admin_setReward0_98: ctc11,
+    User_claim0_98: ctc10,
+    User_claimAll0_98: ctc12,
+    User_optin0_98: ctc12,
   });
 
   const map0_ctc = ctc2;
@@ -2082,57 +2251,58 @@ export async function _Admin_revokeAdmin3(ctcTop, interact) {
     ty: map3_ctc,
   });
 
-  const [v1484, v1485, v1506, v1523, v1524, v1525, v1526, v1527, v1528] =
+  const [v1509, v1510, v1533, v1554, v1555, v1556, v1557, v1558, v1559, v1560] =
     await ctc.getState(
       stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "3"),
-      [ctc4, ctc5, ctc1, ctc1, ctc6, ctc1, ctc1, ctc1, ctc1]
+      [ctc4, ctc5, ctc1, ctc1, ctc6, ctc8, ctc1, ctc1, ctc1, ctc1]
     );
-  const v1604 = ctc.selfAddress();
-  const v1606 = stdlib.protect(ctc7, await interact.in(), {
+  const v1637 = ctc.selfAddress();
+  const v1639 = stdlib.protect(ctc9, await interact.in(), {
     at: "./index.rsh:1:23:application",
     fs: [
-      "at ./index.rsh:170:37:application call to [unknown function] (defined at: ./index.rsh:170:37:function exp)",
-      'at ./index.rsh:70:37:application call to "runAdmin_revokeAdmin0_90" (defined at: ./index.rsh:170:10:function exp)',
-      "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:70:37:function exp)",
+      "at ./index.rsh:174:37:application call to [unknown function] (defined at: ./index.rsh:174:37:function exp)",
+      'at ./index.rsh:72:37:application call to "runAdmin_revokeAdmin0_98" (defined at: ./index.rsh:174:10:function exp)',
+      "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:72:37:function exp)",
     ],
     msg: "in",
     who: "Admin_revokeAdmin",
   });
-  const v1609 = stdlib.addressEq(v1604, v1484);
-  stdlib.assert(v1609, {
+  const v1642 = stdlib.addressEq(v1637, v1509);
+  stdlib.assert(v1642, {
     at: "reach standard library:57:5:application",
     fs: [
-      'at ./index.rsh:171:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
-      "at ./index.rsh:170:37:application call to [unknown function] (defined at: ./index.rsh:170:37:function exp)",
-      'at ./index.rsh:70:37:application call to "runAdmin_revokeAdmin0_90" (defined at: ./index.rsh:170:10:function exp)',
-      "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:70:37:function exp)",
+      'at ./index.rsh:175:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
+      "at ./index.rsh:174:37:application call to [unknown function] (defined at: ./index.rsh:174:37:function exp)",
+      'at ./index.rsh:72:37:application call to "runAdmin_revokeAdmin0_98" (defined at: ./index.rsh:174:10:function exp)',
+      "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:72:37:function exp)",
     ],
     msg: "Only the Deployer can revoke Admin Rights",
     who: "Admin_revokeAdmin",
   });
-  const v1616 = ["Admin_revokeAdmin0_90", v1606];
+  const v1649 = ["Admin_revokeAdmin0_98", v1639];
 
   const txn1 = await ctc.sendrecv({
     args: [
-      v1484,
-      v1485,
-      v1506,
-      v1523,
-      v1524,
-      v1525,
-      v1526,
-      v1527,
-      v1528,
-      v1616,
+      v1509,
+      v1510,
+      v1533,
+      v1554,
+      v1555,
+      v1556,
+      v1557,
+      v1558,
+      v1559,
+      v1560,
+      v1649,
     ],
     evt_cnt: 1,
     funcNum: 2,
     lct: stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "0"),
     onlyIf: true,
-    out_tys: [ctc11],
+    out_tys: [ctc13],
     pay: [
       stdlib.checkedBigNumberify(
-        "./index.rsh:173:9:decimal",
+        "./index.rsh:177:9:decimal",
         stdlib.UInt_max,
         "0"
       ),
@@ -2152,91 +2322,93 @@ export async function _Admin_revokeAdmin3(ctcTop, interact) {
       stdlib.simMapDupe(sim_r, 3, map3);
 
       const {
-        data: [v1714],
-        secs: v1716,
-        time: v1715,
-        didSend: v957,
-        from: v1713,
+        data: [v1747],
+        secs: v1749,
+        time: v1748,
+        didSend: v965,
+        from: v1746,
       } = txn1;
 
-      switch (v1714[0]) {
-        case "Admin_addAdmin0_90": {
-          const v1717 = v1714[1];
+      switch (v1747[0]) {
+        case "Admin_addAdmin0_98": {
+          const v1750 = v1747[1];
 
           break;
         }
-        case "Admin_deposit0_90": {
-          const v2130 = v1714[1];
+        case "Admin_deposit0_98": {
+          const v2178 = v1747[1];
 
           break;
         }
-        case "Admin_editUserReward0_90": {
-          const v2543 = v1714[1];
+        case "Admin_editUserReward0_98": {
+          const v2606 = v1747[1];
 
           break;
         }
-        case "Admin_endContractAndTransfer0_90": {
-          const v2956 = v1714[1];
+        case "Admin_endContractAndTransfer0_98": {
+          const v3034 = v1747[1];
 
           break;
         }
-        case "Admin_revokeAdmin0_90": {
-          const v3369 = v1714[1];
+        case "Admin_revokeAdmin0_98": {
+          const v3462 = v1747[1];
           sim_r.txns.push({
             kind: "api",
             who: "Admin_revokeAdmin",
           });
-          const v3519 =
-            v3369[
+          const v3616 =
+            v3462[
               stdlib.checkedBigNumberify(
-                "./index.rsh:170:10:spread",
+                "./index.rsh:174:10:spread",
                 stdlib.UInt_max,
                 "0"
               )
             ];
-          await stdlib.simMapSet(sim_r, 1, v3519, undefined /* Nothing */);
-          const v3524 = null;
-          const v3525 = await txn1.getOutput(
+          await stdlib.simMapSet(sim_r, 1, v3616, undefined /* Nothing */);
+          const v3621 = null;
+          const v3622 = await txn1.getOutput(
             "Admin_revokeAdmin",
-            "v3524",
+            "v3621",
             ctc0,
-            v3524
+            v3621
           );
 
-          const v3537 = {
-            bal: v1523,
-            keepGoing: v1524,
-            total_amount_claimed: v1525,
-            total_rewards_allcoated: v1526,
-            total_users_claim: v1527,
-            usersNo: v1528,
+          const v3635 = {
+            bal: v1554,
+            keepGoing: v1555,
+            percent: v1556,
+            total_amount_claimed: v1557,
+            total_rewards_allcoated: v1558,
+            total_users_claim: v1559,
+            usersNo: v1560,
           };
-          const v9040 = v1506;
-          const v9041 = v3537.keepGoing;
-          if (v9041) {
-            const v9042 = v3537.bal;
-            const v9044 = v3537.total_amount_claimed;
-            const v9045 = v3537.total_rewards_allcoated;
-            const v9046 = v3537.total_users_claim;
-            const v9047 = v3537.usersNo;
+          const v9378 = v1533;
+          const v9379 = v3635.keepGoing;
+          if (v9379) {
+            const v9380 = v3635.bal;
+            const v9382 = v3635.percent;
+            const v9383 = v3635.total_amount_claimed;
+            const v9384 = v3635.total_rewards_allcoated;
+            const v9385 = v3635.total_users_claim;
+            const v9386 = v3635.usersNo;
             sim_r.isHalt = false;
           } else {
-            const v9051 = stdlib.sub(v1506, v1506);
+            const v9391 = stdlib.sub(v1533, v1533);
             sim_r.txns.push({
               kind: "from",
-              to: v1484,
+              to: v1509,
               tok: undefined /* Nothing */,
             });
-            const v9052 = stdlib.le(await ctc.getBalance(), v9051)
+            const v9392 = stdlib.le(await ctc.getBalance(), v9391)
               ? stdlib.checkedBigNumberify(
-                  "./index.rsh:294:29:application",
+                  "./index.rsh:298:29:application",
                   stdlib.UInt_max,
                   "0"
                 )
-              : stdlib.safeSub(await ctc.getBalance(), v9051);
+              : stdlib.safeSub(await ctc.getBalance(), v9391);
             sim_r.txns.push({
               kind: "from",
-              to: v1484,
+              to: v1509,
               tok: undefined /* Nothing */,
             });
             sim_r.txns.push({
@@ -2247,23 +2419,23 @@ export async function _Admin_revokeAdmin3(ctcTop, interact) {
           }
           break;
         }
-        case "Admin_setReward0_90": {
-          const v3782 = v1714[1];
+        case "Admin_setReward0_98": {
+          const v3890 = v1747[1];
 
           break;
         }
-        case "User_claim0_90": {
-          const v4195 = v1714[1];
+        case "User_claim0_98": {
+          const v4318 = v1747[1];
 
           break;
         }
-        case "User_claimAll0_90": {
-          const v4608 = v1714[1];
+        case "User_claimAll0_98": {
+          const v4746 = v1747[1];
 
           break;
         }
-        case "User_optin0_90": {
-          const v5021 = v1714[1];
+        case "User_optin0_98": {
+          const v5174 = v1747[1];
 
           break;
         }
@@ -2272,75 +2444,75 @@ export async function _Admin_revokeAdmin3(ctcTop, interact) {
     },
     soloSend: false,
     timeoutAt: undefined /* mto */,
-    tys: [ctc4, ctc5, ctc1, ctc1, ctc6, ctc1, ctc1, ctc1, ctc1, ctc11],
+    tys: [ctc4, ctc5, ctc1, ctc1, ctc6, ctc8, ctc1, ctc1, ctc1, ctc1, ctc13],
     waitIfNotPresent: false,
   });
   const {
-    data: [v1714],
-    secs: v1716,
-    time: v1715,
-    didSend: v957,
-    from: v1713,
+    data: [v1747],
+    secs: v1749,
+    time: v1748,
+    didSend: v965,
+    from: v1746,
   } = txn1;
-  switch (v1714[0]) {
-    case "Admin_addAdmin0_90": {
-      const v1717 = v1714[1];
+  switch (v1747[0]) {
+    case "Admin_addAdmin0_98": {
+      const v1750 = v1747[1];
       return;
       break;
     }
-    case "Admin_deposit0_90": {
-      const v2130 = v1714[1];
+    case "Admin_deposit0_98": {
+      const v2178 = v1747[1];
       return;
       break;
     }
-    case "Admin_editUserReward0_90": {
-      const v2543 = v1714[1];
+    case "Admin_editUserReward0_98": {
+      const v2606 = v1747[1];
       return;
       break;
     }
-    case "Admin_endContractAndTransfer0_90": {
-      const v2956 = v1714[1];
+    case "Admin_endContractAndTransfer0_98": {
+      const v3034 = v1747[1];
       return;
       break;
     }
-    case "Admin_revokeAdmin0_90": {
-      const v3369 = v1714[1];
+    case "Admin_revokeAdmin0_98": {
+      const v3462 = v1747[1];
       undefined /* setApiDetails */;
-      const v3403 = stdlib.addressEq(v1713, v1484);
-      stdlib.assert(v3403, {
+      const v3496 = stdlib.addressEq(v1746, v1509);
+      stdlib.assert(v3496, {
         at: "reach standard library:57:5:application",
         fs: [
-          'at ./index.rsh:171:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
-          "at ./index.rsh:170:37:application call to [unknown function] (defined at: ./index.rsh:170:37:function exp)",
-          "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:170:37:function exp)",
-          "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:70:37:function exp)",
+          'at ./index.rsh:175:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
+          "at ./index.rsh:174:37:application call to [unknown function] (defined at: ./index.rsh:174:37:function exp)",
+          "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:174:37:function exp)",
+          "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:72:37:function exp)",
         ],
         msg: "Only the Deployer can revoke Admin Rights",
         who: "Admin_revokeAdmin",
       });
-      const v3519 =
-        v3369[
+      const v3616 =
+        v3462[
           stdlib.checkedBigNumberify(
-            "./index.rsh:170:10:spread",
+            "./index.rsh:174:10:spread",
             stdlib.UInt_max,
             "0"
           )
         ];
-      await stdlib.mapSet(map1, v3519, undefined /* Nothing */);
-      const v3524 = null;
-      const v3525 = await txn1.getOutput(
+      await stdlib.mapSet(map1, v3616, undefined /* Nothing */);
+      const v3621 = null;
+      const v3622 = await txn1.getOutput(
         "Admin_revokeAdmin",
-        "v3524",
+        "v3621",
         ctc0,
-        v3524
+        v3621
       );
-      if (v957) {
-        stdlib.protect(ctc0, await interact.out(v3369, v3525), {
-          at: "./index.rsh:170:11:application",
+      if (v965) {
+        stdlib.protect(ctc0, await interact.out(v3462, v3622), {
+          at: "./index.rsh:174:11:application",
           fs: [
-            "at ./index.rsh:170:11:application call to [unknown function] (defined at: ./index.rsh:170:11:function exp)",
-            'at ./index.rsh:176:14:application call to "ret" (defined at: ./index.rsh:174:15:function exp)',
-            "at ./index.rsh:174:15:application call to [unknown function] (defined at: ./index.rsh:174:15:function exp)",
+            "at ./index.rsh:174:11:application call to [unknown function] (defined at: ./index.rsh:174:11:function exp)",
+            'at ./index.rsh:180:14:application call to "ret" (defined at: ./index.rsh:178:15:function exp)',
+            "at ./index.rsh:178:15:application call to [unknown function] (defined at: ./index.rsh:178:15:function exp)",
           ],
           msg: "out",
           who: "Admin_revokeAdmin",
@@ -2348,53 +2520,55 @@ export async function _Admin_revokeAdmin3(ctcTop, interact) {
       } else {
       }
 
-      const v3537 = {
-        bal: v1523,
-        keepGoing: v1524,
-        total_amount_claimed: v1525,
-        total_rewards_allcoated: v1526,
-        total_users_claim: v1527,
-        usersNo: v1528,
+      const v3635 = {
+        bal: v1554,
+        keepGoing: v1555,
+        percent: v1556,
+        total_amount_claimed: v1557,
+        total_rewards_allcoated: v1558,
+        total_users_claim: v1559,
+        usersNo: v1560,
       };
-      const v9040 = v1506;
-      const v9041 = v3537.keepGoing;
-      if (v9041) {
-        const v9042 = v3537.bal;
-        const v9044 = v3537.total_amount_claimed;
-        const v9045 = v3537.total_rewards_allcoated;
-        const v9046 = v3537.total_users_claim;
-        const v9047 = v3537.usersNo;
+      const v9378 = v1533;
+      const v9379 = v3635.keepGoing;
+      if (v9379) {
+        const v9380 = v3635.bal;
+        const v9382 = v3635.percent;
+        const v9383 = v3635.total_amount_claimed;
+        const v9384 = v3635.total_rewards_allcoated;
+        const v9385 = v3635.total_users_claim;
+        const v9386 = v3635.usersNo;
         return;
       } else {
-        const v9051 = stdlib.sub(v1506, v1506);
-        const v9052 = stdlib.le(await ctc.getBalance(), v9051)
+        const v9391 = stdlib.sub(v1533, v1533);
+        const v9392 = stdlib.le(await ctc.getBalance(), v9391)
           ? stdlib.checkedBigNumberify(
-              "./index.rsh:294:29:application",
+              "./index.rsh:298:29:application",
               stdlib.UInt_max,
               "0"
             )
-          : stdlib.safeSub(await ctc.getBalance(), v9051);
+          : stdlib.safeSub(await ctc.getBalance(), v9391);
         return;
       }
       break;
     }
-    case "Admin_setReward0_90": {
-      const v3782 = v1714[1];
+    case "Admin_setReward0_98": {
+      const v3890 = v1747[1];
       return;
       break;
     }
-    case "User_claim0_90": {
-      const v4195 = v1714[1];
+    case "User_claim0_98": {
+      const v4318 = v1747[1];
       return;
       break;
     }
-    case "User_claimAll0_90": {
-      const v4608 = v1714[1];
+    case "User_claimAll0_98": {
+      const v4746 = v1747[1];
       return;
       break;
     }
-    case "User_optin0_90": {
-      const v5021 = v1714[1];
+    case "User_optin0_98": {
+      const v5174 = v1747[1];
       return;
       break;
     }
@@ -2432,20 +2606,28 @@ export async function _Admin_setReward3(ctcTop, interact) {
     stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "30")
   );
   const ctc6 = stdlib.T_Bool;
-  const ctc7 = stdlib.T_Tuple([ctc4, ctc1]);
-  const ctc8 = stdlib.T_Tuple([ctc4]);
-  const ctc9 = stdlib.T_Tuple([ctc1]);
-  const ctc10 = stdlib.T_Tuple([]);
-  const ctc11 = stdlib.T_Data({
-    Admin_addAdmin0_90: ctc8,
-    Admin_deposit0_90: ctc9,
-    Admin_editUserReward0_90: ctc7,
-    Admin_endContractAndTransfer0_90: ctc10,
-    Admin_revokeAdmin0_90: ctc8,
-    Admin_setReward0_90: ctc7,
-    User_claim0_90: ctc9,
-    User_claimAll0_90: ctc10,
-    User_optin0_90: ctc10,
+  const ctc7 = stdlib.T_Object({
+    i: ctc1,
+    scale: ctc1,
+  });
+  const ctc8 = stdlib.T_Object({
+    i: ctc7,
+    sign: ctc6,
+  });
+  const ctc9 = stdlib.T_Tuple([ctc4, ctc1]);
+  const ctc10 = stdlib.T_Tuple([ctc4]);
+  const ctc11 = stdlib.T_Tuple([ctc1]);
+  const ctc12 = stdlib.T_Tuple([]);
+  const ctc13 = stdlib.T_Data({
+    Admin_addAdmin0_98: ctc10,
+    Admin_deposit0_98: ctc11,
+    Admin_editUserReward0_98: ctc9,
+    Admin_endContractAndTransfer0_98: ctc12,
+    Admin_revokeAdmin0_98: ctc10,
+    Admin_setReward0_98: ctc9,
+    User_claim0_98: ctc11,
+    User_claimAll0_98: ctc12,
+    User_optin0_98: ctc12,
   });
 
   const map0_ctc = ctc2;
@@ -2480,59 +2662,60 @@ export async function _Admin_setReward3(ctcTop, interact) {
     ty: map3_ctc,
   });
 
-  const [v1484, v1485, v1506, v1523, v1524, v1525, v1526, v1527, v1528] =
+  const [v1509, v1510, v1533, v1554, v1555, v1556, v1557, v1558, v1559, v1560] =
     await ctc.getState(
       stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "3"),
-      [ctc4, ctc5, ctc1, ctc1, ctc6, ctc1, ctc1, ctc1, ctc1]
+      [ctc4, ctc5, ctc1, ctc1, ctc6, ctc8, ctc1, ctc1, ctc1, ctc1]
     );
-  const v1549 = stdlib.protect(ctc7, await interact.in(), {
+  const v1582 = stdlib.protect(ctc9, await interact.in(), {
     at: "./index.rsh:1:23:application",
     fs: [
-      "at ./index.rsh:108:40:application call to [unknown function] (defined at: ./index.rsh:108:40:function exp)",
-      'at ./index.rsh:70:37:application call to "runAdmin_setReward0_90" (defined at: ./index.rsh:108:10:function exp)',
-      "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:70:37:function exp)",
+      "at ./index.rsh:112:40:application call to [unknown function] (defined at: ./index.rsh:112:40:function exp)",
+      'at ./index.rsh:72:37:application call to "runAdmin_setReward0_98" (defined at: ./index.rsh:112:10:function exp)',
+      "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:72:37:function exp)",
     ],
     msg: "in",
     who: "Admin_setReward",
   });
-  const v1551 =
-    v1549[
+  const v1584 =
+    v1582[
       stdlib.checkedBigNumberify(
         "./index.rsh:1:23:application",
         stdlib.UInt_max,
         "1"
       )
     ];
-  const v1554 = stdlib.gt(v1551, v1523);
-  const v1562 = ["Admin_setReward0_90", v1549];
+  const v1587 = stdlib.gt(v1584, v1554);
+  const v1595 = ["Admin_setReward0_98", v1582];
 
-  const v1700 = v1554
-    ? v1551
+  const v1733 = v1587
+    ? v1584
     : stdlib.checkedBigNumberify(
-        "./index.rsh:111:30:decimal",
+        "./index.rsh:115:30:decimal",
         stdlib.UInt_max,
         "0"
       );
 
   const txn1 = await ctc.sendrecv({
     args: [
-      v1484,
-      v1485,
-      v1506,
-      v1523,
-      v1524,
-      v1525,
-      v1526,
-      v1527,
-      v1528,
-      v1562,
+      v1509,
+      v1510,
+      v1533,
+      v1554,
+      v1555,
+      v1556,
+      v1557,
+      v1558,
+      v1559,
+      v1560,
+      v1595,
     ],
     evt_cnt: 1,
     funcNum: 2,
     lct: stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "0"),
     onlyIf: true,
-    out_tys: [ctc11],
-    pay: [v1700, []],
+    out_tys: [ctc13],
+    pay: [v1733, []],
     sim_p: async (txn1) => {
       const sim_r = { txns: [], mapRefs: [], maps: [] };
       let sim_txn_ctr = stdlib.UInt_max;
@@ -2547,157 +2730,159 @@ export async function _Admin_setReward3(ctcTop, interact) {
       stdlib.simMapDupe(sim_r, 3, map3);
 
       const {
-        data: [v1714],
-        secs: v1716,
-        time: v1715,
-        didSend: v957,
-        from: v1713,
+        data: [v1747],
+        secs: v1749,
+        time: v1748,
+        didSend: v965,
+        from: v1746,
       } = txn1;
 
-      switch (v1714[0]) {
-        case "Admin_addAdmin0_90": {
-          const v1717 = v1714[1];
+      switch (v1747[0]) {
+        case "Admin_addAdmin0_98": {
+          const v1750 = v1747[1];
 
           break;
         }
-        case "Admin_deposit0_90": {
-          const v2130 = v1714[1];
+        case "Admin_deposit0_98": {
+          const v2178 = v1747[1];
 
           break;
         }
-        case "Admin_editUserReward0_90": {
-          const v2543 = v1714[1];
+        case "Admin_editUserReward0_98": {
+          const v2606 = v1747[1];
 
           break;
         }
-        case "Admin_endContractAndTransfer0_90": {
-          const v2956 = v1714[1];
+        case "Admin_endContractAndTransfer0_98": {
+          const v3034 = v1747[1];
 
           break;
         }
-        case "Admin_revokeAdmin0_90": {
-          const v3369 = v1714[1];
+        case "Admin_revokeAdmin0_98": {
+          const v3462 = v1747[1];
 
           break;
         }
-        case "Admin_setReward0_90": {
-          const v3782 = v1714[1];
+        case "Admin_setReward0_98": {
+          const v3890 = v1747[1];
           sim_r.txns.push({
             kind: "api",
             who: "Admin_setReward",
           });
-          const v3820 =
-            v3782[
+          const v3928 =
+            v3890[
               stdlib.checkedBigNumberify(
-                "./index.rsh:108:10:spread",
+                "./index.rsh:112:10:spread",
                 stdlib.UInt_max,
                 "1"
               )
             ];
-          const v3821 = stdlib.gt(v3820, v1523);
-          const v3822 = v3821
-            ? v3820
+          const v3929 = stdlib.gt(v3928, v1554);
+          const v3930 = v3929
+            ? v3928
             : stdlib.checkedBigNumberify(
-                "./index.rsh:111:30:decimal",
+                "./index.rsh:115:30:decimal",
                 stdlib.UInt_max,
                 "0"
               );
-          const v3836 = stdlib.add(v1506, v3822);
+          const v3944 = stdlib.add(v1533, v3930);
           sim_r.txns.push({
-            amt: v3822,
+            amt: v3930,
             kind: "to",
             tok: undefined /* Nothing */,
           });
-          const v3953 =
-            v3782[
+          const v4066 =
+            v3890[
               stdlib.checkedBigNumberify(
-                "./index.rsh:108:10:spread",
+                "./index.rsh:112:10:spread",
                 stdlib.UInt_max,
                 "0"
               )
             ];
-          const v3958 = stdlib.protect(
+          const v4071 = stdlib.protect(
             map0_ctc,
-            await stdlib.simMapRef(sim_r, 0, v3953),
+            await stdlib.simMapRef(sim_r, 0, v4066),
             null
           );
-          const v3959 = stdlib.fromSome(
-            v3958,
+          const v4072 = stdlib.fromSome(
+            v4071,
             stdlib.checkedBigNumberify(
-              "./index.rsh:113:60:decimal",
+              "./index.rsh:117:60:decimal",
               stdlib.UInt_max,
               "0"
             )
           );
-          const v3960 = stdlib.protect(
+          const v4073 = stdlib.protect(
             map3_ctc,
-            await stdlib.simMapRef(sim_r, 3, v3953),
+            await stdlib.simMapRef(sim_r, 3, v4066),
             null
           );
-          const v3961 = {
+          const v4074 = {
             None: 0,
             Some: 1,
-          }[v3960[0]];
-          const v3962 = stdlib.eq(
-            v3961,
+          }[v4073[0]];
+          const v4075 = stdlib.eq(
+            v4074,
             stdlib.checkedBigNumberify(
               "reach standard library:38:41:application",
               stdlib.UInt_max,
               "1"
             )
           );
-          if (v3962) {
-            const v3963 = stdlib.safeAdd(v3959, v3820);
-            await stdlib.simMapSet(sim_r, 0, v3953, v3963);
-            const v3964 = true;
-            const v3965 = await txn1.getOutput(
+          if (v4075) {
+            const v4076 = stdlib.safeAdd(v4072, v3928);
+            await stdlib.simMapSet(sim_r, 0, v4066, v4076);
+            const v4077 = true;
+            const v4078 = await txn1.getOutput(
               "Admin_setReward",
-              "v3964",
+              "v4077",
               ctc6,
-              v3964
+              v4077
             );
 
-            let v3978;
-            if (v3821) {
-              const v3979 = stdlib.safeAdd(v1523, v3820);
-              v3978 = v3979;
+            let v4092;
+            if (v3929) {
+              const v4093 = stdlib.safeAdd(v1554, v3928);
+              v4092 = v4093;
             } else {
-              v3978 = v1523;
+              v4092 = v1554;
             }
-            const v3980 = {
-              bal: v3978,
-              keepGoing: v1524,
-              total_amount_claimed: v1525,
-              total_rewards_allcoated: v1526,
-              total_users_claim: v1527,
-              usersNo: v1528,
+            const v4094 = {
+              bal: v4092,
+              keepGoing: v1555,
+              percent: v1556,
+              total_amount_claimed: v1557,
+              total_rewards_allcoated: v1558,
+              total_users_claim: v1559,
+              usersNo: v1560,
             };
-            const v9280 = v3836;
-            const v9281 = v3980.keepGoing;
-            if (v9281) {
-              const v9282 = v3980.bal;
-              const v9284 = v3980.total_amount_claimed;
-              const v9285 = v3980.total_rewards_allcoated;
-              const v9286 = v3980.total_users_claim;
-              const v9287 = v3980.usersNo;
+            const v9650 = v3944;
+            const v9651 = v4094.keepGoing;
+            if (v9651) {
+              const v9652 = v4094.bal;
+              const v9654 = v4094.percent;
+              const v9655 = v4094.total_amount_claimed;
+              const v9656 = v4094.total_rewards_allcoated;
+              const v9657 = v4094.total_users_claim;
+              const v9658 = v4094.usersNo;
               sim_r.isHalt = false;
             } else {
-              const v9291 = stdlib.sub(v3836, v3836);
+              const v9663 = stdlib.sub(v3944, v3944);
               sim_r.txns.push({
                 kind: "from",
-                to: v1484,
+                to: v1509,
                 tok: undefined /* Nothing */,
               });
-              const v9292 = stdlib.le(await ctc.getBalance(), v9291)
+              const v9664 = stdlib.le(await ctc.getBalance(), v9663)
                 ? stdlib.checkedBigNumberify(
-                    "./index.rsh:294:29:application",
+                    "./index.rsh:298:29:application",
                     stdlib.UInt_max,
                     "0"
                   )
-                : stdlib.safeSub(await ctc.getBalance(), v9291);
+                : stdlib.safeSub(await ctc.getBalance(), v9663);
               sim_r.txns.push({
                 kind: "from",
-                to: v1484,
+                to: v1509,
                 tok: undefined /* Nothing */,
               });
               sim_r.txns.push({
@@ -2707,52 +2892,54 @@ export async function _Admin_setReward3(ctcTop, interact) {
               sim_r.isHalt = true;
             }
           } else {
-            if (v3821) {
-              const v3982 = "Your user hasn't opted in                                                                                                                                                                               ";
+            if (v3929) {
+              const v4096 = "Your user hasn't opted in                                                                                                                                                                               ";
               null;
-              const v3983 = false;
-              const v3984 = await txn1.getOutput(
+              const v4097 = false;
+              const v4098 = await txn1.getOutput(
                 "Admin_setReward",
-                "v3983",
+                "v4097",
                 ctc6,
-                v3983
+                v4097
               );
 
-              const v3998 = stdlib.safeAdd(v1523, v3820);
-              const v3999 = {
-                bal: v3998,
-                keepGoing: v1524,
-                total_amount_claimed: v1525,
-                total_rewards_allcoated: v1526,
-                total_users_claim: v1527,
-                usersNo: v1528,
+              const v4113 = stdlib.safeAdd(v1554, v3928);
+              const v4114 = {
+                bal: v4113,
+                keepGoing: v1555,
+                percent: v1556,
+                total_amount_claimed: v1557,
+                total_rewards_allcoated: v1558,
+                total_users_claim: v1559,
+                usersNo: v1560,
               };
-              const v9295 = v3836;
-              const v9296 = v3999.keepGoing;
-              if (v9296) {
-                const v9297 = v3999.bal;
-                const v9299 = v3999.total_amount_claimed;
-                const v9300 = v3999.total_rewards_allcoated;
-                const v9301 = v3999.total_users_claim;
-                const v9302 = v3999.usersNo;
+              const v9667 = v3944;
+              const v9668 = v4114.keepGoing;
+              if (v9668) {
+                const v9669 = v4114.bal;
+                const v9671 = v4114.percent;
+                const v9672 = v4114.total_amount_claimed;
+                const v9673 = v4114.total_rewards_allcoated;
+                const v9674 = v4114.total_users_claim;
+                const v9675 = v4114.usersNo;
                 sim_r.isHalt = false;
               } else {
-                const v9306 = stdlib.sub(v3836, v3836);
+                const v9680 = stdlib.sub(v3944, v3944);
                 sim_r.txns.push({
                   kind: "from",
-                  to: v1484,
+                  to: v1509,
                   tok: undefined /* Nothing */,
                 });
-                const v9307 = stdlib.le(await ctc.getBalance(), v9306)
+                const v9681 = stdlib.le(await ctc.getBalance(), v9680)
                   ? stdlib.checkedBigNumberify(
-                      "./index.rsh:294:29:application",
+                      "./index.rsh:298:29:application",
                       stdlib.UInt_max,
                       "0"
                     )
-                  : stdlib.safeSub(await ctc.getBalance(), v9306);
+                  : stdlib.safeSub(await ctc.getBalance(), v9680);
                 sim_r.txns.push({
                   kind: "from",
-                  to: v1484,
+                  to: v1509,
                   tok: undefined /* Nothing */,
                 });
                 sim_r.txns.push({
@@ -2762,51 +2949,53 @@ export async function _Admin_setReward3(ctcTop, interact) {
                 sim_r.isHalt = true;
               }
             } else {
-              const v4001 =
+              const v4116 =
                 "The balance you are trying to set for the user is invalid and they haven't opted in                                                                                                                     ";
               null;
-              const v4002 = false;
-              const v4003 = await txn1.getOutput(
+              const v4117 = false;
+              const v4118 = await txn1.getOutput(
                 "Admin_setReward",
-                "v4002",
+                "v4117",
                 ctc6,
-                v4002
+                v4117
               );
 
-              const v4018 = {
-                bal: v1523,
-                keepGoing: v1524,
-                total_amount_claimed: v1525,
-                total_rewards_allcoated: v1526,
-                total_users_claim: v1527,
-                usersNo: v1528,
+              const v4134 = {
+                bal: v1554,
+                keepGoing: v1555,
+                percent: v1556,
+                total_amount_claimed: v1557,
+                total_rewards_allcoated: v1558,
+                total_users_claim: v1559,
+                usersNo: v1560,
               };
-              const v9310 = v3836;
-              const v9311 = v4018.keepGoing;
-              if (v9311) {
-                const v9312 = v4018.bal;
-                const v9314 = v4018.total_amount_claimed;
-                const v9315 = v4018.total_rewards_allcoated;
-                const v9316 = v4018.total_users_claim;
-                const v9317 = v4018.usersNo;
+              const v9684 = v3944;
+              const v9685 = v4134.keepGoing;
+              if (v9685) {
+                const v9686 = v4134.bal;
+                const v9688 = v4134.percent;
+                const v9689 = v4134.total_amount_claimed;
+                const v9690 = v4134.total_rewards_allcoated;
+                const v9691 = v4134.total_users_claim;
+                const v9692 = v4134.usersNo;
                 sim_r.isHalt = false;
               } else {
-                const v9321 = stdlib.sub(v3836, v3836);
+                const v9697 = stdlib.sub(v3944, v3944);
                 sim_r.txns.push({
                   kind: "from",
-                  to: v1484,
+                  to: v1509,
                   tok: undefined /* Nothing */,
                 });
-                const v9322 = stdlib.le(await ctc.getBalance(), v9321)
+                const v9698 = stdlib.le(await ctc.getBalance(), v9697)
                   ? stdlib.checkedBigNumberify(
-                      "./index.rsh:294:29:application",
+                      "./index.rsh:298:29:application",
                       stdlib.UInt_max,
                       "0"
                     )
-                  : stdlib.safeSub(await ctc.getBalance(), v9321);
+                  : stdlib.safeSub(await ctc.getBalance(), v9697);
                 sim_r.txns.push({
                   kind: "from",
-                  to: v1484,
+                  to: v1509,
                   tok: undefined /* Nothing */,
                 });
                 sim_r.txns.push({
@@ -2819,18 +3008,18 @@ export async function _Admin_setReward3(ctcTop, interact) {
           }
           break;
         }
-        case "User_claim0_90": {
-          const v4195 = v1714[1];
+        case "User_claim0_98": {
+          const v4318 = v1747[1];
 
           break;
         }
-        case "User_claimAll0_90": {
-          const v4608 = v1714[1];
+        case "User_claimAll0_98": {
+          const v4746 = v1747[1];
 
           break;
         }
-        case "User_optin0_90": {
-          const v5021 = v1714[1];
+        case "User_optin0_98": {
+          const v5174 = v1747[1];
 
           break;
         }
@@ -2839,117 +3028,117 @@ export async function _Admin_setReward3(ctcTop, interact) {
     },
     soloSend: false,
     timeoutAt: undefined /* mto */,
-    tys: [ctc4, ctc5, ctc1, ctc1, ctc6, ctc1, ctc1, ctc1, ctc1, ctc11],
+    tys: [ctc4, ctc5, ctc1, ctc1, ctc6, ctc8, ctc1, ctc1, ctc1, ctc1, ctc13],
     waitIfNotPresent: false,
   });
   const {
-    data: [v1714],
-    secs: v1716,
-    time: v1715,
-    didSend: v957,
-    from: v1713,
+    data: [v1747],
+    secs: v1749,
+    time: v1748,
+    didSend: v965,
+    from: v1746,
   } = txn1;
-  switch (v1714[0]) {
-    case "Admin_addAdmin0_90": {
-      const v1717 = v1714[1];
+  switch (v1747[0]) {
+    case "Admin_addAdmin0_98": {
+      const v1750 = v1747[1];
       return;
       break;
     }
-    case "Admin_deposit0_90": {
-      const v2130 = v1714[1];
+    case "Admin_deposit0_98": {
+      const v2178 = v1747[1];
       return;
       break;
     }
-    case "Admin_editUserReward0_90": {
-      const v2543 = v1714[1];
+    case "Admin_editUserReward0_98": {
+      const v2606 = v1747[1];
       return;
       break;
     }
-    case "Admin_endContractAndTransfer0_90": {
-      const v2956 = v1714[1];
+    case "Admin_endContractAndTransfer0_98": {
+      const v3034 = v1747[1];
       return;
       break;
     }
-    case "Admin_revokeAdmin0_90": {
-      const v3369 = v1714[1];
+    case "Admin_revokeAdmin0_98": {
+      const v3462 = v1747[1];
       return;
       break;
     }
-    case "Admin_setReward0_90": {
-      const v3782 = v1714[1];
+    case "Admin_setReward0_98": {
+      const v3890 = v1747[1];
       undefined /* setApiDetails */;
-      const v3820 =
-        v3782[
+      const v3928 =
+        v3890[
           stdlib.checkedBigNumberify(
-            "./index.rsh:108:10:spread",
+            "./index.rsh:112:10:spread",
             stdlib.UInt_max,
             "1"
           )
         ];
-      const v3821 = stdlib.gt(v3820, v1523);
-      const v3822 = v3821
-        ? v3820
+      const v3929 = stdlib.gt(v3928, v1554);
+      const v3930 = v3929
+        ? v3928
         : stdlib.checkedBigNumberify(
-            "./index.rsh:111:30:decimal",
+            "./index.rsh:115:30:decimal",
             stdlib.UInt_max,
             "0"
           );
-      const v3836 = stdlib.add(v1506, v3822);
-      const v3953 =
-        v3782[
+      const v3944 = stdlib.add(v1533, v3930);
+      const v4066 =
+        v3890[
           stdlib.checkedBigNumberify(
-            "./index.rsh:108:10:spread",
+            "./index.rsh:112:10:spread",
             stdlib.UInt_max,
             "0"
           )
         ];
-      const v3958 = stdlib.protect(
+      const v4071 = stdlib.protect(
         map0_ctc,
-        await stdlib.mapRef(map0, v3953),
+        await stdlib.mapRef(map0, v4066),
         null
       );
-      const v3959 = stdlib.fromSome(
-        v3958,
+      const v4072 = stdlib.fromSome(
+        v4071,
         stdlib.checkedBigNumberify(
-          "./index.rsh:113:60:decimal",
+          "./index.rsh:117:60:decimal",
           stdlib.UInt_max,
           "0"
         )
       );
-      const v3960 = stdlib.protect(
+      const v4073 = stdlib.protect(
         map3_ctc,
-        await stdlib.mapRef(map3, v3953),
+        await stdlib.mapRef(map3, v4066),
         null
       );
-      const v3961 = {
+      const v4074 = {
         None: 0,
         Some: 1,
-      }[v3960[0]];
-      const v3962 = stdlib.eq(
-        v3961,
+      }[v4073[0]];
+      const v4075 = stdlib.eq(
+        v4074,
         stdlib.checkedBigNumberify(
           "reach standard library:38:41:application",
           stdlib.UInt_max,
           "1"
         )
       );
-      if (v3962) {
-        const v3963 = stdlib.safeAdd(v3959, v3820);
-        await stdlib.mapSet(map0, v3953, v3963);
-        const v3964 = true;
-        const v3965 = await txn1.getOutput(
+      if (v4075) {
+        const v4076 = stdlib.safeAdd(v4072, v3928);
+        await stdlib.mapSet(map0, v4066, v4076);
+        const v4077 = true;
+        const v4078 = await txn1.getOutput(
           "Admin_setReward",
-          "v3964",
+          "v4077",
           ctc6,
-          v3964
+          v4077
         );
-        if (v957) {
-          stdlib.protect(ctc0, await interact.out(v3782, v3965), {
-            at: "./index.rsh:108:11:application",
+        if (v965) {
+          stdlib.protect(ctc0, await interact.out(v3890, v4078), {
+            at: "./index.rsh:112:11:application",
             fs: [
-              "at ./index.rsh:108:11:application call to [unknown function] (defined at: ./index.rsh:108:11:function exp)",
-              'at ./index.rsh:116:16:application call to "ret" (defined at: ./index.rsh:112:15:function exp)',
-              "at ./index.rsh:112:15:application call to [unknown function] (defined at: ./index.rsh:112:15:function exp)",
+              "at ./index.rsh:112:11:application call to [unknown function] (defined at: ./index.rsh:112:11:function exp)",
+              'at ./index.rsh:120:16:application call to "ret" (defined at: ./index.rsh:116:15:function exp)',
+              "at ./index.rsh:116:15:application call to [unknown function] (defined at: ./index.rsh:116:15:function exp)",
             ],
             msg: "out",
             who: "Admin_setReward",
@@ -2957,59 +3146,61 @@ export async function _Admin_setReward3(ctcTop, interact) {
         } else {
         }
 
-        let v3978;
-        if (v3821) {
-          const v3979 = stdlib.safeAdd(v1523, v3820);
-          v3978 = v3979;
+        let v4092;
+        if (v3929) {
+          const v4093 = stdlib.safeAdd(v1554, v3928);
+          v4092 = v4093;
         } else {
-          v3978 = v1523;
+          v4092 = v1554;
         }
-        const v3980 = {
-          bal: v3978,
-          keepGoing: v1524,
-          total_amount_claimed: v1525,
-          total_rewards_allcoated: v1526,
-          total_users_claim: v1527,
-          usersNo: v1528,
+        const v4094 = {
+          bal: v4092,
+          keepGoing: v1555,
+          percent: v1556,
+          total_amount_claimed: v1557,
+          total_rewards_allcoated: v1558,
+          total_users_claim: v1559,
+          usersNo: v1560,
         };
-        const v9280 = v3836;
-        const v9281 = v3980.keepGoing;
-        if (v9281) {
-          const v9282 = v3980.bal;
-          const v9284 = v3980.total_amount_claimed;
-          const v9285 = v3980.total_rewards_allcoated;
-          const v9286 = v3980.total_users_claim;
-          const v9287 = v3980.usersNo;
+        const v9650 = v3944;
+        const v9651 = v4094.keepGoing;
+        if (v9651) {
+          const v9652 = v4094.bal;
+          const v9654 = v4094.percent;
+          const v9655 = v4094.total_amount_claimed;
+          const v9656 = v4094.total_rewards_allcoated;
+          const v9657 = v4094.total_users_claim;
+          const v9658 = v4094.usersNo;
           return;
         } else {
-          const v9291 = stdlib.sub(v3836, v3836);
-          const v9292 = stdlib.le(await ctc.getBalance(), v9291)
+          const v9663 = stdlib.sub(v3944, v3944);
+          const v9664 = stdlib.le(await ctc.getBalance(), v9663)
             ? stdlib.checkedBigNumberify(
-                "./index.rsh:294:29:application",
+                "./index.rsh:298:29:application",
                 stdlib.UInt_max,
                 "0"
               )
-            : stdlib.safeSub(await ctc.getBalance(), v9291);
+            : stdlib.safeSub(await ctc.getBalance(), v9663);
           return;
         }
       } else {
-        if (v3821) {
-          const v3982 = "Your user hasn't opted in                                                                                                                                                                               ";
+        if (v3929) {
+          const v4096 = "Your user hasn't opted in                                                                                                                                                                               ";
           null;
-          const v3983 = false;
-          const v3984 = await txn1.getOutput(
+          const v4097 = false;
+          const v4098 = await txn1.getOutput(
             "Admin_setReward",
-            "v3983",
+            "v4097",
             ctc6,
-            v3983
+            v4097
           );
-          if (v957) {
-            stdlib.protect(ctc0, await interact.out(v3782, v3984), {
-              at: "./index.rsh:108:11:application",
+          if (v965) {
+            stdlib.protect(ctc0, await interact.out(v3890, v4098), {
+              at: "./index.rsh:112:11:application",
               fs: [
-                "at ./index.rsh:108:11:application call to [unknown function] (defined at: ./index.rsh:108:11:function exp)",
-                'at ./index.rsh:123:16:application call to "ret" (defined at: ./index.rsh:112:15:function exp)',
-                "at ./index.rsh:112:15:application call to [unknown function] (defined at: ./index.rsh:112:15:function exp)",
+                "at ./index.rsh:112:11:application call to [unknown function] (defined at: ./index.rsh:112:11:function exp)",
+                'at ./index.rsh:127:16:application call to "ret" (defined at: ./index.rsh:116:15:function exp)',
+                "at ./index.rsh:116:15:application call to [unknown function] (defined at: ./index.rsh:116:15:function exp)",
               ],
               msg: "out",
               who: "Admin_setReward",
@@ -3017,53 +3208,55 @@ export async function _Admin_setReward3(ctcTop, interact) {
           } else {
           }
 
-          const v3998 = stdlib.safeAdd(v1523, v3820);
-          const v3999 = {
-            bal: v3998,
-            keepGoing: v1524,
-            total_amount_claimed: v1525,
-            total_rewards_allcoated: v1526,
-            total_users_claim: v1527,
-            usersNo: v1528,
+          const v4113 = stdlib.safeAdd(v1554, v3928);
+          const v4114 = {
+            bal: v4113,
+            keepGoing: v1555,
+            percent: v1556,
+            total_amount_claimed: v1557,
+            total_rewards_allcoated: v1558,
+            total_users_claim: v1559,
+            usersNo: v1560,
           };
-          const v9295 = v3836;
-          const v9296 = v3999.keepGoing;
-          if (v9296) {
-            const v9297 = v3999.bal;
-            const v9299 = v3999.total_amount_claimed;
-            const v9300 = v3999.total_rewards_allcoated;
-            const v9301 = v3999.total_users_claim;
-            const v9302 = v3999.usersNo;
+          const v9667 = v3944;
+          const v9668 = v4114.keepGoing;
+          if (v9668) {
+            const v9669 = v4114.bal;
+            const v9671 = v4114.percent;
+            const v9672 = v4114.total_amount_claimed;
+            const v9673 = v4114.total_rewards_allcoated;
+            const v9674 = v4114.total_users_claim;
+            const v9675 = v4114.usersNo;
             return;
           } else {
-            const v9306 = stdlib.sub(v3836, v3836);
-            const v9307 = stdlib.le(await ctc.getBalance(), v9306)
+            const v9680 = stdlib.sub(v3944, v3944);
+            const v9681 = stdlib.le(await ctc.getBalance(), v9680)
               ? stdlib.checkedBigNumberify(
-                  "./index.rsh:294:29:application",
+                  "./index.rsh:298:29:application",
                   stdlib.UInt_max,
                   "0"
                 )
-              : stdlib.safeSub(await ctc.getBalance(), v9306);
+              : stdlib.safeSub(await ctc.getBalance(), v9680);
             return;
           }
         } else {
-          const v4001 =
+          const v4116 =
             "The balance you are trying to set for the user is invalid and they haven't opted in                                                                                                                     ";
           null;
-          const v4002 = false;
-          const v4003 = await txn1.getOutput(
+          const v4117 = false;
+          const v4118 = await txn1.getOutput(
             "Admin_setReward",
-            "v4002",
+            "v4117",
             ctc6,
-            v4002
+            v4117
           );
-          if (v957) {
-            stdlib.protect(ctc0, await interact.out(v3782, v4003), {
-              at: "./index.rsh:108:11:application",
+          if (v965) {
+            stdlib.protect(ctc0, await interact.out(v3890, v4118), {
+              at: "./index.rsh:112:11:application",
               fs: [
-                "at ./index.rsh:108:11:application call to [unknown function] (defined at: ./index.rsh:108:11:function exp)",
-                'at ./index.rsh:135:16:application call to "ret" (defined at: ./index.rsh:112:15:function exp)',
-                "at ./index.rsh:112:15:application call to [unknown function] (defined at: ./index.rsh:112:15:function exp)",
+                "at ./index.rsh:112:11:application call to [unknown function] (defined at: ./index.rsh:112:11:function exp)",
+                'at ./index.rsh:139:16:application call to "ret" (defined at: ./index.rsh:116:15:function exp)',
+                "at ./index.rsh:116:15:application call to [unknown function] (defined at: ./index.rsh:116:15:function exp)",
               ],
               msg: "out",
               who: "Admin_setReward",
@@ -3071,50 +3264,52 @@ export async function _Admin_setReward3(ctcTop, interact) {
           } else {
           }
 
-          const v4018 = {
-            bal: v1523,
-            keepGoing: v1524,
-            total_amount_claimed: v1525,
-            total_rewards_allcoated: v1526,
-            total_users_claim: v1527,
-            usersNo: v1528,
+          const v4134 = {
+            bal: v1554,
+            keepGoing: v1555,
+            percent: v1556,
+            total_amount_claimed: v1557,
+            total_rewards_allcoated: v1558,
+            total_users_claim: v1559,
+            usersNo: v1560,
           };
-          const v9310 = v3836;
-          const v9311 = v4018.keepGoing;
-          if (v9311) {
-            const v9312 = v4018.bal;
-            const v9314 = v4018.total_amount_claimed;
-            const v9315 = v4018.total_rewards_allcoated;
-            const v9316 = v4018.total_users_claim;
-            const v9317 = v4018.usersNo;
+          const v9684 = v3944;
+          const v9685 = v4134.keepGoing;
+          if (v9685) {
+            const v9686 = v4134.bal;
+            const v9688 = v4134.percent;
+            const v9689 = v4134.total_amount_claimed;
+            const v9690 = v4134.total_rewards_allcoated;
+            const v9691 = v4134.total_users_claim;
+            const v9692 = v4134.usersNo;
             return;
           } else {
-            const v9321 = stdlib.sub(v3836, v3836);
-            const v9322 = stdlib.le(await ctc.getBalance(), v9321)
+            const v9697 = stdlib.sub(v3944, v3944);
+            const v9698 = stdlib.le(await ctc.getBalance(), v9697)
               ? stdlib.checkedBigNumberify(
-                  "./index.rsh:294:29:application",
+                  "./index.rsh:298:29:application",
                   stdlib.UInt_max,
                   "0"
                 )
-              : stdlib.safeSub(await ctc.getBalance(), v9321);
+              : stdlib.safeSub(await ctc.getBalance(), v9697);
             return;
           }
         }
       }
       break;
     }
-    case "User_claim0_90": {
-      const v4195 = v1714[1];
+    case "User_claim0_98": {
+      const v4318 = v1747[1];
       return;
       break;
     }
-    case "User_claimAll0_90": {
-      const v4608 = v1714[1];
+    case "User_claimAll0_98": {
+      const v4746 = v1747[1];
       return;
       break;
     }
-    case "User_optin0_90": {
-      const v5021 = v1714[1];
+    case "User_optin0_98": {
+      const v5174 = v1747[1];
       return;
       break;
     }
@@ -3156,15 +3351,15 @@ export async function Deployer(ctcTop, interact) {
   const ctc8 = stdlib.T_Tuple([ctc5, ctc1]);
   const ctc9 = stdlib.T_Tuple([]);
   const ctc10 = stdlib.T_Data({
-    Admin_addAdmin0_90: ctc6,
-    Admin_deposit0_90: ctc7,
-    Admin_editUserReward0_90: ctc8,
-    Admin_endContractAndTransfer0_90: ctc9,
-    Admin_revokeAdmin0_90: ctc6,
-    Admin_setReward0_90: ctc8,
-    User_claim0_90: ctc7,
-    User_claimAll0_90: ctc9,
-    User_optin0_90: ctc9,
+    Admin_addAdmin0_98: ctc6,
+    Admin_deposit0_98: ctc7,
+    Admin_editUserReward0_98: ctc8,
+    Admin_endContractAndTransfer0_98: ctc9,
+    Admin_revokeAdmin0_98: ctc6,
+    Admin_setReward0_98: ctc8,
+    User_claim0_98: ctc7,
+    User_claimAll0_98: ctc9,
+    User_optin0_98: ctc9,
   });
   const ctc11 = stdlib.T_Bool;
 
@@ -3200,18 +3395,18 @@ export async function Deployer(ctcTop, interact) {
     ty: map3_ctc,
   });
 
-  const v1481 = stdlib.protect(
+  const v1506 = stdlib.protect(
     ctc4,
     interact.projectName,
     "for Deployer's interact field projectName"
   );
 
   const txn1 = await ctc.sendrecv({
-    args: [v1481],
+    args: [v1506],
     evt_cnt: 1,
     funcNum: 0,
     lct: stdlib.checkedBigNumberify(
-      "./index.rsh:53:12:dot",
+      "./index.rsh:55:12:dot",
       stdlib.UInt_max,
       "0"
     ),
@@ -3219,7 +3414,7 @@ export async function Deployer(ctcTop, interact) {
     out_tys: [ctc4],
     pay: [
       stdlib.checkedBigNumberify(
-        "./index.rsh:53:12:decimal",
+        "./index.rsh:55:12:decimal",
         stdlib.UInt_max,
         "0"
       ),
@@ -3239,18 +3434,27 @@ export async function Deployer(ctcTop, interact) {
       stdlib.simMapDupe(sim_r, 3, map3);
 
       const {
-        data: [v1485],
-        secs: v1487,
-        time: v1486,
+        data: [v1510],
+        secs: v1512,
+        time: v1511,
         didSend: v27,
-        from: v1484,
+        from: v1509,
       } = txn1;
 
-      const v1488 = await ctc.getContractInfo();
+      const v1513 = await ctc.getContractInfo();
 
-      const v1501 = {
+      const v1526 = {
+        i: stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "5"),
+        scale: stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "100"),
+      };
+      const v1527 = {
+        i: v1526,
+        sign: true,
+      };
+      const v1528 = {
         bal: stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "0"),
         keepGoing: true,
+        percent: v1527,
         total_amount_claimed: stdlib.checkedBigNumberify(
           "<builtin>",
           stdlib.UInt_max,
@@ -3268,45 +3472,46 @@ export async function Deployer(ctcTop, interact) {
         ),
         usersNo: stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "0"),
       };
-      const v1502 = v1501;
-      const v1503 = v1486;
-      const v1506 = stdlib.checkedBigNumberify(
-        "./index.rsh:48:9:after expr stmt semicolon",
+      const v1529 = v1528;
+      const v1530 = v1511;
+      const v1533 = stdlib.checkedBigNumberify(
+        "./index.rsh:50:9:after expr stmt semicolon",
         stdlib.UInt_max,
         "0"
       );
 
       if (
         await (async () => {
-          const v1517 = v1502.keepGoing;
+          const v1546 = v1529.keepGoing;
 
-          return v1517;
+          return v1546;
         })()
       ) {
-        const v1523 = v1502.bal;
-        const v1524 = v1502.keepGoing;
-        const v1525 = v1502.total_amount_claimed;
-        const v1526 = v1502.total_rewards_allcoated;
-        const v1527 = v1502.total_users_claim;
-        const v1528 = v1502.usersNo;
+        const v1554 = v1529.bal;
+        const v1555 = v1529.keepGoing;
+        const v1556 = v1529.percent;
+        const v1557 = v1529.total_amount_claimed;
+        const v1558 = v1529.total_rewards_allcoated;
+        const v1559 = v1529.total_users_claim;
+        const v1560 = v1529.usersNo;
         sim_r.isHalt = false;
       } else {
-        const v5444 = stdlib.sub(v1506, v1506);
+        const v5614 = stdlib.sub(v1533, v1533);
         sim_r.txns.push({
           kind: "from",
-          to: v1484,
+          to: v1509,
           tok: undefined /* Nothing */,
         });
-        const v5446 = stdlib.le(await ctc.getBalance(), v5444)
+        const v5616 = stdlib.le(await ctc.getBalance(), v5614)
           ? stdlib.checkedBigNumberify(
-              "./index.rsh:294:29:application",
+              "./index.rsh:298:29:application",
               stdlib.UInt_max,
               "0"
             )
-          : stdlib.safeSub(await ctc.getBalance(), v5444);
+          : stdlib.safeSub(await ctc.getBalance(), v5614);
         sim_r.txns.push({
           kind: "from",
-          to: v1484,
+          to: v1509,
           tok: undefined /* Nothing */,
         });
         sim_r.txns.push({
@@ -3323,26 +3528,35 @@ export async function Deployer(ctcTop, interact) {
     waitIfNotPresent: false,
   });
   const {
-    data: [v1485],
-    secs: v1487,
-    time: v1486,
+    data: [v1510],
+    secs: v1512,
+    time: v1511,
     didSend: v27,
-    from: v1484,
+    from: v1509,
   } = txn1;
-  const v1488 = await ctc.getContractInfo();
-  stdlib.protect(ctc0, await interact.notify(v1488), {
-    at: "./index.rsh:55:27:application",
+  const v1513 = await ctc.getContractInfo();
+  stdlib.protect(ctc0, await interact.notify(v1513), {
+    at: "./index.rsh:57:27:application",
     fs: [
-      "at ./index.rsh:55:27:application call to [unknown function] (defined at: ./index.rsh:55:27:function exp)",
-      'at ./index.rsh:55:27:application call to "liftedInteract" (defined at: ./index.rsh:55:27:application)',
+      "at ./index.rsh:57:27:application call to [unknown function] (defined at: ./index.rsh:57:27:function exp)",
+      'at ./index.rsh:57:27:application call to "liftedInteract" (defined at: ./index.rsh:57:27:application)',
     ],
     msg: "notify",
     who: "Deployer",
   });
 
-  const v1501 = {
+  const v1526 = {
+    i: stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "5"),
+    scale: stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "100"),
+  };
+  const v1527 = {
+    i: v1526,
+    sign: true,
+  };
+  const v1528 = {
     bal: stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "0"),
     keepGoing: true,
+    percent: v1527,
     total_amount_claimed: stdlib.checkedBigNumberify(
       "<builtin>",
       stdlib.UInt_max,
@@ -3360,10 +3574,10 @@ export async function Deployer(ctcTop, interact) {
     ),
     usersNo: stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "0"),
   };
-  let v1502 = v1501;
-  let v1503 = v1486;
-  let v1506 = stdlib.checkedBigNumberify(
-    "./index.rsh:48:9:after expr stmt semicolon",
+  let v1529 = v1528;
+  let v1530 = v1511;
+  let v1533 = stdlib.checkedBigNumberify(
+    "./index.rsh:50:9:after expr stmt semicolon",
     stdlib.UInt_max,
     "0"
   );
@@ -3371,17 +3585,18 @@ export async function Deployer(ctcTop, interact) {
   let txn2 = txn1;
   while (
     await (async () => {
-      const v1517 = v1502.keepGoing;
+      const v1546 = v1529.keepGoing;
 
-      return v1517;
+      return v1546;
     })()
   ) {
-    const v1523 = v1502.bal;
-    const v1524 = v1502.keepGoing;
-    const v1525 = v1502.total_amount_claimed;
-    const v1526 = v1502.total_rewards_allcoated;
-    const v1527 = v1502.total_users_claim;
-    const v1528 = v1502.usersNo;
+    const v1554 = v1529.bal;
+    const v1555 = v1529.keepGoing;
+    const v1556 = v1529.percent;
+    const v1557 = v1529.total_amount_claimed;
+    const v1558 = v1529.total_rewards_allcoated;
+    const v1559 = v1529.total_users_claim;
+    const v1560 = v1529.usersNo;
     const txn3 = await ctc.recv({
       didSend: false,
       evt_cnt: 1,
@@ -3391,436 +3606,444 @@ export async function Deployer(ctcTop, interact) {
       waitIfNotPresent: false,
     });
     const {
-      data: [v1714],
-      secs: v1716,
-      time: v1715,
-      didSend: v957,
-      from: v1713,
+      data: [v1747],
+      secs: v1749,
+      time: v1748,
+      didSend: v965,
+      from: v1746,
     } = txn3;
-    switch (v1714[0]) {
-      case "Admin_addAdmin0_90": {
-        const v1717 = v1714[1];
+    switch (v1747[0]) {
+      case "Admin_addAdmin0_98": {
+        const v1750 = v1747[1];
         undefined /* setApiDetails */;
-        const v1723 = stdlib.addressEq(v1713, v1484);
-        const v1724 = stdlib.protect(
+        const v1756 = stdlib.addressEq(v1746, v1509);
+        const v1757 = stdlib.protect(
           map1_ctc,
-          await stdlib.mapRef(map1, v1713),
+          await stdlib.mapRef(map1, v1746),
           null
         );
-        const v1725 = {
+        const v1758 = {
           None: 0,
           Some: 1,
-        }[v1724[0]];
-        const v1726 = stdlib.eq(
-          v1725,
+        }[v1757[0]];
+        const v1759 = stdlib.eq(
+          v1758,
           stdlib.checkedBigNumberify(
             "reach standard library:38:41:application",
             stdlib.UInt_max,
             "1"
           )
         );
-        const v1727 = v1723 ? true : v1726;
-        stdlib.assert(v1727, {
+        const v1760 = v1756 ? true : v1759;
+        stdlib.assert(v1760, {
           at: "reach standard library:57:5:application",
           fs: [
-            'at ./index.rsh:157:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
-            "at ./index.rsh:156:34:application call to [unknown function] (defined at: ./index.rsh:156:34:function exp)",
-            "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:156:34:function exp)",
-            "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:70:37:function exp)",
+            'at ./index.rsh:161:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
+            "at ./index.rsh:160:34:application call to [unknown function] (defined at: ./index.rsh:160:34:function exp)",
+            "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:160:34:function exp)",
+            "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:72:37:function exp)",
           ],
           msg: "You Are unable to register another Admin",
           who: "Deployer",
         });
-        const v1773 =
-          v1717[
+        const v1806 =
+          v1750[
             stdlib.checkedBigNumberify(
-              "./index.rsh:156:10:spread",
+              "./index.rsh:160:10:spread",
               stdlib.UInt_max,
               "0"
             )
           ];
-        await stdlib.mapSet(map1, v1773, null);
-        const v1782 = null;
-        await txn3.getOutput("Admin_addAdmin", "v1782", ctc0, v1782);
-        const v1795 = {
-          bal: v1523,
-          keepGoing: v1524,
-          total_amount_claimed: v1525,
-          total_rewards_allcoated: v1526,
-          total_users_claim: v1527,
-          usersNo: v1528,
+        await stdlib.mapSet(map1, v1806, null);
+        const v1815 = null;
+        await txn3.getOutput("Admin_addAdmin", "v1815", ctc0, v1815);
+        const v1829 = {
+          bal: v1554,
+          keepGoing: v1555,
+          percent: v1556,
+          total_amount_claimed: v1557,
+          total_rewards_allcoated: v1558,
+          total_users_claim: v1559,
+          usersNo: v1560,
         };
-        const cv1502 = v1795;
-        const cv1503 = v1715;
-        const cv1506 = v1506;
+        const cv1529 = v1829;
+        const cv1530 = v1748;
+        const cv1533 = v1533;
 
-        v1502 = cv1502;
-        v1503 = cv1503;
-        v1506 = cv1506;
+        v1529 = cv1529;
+        v1530 = cv1530;
+        v1533 = cv1533;
 
         txn2 = txn3;
         continue;
         break;
       }
-      case "Admin_deposit0_90": {
-        const v2130 = v1714[1];
+      case "Admin_deposit0_98": {
+        const v2178 = v1747[1];
         undefined /* setApiDetails */;
-        const v2143 =
-          v2130[
+        const v2191 =
+          v2178[
             stdlib.checkedBigNumberify(
-              "./index.rsh:95:10:spread",
+              "./index.rsh:99:10:spread",
               stdlib.UInt_max,
               "0"
             )
           ];
-        const v2144 = stdlib.addressEq(v1713, v1484);
-        const v2145 = stdlib.protect(
+        const v2192 = stdlib.addressEq(v1746, v1509);
+        const v2193 = stdlib.protect(
           map1_ctc,
-          await stdlib.mapRef(map1, v1713),
+          await stdlib.mapRef(map1, v1746),
           null
         );
-        const v2146 = {
+        const v2194 = {
           None: 0,
           Some: 1,
-        }[v2145[0]];
-        const v2147 = stdlib.eq(
-          v2146,
+        }[v2193[0]];
+        const v2195 = stdlib.eq(
+          v2194,
           stdlib.checkedBigNumberify(
             "reach standard library:38:41:application",
             stdlib.UInt_max,
             "1"
           )
         );
-        const v2148 = v2144 ? true : v2147;
-        stdlib.assert(v2148, {
+        const v2196 = v2192 ? true : v2195;
+        stdlib.assert(v2196, {
           at: "reach standard library:57:5:application",
           fs: [
-            'at ./index.rsh:96:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
-            "at ./index.rsh:95:32:application call to [unknown function] (defined at: ./index.rsh:95:32:function exp)",
-            "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:95:32:function exp)",
-            "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:70:37:function exp)",
+            'at ./index.rsh:100:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
+            "at ./index.rsh:99:32:application call to [unknown function] (defined at: ./index.rsh:99:32:function exp)",
+            "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:99:32:function exp)",
+            "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:72:37:function exp)",
           ],
           msg: "Only Admins can deposit",
           who: "Deployer",
         });
-        const v2184 = stdlib.add(v1506, v2143);
-        const v2219 = null;
-        await txn3.getOutput("Admin_deposit", "v2219", ctc0, v2219);
-        const v2232 = stdlib.safeAdd(v1523, v2143);
-        const v2233 = {
-          bal: v2232,
-          keepGoing: v1524,
-          total_amount_claimed: v1525,
-          total_rewards_allcoated: v1526,
-          total_users_claim: v1527,
-          usersNo: v1528,
+        const v2232 = stdlib.add(v1533, v2191);
+        const v2268 = null;
+        await txn3.getOutput("Admin_deposit", "v2268", ctc0, v2268);
+        const v2282 = stdlib.safeAdd(v1554, v2191);
+        const v2283 = {
+          bal: v2282,
+          keepGoing: v1555,
+          percent: v1556,
+          total_amount_claimed: v1557,
+          total_rewards_allcoated: v1558,
+          total_users_claim: v1559,
+          usersNo: v1560,
         };
-        const cv1502 = v2233;
-        const cv1503 = v1715;
-        const cv1506 = v2184;
+        const cv1529 = v2283;
+        const cv1530 = v1748;
+        const cv1533 = v2232;
 
-        v1502 = cv1502;
-        v1503 = cv1503;
-        v1506 = cv1506;
+        v1529 = cv1529;
+        v1530 = cv1530;
+        v1533 = cv1533;
 
         txn2 = txn3;
         continue;
         break;
       }
-      case "Admin_editUserReward0_90": {
-        const v2543 = v1714[1];
+      case "Admin_editUserReward0_98": {
+        const v2606 = v1747[1];
         undefined /* setApiDetails */;
-        const v2566 = stdlib.addressEq(v1713, v1484);
-        const v2567 = stdlib.protect(
+        const v2629 = stdlib.addressEq(v1746, v1509);
+        const v2630 = stdlib.protect(
           map1_ctc,
-          await stdlib.mapRef(map1, v1713),
+          await stdlib.mapRef(map1, v1746),
           null
         );
-        const v2568 = {
+        const v2631 = {
           None: 0,
           Some: 1,
-        }[v2567[0]];
-        const v2569 = stdlib.eq(
-          v2568,
+        }[v2630[0]];
+        const v2632 = stdlib.eq(
+          v2631,
           stdlib.checkedBigNumberify(
             "reach standard library:38:41:application",
             stdlib.UInt_max,
             "1"
           )
         );
-        const v2570 = v2566 ? true : v2569;
-        stdlib.assert(v2570, {
+        const v2633 = v2629 ? true : v2632;
+        stdlib.assert(v2633, {
           at: "reach standard library:57:5:application",
           fs: [
-            'at ./index.rsh:145:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
-            "at ./index.rsh:144:45:application call to [unknown function] (defined at: ./index.rsh:144:45:function exp)",
-            "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:144:45:function exp)",
-            "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:70:37:function exp)",
+            'at ./index.rsh:149:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
+            "at ./index.rsh:148:45:application call to [unknown function] (defined at: ./index.rsh:148:45:function exp)",
+            "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:148:45:function exp)",
+            "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:72:37:function exp)",
           ],
           msg: "Only Admins can deposit",
           who: "Deployer",
         });
-        const v2649 =
-          v2543[
+        const v2714 =
+          v2606[
             stdlib.checkedBigNumberify(
-              "./index.rsh:144:10:spread",
+              "./index.rsh:148:10:spread",
               stdlib.UInt_max,
               "0"
             )
           ];
-        const v2650 =
-          v2543[
+        const v2715 =
+          v2606[
             stdlib.checkedBigNumberify(
-              "./index.rsh:144:10:spread",
+              "./index.rsh:148:10:spread",
               stdlib.UInt_max,
               "1"
             )
           ];
-        await stdlib.mapSet(map0, v2649, v2650);
-        const v2659 = null;
-        await txn3.getOutput("Admin_editUserReward", "v2659", ctc0, v2659);
-        const v2673 = {
-          bal: v1523,
-          keepGoing: v1524,
-          total_amount_claimed: v1525,
-          total_rewards_allcoated: v1526,
-          total_users_claim: v1527,
-          usersNo: v1528,
+        await stdlib.mapSet(map0, v2714, v2715);
+        const v2724 = null;
+        await txn3.getOutput("Admin_editUserReward", "v2724", ctc0, v2724);
+        const v2739 = {
+          bal: v1554,
+          keepGoing: v1555,
+          percent: v1556,
+          total_amount_claimed: v1557,
+          total_rewards_allcoated: v1558,
+          total_users_claim: v1559,
+          usersNo: v1560,
         };
-        const cv1502 = v2673;
-        const cv1503 = v1715;
-        const cv1506 = v1506;
+        const cv1529 = v2739;
+        const cv1530 = v1748;
+        const cv1533 = v1533;
 
-        v1502 = cv1502;
-        v1503 = cv1503;
-        v1506 = cv1506;
+        v1529 = cv1529;
+        v1530 = cv1530;
+        v1533 = cv1533;
 
         txn2 = txn3;
         continue;
         break;
       }
-      case "Admin_endContractAndTransfer0_90": {
-        const v2956 = v1714[1];
+      case "Admin_endContractAndTransfer0_98": {
+        const v3034 = v1747[1];
         undefined /* setApiDetails */;
-        const v2986 = stdlib.addressEq(v1484, v1713);
-        stdlib.assert(v2986, {
+        const v3064 = stdlib.addressEq(v1509, v1746);
+        stdlib.assert(v3064, {
           at: "reach standard library:57:5:application",
           fs: [
-            'at ./index.rsh:282:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
-            "at ./index.rsh:281:44:application call to [unknown function] (defined at: ./index.rsh:281:44:function exp)",
-            "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:281:44:function exp)",
-            "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:70:37:function exp)",
+            'at ./index.rsh:286:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
+            "at ./index.rsh:285:44:application call to [unknown function] (defined at: ./index.rsh:285:44:function exp)",
+            "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:285:44:function exp)",
+            "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:72:37:function exp)",
           ],
           msg: "Cannot end contract without being Deployer",
           who: "Deployer",
         });
-        const v3091 = null;
+        const v3172 = null;
         await txn3.getOutput(
           "Admin_endContractAndTransfer",
-          "v3091",
+          "v3172",
           ctc0,
-          v3091
+          v3172
         );
-        const v3103 = {
-          bal: v1523,
-          keepGoing: v1524,
-          total_amount_claimed: v1525,
-          total_rewards_allcoated: v1526,
-          total_users_claim: v1527,
-          usersNo: v1528,
+        const v3185 = {
+          bal: v1554,
+          keepGoing: v1555,
+          percent: v1556,
+          total_amount_claimed: v1557,
+          total_rewards_allcoated: v1558,
+          total_users_claim: v1559,
+          usersNo: v1560,
         };
-        const cv1502 = v3103;
-        const cv1503 = v1715;
-        const cv1506 = v1506;
+        const cv1529 = v3185;
+        const cv1530 = v1748;
+        const cv1533 = v1533;
 
-        v1502 = cv1502;
-        v1503 = cv1503;
-        v1506 = cv1506;
+        v1529 = cv1529;
+        v1530 = cv1530;
+        v1533 = cv1533;
 
         txn2 = txn3;
         continue;
         break;
       }
-      case "Admin_revokeAdmin0_90": {
-        const v3369 = v1714[1];
+      case "Admin_revokeAdmin0_98": {
+        const v3462 = v1747[1];
         undefined /* setApiDetails */;
-        const v3403 = stdlib.addressEq(v1713, v1484);
-        stdlib.assert(v3403, {
+        const v3496 = stdlib.addressEq(v1746, v1509);
+        stdlib.assert(v3496, {
           at: "reach standard library:57:5:application",
           fs: [
-            'at ./index.rsh:171:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
-            "at ./index.rsh:170:37:application call to [unknown function] (defined at: ./index.rsh:170:37:function exp)",
-            "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:170:37:function exp)",
-            "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:70:37:function exp)",
+            'at ./index.rsh:175:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
+            "at ./index.rsh:174:37:application call to [unknown function] (defined at: ./index.rsh:174:37:function exp)",
+            "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:174:37:function exp)",
+            "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:72:37:function exp)",
           ],
           msg: "Only the Deployer can revoke Admin Rights",
           who: "Deployer",
         });
-        const v3519 =
-          v3369[
+        const v3616 =
+          v3462[
             stdlib.checkedBigNumberify(
-              "./index.rsh:170:10:spread",
+              "./index.rsh:174:10:spread",
               stdlib.UInt_max,
               "0"
             )
           ];
-        await stdlib.mapSet(map1, v3519, undefined /* Nothing */);
-        const v3524 = null;
-        await txn3.getOutput("Admin_revokeAdmin", "v3524", ctc0, v3524);
-        const v3537 = {
-          bal: v1523,
-          keepGoing: v1524,
-          total_amount_claimed: v1525,
-          total_rewards_allcoated: v1526,
-          total_users_claim: v1527,
-          usersNo: v1528,
+        await stdlib.mapSet(map1, v3616, undefined /* Nothing */);
+        const v3621 = null;
+        await txn3.getOutput("Admin_revokeAdmin", "v3621", ctc0, v3621);
+        const v3635 = {
+          bal: v1554,
+          keepGoing: v1555,
+          percent: v1556,
+          total_amount_claimed: v1557,
+          total_rewards_allcoated: v1558,
+          total_users_claim: v1559,
+          usersNo: v1560,
         };
-        const cv1502 = v3537;
-        const cv1503 = v1715;
-        const cv1506 = v1506;
+        const cv1529 = v3635;
+        const cv1530 = v1748;
+        const cv1533 = v1533;
 
-        v1502 = cv1502;
-        v1503 = cv1503;
-        v1506 = cv1506;
+        v1529 = cv1529;
+        v1530 = cv1530;
+        v1533 = cv1533;
 
         txn2 = txn3;
         continue;
         break;
       }
-      case "Admin_setReward0_90": {
-        const v3782 = v1714[1];
+      case "Admin_setReward0_98": {
+        const v3890 = v1747[1];
         undefined /* setApiDetails */;
-        const v3820 =
-          v3782[
+        const v3928 =
+          v3890[
             stdlib.checkedBigNumberify(
-              "./index.rsh:108:10:spread",
+              "./index.rsh:112:10:spread",
               stdlib.UInt_max,
               "1"
             )
           ];
-        const v3821 = stdlib.gt(v3820, v1523);
-        const v3822 = v3821
-          ? v3820
+        const v3929 = stdlib.gt(v3928, v1554);
+        const v3930 = v3929
+          ? v3928
           : stdlib.checkedBigNumberify(
-              "./index.rsh:111:30:decimal",
+              "./index.rsh:115:30:decimal",
               stdlib.UInt_max,
               "0"
             );
-        const v3836 = stdlib.add(v1506, v3822);
-        const v3953 =
-          v3782[
+        const v3944 = stdlib.add(v1533, v3930);
+        const v4066 =
+          v3890[
             stdlib.checkedBigNumberify(
-              "./index.rsh:108:10:spread",
+              "./index.rsh:112:10:spread",
               stdlib.UInt_max,
               "0"
             )
           ];
-        const v3958 = stdlib.protect(
+        const v4071 = stdlib.protect(
           map0_ctc,
-          await stdlib.mapRef(map0, v3953),
+          await stdlib.mapRef(map0, v4066),
           null
         );
-        const v3959 = stdlib.fromSome(
-          v3958,
+        const v4072 = stdlib.fromSome(
+          v4071,
           stdlib.checkedBigNumberify(
-            "./index.rsh:113:60:decimal",
+            "./index.rsh:117:60:decimal",
             stdlib.UInt_max,
             "0"
           )
         );
-        const v3960 = stdlib.protect(
+        const v4073 = stdlib.protect(
           map3_ctc,
-          await stdlib.mapRef(map3, v3953),
+          await stdlib.mapRef(map3, v4066),
           null
         );
-        const v3961 = {
+        const v4074 = {
           None: 0,
           Some: 1,
-        }[v3960[0]];
-        const v3962 = stdlib.eq(
-          v3961,
+        }[v4073[0]];
+        const v4075 = stdlib.eq(
+          v4074,
           stdlib.checkedBigNumberify(
             "reach standard library:38:41:application",
             stdlib.UInt_max,
             "1"
           )
         );
-        if (v3962) {
-          const v3963 = stdlib.safeAdd(v3959, v3820);
-          await stdlib.mapSet(map0, v3953, v3963);
-          const v3964 = true;
-          await txn3.getOutput("Admin_setReward", "v3964", ctc11, v3964);
-          let v3978;
-          if (v3821) {
-            const v3979 = stdlib.safeAdd(v1523, v3820);
-            v3978 = v3979;
+        if (v4075) {
+          const v4076 = stdlib.safeAdd(v4072, v3928);
+          await stdlib.mapSet(map0, v4066, v4076);
+          const v4077 = true;
+          await txn3.getOutput("Admin_setReward", "v4077", ctc11, v4077);
+          let v4092;
+          if (v3929) {
+            const v4093 = stdlib.safeAdd(v1554, v3928);
+            v4092 = v4093;
           } else {
-            v3978 = v1523;
+            v4092 = v1554;
           }
-          const v3980 = {
-            bal: v3978,
-            keepGoing: v1524,
-            total_amount_claimed: v1525,
-            total_rewards_allcoated: v1526,
-            total_users_claim: v1527,
-            usersNo: v1528,
+          const v4094 = {
+            bal: v4092,
+            keepGoing: v1555,
+            percent: v1556,
+            total_amount_claimed: v1557,
+            total_rewards_allcoated: v1558,
+            total_users_claim: v1559,
+            usersNo: v1560,
           };
-          const cv1502 = v3980;
-          const cv1503 = v1715;
-          const cv1506 = v3836;
+          const cv1529 = v4094;
+          const cv1530 = v1748;
+          const cv1533 = v3944;
 
-          v1502 = cv1502;
-          v1503 = cv1503;
-          v1506 = cv1506;
+          v1529 = cv1529;
+          v1530 = cv1530;
+          v1533 = cv1533;
 
           txn2 = txn3;
           continue;
         } else {
-          if (v3821) {
-            const v3982 = "Your user hasn't opted in                                                                                                                                                                               ";
+          if (v3929) {
+            const v4096 = "Your user hasn't opted in                                                                                                                                                                               ";
             null;
-            const v3983 = false;
-            await txn3.getOutput("Admin_setReward", "v3983", ctc11, v3983);
-            const v3998 = stdlib.safeAdd(v1523, v3820);
-            const v3999 = {
-              bal: v3998,
-              keepGoing: v1524,
-              total_amount_claimed: v1525,
-              total_rewards_allcoated: v1526,
-              total_users_claim: v1527,
-              usersNo: v1528,
+            const v4097 = false;
+            await txn3.getOutput("Admin_setReward", "v4097", ctc11, v4097);
+            const v4113 = stdlib.safeAdd(v1554, v3928);
+            const v4114 = {
+              bal: v4113,
+              keepGoing: v1555,
+              percent: v1556,
+              total_amount_claimed: v1557,
+              total_rewards_allcoated: v1558,
+              total_users_claim: v1559,
+              usersNo: v1560,
             };
-            const cv1502 = v3999;
-            const cv1503 = v1715;
-            const cv1506 = v3836;
+            const cv1529 = v4114;
+            const cv1530 = v1748;
+            const cv1533 = v3944;
 
-            v1502 = cv1502;
-            v1503 = cv1503;
-            v1506 = cv1506;
+            v1529 = cv1529;
+            v1530 = cv1530;
+            v1533 = cv1533;
 
             txn2 = txn3;
             continue;
           } else {
-            const v4001 =
+            const v4116 =
               "The balance you are trying to set for the user is invalid and they haven't opted in                                                                                                                     ";
             null;
-            const v4002 = false;
-            await txn3.getOutput("Admin_setReward", "v4002", ctc11, v4002);
-            const v4018 = {
-              bal: v1523,
-              keepGoing: v1524,
-              total_amount_claimed: v1525,
-              total_rewards_allcoated: v1526,
-              total_users_claim: v1527,
-              usersNo: v1528,
+            const v4117 = false;
+            await txn3.getOutput("Admin_setReward", "v4117", ctc11, v4117);
+            const v4134 = {
+              bal: v1554,
+              keepGoing: v1555,
+              percent: v1556,
+              total_amount_claimed: v1557,
+              total_rewards_allcoated: v1558,
+              total_users_claim: v1559,
+              usersNo: v1560,
             };
-            const cv1502 = v4018;
-            const cv1503 = v1715;
-            const cv1506 = v3836;
+            const cv1529 = v4134;
+            const cv1530 = v1748;
+            const cv1533 = v3944;
 
-            v1502 = cv1502;
-            v1503 = cv1503;
-            v1506 = cv1506;
+            v1529 = cv1529;
+            v1530 = cv1530;
+            v1533 = cv1533;
 
             txn2 = txn3;
             continue;
@@ -3828,184 +4051,187 @@ export async function Deployer(ctcTop, interact) {
         }
         break;
       }
-      case "User_claim0_90": {
-        const v4195 = v1714[1];
+      case "User_claim0_98": {
+        const v4318 = v1747[1];
         undefined /* setApiDetails */;
-        const v4238 = stdlib.protect(
+        const v4361 = stdlib.protect(
           map0_ctc,
-          await stdlib.mapRef(map0, v1713),
+          await stdlib.mapRef(map0, v1746),
           null
         );
-        const v4239 = {
+        const v4362 = {
           None: 0,
           Some: 1,
-        }[v4238[0]];
-        const v4240 = stdlib.eq(
-          v4239,
+        }[v4361[0]];
+        const v4363 = stdlib.eq(
+          v4362,
           stdlib.checkedBigNumberify(
             "reach standard library:38:41:application",
             stdlib.UInt_max,
             "1"
           )
         );
-        stdlib.assert(v4240, {
+        stdlib.assert(v4363, {
           at: "reach standard library:57:5:application",
           fs: [
-            'at ./index.rsh:225:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
-            "at ./index.rsh:224:29:application call to [unknown function] (defined at: ./index.rsh:224:29:function exp)",
-            "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:224:29:function exp)",
-            "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:70:37:function exp)",
+            'at ./index.rsh:229:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
+            "at ./index.rsh:228:29:application call to [unknown function] (defined at: ./index.rsh:228:29:function exp)",
+            "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:228:29:function exp)",
+            "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:72:37:function exp)",
           ],
           msg: "Cannot claim because you have not earned reward",
           who: "Deployer",
         });
-        const v4434 =
-          v4195[
+        const v4565 =
+          v4318[
             stdlib.checkedBigNumberify(
-              "./index.rsh:224:10:spread",
+              "./index.rsh:228:10:spread",
               stdlib.UInt_max,
               "0"
             )
           ];
-        const v4441 = stdlib.fromSome(
-          v4238,
+        const v4572 = stdlib.fromSome(
+          v4361,
           stdlib.checkedBigNumberify(
-            "./index.rsh:232:60:decimal",
+            "./index.rsh:236:60:decimal",
             stdlib.UInt_max,
             "0"
           )
         );
-        const v4442 = stdlib.gt(v4434, v4441);
-        const v4443 = v4442 ? v4441 : v4434;
-        const v4445 = stdlib.gt(v1506, v4443);
-        const v4446 = v4445 ? v4443 : v1506;
-        const v4448 = stdlib.ge(v4441, v1506);
-        if (v4448) {
+        const v4573 = stdlib.gt(v4565, v4572);
+        const v4574 = v4573 ? v4572 : v4565;
+        const v4576 = stdlib.gt(v1533, v4574);
+        const v4577 = v4576 ? v4574 : v1533;
+        const v4579 = stdlib.ge(v4572, v1533);
+        if (v4579) {
           null;
-          const v4449 = false;
-          await txn3.getOutput("User_claim", "v4449", ctc11, v4449);
-          const v4462 = stdlib.safeAdd(
-            v1528,
+          const v4580 = false;
+          await txn3.getOutput("User_claim", "v4580", ctc11, v4580);
+          const v4594 = stdlib.safeAdd(
+            v1560,
             stdlib.checkedBigNumberify(
-              "./index.rsh:238:57:decimal",
+              "./index.rsh:242:57:decimal",
               stdlib.UInt_max,
               "1"
             )
           );
-          const v4463 = {
-            bal: v1523,
-            keepGoing: v1524,
-            total_amount_claimed: v1525,
-            total_rewards_allcoated: v1526,
-            total_users_claim: v1527,
-            usersNo: v4462,
+          const v4595 = {
+            bal: v1554,
+            keepGoing: v1555,
+            percent: v1556,
+            total_amount_claimed: v1557,
+            total_rewards_allcoated: v1558,
+            total_users_claim: v1559,
+            usersNo: v4594,
           };
-          const cv1502 = v4463;
-          const cv1503 = v1715;
-          const cv1506 = v1506;
+          const cv1529 = v4595;
+          const cv1530 = v1748;
+          const cv1533 = v1533;
 
-          v1502 = cv1502;
-          v1503 = cv1503;
-          v1506 = cv1506;
+          v1529 = cv1529;
+          v1530 = cv1530;
+          v1533 = cv1533;
 
           txn2 = txn3;
           continue;
         } else {
-          const v4465 = stdlib.protect(
+          const v4597 = stdlib.protect(
             map2_ctc,
-            await stdlib.mapRef(map2, v1713),
+            await stdlib.mapRef(map2, v1746),
             null
           );
-          const v4466 = {
+          const v4598 = {
             None: 0,
             Some: 1,
-          }[v4465[0]];
-          const v4467 = stdlib.eq(
-            v4466,
+          }[v4597[0]];
+          const v4599 = stdlib.eq(
+            v4598,
             stdlib.checkedBigNumberify(
               "reach standard library:38:41:application",
               stdlib.UInt_max,
               "1"
             )
           );
-          if (v4467) {
-            const v4494 = true;
-            await txn3.getOutput("User_claim", "v4494", ctc11, v4494);
-            const v4504 = stdlib.sub(v1506, v4446);
-            await stdlib.mapSet(map0, v1713, undefined /* Nothing */);
-            const v4511 = stdlib.safeSub(v1523, v4446);
-            const v4512 = stdlib.safeAdd(
-              v1527,
+          if (v4599) {
+            const v4627 = true;
+            await txn3.getOutput("User_claim", "v4627", ctc11, v4627);
+            const v4637 = stdlib.sub(v1533, v4577);
+            await stdlib.mapSet(map0, v1746, undefined /* Nothing */);
+            const v4645 = stdlib.safeSub(v1554, v4577);
+            const v4646 = stdlib.safeAdd(
+              v1559,
               stdlib.checkedBigNumberify(
-                "./index.rsh:261:54:decimal",
+                "./index.rsh:265:54:decimal",
                 stdlib.UInt_max,
                 "1"
               )
             );
-            const v4513 = stdlib.safeAdd(v1525, v4446);
-            const v4514 = {
-              bal: v4511,
-              keepGoing: v1524,
-              total_amount_claimed: v4513,
-              total_rewards_allcoated: v1526,
-              total_users_claim: v4512,
-              usersNo: v1528,
+            const v4647 = stdlib.safeAdd(v1557, v4577);
+            const v4648 = {
+              bal: v4645,
+              keepGoing: v1555,
+              percent: v1556,
+              total_amount_claimed: v4647,
+              total_rewards_allcoated: v1558,
+              total_users_claim: v4646,
+              usersNo: v1560,
             };
-            const cv1502 = v4514;
-            const cv1503 = v1715;
-            const cv1506 = v4504;
+            const cv1529 = v4648;
+            const cv1530 = v1748;
+            const cv1533 = v4637;
 
-            v1502 = cv1502;
-            v1503 = cv1503;
-            v1506 = cv1506;
+            v1529 = cv1529;
+            v1530 = cv1530;
+            v1533 = cv1533;
 
             txn2 = txn3;
             continue;
           } else {
-            const v4469 = true;
-            await txn3.getOutput("User_claim", "v4469", ctc11, v4469);
-            const v4476 = {
-              addr: v1713,
-              amount: v4446,
-              projectName: v1485,
+            const v4601 = true;
+            await txn3.getOutput("User_claim", "v4601", ctc11, v4601);
+            const v4608 = {
+              addr: v1746,
+              amount: v4577,
+              projectName: v1510,
             };
             null;
-            await stdlib.mapSet(map2, v1713, null);
-            const v4481 = stdlib.sub(v1506, v4446);
-            await stdlib.mapSet(map0, v1713, undefined /* Nothing */);
-            const v4488 = stdlib.safeAdd(
-              v1528,
+            await stdlib.mapSet(map2, v1746, null);
+            const v4613 = stdlib.sub(v1533, v4577);
+            await stdlib.mapSet(map0, v1746, undefined /* Nothing */);
+            const v4621 = stdlib.safeAdd(
+              v1560,
               stdlib.checkedBigNumberify(
-                "./index.rsh:249:34:decimal",
+                "./index.rsh:253:34:decimal",
                 stdlib.UInt_max,
                 "1"
               )
             );
-            const v4489 = stdlib.safeSub(v1523, v4446);
-            const v4490 = stdlib.safeAdd(
-              v1527,
+            const v4622 = stdlib.safeSub(v1554, v4577);
+            const v4623 = stdlib.safeAdd(
+              v1559,
               stdlib.checkedBigNumberify(
-                "./index.rsh:251:54:decimal",
+                "./index.rsh:255:54:decimal",
                 stdlib.UInt_max,
                 "1"
               )
             );
-            const v4491 = stdlib.safeAdd(v1525, v4446);
-            const v4492 = {
-              bal: v4489,
-              keepGoing: v1524,
-              total_amount_claimed: v4491,
-              total_rewards_allcoated: v1526,
-              total_users_claim: v4490,
-              usersNo: v4488,
+            const v4624 = stdlib.safeAdd(v1557, v4577);
+            const v4625 = {
+              bal: v4622,
+              keepGoing: v1555,
+              percent: v1556,
+              total_amount_claimed: v4624,
+              total_rewards_allcoated: v1558,
+              total_users_claim: v4623,
+              usersNo: v4621,
             };
-            const cv1502 = v4492;
-            const cv1503 = v1715;
-            const cv1506 = v4481;
+            const cv1529 = v4625;
+            const cv1530 = v1748;
+            const cv1533 = v4613;
 
-            v1502 = cv1502;
-            v1503 = cv1503;
-            v1506 = cv1506;
+            v1529 = cv1529;
+            v1530 = cv1530;
+            v1533 = cv1533;
 
             txn2 = txn3;
             continue;
@@ -4013,174 +4239,177 @@ export async function Deployer(ctcTop, interact) {
         }
         break;
       }
-      case "User_claimAll0_90": {
-        const v4608 = v1714[1];
+      case "User_claimAll0_98": {
+        const v4746 = v1747[1];
         undefined /* setApiDetails */;
-        const v4656 = stdlib.protect(
+        const v4794 = stdlib.protect(
           map0_ctc,
-          await stdlib.mapRef(map0, v1713),
+          await stdlib.mapRef(map0, v1746),
           null
         );
-        const v4657 = {
+        const v4795 = {
           None: 0,
           Some: 1,
-        }[v4656[0]];
-        const v4658 = stdlib.eq(
-          v4657,
+        }[v4794[0]];
+        const v4796 = stdlib.eq(
+          v4795,
           stdlib.checkedBigNumberify(
             "reach standard library:38:41:application",
             stdlib.UInt_max,
             "1"
           )
         );
-        stdlib.assert(v4658, {
+        stdlib.assert(v4796, {
           at: "reach standard library:57:5:application",
           fs: [
-            'at ./index.rsh:182:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
-            "at ./index.rsh:181:29:application call to [unknown function] (defined at: ./index.rsh:181:29:function exp)",
-            "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:181:29:function exp)",
-            "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:70:37:function exp)",
+            'at ./index.rsh:186:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
+            "at ./index.rsh:185:29:application call to [unknown function] (defined at: ./index.rsh:185:29:function exp)",
+            "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:185:29:function exp)",
+            "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:72:37:function exp)",
           ],
           msg: "Cannot claim because you have not earned reward",
           who: "Deployer",
         });
-        const v4935 = stdlib.fromSome(
-          v4656,
+        const v5084 = stdlib.fromSome(
+          v4794,
           stdlib.checkedBigNumberify(
-            "./index.rsh:189:60:decimal",
+            "./index.rsh:193:60:decimal",
             stdlib.UInt_max,
             "0"
           )
         );
-        const v4937 = stdlib.gt(v1506, v4935);
-        const v4938 = v4937 ? v4935 : v1506;
-        const v4940 = stdlib.ge(v4935, v1506);
-        if (v4940) {
+        const v5086 = stdlib.gt(v1533, v5084);
+        const v5087 = v5086 ? v5084 : v1533;
+        const v5089 = stdlib.ge(v5084, v1533);
+        if (v5089) {
           null;
-          const v4941 = false;
-          await txn3.getOutput("User_claimAll", "v4941", ctc11, v4941);
-          const v4953 = stdlib.safeAdd(
-            v1528,
+          const v5090 = false;
+          await txn3.getOutput("User_claimAll", "v5090", ctc11, v5090);
+          const v5103 = stdlib.safeAdd(
+            v1560,
             stdlib.checkedBigNumberify(
-              "./index.rsh:194:57:decimal",
+              "./index.rsh:198:57:decimal",
               stdlib.UInt_max,
               "1"
             )
           );
-          const v4954 = {
-            bal: v1523,
-            keepGoing: v1524,
-            total_amount_claimed: v1525,
-            total_rewards_allcoated: v1526,
-            total_users_claim: v1527,
-            usersNo: v4953,
+          const v5104 = {
+            bal: v1554,
+            keepGoing: v1555,
+            percent: v1556,
+            total_amount_claimed: v1557,
+            total_rewards_allcoated: v1558,
+            total_users_claim: v1559,
+            usersNo: v5103,
           };
-          const cv1502 = v4954;
-          const cv1503 = v1715;
-          const cv1506 = v1506;
+          const cv1529 = v5104;
+          const cv1530 = v1748;
+          const cv1533 = v1533;
 
-          v1502 = cv1502;
-          v1503 = cv1503;
-          v1506 = cv1506;
+          v1529 = cv1529;
+          v1530 = cv1530;
+          v1533 = cv1533;
 
           txn2 = txn3;
           continue;
         } else {
-          const v4956 = stdlib.protect(
+          const v5106 = stdlib.protect(
             map2_ctc,
-            await stdlib.mapRef(map2, v1713),
+            await stdlib.mapRef(map2, v1746),
             null
           );
-          const v4957 = {
+          const v5107 = {
             None: 0,
             Some: 1,
-          }[v4956[0]];
-          const v4958 = stdlib.eq(
-            v4957,
+          }[v5106[0]];
+          const v5108 = stdlib.eq(
+            v5107,
             stdlib.checkedBigNumberify(
               "reach standard library:38:41:application",
               stdlib.UInt_max,
               "1"
             )
           );
-          if (v4958) {
-            const v4984 = true;
-            await txn3.getOutput("User_claimAll", "v4984", ctc11, v4984);
-            const v4993 = stdlib.sub(v1506, v4938);
-            await stdlib.mapSet(map0, v1713, undefined /* Nothing */);
-            const v5000 = stdlib.safeSub(v1523, v4938);
-            const v5001 = stdlib.safeAdd(
-              v1527,
+          if (v5108) {
+            const v5135 = true;
+            await txn3.getOutput("User_claimAll", "v5135", ctc11, v5135);
+            const v5144 = stdlib.sub(v1533, v5087);
+            await stdlib.mapSet(map0, v1746, undefined /* Nothing */);
+            const v5152 = stdlib.safeSub(v1554, v5087);
+            const v5153 = stdlib.safeAdd(
+              v1559,
               stdlib.checkedBigNumberify(
-                "./index.rsh:217:54:decimal",
+                "./index.rsh:221:54:decimal",
                 stdlib.UInt_max,
                 "1"
               )
             );
-            const v5002 = stdlib.safeAdd(v1525, v4938);
-            const v5003 = {
-              bal: v5000,
-              keepGoing: v1524,
-              total_amount_claimed: v5002,
-              total_rewards_allcoated: v1526,
-              total_users_claim: v5001,
-              usersNo: v1528,
+            const v5154 = stdlib.safeAdd(v1557, v5087);
+            const v5155 = {
+              bal: v5152,
+              keepGoing: v1555,
+              percent: v1556,
+              total_amount_claimed: v5154,
+              total_rewards_allcoated: v1558,
+              total_users_claim: v5153,
+              usersNo: v1560,
             };
-            const cv1502 = v5003;
-            const cv1503 = v1715;
-            const cv1506 = v4993;
+            const cv1529 = v5155;
+            const cv1530 = v1748;
+            const cv1533 = v5144;
 
-            v1502 = cv1502;
-            v1503 = cv1503;
-            v1506 = cv1506;
+            v1529 = cv1529;
+            v1530 = cv1530;
+            v1533 = cv1533;
 
             txn2 = txn3;
             continue;
           } else {
-            const v4960 = true;
-            await txn3.getOutput("User_claimAll", "v4960", ctc11, v4960);
-            const v4966 = {
-              addr: v1713,
-              amount: v4938,
-              projectName: v1485,
+            const v5110 = true;
+            await txn3.getOutput("User_claimAll", "v5110", ctc11, v5110);
+            const v5116 = {
+              addr: v1746,
+              amount: v5087,
+              projectName: v1510,
             };
             null;
-            await stdlib.mapSet(map2, v1713, null);
-            const v4971 = stdlib.sub(v1506, v4938);
-            await stdlib.mapSet(map0, v1713, undefined /* Nothing */);
-            const v4978 = stdlib.safeAdd(
-              v1528,
+            await stdlib.mapSet(map2, v1746, null);
+            const v5121 = stdlib.sub(v1533, v5087);
+            await stdlib.mapSet(map0, v1746, undefined /* Nothing */);
+            const v5129 = stdlib.safeAdd(
+              v1560,
               stdlib.checkedBigNumberify(
-                "./index.rsh:205:34:decimal",
+                "./index.rsh:209:34:decimal",
                 stdlib.UInt_max,
                 "1"
               )
             );
-            const v4979 = stdlib.safeSub(v1523, v4938);
-            const v4980 = stdlib.safeAdd(
-              v1527,
+            const v5130 = stdlib.safeSub(v1554, v5087);
+            const v5131 = stdlib.safeAdd(
+              v1559,
               stdlib.checkedBigNumberify(
-                "./index.rsh:207:54:decimal",
+                "./index.rsh:211:54:decimal",
                 stdlib.UInt_max,
                 "1"
               )
             );
-            const v4981 = stdlib.safeAdd(v1525, v4938);
-            const v4982 = {
-              bal: v4979,
-              keepGoing: v1524,
-              total_amount_claimed: v4981,
-              total_rewards_allcoated: v1526,
-              total_users_claim: v4980,
-              usersNo: v4978,
+            const v5132 = stdlib.safeAdd(v1557, v5087);
+            const v5133 = {
+              bal: v5130,
+              keepGoing: v1555,
+              percent: v1556,
+              total_amount_claimed: v5132,
+              total_rewards_allcoated: v1558,
+              total_users_claim: v5131,
+              usersNo: v5129,
             };
-            const cv1502 = v4982;
-            const cv1503 = v1715;
-            const cv1506 = v4971;
+            const cv1529 = v5133;
+            const cv1530 = v1748;
+            const cv1533 = v5121;
 
-            v1502 = cv1502;
-            v1503 = cv1503;
-            v1506 = cv1506;
+            v1529 = cv1529;
+            v1530 = cv1530;
+            v1533 = cv1533;
 
             txn2 = txn3;
             continue;
@@ -4188,27 +4417,28 @@ export async function Deployer(ctcTop, interact) {
         }
         break;
       }
-      case "User_optin0_90": {
-        const v5021 = v1714[1];
+      case "User_optin0_98": {
+        const v5174 = v1747[1];
         undefined /* setApiDetails */;
-        await stdlib.mapSet(map3, v1713, null);
-        const v5420 = null;
-        await txn3.getOutput("User_optin", "v5420", ctc0, v5420);
-        const v5432 = {
-          bal: v1523,
-          keepGoing: v1524,
-          total_amount_claimed: v1525,
-          total_rewards_allcoated: v1526,
-          total_users_claim: v1527,
-          usersNo: v1528,
+        await stdlib.mapSet(map3, v1746, null);
+        const v5587 = null;
+        await txn3.getOutput("User_optin", "v5587", ctc0, v5587);
+        const v5600 = {
+          bal: v1554,
+          keepGoing: v1555,
+          percent: v1556,
+          total_amount_claimed: v1557,
+          total_rewards_allcoated: v1558,
+          total_users_claim: v1559,
+          usersNo: v1560,
         };
-        const cv1502 = v5432;
-        const cv1503 = v1715;
-        const cv1506 = v1506;
+        const cv1529 = v5600;
+        const cv1530 = v1748;
+        const cv1533 = v1533;
 
-        v1502 = cv1502;
-        v1503 = cv1503;
-        v1506 = cv1506;
+        v1529 = cv1529;
+        v1530 = cv1530;
+        v1533 = cv1533;
 
         txn2 = txn3;
         continue;
@@ -4216,14 +4446,14 @@ export async function Deployer(ctcTop, interact) {
       }
     }
   }
-  const v5444 = stdlib.sub(v1506, v1506);
-  const v5446 = stdlib.le(await ctc.getBalance(), v5444)
+  const v5614 = stdlib.sub(v1533, v1533);
+  const v5616 = stdlib.le(await ctc.getBalance(), v5614)
     ? stdlib.checkedBigNumberify(
-        "./index.rsh:294:29:application",
+        "./index.rsh:298:29:application",
         stdlib.UInt_max,
         "0"
       )
-    : stdlib.safeSub(await ctc.getBalance(), v5444);
+    : stdlib.safeSub(await ctc.getBalance(), v5614);
   return;
 }
 export async function _User_claim3(ctcTop, interact) {
@@ -4258,20 +4488,28 @@ export async function _User_claim3(ctcTop, interact) {
     stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "30")
   );
   const ctc6 = stdlib.T_Bool;
-  const ctc7 = stdlib.T_Tuple([ctc1]);
-  const ctc8 = stdlib.T_Tuple([ctc4]);
-  const ctc9 = stdlib.T_Tuple([ctc4, ctc1]);
-  const ctc10 = stdlib.T_Tuple([]);
-  const ctc11 = stdlib.T_Data({
-    Admin_addAdmin0_90: ctc8,
-    Admin_deposit0_90: ctc7,
-    Admin_editUserReward0_90: ctc9,
-    Admin_endContractAndTransfer0_90: ctc10,
-    Admin_revokeAdmin0_90: ctc8,
-    Admin_setReward0_90: ctc9,
-    User_claim0_90: ctc7,
-    User_claimAll0_90: ctc10,
-    User_optin0_90: ctc10,
+  const ctc7 = stdlib.T_Object({
+    i: ctc1,
+    scale: ctc1,
+  });
+  const ctc8 = stdlib.T_Object({
+    i: ctc7,
+    sign: ctc6,
+  });
+  const ctc9 = stdlib.T_Tuple([ctc1]);
+  const ctc10 = stdlib.T_Tuple([ctc4]);
+  const ctc11 = stdlib.T_Tuple([ctc4, ctc1]);
+  const ctc12 = stdlib.T_Tuple([]);
+  const ctc13 = stdlib.T_Data({
+    Admin_addAdmin0_98: ctc10,
+    Admin_deposit0_98: ctc9,
+    Admin_editUserReward0_98: ctc11,
+    Admin_endContractAndTransfer0_98: ctc12,
+    Admin_revokeAdmin0_98: ctc10,
+    Admin_setReward0_98: ctc11,
+    User_claim0_98: ctc9,
+    User_claimAll0_98: ctc12,
+    User_optin0_98: ctc12,
   });
 
   const map0_ctc = ctc2;
@@ -4306,73 +4544,74 @@ export async function _User_claim3(ctcTop, interact) {
     ty: map3_ctc,
   });
 
-  const [v1484, v1485, v1506, v1523, v1524, v1525, v1526, v1527, v1528] =
+  const [v1509, v1510, v1533, v1554, v1555, v1556, v1557, v1558, v1559, v1560] =
     await ctc.getState(
       stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "3"),
-      [ctc4, ctc5, ctc1, ctc1, ctc6, ctc1, ctc1, ctc1, ctc1]
+      [ctc4, ctc5, ctc1, ctc1, ctc6, ctc8, ctc1, ctc1, ctc1, ctc1]
     );
-  const v1630 = ctc.selfAddress();
-  const v1632 = stdlib.protect(ctc7, await interact.in(), {
+  const v1663 = ctc.selfAddress();
+  const v1665 = stdlib.protect(ctc9, await interact.in(), {
     at: "./index.rsh:1:23:application",
     fs: [
-      "at ./index.rsh:224:29:application call to [unknown function] (defined at: ./index.rsh:224:29:function exp)",
-      'at ./index.rsh:70:37:application call to "runUser_claim0_90" (defined at: ./index.rsh:224:10:function exp)',
-      "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:70:37:function exp)",
+      "at ./index.rsh:228:29:application call to [unknown function] (defined at: ./index.rsh:228:29:function exp)",
+      'at ./index.rsh:72:37:application call to "runUser_claim0_98" (defined at: ./index.rsh:228:10:function exp)',
+      "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:72:37:function exp)",
     ],
     msg: "in",
     who: "User_claim",
   });
-  const v1635 = stdlib.protect(
+  const v1668 = stdlib.protect(
     map0_ctc,
-    await stdlib.mapRef(map0, v1630),
+    await stdlib.mapRef(map0, v1663),
     null
   );
-  const v1636 = {
+  const v1669 = {
     None: 0,
     Some: 1,
-  }[v1635[0]];
-  const v1637 = stdlib.eq(
-    v1636,
+  }[v1668[0]];
+  const v1670 = stdlib.eq(
+    v1669,
     stdlib.checkedBigNumberify(
       "reach standard library:38:41:application",
       stdlib.UInt_max,
       "1"
     )
   );
-  stdlib.assert(v1637, {
+  stdlib.assert(v1670, {
     at: "reach standard library:57:5:application",
     fs: [
-      'at ./index.rsh:225:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
-      "at ./index.rsh:224:29:application call to [unknown function] (defined at: ./index.rsh:224:29:function exp)",
-      'at ./index.rsh:70:37:application call to "runUser_claim0_90" (defined at: ./index.rsh:224:10:function exp)',
-      "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:70:37:function exp)",
+      'at ./index.rsh:229:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
+      "at ./index.rsh:228:29:application call to [unknown function] (defined at: ./index.rsh:228:29:function exp)",
+      'at ./index.rsh:72:37:application call to "runUser_claim0_98" (defined at: ./index.rsh:228:10:function exp)',
+      "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:72:37:function exp)",
     ],
     msg: "Cannot claim because you have not earned reward",
     who: "User_claim",
   });
-  const v1644 = ["User_claim0_90", v1632];
+  const v1677 = ["User_claim0_98", v1665];
 
   const txn1 = await ctc.sendrecv({
     args: [
-      v1484,
-      v1485,
-      v1506,
-      v1523,
-      v1524,
-      v1525,
-      v1526,
-      v1527,
-      v1528,
-      v1644,
+      v1509,
+      v1510,
+      v1533,
+      v1554,
+      v1555,
+      v1556,
+      v1557,
+      v1558,
+      v1559,
+      v1560,
+      v1677,
     ],
     evt_cnt: 1,
     funcNum: 2,
     lct: stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "0"),
     onlyIf: true,
-    out_tys: [ctc11],
+    out_tys: [ctc13],
     pay: [
       stdlib.checkedBigNumberify(
-        "./index.rsh:230:9:decimal",
+        "./index.rsh:234:9:decimal",
         stdlib.UInt_max,
         "0"
       ),
@@ -4392,128 +4631,130 @@ export async function _User_claim3(ctcTop, interact) {
       stdlib.simMapDupe(sim_r, 3, map3);
 
       const {
-        data: [v1714],
-        secs: v1716,
-        time: v1715,
-        didSend: v957,
-        from: v1713,
+        data: [v1747],
+        secs: v1749,
+        time: v1748,
+        didSend: v965,
+        from: v1746,
       } = txn1;
 
-      switch (v1714[0]) {
-        case "Admin_addAdmin0_90": {
-          const v1717 = v1714[1];
+      switch (v1747[0]) {
+        case "Admin_addAdmin0_98": {
+          const v1750 = v1747[1];
 
           break;
         }
-        case "Admin_deposit0_90": {
-          const v2130 = v1714[1];
+        case "Admin_deposit0_98": {
+          const v2178 = v1747[1];
 
           break;
         }
-        case "Admin_editUserReward0_90": {
-          const v2543 = v1714[1];
+        case "Admin_editUserReward0_98": {
+          const v2606 = v1747[1];
 
           break;
         }
-        case "Admin_endContractAndTransfer0_90": {
-          const v2956 = v1714[1];
+        case "Admin_endContractAndTransfer0_98": {
+          const v3034 = v1747[1];
 
           break;
         }
-        case "Admin_revokeAdmin0_90": {
-          const v3369 = v1714[1];
+        case "Admin_revokeAdmin0_98": {
+          const v3462 = v1747[1];
 
           break;
         }
-        case "Admin_setReward0_90": {
-          const v3782 = v1714[1];
+        case "Admin_setReward0_98": {
+          const v3890 = v1747[1];
 
           break;
         }
-        case "User_claim0_90": {
-          const v4195 = v1714[1];
+        case "User_claim0_98": {
+          const v4318 = v1747[1];
           sim_r.txns.push({
             kind: "api",
             who: "User_claim",
           });
-          const v4238 = stdlib.protect(
+          const v4361 = stdlib.protect(
             map0_ctc,
-            await stdlib.simMapRef(sim_r, 0, v1713),
+            await stdlib.simMapRef(sim_r, 0, v1746),
             null
           );
-          const v4434 =
-            v4195[
+          const v4565 =
+            v4318[
               stdlib.checkedBigNumberify(
-                "./index.rsh:224:10:spread",
+                "./index.rsh:228:10:spread",
                 stdlib.UInt_max,
                 "0"
               )
             ];
-          const v4441 = stdlib.fromSome(
-            v4238,
+          const v4572 = stdlib.fromSome(
+            v4361,
             stdlib.checkedBigNumberify(
-              "./index.rsh:232:60:decimal",
+              "./index.rsh:236:60:decimal",
               stdlib.UInt_max,
               "0"
             )
           );
-          const v4442 = stdlib.gt(v4434, v4441);
-          const v4443 = v4442 ? v4441 : v4434;
-          const v4445 = stdlib.gt(v1506, v4443);
-          const v4446 = v4445 ? v4443 : v1506;
-          const v4448 = stdlib.ge(v4441, v1506);
-          if (v4448) {
+          const v4573 = stdlib.gt(v4565, v4572);
+          const v4574 = v4573 ? v4572 : v4565;
+          const v4576 = stdlib.gt(v1533, v4574);
+          const v4577 = v4576 ? v4574 : v1533;
+          const v4579 = stdlib.ge(v4572, v1533);
+          if (v4579) {
             null;
-            const v4449 = false;
-            const v4450 = await txn1.getOutput(
+            const v4580 = false;
+            const v4581 = await txn1.getOutput(
               "User_claim",
-              "v4449",
+              "v4580",
               ctc6,
-              v4449
+              v4580
             );
 
-            const v4462 = stdlib.safeAdd(
-              v1528,
+            const v4594 = stdlib.safeAdd(
+              v1560,
               stdlib.checkedBigNumberify(
-                "./index.rsh:238:57:decimal",
+                "./index.rsh:242:57:decimal",
                 stdlib.UInt_max,
                 "1"
               )
             );
-            const v4463 = {
-              bal: v1523,
-              keepGoing: v1524,
-              total_amount_claimed: v1525,
-              total_rewards_allcoated: v1526,
-              total_users_claim: v1527,
-              usersNo: v4462,
+            const v4595 = {
+              bal: v1554,
+              keepGoing: v1555,
+              percent: v1556,
+              total_amount_claimed: v1557,
+              total_rewards_allcoated: v1558,
+              total_users_claim: v1559,
+              usersNo: v4594,
             };
-            const v9550 = v1506;
-            const v9551 = v4463.keepGoing;
-            if (v9551) {
-              const v9552 = v4463.bal;
-              const v9554 = v4463.total_amount_claimed;
-              const v9555 = v4463.total_rewards_allcoated;
-              const v9556 = v4463.total_users_claim;
-              const v9557 = v4463.usersNo;
+            const v9956 = v1533;
+            const v9957 = v4595.keepGoing;
+            if (v9957) {
+              const v9958 = v4595.bal;
+              const v9960 = v4595.percent;
+              const v9961 = v4595.total_amount_claimed;
+              const v9962 = v4595.total_rewards_allcoated;
+              const v9963 = v4595.total_users_claim;
+              const v9964 = v4595.usersNo;
               sim_r.isHalt = false;
             } else {
-              const v9561 = stdlib.sub(v1506, v1506);
+              const v9969 = stdlib.sub(v1533, v1533);
               sim_r.txns.push({
                 kind: "from",
-                to: v1484,
+                to: v1509,
                 tok: undefined /* Nothing */,
               });
-              const v9562 = stdlib.le(await ctc.getBalance(), v9561)
+              const v9970 = stdlib.le(await ctc.getBalance(), v9969)
                 ? stdlib.checkedBigNumberify(
-                    "./index.rsh:294:29:application",
+                    "./index.rsh:298:29:application",
                     stdlib.UInt_max,
                     "0"
                   )
-                : stdlib.safeSub(await ctc.getBalance(), v9561);
+                : stdlib.safeSub(await ctc.getBalance(), v9969);
               sim_r.txns.push({
                 kind: "from",
-                to: v1484,
+                to: v1509,
                 tok: undefined /* Nothing */,
               });
               sim_r.txns.push({
@@ -4523,83 +4764,85 @@ export async function _User_claim3(ctcTop, interact) {
               sim_r.isHalt = true;
             }
           } else {
-            const v4465 = stdlib.protect(
+            const v4597 = stdlib.protect(
               map2_ctc,
-              await stdlib.simMapRef(sim_r, 2, v1713),
+              await stdlib.simMapRef(sim_r, 2, v1746),
               null
             );
-            const v4466 = {
+            const v4598 = {
               None: 0,
               Some: 1,
-            }[v4465[0]];
-            const v4467 = stdlib.eq(
-              v4466,
+            }[v4597[0]];
+            const v4599 = stdlib.eq(
+              v4598,
               stdlib.checkedBigNumberify(
                 "reach standard library:38:41:application",
                 stdlib.UInt_max,
                 "1"
               )
             );
-            if (v4467) {
-              const v4494 = true;
-              const v4495 = await txn1.getOutput(
+            if (v4599) {
+              const v4627 = true;
+              const v4628 = await txn1.getOutput(
                 "User_claim",
-                "v4494",
+                "v4627",
                 ctc6,
-                v4494
+                v4627
               );
 
-              const v4504 = stdlib.sub(v1506, v4446);
+              const v4637 = stdlib.sub(v1533, v4577);
               sim_r.txns.push({
                 kind: "from",
-                to: v1713,
+                to: v1746,
                 tok: undefined /* Nothing */,
               });
-              await stdlib.simMapSet(sim_r, 0, v1713, undefined /* Nothing */);
-              const v4511 = stdlib.safeSub(v1523, v4446);
-              const v4512 = stdlib.safeAdd(
-                v1527,
+              await stdlib.simMapSet(sim_r, 0, v1746, undefined /* Nothing */);
+              const v4645 = stdlib.safeSub(v1554, v4577);
+              const v4646 = stdlib.safeAdd(
+                v1559,
                 stdlib.checkedBigNumberify(
-                  "./index.rsh:261:54:decimal",
+                  "./index.rsh:265:54:decimal",
                   stdlib.UInt_max,
                   "1"
                 )
               );
-              const v4513 = stdlib.safeAdd(v1525, v4446);
-              const v4514 = {
-                bal: v4511,
-                keepGoing: v1524,
-                total_amount_claimed: v4513,
-                total_rewards_allcoated: v1526,
-                total_users_claim: v4512,
-                usersNo: v1528,
+              const v4647 = stdlib.safeAdd(v1557, v4577);
+              const v4648 = {
+                bal: v4645,
+                keepGoing: v1555,
+                percent: v1556,
+                total_amount_claimed: v4647,
+                total_rewards_allcoated: v1558,
+                total_users_claim: v4646,
+                usersNo: v1560,
               };
-              const v9565 = v4504;
-              const v9566 = v4514.keepGoing;
-              if (v9566) {
-                const v9567 = v4514.bal;
-                const v9569 = v4514.total_amount_claimed;
-                const v9570 = v4514.total_rewards_allcoated;
-                const v9571 = v4514.total_users_claim;
-                const v9572 = v4514.usersNo;
+              const v9973 = v4637;
+              const v9974 = v4648.keepGoing;
+              if (v9974) {
+                const v9975 = v4648.bal;
+                const v9977 = v4648.percent;
+                const v9978 = v4648.total_amount_claimed;
+                const v9979 = v4648.total_rewards_allcoated;
+                const v9980 = v4648.total_users_claim;
+                const v9981 = v4648.usersNo;
                 sim_r.isHalt = false;
               } else {
-                const v9576 = stdlib.sub(v4504, v4504);
+                const v9986 = stdlib.sub(v4637, v4637);
                 sim_r.txns.push({
                   kind: "from",
-                  to: v1484,
+                  to: v1509,
                   tok: undefined /* Nothing */,
                 });
-                const v9577 = stdlib.le(await ctc.getBalance(), v9576)
+                const v9987 = stdlib.le(await ctc.getBalance(), v9986)
                   ? stdlib.checkedBigNumberify(
-                      "./index.rsh:294:29:application",
+                      "./index.rsh:298:29:application",
                       stdlib.UInt_max,
                       "0"
                     )
-                  : stdlib.safeSub(await ctc.getBalance(), v9576);
+                  : stdlib.safeSub(await ctc.getBalance(), v9986);
                 sim_r.txns.push({
                   kind: "from",
-                  to: v1484,
+                  to: v1509,
                   tok: undefined /* Nothing */,
                 });
                 sim_r.txns.push({
@@ -4609,80 +4852,82 @@ export async function _User_claim3(ctcTop, interact) {
                 sim_r.isHalt = true;
               }
             } else {
-              const v4469 = true;
-              const v4470 = await txn1.getOutput(
+              const v4601 = true;
+              const v4602 = await txn1.getOutput(
                 "User_claim",
-                "v4469",
+                "v4601",
                 ctc6,
-                v4469
+                v4601
               );
 
-              const v4476 = {
-                addr: v1713,
-                amount: v4446,
-                projectName: v1485,
+              const v4608 = {
+                addr: v1746,
+                amount: v4577,
+                projectName: v1510,
               };
               null;
-              await stdlib.simMapSet(sim_r, 2, v1713, null);
-              const v4481 = stdlib.sub(v1506, v4446);
+              await stdlib.simMapSet(sim_r, 2, v1746, null);
+              const v4613 = stdlib.sub(v1533, v4577);
               sim_r.txns.push({
                 kind: "from",
-                to: v1713,
+                to: v1746,
                 tok: undefined /* Nothing */,
               });
-              await stdlib.simMapSet(sim_r, 0, v1713, undefined /* Nothing */);
-              const v4488 = stdlib.safeAdd(
-                v1528,
+              await stdlib.simMapSet(sim_r, 0, v1746, undefined /* Nothing */);
+              const v4621 = stdlib.safeAdd(
+                v1560,
                 stdlib.checkedBigNumberify(
-                  "./index.rsh:249:34:decimal",
+                  "./index.rsh:253:34:decimal",
                   stdlib.UInt_max,
                   "1"
                 )
               );
-              const v4489 = stdlib.safeSub(v1523, v4446);
-              const v4490 = stdlib.safeAdd(
-                v1527,
+              const v4622 = stdlib.safeSub(v1554, v4577);
+              const v4623 = stdlib.safeAdd(
+                v1559,
                 stdlib.checkedBigNumberify(
-                  "./index.rsh:251:54:decimal",
+                  "./index.rsh:255:54:decimal",
                   stdlib.UInt_max,
                   "1"
                 )
               );
-              const v4491 = stdlib.safeAdd(v1525, v4446);
-              const v4492 = {
-                bal: v4489,
-                keepGoing: v1524,
-                total_amount_claimed: v4491,
-                total_rewards_allcoated: v1526,
-                total_users_claim: v4490,
-                usersNo: v4488,
+              const v4624 = stdlib.safeAdd(v1557, v4577);
+              const v4625 = {
+                bal: v4622,
+                keepGoing: v1555,
+                percent: v1556,
+                total_amount_claimed: v4624,
+                total_rewards_allcoated: v1558,
+                total_users_claim: v4623,
+                usersNo: v4621,
               };
-              const v9580 = v4481;
-              const v9581 = v4492.keepGoing;
-              if (v9581) {
-                const v9582 = v4492.bal;
-                const v9584 = v4492.total_amount_claimed;
-                const v9585 = v4492.total_rewards_allcoated;
-                const v9586 = v4492.total_users_claim;
-                const v9587 = v4492.usersNo;
+              const v9990 = v4613;
+              const v9991 = v4625.keepGoing;
+              if (v9991) {
+                const v9992 = v4625.bal;
+                const v9994 = v4625.percent;
+                const v9995 = v4625.total_amount_claimed;
+                const v9996 = v4625.total_rewards_allcoated;
+                const v9997 = v4625.total_users_claim;
+                const v9998 = v4625.usersNo;
                 sim_r.isHalt = false;
               } else {
-                const v9591 = stdlib.sub(v4481, v4481);
+                const v10003 = stdlib.sub(v4613, v4613);
                 sim_r.txns.push({
                   kind: "from",
-                  to: v1484,
+                  to: v1509,
                   tok: undefined /* Nothing */,
                 });
-                const v9592 = stdlib.le(await ctc.getBalance(), v9591)
+                const v10004 = stdlib.le(await ctc.getBalance(), v10003)
                   ? stdlib.checkedBigNumberify(
-                      "./index.rsh:294:29:application",
+                      "./index.rsh:298:29:application",
                       stdlib.UInt_max,
                       "0"
                     )
-                  : stdlib.safeSub(await ctc.getBalance(), v9591);
+                  : stdlib.safeSub(await ctc.getBalance(), v10003);
                 sim_r.txns.push({
                   kind: "from",
-                  to: v1484,
+                  to: v1509,
                   tok: undefined /* Nothing */,
                 });
                 sim_r.txns.push({
@@ -4695,13 +4940,13 @@ export async function _User_claim3(ctcTop, interact) {
           }
           break;
         }
-        case "User_claimAll0_90": {
-          const v4608 = v1714[1];
+        case "User_claimAll0_98": {
+          const v4746 = v1747[1];
 
           break;
         }
-        case "User_optin0_90": {
-          const v5021 = v1714[1];
+        case "User_optin0_98": {
+          const v5174 = v1747[1];
 
           break;
         }
@@ -4710,110 +4955,110 @@ export async function _User_claim3(ctcTop, interact) {
     },
     soloSend: false,
     timeoutAt: undefined /* mto */,
-    tys: [ctc4, ctc5, ctc1, ctc1, ctc6, ctc1, ctc1, ctc1, ctc1, ctc11],
+    tys: [ctc4, ctc5, ctc1, ctc1, ctc6, ctc8, ctc1, ctc1, ctc1, ctc1, ctc13],
     waitIfNotPresent: false,
   });
   const {
-    data: [v1714],
-    secs: v1716,
-    time: v1715,
-    didSend: v957,
-    from: v1713,
+    data: [v1747],
+    secs: v1749,
+    time: v1748,
+    didSend: v965,
+    from: v1746,
   } = txn1;
-  switch (v1714[0]) {
-    case "Admin_addAdmin0_90": {
-      const v1717 = v1714[1];
+  switch (v1747[0]) {
+    case "Admin_addAdmin0_98": {
+      const v1750 = v1747[1];
       return;
       break;
     }
-    case "Admin_deposit0_90": {
-      const v2130 = v1714[1];
+    case "Admin_deposit0_98": {
+      const v2178 = v1747[1];
       return;
       break;
     }
-    case "Admin_editUserReward0_90": {
-      const v2543 = v1714[1];
+    case "Admin_editUserReward0_98": {
+      const v2606 = v1747[1];
       return;
       break;
     }
-    case "Admin_endContractAndTransfer0_90": {
-      const v2956 = v1714[1];
+    case "Admin_endContractAndTransfer0_98": {
+      const v3034 = v1747[1];
       return;
       break;
     }
-    case "Admin_revokeAdmin0_90": {
-      const v3369 = v1714[1];
+    case "Admin_revokeAdmin0_98": {
+      const v3462 = v1747[1];
       return;
       break;
     }
-    case "Admin_setReward0_90": {
-      const v3782 = v1714[1];
+    case "Admin_setReward0_98": {
+      const v3890 = v1747[1];
       return;
       break;
     }
-    case "User_claim0_90": {
-      const v4195 = v1714[1];
+    case "User_claim0_98": {
+      const v4318 = v1747[1];
       undefined /* setApiDetails */;
-      const v4238 = stdlib.protect(
+      const v4361 = stdlib.protect(
         map0_ctc,
-        await stdlib.mapRef(map0, v1713),
+        await stdlib.mapRef(map0, v1746),
         null
       );
-      const v4239 = {
+      const v4362 = {
         None: 0,
         Some: 1,
-      }[v4238[0]];
-      const v4240 = stdlib.eq(
-        v4239,
+      }[v4361[0]];
+      const v4363 = stdlib.eq(
+        v4362,
         stdlib.checkedBigNumberify(
           "reach standard library:38:41:application",
           stdlib.UInt_max,
           "1"
         )
       );
-      stdlib.assert(v4240, {
+      stdlib.assert(v4363, {
         at: "reach standard library:57:5:application",
         fs: [
-          'at ./index.rsh:225:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
-          "at ./index.rsh:224:29:application call to [unknown function] (defined at: ./index.rsh:224:29:function exp)",
-          "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:224:29:function exp)",
-          "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:70:37:function exp)",
+          'at ./index.rsh:229:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
+          "at ./index.rsh:228:29:application call to [unknown function] (defined at: ./index.rsh:228:29:function exp)",
+          "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:228:29:function exp)",
+          "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:72:37:function exp)",
         ],
         msg: "Cannot claim because you have not earned reward",
         who: "User_claim",
       });
-      const v4434 =
-        v4195[
+      const v4565 =
+        v4318[
           stdlib.checkedBigNumberify(
-            "./index.rsh:224:10:spread",
+            "./index.rsh:228:10:spread",
             stdlib.UInt_max,
             "0"
           )
         ];
-      const v4441 = stdlib.fromSome(
-        v4238,
+      const v4572 = stdlib.fromSome(
+        v4361,
         stdlib.checkedBigNumberify(
-          "./index.rsh:232:60:decimal",
+          "./index.rsh:236:60:decimal",
           stdlib.UInt_max,
           "0"
         )
       );
-      const v4442 = stdlib.gt(v4434, v4441);
-      const v4443 = v4442 ? v4441 : v4434;
-      const v4445 = stdlib.gt(v1506, v4443);
-      const v4446 = v4445 ? v4443 : v1506;
-      const v4448 = stdlib.ge(v4441, v1506);
-      if (v4448) {
+      const v4573 = stdlib.gt(v4565, v4572);
+      const v4574 = v4573 ? v4572 : v4565;
+      const v4576 = stdlib.gt(v1533, v4574);
+      const v4577 = v4576 ? v4574 : v1533;
+      const v4579 = stdlib.ge(v4572, v1533);
+      if (v4579) {
         null;
-        const v4449 = false;
-        const v4450 = await txn1.getOutput("User_claim", "v4449", ctc6, v4449);
-        if (v957) {
-          stdlib.protect(ctc0, await interact.out(v4195, v4450), {
-            at: "./index.rsh:224:11:application",
+        const v4580 = false;
+        const v4581 = await txn1.getOutput("User_claim", "v4580", ctc6, v4580);
+        if (v965) {
+          stdlib.protect(ctc0, await interact.out(v4318, v4581), {
+            at: "./index.rsh:228:11:application",
             fs: [
-              "at ./index.rsh:224:11:application call to [unknown function] (defined at: ./index.rsh:224:11:function exp)",
-              'at ./index.rsh:237:16:application call to "ret" (defined at: ./index.rsh:231:15:function exp)',
-              "at ./index.rsh:231:15:application call to [unknown function] (defined at: ./index.rsh:231:15:function exp)",
+              "at ./index.rsh:228:11:application call to [unknown function] (defined at: ./index.rsh:228:11:function exp)",
+              'at ./index.rsh:241:16:application call to "ret" (defined at: ./index.rsh:235:15:function exp)',
+              "at ./index.rsh:235:15:application call to [unknown function] (defined at: ./index.rsh:235:15:function exp)",
             ],
             msg: "out",
             who: "User_claim",
@@ -4821,75 +5066,77 @@ export async function _User_claim3(ctcTop, interact) {
         } else {
         }
 
-        const v4462 = stdlib.safeAdd(
-          v1528,
+        const v4594 = stdlib.safeAdd(
+          v1560,
           stdlib.checkedBigNumberify(
-            "./index.rsh:238:57:decimal",
+            "./index.rsh:242:57:decimal",
             stdlib.UInt_max,
             "1"
           )
         );
-        const v4463 = {
-          bal: v1523,
-          keepGoing: v1524,
-          total_amount_claimed: v1525,
-          total_rewards_allcoated: v1526,
-          total_users_claim: v1527,
-          usersNo: v4462,
+        const v4595 = {
+          bal: v1554,
+          keepGoing: v1555,
+          percent: v1556,
+          total_amount_claimed: v1557,
+          total_rewards_allcoated: v1558,
+          total_users_claim: v1559,
+          usersNo: v4594,
         };
-        const v9550 = v1506;
-        const v9551 = v4463.keepGoing;
-        if (v9551) {
-          const v9552 = v4463.bal;
-          const v9554 = v4463.total_amount_claimed;
-          const v9555 = v4463.total_rewards_allcoated;
-          const v9556 = v4463.total_users_claim;
-          const v9557 = v4463.usersNo;
+        const v9956 = v1533;
+        const v9957 = v4595.keepGoing;
+        if (v9957) {
+          const v9958 = v4595.bal;
+          const v9960 = v4595.percent;
+          const v9961 = v4595.total_amount_claimed;
+          const v9962 = v4595.total_rewards_allcoated;
+          const v9963 = v4595.total_users_claim;
+          const v9964 = v4595.usersNo;
           return;
         } else {
-          const v9561 = stdlib.sub(v1506, v1506);
-          const v9562 = stdlib.le(await ctc.getBalance(), v9561)
+          const v9969 = stdlib.sub(v1533, v1533);
+          const v9970 = stdlib.le(await ctc.getBalance(), v9969)
             ? stdlib.checkedBigNumberify(
-                "./index.rsh:294:29:application",
+                "./index.rsh:298:29:application",
                 stdlib.UInt_max,
                 "0"
               )
-            : stdlib.safeSub(await ctc.getBalance(), v9561);
+            : stdlib.safeSub(await ctc.getBalance(), v9969);
           return;
         }
       } else {
-        const v4465 = stdlib.protect(
+        const v4597 = stdlib.protect(
           map2_ctc,
-          await stdlib.mapRef(map2, v1713),
+          await stdlib.mapRef(map2, v1746),
           null
         );
-        const v4466 = {
+        const v4598 = {
           None: 0,
           Some: 1,
-        }[v4465[0]];
-        const v4467 = stdlib.eq(
-          v4466,
+        }[v4597[0]];
+        const v4599 = stdlib.eq(
+          v4598,
           stdlib.checkedBigNumberify(
             "reach standard library:38:41:application",
             stdlib.UInt_max,
             "1"
           )
         );
-        if (v4467) {
-          const v4494 = true;
-          const v4495 = await txn1.getOutput(
+        if (v4599) {
+          const v4627 = true;
+          const v4628 = await txn1.getOutput(
             "User_claim",
-            "v4494",
+            "v4627",
             ctc6,
-            v4494
+            v4627
           );
-          if (v957) {
-            stdlib.protect(ctc0, await interact.out(v4195, v4495), {
-              at: "./index.rsh:224:11:application",
+          if (v965) {
+            stdlib.protect(ctc0, await interact.out(v4318, v4628), {
+              at: "./index.rsh:228:11:application",
               fs: [
-                "at ./index.rsh:224:11:application call to [unknown function] (defined at: ./index.rsh:224:11:function exp)",
-                'at ./index.rsh:255:16:application call to "ret" (defined at: ./index.rsh:231:15:function exp)',
-                "at ./index.rsh:231:15:application call to [unknown function] (defined at: ./index.rsh:231:15:function exp)",
+                "at ./index.rsh:228:11:application call to [unknown function] (defined at: ./index.rsh:228:11:function exp)",
+                'at ./index.rsh:259:16:application call to "ret" (defined at: ./index.rsh:235:15:function exp)',
+                "at ./index.rsh:235:15:application call to [unknown function] (defined at: ./index.rsh:235:15:function exp)",
               ],
               msg: "out",
               who: "User_claim",
@@ -4897,61 +5144,63 @@ export async function _User_claim3(ctcTop, interact) {
           } else {
           }
 
-          const v4504 = stdlib.sub(v1506, v4446);
-          await stdlib.mapSet(map0, v1713, undefined /* Nothing */);
-          const v4511 = stdlib.safeSub(v1523, v4446);
-          const v4512 = stdlib.safeAdd(
-            v1527,
+          const v4637 = stdlib.sub(v1533, v4577);
+          await stdlib.mapSet(map0, v1746, undefined /* Nothing */);
+          const v4645 = stdlib.safeSub(v1554, v4577);
+          const v4646 = stdlib.safeAdd(
+            v1559,
             stdlib.checkedBigNumberify(
-              "./index.rsh:261:54:decimal",
+              "./index.rsh:265:54:decimal",
               stdlib.UInt_max,
               "1"
             )
           );
-          const v4513 = stdlib.safeAdd(v1525, v4446);
-          const v4514 = {
-            bal: v4511,
-            keepGoing: v1524,
-            total_amount_claimed: v4513,
-            total_rewards_allcoated: v1526,
-            total_users_claim: v4512,
-            usersNo: v1528,
+          const v4647 = stdlib.safeAdd(v1557, v4577);
+          const v4648 = {
+            bal: v4645,
+            keepGoing: v1555,
+            percent: v1556,
+            total_amount_claimed: v4647,
+            total_rewards_allcoated: v1558,
+            total_users_claim: v4646,
+            usersNo: v1560,
           };
-          const v9565 = v4504;
-          const v9566 = v4514.keepGoing;
-          if (v9566) {
-            const v9567 = v4514.bal;
-            const v9569 = v4514.total_amount_claimed;
-            const v9570 = v4514.total_rewards_allcoated;
-            const v9571 = v4514.total_users_claim;
-            const v9572 = v4514.usersNo;
+          const v9973 = v4637;
+          const v9974 = v4648.keepGoing;
+          if (v9974) {
+            const v9975 = v4648.bal;
+            const v9977 = v4648.percent;
+            const v9978 = v4648.total_amount_claimed;
+            const v9979 = v4648.total_rewards_allcoated;
+            const v9980 = v4648.total_users_claim;
+            const v9981 = v4648.usersNo;
             return;
           } else {
-            const v9576 = stdlib.sub(v4504, v4504);
-            const v9577 = stdlib.le(await ctc.getBalance(), v9576)
+            const v9986 = stdlib.sub(v4637, v4637);
+            const v9987 = stdlib.le(await ctc.getBalance(), v9986)
               ? stdlib.checkedBigNumberify(
-                  "./index.rsh:294:29:application",
+                  "./index.rsh:298:29:application",
                   stdlib.UInt_max,
                   "0"
                 )
-              : stdlib.safeSub(await ctc.getBalance(), v9576);
+              : stdlib.safeSub(await ctc.getBalance(), v9986);
             return;
           }
         } else {
-          const v4469 = true;
-          const v4470 = await txn1.getOutput(
+          const v4601 = true;
+          const v4602 = await txn1.getOutput(
             "User_claim",
-            "v4469",
+            "v4601",
             ctc6,
-            v4469
+            v4601
           );
-          if (v957) {
-            stdlib.protect(ctc0, await interact.out(v4195, v4470), {
-              at: "./index.rsh:224:11:application",
+          if (v965) {
+            stdlib.protect(ctc0, await interact.out(v4318, v4602), {
+              at: "./index.rsh:228:11:application",
               fs: [
-                "at ./index.rsh:224:11:application call to [unknown function] (defined at: ./index.rsh:224:11:function exp)",
-                'at ./index.rsh:240:16:application call to "ret" (defined at: ./index.rsh:231:15:function exp)',
-                "at ./index.rsh:231:15:application call to [unknown function] (defined at: ./index.rsh:231:15:function exp)",
+                "at ./index.rsh:228:11:application call to [unknown function] (defined at: ./index.rsh:228:11:function exp)",
+                'at ./index.rsh:244:16:application call to "ret" (defined at: ./index.rsh:235:15:function exp)',
+                "at ./index.rsh:235:15:application call to [unknown function] (defined at: ./index.rsh:235:15:function exp)",
               ],
               msg: "out",
               who: "User_claim",
@@ -4959,72 +5208,74 @@ export async function _User_claim3(ctcTop, interact) {
           } else {
           }
 
-          const v4476 = {
-            addr: v1713,
-            amount: v4446,
-            projectName: v1485,
+          const v4608 = {
+            addr: v1746,
+            amount: v4577,
+            projectName: v1510,
           };
           null;
-          await stdlib.mapSet(map2, v1713, null);
-          const v4481 = stdlib.sub(v1506, v4446);
-          await stdlib.mapSet(map0, v1713, undefined /* Nothing */);
-          const v4488 = stdlib.safeAdd(
-            v1528,
+          await stdlib.mapSet(map2, v1746, null);
+          const v4613 = stdlib.sub(v1533, v4577);
+          await stdlib.mapSet(map0, v1746, undefined /* Nothing */);
+          const v4621 = stdlib.safeAdd(
+            v1560,
             stdlib.checkedBigNumberify(
-              "./index.rsh:249:34:decimal",
+              "./index.rsh:253:34:decimal",
               stdlib.UInt_max,
               "1"
             )
           );
-          const v4489 = stdlib.safeSub(v1523, v4446);
-          const v4490 = stdlib.safeAdd(
-            v1527,
+          const v4622 = stdlib.safeSub(v1554, v4577);
+          const v4623 = stdlib.safeAdd(
+            v1559,
             stdlib.checkedBigNumberify(
-              "./index.rsh:251:54:decimal",
+              "./index.rsh:255:54:decimal",
               stdlib.UInt_max,
               "1"
             )
           );
-          const v4491 = stdlib.safeAdd(v1525, v4446);
-          const v4492 = {
-            bal: v4489,
-            keepGoing: v1524,
-            total_amount_claimed: v4491,
-            total_rewards_allcoated: v1526,
-            total_users_claim: v4490,
-            usersNo: v4488,
+          const v4624 = stdlib.safeAdd(v1557, v4577);
+          const v4625 = {
+            bal: v4622,
+            keepGoing: v1555,
+            percent: v1556,
+            total_amount_claimed: v4624,
+            total_rewards_allcoated: v1558,
+            total_users_claim: v4623,
+            usersNo: v4621,
           };
-          const v9580 = v4481;
-          const v9581 = v4492.keepGoing;
-          if (v9581) {
-            const v9582 = v4492.bal;
-            const v9584 = v4492.total_amount_claimed;
-            const v9585 = v4492.total_rewards_allcoated;
-            const v9586 = v4492.total_users_claim;
-            const v9587 = v4492.usersNo;
+          const v9990 = v4613;
+          const v9991 = v4625.keepGoing;
+          if (v9991) {
+            const v9992 = v4625.bal;
+            const v9994 = v4625.percent;
+            const v9995 = v4625.total_amount_claimed;
+            const v9996 = v4625.total_rewards_allcoated;
+            const v9997 = v4625.total_users_claim;
+            const v9998 = v4625.usersNo;
             return;
           } else {
-            const v9591 = stdlib.sub(v4481, v4481);
-            const v9592 = stdlib.le(await ctc.getBalance(), v9591)
+            const v10003 = stdlib.sub(v4613, v4613);
+            const v10004 = stdlib.le(await ctc.getBalance(), v10003)
               ? stdlib.checkedBigNumberify(
-                  "./index.rsh:294:29:application",
+                  "./index.rsh:298:29:application",
                   stdlib.UInt_max,
                   "0"
                 )
-              : stdlib.safeSub(await ctc.getBalance(), v9591);
+              : stdlib.safeSub(await ctc.getBalance(), v10003);
             return;
           }
         }
       }
       break;
     }
-    case "User_claimAll0_90": {
-      const v4608 = v1714[1];
+    case "User_claimAll0_98": {
+      const v4746 = v1747[1];
       return;
       break;
     }
-    case "User_optin0_90": {
-      const v5021 = v1714[1];
+    case "User_optin0_98": {
+      const v5174 = v1747[1];
       return;
       break;
     }
@@ -5062,20 +5313,28 @@ export async function _User_claimAll3(ctcTop, interact) {
     stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "30")
   );
   const ctc6 = stdlib.T_Bool;
-  const ctc7 = stdlib.T_Tuple([]);
-  const ctc8 = stdlib.T_Tuple([ctc4]);
-  const ctc9 = stdlib.T_Tuple([ctc1]);
-  const ctc10 = stdlib.T_Tuple([ctc4, ctc1]);
-  const ctc11 = stdlib.T_Data({
-    Admin_addAdmin0_90: ctc8,
-    Admin_deposit0_90: ctc9,
-    Admin_editUserReward0_90: ctc10,
-    Admin_endContractAndTransfer0_90: ctc7,
-    Admin_revokeAdmin0_90: ctc8,
-    Admin_setReward0_90: ctc10,
-    User_claim0_90: ctc9,
-    User_claimAll0_90: ctc7,
-    User_optin0_90: ctc7,
+  const ctc7 = stdlib.T_Object({
+    i: ctc1,
+    scale: ctc1,
+  });
+  const ctc8 = stdlib.T_Object({
+    i: ctc7,
+    sign: ctc6,
+  });
+  const ctc9 = stdlib.T_Tuple([]);
+  const ctc10 = stdlib.T_Tuple([ctc4]);
+  const ctc11 = stdlib.T_Tuple([ctc1]);
+  const ctc12 = stdlib.T_Tuple([ctc4, ctc1]);
+  const ctc13 = stdlib.T_Data({
+    Admin_addAdmin0_98: ctc10,
+    Admin_deposit0_98: ctc11,
+    Admin_editUserReward0_98: ctc12,
+    Admin_endContractAndTransfer0_98: ctc9,
+    Admin_revokeAdmin0_98: ctc10,
+    Admin_setReward0_98: ctc12,
+    User_claim0_98: ctc11,
+    User_claimAll0_98: ctc9,
+    User_optin0_98: ctc9,
   });
 
   const map0_ctc = ctc2;
@@ -5110,73 +5369,74 @@ export async function _User_claimAll3(ctcTop, interact) {
     ty: map3_ctc,
   });
 
-  const [v1484, v1485, v1506, v1523, v1524, v1525, v1526, v1527, v1528] =
+  const [v1509, v1510, v1533, v1554, v1555, v1556, v1557, v1558, v1559, v1560] =
     await ctc.getState(
       stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "3"),
-      [ctc4, ctc5, ctc1, ctc1, ctc6, ctc1, ctc1, ctc1, ctc1]
+      [ctc4, ctc5, ctc1, ctc1, ctc6, ctc8, ctc1, ctc1, ctc1, ctc1]
     );
-  const v1618 = ctc.selfAddress();
-  const v1620 = stdlib.protect(ctc7, await interact.in(), {
+  const v1651 = ctc.selfAddress();
+  const v1653 = stdlib.protect(ctc9, await interact.in(), {
     at: "./index.rsh:1:23:application",
     fs: [
-      "at ./index.rsh:181:29:application call to [unknown function] (defined at: ./index.rsh:181:29:function exp)",
-      'at ./index.rsh:70:37:application call to "runUser_claimAll0_90" (defined at: ./index.rsh:181:10:function exp)',
-      "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:70:37:function exp)",
+      "at ./index.rsh:185:29:application call to [unknown function] (defined at: ./index.rsh:185:29:function exp)",
+      'at ./index.rsh:72:37:application call to "runUser_claimAll0_98" (defined at: ./index.rsh:185:10:function exp)',
+      "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:72:37:function exp)",
     ],
     msg: "in",
     who: "User_claimAll",
   });
-  const v1621 = stdlib.protect(
+  const v1654 = stdlib.protect(
     map0_ctc,
-    await stdlib.mapRef(map0, v1618),
+    await stdlib.mapRef(map0, v1651),
     null
   );
-  const v1622 = {
+  const v1655 = {
     None: 0,
     Some: 1,
-  }[v1621[0]];
-  const v1623 = stdlib.eq(
-    v1622,
+  }[v1654[0]];
+  const v1656 = stdlib.eq(
+    v1655,
     stdlib.checkedBigNumberify(
       "reach standard library:38:41:application",
       stdlib.UInt_max,
       "1"
     )
   );
-  stdlib.assert(v1623, {
+  stdlib.assert(v1656, {
     at: "reach standard library:57:5:application",
     fs: [
-      'at ./index.rsh:182:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
-      "at ./index.rsh:181:29:application call to [unknown function] (defined at: ./index.rsh:181:29:function exp)",
-      'at ./index.rsh:70:37:application call to "runUser_claimAll0_90" (defined at: ./index.rsh:181:10:function exp)',
-      "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:70:37:function exp)",
+      'at ./index.rsh:186:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
+      "at ./index.rsh:185:29:application call to [unknown function] (defined at: ./index.rsh:185:29:function exp)",
+      'at ./index.rsh:72:37:application call to "runUser_claimAll0_98" (defined at: ./index.rsh:185:10:function exp)',
+      "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:72:37:function exp)",
     ],
     msg: "Cannot claim because you have not earned reward",
     who: "User_claimAll",
   });
-  const v1628 = ["User_claimAll0_90", v1620];
+  const v1661 = ["User_claimAll0_98", v1653];
 
   const txn1 = await ctc.sendrecv({
     args: [
-      v1484,
-      v1485,
-      v1506,
-      v1523,
-      v1524,
-      v1525,
-      v1526,
-      v1527,
-      v1528,
-      v1628,
+      v1509,
+      v1510,
+      v1533,
+      v1554,
+      v1555,
+      v1556,
+      v1557,
+      v1558,
+      v1559,
+      v1560,
+      v1661,
     ],
     evt_cnt: 1,
     funcNum: 2,
     lct: stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "0"),
     onlyIf: true,
-    out_tys: [ctc11],
+    out_tys: [ctc13],
     pay: [
       stdlib.checkedBigNumberify(
-        "./index.rsh:187:9:decimal",
+        "./index.rsh:191:9:decimal",
         stdlib.UInt_max,
         "0"
       ),
@@ -5196,123 +5456,125 @@ export async function _User_claimAll3(ctcTop, interact) {
       stdlib.simMapDupe(sim_r, 3, map3);
 
       const {
-        data: [v1714],
-        secs: v1716,
-        time: v1715,
-        didSend: v957,
-        from: v1713,
+        data: [v1747],
+        secs: v1749,
+        time: v1748,
+        didSend: v965,
+        from: v1746,
       } = txn1;
 
-      switch (v1714[0]) {
-        case "Admin_addAdmin0_90": {
-          const v1717 = v1714[1];
+      switch (v1747[0]) {
+        case "Admin_addAdmin0_98": {
+          const v1750 = v1747[1];
 
           break;
         }
-        case "Admin_deposit0_90": {
-          const v2130 = v1714[1];
+        case "Admin_deposit0_98": {
+          const v2178 = v1747[1];
 
           break;
         }
-        case "Admin_editUserReward0_90": {
-          const v2543 = v1714[1];
+        case "Admin_editUserReward0_98": {
+          const v2606 = v1747[1];
 
           break;
         }
-        case "Admin_endContractAndTransfer0_90": {
-          const v2956 = v1714[1];
+        case "Admin_endContractAndTransfer0_98": {
+          const v3034 = v1747[1];
 
           break;
         }
-        case "Admin_revokeAdmin0_90": {
-          const v3369 = v1714[1];
+        case "Admin_revokeAdmin0_98": {
+          const v3462 = v1747[1];
 
           break;
         }
-        case "Admin_setReward0_90": {
-          const v3782 = v1714[1];
+        case "Admin_setReward0_98": {
+          const v3890 = v1747[1];
 
           break;
         }
-        case "User_claim0_90": {
-          const v4195 = v1714[1];
+        case "User_claim0_98": {
+          const v4318 = v1747[1];
 
           break;
         }
-        case "User_claimAll0_90": {
-          const v4608 = v1714[1];
+        case "User_claimAll0_98": {
+          const v4746 = v1747[1];
           sim_r.txns.push({
             kind: "api",
             who: "User_claimAll",
           });
-          const v4656 = stdlib.protect(
+          const v4794 = stdlib.protect(
             map0_ctc,
-            await stdlib.simMapRef(sim_r, 0, v1713),
+            await stdlib.simMapRef(sim_r, 0, v1746),
             null
           );
-          const v4935 = stdlib.fromSome(
-            v4656,
+          const v5084 = stdlib.fromSome(
+            v4794,
             stdlib.checkedBigNumberify(
-              "./index.rsh:189:60:decimal",
+              "./index.rsh:193:60:decimal",
               stdlib.UInt_max,
               "0"
             )
           );
-          const v4937 = stdlib.gt(v1506, v4935);
-          const v4938 = v4937 ? v4935 : v1506;
-          const v4940 = stdlib.ge(v4935, v1506);
-          if (v4940) {
+          const v5086 = stdlib.gt(v1533, v5084);
+          const v5087 = v5086 ? v5084 : v1533;
+          const v5089 = stdlib.ge(v5084, v1533);
+          if (v5089) {
             null;
-            const v4941 = false;
-            const v4942 = await txn1.getOutput(
+            const v5090 = false;
+            const v5091 = await txn1.getOutput(
               "User_claimAll",
-              "v4941",
+              "v5090",
               ctc6,
-              v4941
+              v5090
             );
 
-            const v4953 = stdlib.safeAdd(
-              v1528,
+            const v5103 = stdlib.safeAdd(
+              v1560,
               stdlib.checkedBigNumberify(
-                "./index.rsh:194:57:decimal",
+                "./index.rsh:198:57:decimal",
                 stdlib.UInt_max,
                 "1"
               )
             );
-            const v4954 = {
-              bal: v1523,
-              keepGoing: v1524,
-              total_amount_claimed: v1525,
-              total_rewards_allcoated: v1526,
-              total_users_claim: v1527,
-              usersNo: v4953,
+            const v5104 = {
+              bal: v1554,
+              keepGoing: v1555,
+              percent: v1556,
+              total_amount_claimed: v1557,
+              total_rewards_allcoated: v1558,
+              total_users_claim: v1559,
+              usersNo: v5103,
             };
-            const v9820 = v1506;
-            const v9821 = v4954.keepGoing;
-            if (v9821) {
-              const v9822 = v4954.bal;
-              const v9824 = v4954.total_amount_claimed;
-              const v9825 = v4954.total_rewards_allcoated;
-              const v9826 = v4954.total_users_claim;
-              const v9827 = v4954.usersNo;
+            const v10262 = v1533;
+            const v10263 = v5104.keepGoing;
+            if (v10263) {
+              const v10264 = v5104.bal;
+              const v10266 = v5104.percent;
+              const v10267 = v5104.total_amount_claimed;
+              const v10268 = v5104.total_rewards_allcoated;
+              const v10269 = v5104.total_users_claim;
+              const v10270 = v5104.usersNo;
               sim_r.isHalt = false;
             } else {
-              const v9831 = stdlib.sub(v1506, v1506);
+              const v10275 = stdlib.sub(v1533, v1533);
               sim_r.txns.push({
                 kind: "from",
-                to: v1484,
+                to: v1509,
                 tok: undefined /* Nothing */,
               });
-              const v9832 = stdlib.le(await ctc.getBalance(), v9831)
+              const v10276 = stdlib.le(await ctc.getBalance(), v10275)
                 ? stdlib.checkedBigNumberify(
-                    "./index.rsh:294:29:application",
+                    "./index.rsh:298:29:application",
                     stdlib.UInt_max,
                     "0"
                   )
-                : stdlib.safeSub(await ctc.getBalance(), v9831);
+                : stdlib.safeSub(await ctc.getBalance(), v10275);
               sim_r.txns.push({
                 kind: "from",
-                to: v1484,
+                to: v1509,
                 tok: undefined /* Nothing */,
               });
               sim_r.txns.push({
@@ -5322,83 +5584,85 @@ export async function _User_claimAll3(ctcTop, interact) {
               sim_r.isHalt = true;
             }
           } else {
-            const v4956 = stdlib.protect(
+            const v5106 = stdlib.protect(
               map2_ctc,
-              await stdlib.simMapRef(sim_r, 2, v1713),
+              await stdlib.simMapRef(sim_r, 2, v1746),
               null
             );
-            const v4957 = {
+            const v5107 = {
               None: 0,
               Some: 1,
-            }[v4956[0]];
-            const v4958 = stdlib.eq(
-              v4957,
+            }[v5106[0]];
+            const v5108 = stdlib.eq(
+              v5107,
               stdlib.checkedBigNumberify(
                 "reach standard library:38:41:application",
                 stdlib.UInt_max,
                 "1"
               )
             );
-            if (v4958) {
-              const v4984 = true;
-              const v4985 = await txn1.getOutput(
+            if (v5108) {
+              const v5135 = true;
+              const v5136 = await txn1.getOutput(
                 "User_claimAll",
-                "v4984",
+                "v5135",
                 ctc6,
-                v4984
+                v5135
               );
 
-              const v4993 = stdlib.sub(v1506, v4938);
+              const v5144 = stdlib.sub(v1533, v5087);
               sim_r.txns.push({
                 kind: "from",
-                to: v1713,
+                to: v1746,
                 tok: undefined /* Nothing */,
               });
-              await stdlib.simMapSet(sim_r, 0, v1713, undefined /* Nothing */);
-              const v5000 = stdlib.safeSub(v1523, v4938);
-              const v5001 = stdlib.safeAdd(
-                v1527,
+              await stdlib.simMapSet(sim_r, 0, v1746, undefined /* Nothing */);
+              const v5152 = stdlib.safeSub(v1554, v5087);
+              const v5153 = stdlib.safeAdd(
+                v1559,
                 stdlib.checkedBigNumberify(
-                  "./index.rsh:217:54:decimal",
+                  "./index.rsh:221:54:decimal",
                   stdlib.UInt_max,
                   "1"
                 )
               );
-              const v5002 = stdlib.safeAdd(v1525, v4938);
-              const v5003 = {
-                bal: v5000,
-                keepGoing: v1524,
-                total_amount_claimed: v5002,
-                total_rewards_allcoated: v1526,
-                total_users_claim: v5001,
-                usersNo: v1528,
+              const v5154 = stdlib.safeAdd(v1557, v5087);
+              const v5155 = {
+                bal: v5152,
+                keepGoing: v1555,
+                percent: v1556,
+                total_amount_claimed: v5154,
+                total_rewards_allcoated: v1558,
+                total_users_claim: v5153,
+                usersNo: v1560,
               };
-              const v9835 = v4993;
-              const v9836 = v5003.keepGoing;
-              if (v9836) {
-                const v9837 = v5003.bal;
-                const v9839 = v5003.total_amount_claimed;
-                const v9840 = v5003.total_rewards_allcoated;
-                const v9841 = v5003.total_users_claim;
-                const v9842 = v5003.usersNo;
+              const v10279 = v5144;
+              const v10280 = v5155.keepGoing;
+              if (v10280) {
+                const v10281 = v5155.bal;
+                const v10283 = v5155.percent;
+                const v10284 = v5155.total_amount_claimed;
+                const v10285 = v5155.total_rewards_allcoated;
+                const v10286 = v5155.total_users_claim;
+                const v10287 = v5155.usersNo;
                 sim_r.isHalt = false;
               } else {
-                const v9846 = stdlib.sub(v4993, v4993);
+                const v10292 = stdlib.sub(v5144, v5144);
                 sim_r.txns.push({
                   kind: "from",
-                  to: v1484,
+                  to: v1509,
                   tok: undefined /* Nothing */,
                 });
-                const v9847 = stdlib.le(await ctc.getBalance(), v9846)
+                const v10293 = stdlib.le(await ctc.getBalance(), v10292)
                   ? stdlib.checkedBigNumberify(
-                      "./index.rsh:294:29:application",
+                      "./index.rsh:298:29:application",
                       stdlib.UInt_max,
                       "0"
                     )
-                  : stdlib.safeSub(await ctc.getBalance(), v9846);
+                  : stdlib.safeSub(await ctc.getBalance(), v10292);
                 sim_r.txns.push({
                   kind: "from",
-                  to: v1484,
+                  to: v1509,
                   tok: undefined /* Nothing */,
                 });
                 sim_r.txns.push({
@@ -5408,80 +5672,82 @@ export async function _User_claimAll3(ctcTop, interact) {
                 sim_r.isHalt = true;
               }
             } else {
-              const v4960 = true;
-              const v4961 = await txn1.getOutput(
+              const v5110 = true;
+              const v5111 = await txn1.getOutput(
                 "User_claimAll",
-                "v4960",
+                "v5110",
                 ctc6,
-                v4960
+                v5110
               );
 
-              const v4966 = {
-                addr: v1713,
-                amount: v4938,
-                projectName: v1485,
+              const v5116 = {
+                addr: v1746,
+                amount: v5087,
+                projectName: v1510,
               };
               null;
-              await stdlib.simMapSet(sim_r, 2, v1713, null);
-              const v4971 = stdlib.sub(v1506, v4938);
+              await stdlib.simMapSet(sim_r, 2, v1746, null);
+              const v5121 = stdlib.sub(v1533, v5087);
               sim_r.txns.push({
                 kind: "from",
-                to: v1713,
+                to: v1746,
                 tok: undefined /* Nothing */,
               });
-              await stdlib.simMapSet(sim_r, 0, v1713, undefined /* Nothing */);
-              const v4978 = stdlib.safeAdd(
-                v1528,
+              await stdlib.simMapSet(sim_r, 0, v1746, undefined /* Nothing */);
+              const v5129 = stdlib.safeAdd(
+                v1560,
                 stdlib.checkedBigNumberify(
-                  "./index.rsh:205:34:decimal",
+                  "./index.rsh:209:34:decimal",
                   stdlib.UInt_max,
                   "1"
                 )
               );
-              const v4979 = stdlib.safeSub(v1523, v4938);
-              const v4980 = stdlib.safeAdd(
-                v1527,
+              const v5130 = stdlib.safeSub(v1554, v5087);
+              const v5131 = stdlib.safeAdd(
+                v1559,
                 stdlib.checkedBigNumberify(
-                  "./index.rsh:207:54:decimal",
+                  "./index.rsh:211:54:decimal",
                   stdlib.UInt_max,
                   "1"
                 )
               );
-              const v4981 = stdlib.safeAdd(v1525, v4938);
-              const v4982 = {
-                bal: v4979,
-                keepGoing: v1524,
-                total_amount_claimed: v4981,
-                total_rewards_allcoated: v1526,
-                total_users_claim: v4980,
-                usersNo: v4978,
+              const v5132 = stdlib.safeAdd(v1557, v5087);
+              const v5133 = {
+                bal: v5130,
+                keepGoing: v1555,
+                percent: v1556,
+                total_amount_claimed: v5132,
+                total_rewards_allcoated: v1558,
+                total_users_claim: v5131,
+                usersNo: v5129,
               };
-              const v9850 = v4971;
-              const v9851 = v4982.keepGoing;
-              if (v9851) {
-                const v9852 = v4982.bal;
-                const v9854 = v4982.total_amount_claimed;
-                const v9855 = v4982.total_rewards_allcoated;
-                const v9856 = v4982.total_users_claim;
-                const v9857 = v4982.usersNo;
+              const v10296 = v5121;
+              const v10297 = v5133.keepGoing;
+              if (v10297) {
+                const v10298 = v5133.bal;
+                const v10300 = v5133.percent;
+                const v10301 = v5133.total_amount_claimed;
+                const v10302 = v5133.total_rewards_allcoated;
+                const v10303 = v5133.total_users_claim;
+                const v10304 = v5133.usersNo;
                 sim_r.isHalt = false;
               } else {
-                const v9861 = stdlib.sub(v4971, v4971);
+                const v10309 = stdlib.sub(v5121, v5121);
                 sim_r.txns.push({
                   kind: "from",
-                  to: v1484,
+                  to: v1509,
                   tok: undefined /* Nothing */,
                 });
-                const v9862 = stdlib.le(await ctc.getBalance(), v9861)
+                const v10310 = stdlib.le(await ctc.getBalance(), v10309)
                   ? stdlib.checkedBigNumberify(
-                      "./index.rsh:294:29:application",
+                      "./index.rsh:298:29:application",
                       stdlib.UInt_max,
                       "0"
                     )
-                  : stdlib.safeSub(await ctc.getBalance(), v9861);
+                  : stdlib.safeSub(await ctc.getBalance(), v10309);
                 sim_r.txns.push({
                   kind: "from",
-                  to: v1484,
+                  to: v1509,
                   tok: undefined /* Nothing */,
                 });
                 sim_r.txns.push({
@@ -5494,8 +5760,8 @@ export async function _User_claimAll3(ctcTop, interact) {
           }
           break;
         }
-        case "User_optin0_90": {
-          const v5021 = v1714[1];
+        case "User_optin0_98": {
+          const v5174 = v1747[1];
 
           break;
         }
@@ -5504,110 +5770,110 @@ export async function _User_claimAll3(ctcTop, interact) {
     },
     soloSend: false,
     timeoutAt: undefined /* mto */,
-    tys: [ctc4, ctc5, ctc1, ctc1, ctc6, ctc1, ctc1, ctc1, ctc1, ctc11],
+    tys: [ctc4, ctc5, ctc1, ctc1, ctc6, ctc8, ctc1, ctc1, ctc1, ctc1, ctc13],
     waitIfNotPresent: false,
   });
   const {
-    data: [v1714],
-    secs: v1716,
-    time: v1715,
-    didSend: v957,
-    from: v1713,
+    data: [v1747],
+    secs: v1749,
+    time: v1748,
+    didSend: v965,
+    from: v1746,
   } = txn1;
-  switch (v1714[0]) {
-    case "Admin_addAdmin0_90": {
-      const v1717 = v1714[1];
+  switch (v1747[0]) {
+    case "Admin_addAdmin0_98": {
+      const v1750 = v1747[1];
       return;
       break;
     }
-    case "Admin_deposit0_90": {
-      const v2130 = v1714[1];
+    case "Admin_deposit0_98": {
+      const v2178 = v1747[1];
       return;
       break;
     }
-    case "Admin_editUserReward0_90": {
-      const v2543 = v1714[1];
+    case "Admin_editUserReward0_98": {
+      const v2606 = v1747[1];
       return;
       break;
     }
-    case "Admin_endContractAndTransfer0_90": {
-      const v2956 = v1714[1];
+    case "Admin_endContractAndTransfer0_98": {
+      const v3034 = v1747[1];
       return;
       break;
     }
-    case "Admin_revokeAdmin0_90": {
-      const v3369 = v1714[1];
+    case "Admin_revokeAdmin0_98": {
+      const v3462 = v1747[1];
       return;
       break;
     }
-    case "Admin_setReward0_90": {
-      const v3782 = v1714[1];
+    case "Admin_setReward0_98": {
+      const v3890 = v1747[1];
       return;
       break;
     }
-    case "User_claim0_90": {
-      const v4195 = v1714[1];
+    case "User_claim0_98": {
+      const v4318 = v1747[1];
       return;
       break;
     }
-    case "User_claimAll0_90": {
-      const v4608 = v1714[1];
+    case "User_claimAll0_98": {
+      const v4746 = v1747[1];
       undefined /* setApiDetails */;
-      const v4656 = stdlib.protect(
+      const v4794 = stdlib.protect(
         map0_ctc,
-        await stdlib.mapRef(map0, v1713),
+        await stdlib.mapRef(map0, v1746),
         null
       );
-      const v4657 = {
+      const v4795 = {
         None: 0,
         Some: 1,
-      }[v4656[0]];
-      const v4658 = stdlib.eq(
-        v4657,
+      }[v4794[0]];
+      const v4796 = stdlib.eq(
+        v4795,
         stdlib.checkedBigNumberify(
           "reach standard library:38:41:application",
           stdlib.UInt_max,
           "1"
         )
       );
-      stdlib.assert(v4658, {
+      stdlib.assert(v4796, {
         at: "reach standard library:57:5:application",
         fs: [
-          'at ./index.rsh:182:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
-          "at ./index.rsh:181:29:application call to [unknown function] (defined at: ./index.rsh:181:29:function exp)",
-          "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:181:29:function exp)",
-          "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:70:37:function exp)",
+          'at ./index.rsh:186:12:application call to "check" (defined at: reach standard library:49:32:function exp)',
+          "at ./index.rsh:185:29:application call to [unknown function] (defined at: ./index.rsh:185:29:function exp)",
+          "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:185:29:function exp)",
+          "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:72:37:function exp)",
         ],
         msg: "Cannot claim because you have not earned reward",
         who: "User_claimAll",
       });
-      const v4935 = stdlib.fromSome(
-        v4656,
+      const v5084 = stdlib.fromSome(
+        v4794,
         stdlib.checkedBigNumberify(
-          "./index.rsh:189:60:decimal",
+          "./index.rsh:193:60:decimal",
           stdlib.UInt_max,
           "0"
         )
       );
-      const v4937 = stdlib.gt(v1506, v4935);
-      const v4938 = v4937 ? v4935 : v1506;
-      const v4940 = stdlib.ge(v4935, v1506);
-      if (v4940) {
+      const v5086 = stdlib.gt(v1533, v5084);
+      const v5087 = v5086 ? v5084 : v1533;
+      const v5089 = stdlib.ge(v5084, v1533);
+      if (v5089) {
         null;
-        const v4941 = false;
-        const v4942 = await txn1.getOutput(
+        const v5090 = false;
+        const v5091 = await txn1.getOutput(
           "User_claimAll",
-          "v4941",
+          "v5090",
           ctc6,
-          v4941
+          v5090
         );
-        if (v957) {
-          stdlib.protect(ctc0, await interact.out(v4608, v4942), {
-            at: "./index.rsh:181:11:application",
+        if (v965) {
+          stdlib.protect(ctc0, await interact.out(v4746, v5091), {
+            at: "./index.rsh:185:11:application",
             fs: [
-              "at ./index.rsh:181:11:application call to [unknown function] (defined at: ./index.rsh:181:11:function exp)",
-              'at ./index.rsh:193:16:application call to "ret" (defined at: ./index.rsh:188:15:function exp)',
-              "at ./index.rsh:188:15:application call to [unknown function] (defined at: ./index.rsh:188:15:function exp)",
+              "at ./index.rsh:185:11:application call to [unknown function] (defined at: ./index.rsh:185:11:function exp)",
+              'at ./index.rsh:197:16:application call to "ret" (defined at: ./index.rsh:192:15:function exp)',
+              "at ./index.rsh:192:15:application call to [unknown function] (defined at: ./index.rsh:192:15:function exp)",
             ],
             msg: "out",
             who: "User_claimAll",
@@ -5615,75 +5881,77 @@ export async function _User_claimAll3(ctcTop, interact) {
         } else {
         }
 
-        const v4953 = stdlib.safeAdd(
-          v1528,
+        const v5103 = stdlib.safeAdd(
+          v1560,
           stdlib.checkedBigNumberify(
-            "./index.rsh:194:57:decimal",
+            "./index.rsh:198:57:decimal",
             stdlib.UInt_max,
             "1"
           )
         );
-        const v4954 = {
-          bal: v1523,
-          keepGoing: v1524,
-          total_amount_claimed: v1525,
-          total_rewards_allcoated: v1526,
-          total_users_claim: v1527,
-          usersNo: v4953,
+        const v5104 = {
+          bal: v1554,
+          keepGoing: v1555,
+          percent: v1556,
+          total_amount_claimed: v1557,
+          total_rewards_allcoated: v1558,
+          total_users_claim: v1559,
+          usersNo: v5103,
         };
-        const v9820 = v1506;
-        const v9821 = v4954.keepGoing;
-        if (v9821) {
-          const v9822 = v4954.bal;
-          const v9824 = v4954.total_amount_claimed;
-          const v9825 = v4954.total_rewards_allcoated;
-          const v9826 = v4954.total_users_claim;
-          const v9827 = v4954.usersNo;
+        const v10262 = v1533;
+        const v10263 = v5104.keepGoing;
+        if (v10263) {
+          const v10264 = v5104.bal;
+          const v10266 = v5104.percent;
+          const v10267 = v5104.total_amount_claimed;
+          const v10268 = v5104.total_rewards_allcoated;
+          const v10269 = v5104.total_users_claim;
+          const v10270 = v5104.usersNo;
           return;
         } else {
-          const v9831 = stdlib.sub(v1506, v1506);
-          const v9832 = stdlib.le(await ctc.getBalance(), v9831)
+          const v10275 = stdlib.sub(v1533, v1533);
+          const v10276 = stdlib.le(await ctc.getBalance(), v10275)
             ? stdlib.checkedBigNumberify(
-                "./index.rsh:294:29:application",
+                "./index.rsh:298:29:application",
                 stdlib.UInt_max,
                 "0"
               )
-            : stdlib.safeSub(await ctc.getBalance(), v9831);
+            : stdlib.safeSub(await ctc.getBalance(), v10275);
           return;
         }
       } else {
-        const v4956 = stdlib.protect(
+        const v5106 = stdlib.protect(
           map2_ctc,
-          await stdlib.mapRef(map2, v1713),
+          await stdlib.mapRef(map2, v1746),
           null
         );
-        const v4957 = {
+        const v5107 = {
           None: 0,
           Some: 1,
-        }[v4956[0]];
-        const v4958 = stdlib.eq(
-          v4957,
+        }[v5106[0]];
+        const v5108 = stdlib.eq(
+          v5107,
           stdlib.checkedBigNumberify(
             "reach standard library:38:41:application",
             stdlib.UInt_max,
             "1"
           )
         );
-        if (v4958) {
-          const v4984 = true;
-          const v4985 = await txn1.getOutput(
+        if (v5108) {
+          const v5135 = true;
+          const v5136 = await txn1.getOutput(
             "User_claimAll",
-            "v4984",
+            "v5135",
             ctc6,
-            v4984
+            v5135
           );
-          if (v957) {
-            stdlib.protect(ctc0, await interact.out(v4608, v4985), {
-              at: "./index.rsh:181:11:application",
+          if (v965) {
+            stdlib.protect(ctc0, await interact.out(v4746, v5136), {
+              at: "./index.rsh:185:11:application",
               fs: [
-                "at ./index.rsh:181:11:application call to [unknown function] (defined at: ./index.rsh:181:11:function exp)",
-                'at ./index.rsh:211:16:application call to "ret" (defined at: ./index.rsh:188:15:function exp)',
-                "at ./index.rsh:188:15:application call to [unknown function] (defined at: ./index.rsh:188:15:function exp)",
+                "at ./index.rsh:185:11:application call to [unknown function] (defined at: ./index.rsh:185:11:function exp)",
+                'at ./index.rsh:215:16:application call to "ret" (defined at: ./index.rsh:192:15:function exp)',
+                "at ./index.rsh:192:15:application call to [unknown function] (defined at: ./index.rsh:192:15:function exp)",
               ],
               msg: "out",
               who: "User_claimAll",
@@ -5691,61 +5959,63 @@ export async function _User_claimAll3(ctcTop, interact) {
           } else {
           }
 
-          const v4993 = stdlib.sub(v1506, v4938);
-          await stdlib.mapSet(map0, v1713, undefined /* Nothing */);
-          const v5000 = stdlib.safeSub(v1523, v4938);
-          const v5001 = stdlib.safeAdd(
-            v1527,
+          const v5144 = stdlib.sub(v1533, v5087);
+          await stdlib.mapSet(map0, v1746, undefined /* Nothing */);
+          const v5152 = stdlib.safeSub(v1554, v5087);
+          const v5153 = stdlib.safeAdd(
+            v1559,
             stdlib.checkedBigNumberify(
-              "./index.rsh:217:54:decimal",
+              "./index.rsh:221:54:decimal",
               stdlib.UInt_max,
               "1"
             )
           );
-          const v5002 = stdlib.safeAdd(v1525, v4938);
-          const v5003 = {
-            bal: v5000,
-            keepGoing: v1524,
-            total_amount_claimed: v5002,
-            total_rewards_allcoated: v1526,
-            total_users_claim: v5001,
-            usersNo: v1528,
+          const v5154 = stdlib.safeAdd(v1557, v5087);
+          const v5155 = {
+            bal: v5152,
+            keepGoing: v1555,
+            percent: v1556,
+            total_amount_claimed: v5154,
+            total_rewards_allcoated: v1558,
+            total_users_claim: v5153,
+            usersNo: v1560,
           };
-          const v9835 = v4993;
-          const v9836 = v5003.keepGoing;
-          if (v9836) {
-            const v9837 = v5003.bal;
-            const v9839 = v5003.total_amount_claimed;
-            const v9840 = v5003.total_rewards_allcoated;
-            const v9841 = v5003.total_users_claim;
-            const v9842 = v5003.usersNo;
+          const v10279 = v5144;
+          const v10280 = v5155.keepGoing;
+          if (v10280) {
+            const v10281 = v5155.bal;
+            const v10283 = v5155.percent;
+            const v10284 = v5155.total_amount_claimed;
+            const v10285 = v5155.total_rewards_allcoated;
+            const v10286 = v5155.total_users_claim;
+            const v10287 = v5155.usersNo;
             return;
           } else {
-            const v9846 = stdlib.sub(v4993, v4993);
-            const v9847 = stdlib.le(await ctc.getBalance(), v9846)
+            const v10292 = stdlib.sub(v5144, v5144);
+            const v10293 = stdlib.le(await ctc.getBalance(), v10292)
               ? stdlib.checkedBigNumberify(
-                  "./index.rsh:294:29:application",
+                  "./index.rsh:298:29:application",
                   stdlib.UInt_max,
                   "0"
                 )
-              : stdlib.safeSub(await ctc.getBalance(), v9846);
+              : stdlib.safeSub(await ctc.getBalance(), v10292);
             return;
           }
         } else {
-          const v4960 = true;
-          const v4961 = await txn1.getOutput(
+          const v5110 = true;
+          const v5111 = await txn1.getOutput(
             "User_claimAll",
-            "v4960",
+            "v5110",
             ctc6,
-            v4960
+            v5110
           );
-          if (v957) {
-            stdlib.protect(ctc0, await interact.out(v4608, v4961), {
-              at: "./index.rsh:181:11:application",
+          if (v965) {
+            stdlib.protect(ctc0, await interact.out(v4746, v5111), {
+              at: "./index.rsh:185:11:application",
               fs: [
-                "at ./index.rsh:181:11:application call to [unknown function] (defined at: ./index.rsh:181:11:function exp)",
-                'at ./index.rsh:196:16:application call to "ret" (defined at: ./index.rsh:188:15:function exp)',
-                "at ./index.rsh:188:15:application call to [unknown function] (defined at: ./index.rsh:188:15:function exp)",
+                "at ./index.rsh:185:11:application call to [unknown function] (defined at: ./index.rsh:185:11:function exp)",
+                'at ./index.rsh:200:16:application call to "ret" (defined at: ./index.rsh:192:15:function exp)',
+                "at ./index.rsh:192:15:application call to [unknown function] (defined at: ./index.rsh:192:15:function exp)",
               ],
               msg: "out",
               who: "User_claimAll",
@@ -5753,67 +6023,69 @@ export async function _User_claimAll3(ctcTop, interact) {
           } else {
           }
 
-          const v4966 = {
-            addr: v1713,
-            amount: v4938,
-            projectName: v1485,
+          const v5116 = {
+            addr: v1746,
+            amount: v5087,
+            projectName: v1510,
           };
           null;
-          await stdlib.mapSet(map2, v1713, null);
-          const v4971 = stdlib.sub(v1506, v4938);
-          await stdlib.mapSet(map0, v1713, undefined /* Nothing */);
-          const v4978 = stdlib.safeAdd(
-            v1528,
+          await stdlib.mapSet(map2, v1746, null);
+          const v5121 = stdlib.sub(v1533, v5087);
+          await stdlib.mapSet(map0, v1746, undefined /* Nothing */);
+          const v5129 = stdlib.safeAdd(
+            v1560,
             stdlib.checkedBigNumberify(
-              "./index.rsh:205:34:decimal",
+              "./index.rsh:209:34:decimal",
               stdlib.UInt_max,
               "1"
             )
           );
-          const v4979 = stdlib.safeSub(v1523, v4938);
-          const v4980 = stdlib.safeAdd(
-            v1527,
+          const v5130 = stdlib.safeSub(v1554, v5087);
+          const v5131 = stdlib.safeAdd(
+            v1559,
             stdlib.checkedBigNumberify(
-              "./index.rsh:207:54:decimal",
+              "./index.rsh:211:54:decimal",
               stdlib.UInt_max,
               "1"
             )
           );
-          const v4981 = stdlib.safeAdd(v1525, v4938);
-          const v4982 = {
-            bal: v4979,
-            keepGoing: v1524,
-            total_amount_claimed: v4981,
-            total_rewards_allcoated: v1526,
-            total_users_claim: v4980,
-            usersNo: v4978,
+          const v5132 = stdlib.safeAdd(v1557, v5087);
+          const v5133 = {
+            bal: v5130,
+            keepGoing: v1555,
+            percent: v1556,
+            total_amount_claimed: v5132,
+            total_rewards_allcoated: v1558,
+            total_users_claim: v5131,
+            usersNo: v5129,
           };
-          const v9850 = v4971;
-          const v9851 = v4982.keepGoing;
-          if (v9851) {
-            const v9852 = v4982.bal;
-            const v9854 = v4982.total_amount_claimed;
-            const v9855 = v4982.total_rewards_allcoated;
-            const v9856 = v4982.total_users_claim;
-            const v9857 = v4982.usersNo;
+          const v10296 = v5121;
+          const v10297 = v5133.keepGoing;
+          if (v10297) {
+            const v10298 = v5133.bal;
+            const v10300 = v5133.percent;
+            const v10301 = v5133.total_amount_claimed;
+            const v10302 = v5133.total_rewards_allcoated;
+            const v10303 = v5133.total_users_claim;
+            const v10304 = v5133.usersNo;
             return;
           } else {
-            const v9861 = stdlib.sub(v4971, v4971);
-            const v9862 = stdlib.le(await ctc.getBalance(), v9861)
+            const v10309 = stdlib.sub(v5121, v5121);
+            const v10310 = stdlib.le(await ctc.getBalance(), v10309)
               ? stdlib.checkedBigNumberify(
-                  "./index.rsh:294:29:application",
+                  "./index.rsh:298:29:application",
                   stdlib.UInt_max,
                   "0"
                 )
-              : stdlib.safeSub(await ctc.getBalance(), v9861);
+              : stdlib.safeSub(await ctc.getBalance(), v10309);
             return;
           }
         }
       }
       break;
     }
-    case "User_optin0_90": {
-      const v5021 = v1714[1];
+    case "User_optin0_98": {
+      const v5174 = v1747[1];
       return;
       break;
     }
@@ -5851,20 +6123,28 @@ export async function _User_optin3(ctcTop, interact) {
     stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "30")
   );
   const ctc6 = stdlib.T_Bool;
-  const ctc7 = stdlib.T_Tuple([]);
-  const ctc8 = stdlib.T_Tuple([ctc4]);
-  const ctc9 = stdlib.T_Tuple([ctc1]);
-  const ctc10 = stdlib.T_Tuple([ctc4, ctc1]);
-  const ctc11 = stdlib.T_Data({
-    Admin_addAdmin0_90: ctc8,
-    Admin_deposit0_90: ctc9,
-    Admin_editUserReward0_90: ctc10,
-    Admin_endContractAndTransfer0_90: ctc7,
-    Admin_revokeAdmin0_90: ctc8,
-    Admin_setReward0_90: ctc10,
-    User_claim0_90: ctc9,
-    User_claimAll0_90: ctc7,
-    User_optin0_90: ctc7,
+  const ctc7 = stdlib.T_Object({
+    i: ctc1,
+    scale: ctc1,
+  });
+  const ctc8 = stdlib.T_Object({
+    i: ctc7,
+    sign: ctc6,
+  });
+  const ctc9 = stdlib.T_Tuple([]);
+  const ctc10 = stdlib.T_Tuple([ctc4]);
+  const ctc11 = stdlib.T_Tuple([ctc1]);
+  const ctc12 = stdlib.T_Tuple([ctc4, ctc1]);
+  const ctc13 = stdlib.T_Data({
+    Admin_addAdmin0_98: ctc10,
+    Admin_deposit0_98: ctc11,
+    Admin_editUserReward0_98: ctc12,
+    Admin_endContractAndTransfer0_98: ctc9,
+    Admin_revokeAdmin0_98: ctc10,
+    Admin_setReward0_98: ctc12,
+    User_claim0_98: ctc11,
+    User_claimAll0_98: ctc9,
+    User_optin0_98: ctc9,
   });
 
   const map0_ctc = ctc2;
@@ -5899,44 +6179,45 @@ export async function _User_optin3(ctcTop, interact) {
     ty: map3_ctc,
   });
 
-  const [v1484, v1485, v1506, v1523, v1524, v1525, v1526, v1527, v1528] =
+  const [v1509, v1510, v1533, v1554, v1555, v1556, v1557, v1558, v1559, v1560] =
     await ctc.getState(
       stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "3"),
-      [ctc4, ctc5, ctc1, ctc1, ctc6, ctc1, ctc1, ctc1, ctc1]
+      [ctc4, ctc5, ctc1, ctc1, ctc6, ctc8, ctc1, ctc1, ctc1, ctc1]
     );
-  const v1648 = stdlib.protect(ctc7, await interact.in(), {
+  const v1681 = stdlib.protect(ctc9, await interact.in(), {
     at: "./index.rsh:1:23:application",
     fs: [
-      "at ./index.rsh:271:26:application call to [unknown function] (defined at: ./index.rsh:271:26:function exp)",
-      'at ./index.rsh:70:37:application call to "runUser_optin0_90" (defined at: ./index.rsh:271:10:function exp)',
-      "at ./index.rsh:70:37:application call to [unknown function] (defined at: ./index.rsh:70:37:function exp)",
+      "at ./index.rsh:275:26:application call to [unknown function] (defined at: ./index.rsh:275:26:function exp)",
+      'at ./index.rsh:72:37:application call to "runUser_optin0_98" (defined at: ./index.rsh:275:10:function exp)',
+      "at ./index.rsh:72:37:application call to [unknown function] (defined at: ./index.rsh:72:37:function exp)",
     ],
     msg: "in",
     who: "User_optin",
   });
-  const v1652 = ["User_optin0_90", v1648];
+  const v1685 = ["User_optin0_98", v1681];
 
   const txn1 = await ctc.sendrecv({
     args: [
-      v1484,
-      v1485,
-      v1506,
-      v1523,
-      v1524,
-      v1525,
-      v1526,
-      v1527,
-      v1528,
-      v1652,
+      v1509,
+      v1510,
+      v1533,
+      v1554,
+      v1555,
+      v1556,
+      v1557,
+      v1558,
+      v1559,
+      v1560,
+      v1685,
     ],
     evt_cnt: 1,
     funcNum: 2,
     lct: stdlib.checkedBigNumberify("<builtin>", stdlib.UInt_max, "0"),
     onlyIf: true,
-    out_tys: [ctc11],
+    out_tys: [ctc13],
     pay: [
       stdlib.checkedBigNumberify(
-        "./index.rsh:273:9:decimal",
+        "./index.rsh:277:9:decimal",
         stdlib.UInt_max,
         "0"
       ),
@@ -5956,103 +6237,105 @@ export async function _User_optin3(ctcTop, interact) {
       stdlib.simMapDupe(sim_r, 3, map3);
 
       const {
-        data: [v1714],
-        secs: v1716,
-        time: v1715,
-        didSend: v957,
-        from: v1713,
+        data: [v1747],
+        secs: v1749,
+        time: v1748,
+        didSend: v965,
+        from: v1746,
       } = txn1;
 
-      switch (v1714[0]) {
-        case "Admin_addAdmin0_90": {
-          const v1717 = v1714[1];
+      switch (v1747[0]) {
+        case "Admin_addAdmin0_98": {
+          const v1750 = v1747[1];
 
           break;
         }
-        case "Admin_deposit0_90": {
-          const v2130 = v1714[1];
+        case "Admin_deposit0_98": {
+          const v2178 = v1747[1];
 
           break;
         }
-        case "Admin_editUserReward0_90": {
-          const v2543 = v1714[1];
+        case "Admin_editUserReward0_98": {
+          const v2606 = v1747[1];
 
           break;
         }
-        case "Admin_endContractAndTransfer0_90": {
-          const v2956 = v1714[1];
+        case "Admin_endContractAndTransfer0_98": {
+          const v3034 = v1747[1];
 
           break;
         }
-        case "Admin_revokeAdmin0_90": {
-          const v3369 = v1714[1];
+        case "Admin_revokeAdmin0_98": {
+          const v3462 = v1747[1];
 
           break;
         }
-        case "Admin_setReward0_90": {
-          const v3782 = v1714[1];
+        case "Admin_setReward0_98": {
+          const v3890 = v1747[1];
 
           break;
         }
-        case "User_claim0_90": {
-          const v4195 = v1714[1];
+        case "User_claim0_98": {
+          const v4318 = v1747[1];
 
           break;
         }
-        case "User_claimAll0_90": {
-          const v4608 = v1714[1];
+        case "User_claimAll0_98": {
+          const v4746 = v1747[1];
 
           break;
         }
-        case "User_optin0_90": {
-          const v5021 = v1714[1];
+        case "User_optin0_98": {
+          const v5174 = v1747[1];
           sim_r.txns.push({
             kind: "api",
             who: "User_optin",
           });
-          await stdlib.simMapSet(sim_r, 3, v1713, null);
-          const v5420 = null;
-          const v5421 = await txn1.getOutput(
+          await stdlib.simMapSet(sim_r, 3, v1746, null);
+          const v5587 = null;
+          const v5588 = await txn1.getOutput(
             "User_optin",
-            "v5420",
+            "v5587",
             ctc0,
-            v5420
+            v5587
           );
 
-          const v5432 = {
-            bal: v1523,
-            keepGoing: v1524,
-            total_amount_claimed: v1525,
-            total_rewards_allcoated: v1526,
-            total_users_claim: v1527,
-            usersNo: v1528,
+          const v5600 = {
+            bal: v1554,
+            keepGoing: v1555,
+            percent: v1556,
+            total_amount_claimed: v1557,
+            total_rewards_allcoated: v1558,
+            total_users_claim: v1559,
+            usersNo: v1560,
           };
-          const v10090 = v1506;
-          const v10091 = v5432.keepGoing;
-          if (v10091) {
-            const v10092 = v5432.bal;
-            const v10094 = v5432.total_amount_claimed;
-            const v10095 = v5432.total_rewards_allcoated;
-            const v10096 = v5432.total_users_claim;
-            const v10097 = v5432.usersNo;
+          const v10568 = v1533;
+          const v10569 = v5600.keepGoing;
+          if (v10569) {
+            const v10570 = v5600.bal;
+            const v10572 = v5600.percent;
+            const v10573 = v5600.total_amount_claimed;
+            const v10574 = v5600.total_rewards_allcoated;
+            const v10575 = v5600.total_users_claim;
+            const v10576 = v5600.usersNo;
             sim_r.isHalt = false;
           } else {
-            const v10101 = stdlib.sub(v1506, v1506);
+            const v10581 = stdlib.sub(v1533, v1533);
             sim_r.txns.push({
               kind: "from",
-              to: v1484,
+              to: v1509,
               tok: undefined /* Nothing */,
             });
-            const v10102 = stdlib.le(await ctc.getBalance(), v10101)
+            const v10582 = stdlib.le(await ctc.getBalance(), v10581)
               ? stdlib.checkedBigNumberify(
-                  "./index.rsh:294:29:application",
+                  "./index.rsh:298:29:application",
                   stdlib.UInt_max,
                   "0"
                 )
-              : stdlib.safeSub(await ctc.getBalance(), v10101);
+              : stdlib.safeSub(await ctc.getBalance(), v10581);
             sim_r.txns.push({
               kind: "from",
-              to: v1484,
+              to: v1509,
               tok: undefined /* Nothing */,
             });
             sim_r.txns.push({
@@ -6068,70 +6351,70 @@ export async function _User_optin3(ctcTop, interact) {
     },
     soloSend: false,
     timeoutAt: undefined /* mto */,
-    tys: [ctc4, ctc5, ctc1, ctc1, ctc6, ctc1, ctc1, ctc1, ctc1, ctc11],
+    tys: [ctc4, ctc5, ctc1, ctc1, ctc6, ctc8, ctc1, ctc1, ctc1, ctc1, ctc13],
     waitIfNotPresent: false,
   });
   const {
-    data: [v1714],
-    secs: v1716,
-    time: v1715,
-    didSend: v957,
-    from: v1713,
+    data: [v1747],
+    secs: v1749,
+    time: v1748,
+    didSend: v965,
+    from: v1746,
   } = txn1;
-  switch (v1714[0]) {
-    case "Admin_addAdmin0_90": {
-      const v1717 = v1714[1];
+  switch (v1747[0]) {
+    case "Admin_addAdmin0_98": {
+      const v1750 = v1747[1];
       return;
       break;
     }
-    case "Admin_deposit0_90": {
-      const v2130 = v1714[1];
+    case "Admin_deposit0_98": {
+      const v2178 = v1747[1];
       return;
       break;
     }
-    case "Admin_editUserReward0_90": {
-      const v2543 = v1714[1];
+    case "Admin_editUserReward0_98": {
+      const v2606 = v1747[1];
       return;
       break;
     }
-    case "Admin_endContractAndTransfer0_90": {
-      const v2956 = v1714[1];
+    case "Admin_endContractAndTransfer0_98": {
+      const v3034 = v1747[1];
       return;
       break;
     }
-    case "Admin_revokeAdmin0_90": {
-      const v3369 = v1714[1];
+    case "Admin_revokeAdmin0_98": {
+      const v3462 = v1747[1];
       return;
       break;
     }
-    case "Admin_setReward0_90": {
-      const v3782 = v1714[1];
+    case "Admin_setReward0_98": {
+      const v3890 = v1747[1];
       return;
       break;
     }
-    case "User_claim0_90": {
-      const v4195 = v1714[1];
+    case "User_claim0_98": {
+      const v4318 = v1747[1];
       return;
       break;
     }
-    case "User_claimAll0_90": {
-      const v4608 = v1714[1];
+    case "User_claimAll0_98": {
+      const v4746 = v1747[1];
       return;
       break;
     }
-    case "User_optin0_90": {
-      const v5021 = v1714[1];
+    case "User_optin0_98": {
+      const v5174 = v1747[1];
       undefined /* setApiDetails */;
-      await stdlib.mapSet(map3, v1713, null);
-      const v5420 = null;
-      const v5421 = await txn1.getOutput("User_optin", "v5420", ctc0, v5420);
-      if (v957) {
-        stdlib.protect(ctc0, await interact.out(v5021, v5421), {
-          at: "./index.rsh:271:11:application",
+      await stdlib.mapSet(map3, v1746, null);
+      const v5587 = null;
+      const v5588 = await txn1.getOutput("User_optin", "v5587", ctc0, v5587);
+      if (v965) {
+        stdlib.protect(ctc0, await interact.out(v5174, v5588), {
+          at: "./index.rsh:275:11:application",
           fs: [
-            "at ./index.rsh:271:11:application call to [unknown function] (defined at: ./index.rsh:271:11:function exp)",
-            'at ./index.rsh:276:14:application call to "ret" (defined at: ./index.rsh:274:15:function exp)',
-            "at ./index.rsh:274:15:application call to [unknown function] (defined at: ./index.rsh:274:15:function exp)",
+            "at ./index.rsh:275:11:application call to [unknown function] (defined at: ./index.rsh:275:11:function exp)",
+            'at ./index.rsh:280:14:application call to "ret" (defined at: ./index.rsh:278:15:function exp)',
+            "at ./index.rsh:278:15:application call to [unknown function] (defined at: ./index.rsh:278:15:function exp)",
           ],
           msg: "out",
           who: "User_optin",
@@ -6139,32 +6422,34 @@ export async function _User_optin3(ctcTop, interact) {
       } else {
       }
 
-      const v5432 = {
-        bal: v1523,
-        keepGoing: v1524,
-        total_amount_claimed: v1525,
-        total_rewards_allcoated: v1526,
-        total_users_claim: v1527,
-        usersNo: v1528,
+      const v5600 = {
+        bal: v1554,
+        keepGoing: v1555,
+        percent: v1556,
+        total_amount_claimed: v1557,
+        total_rewards_allcoated: v1558,
+        total_users_claim: v1559,
+        usersNo: v1560,
       };
-      const v10090 = v1506;
-      const v10091 = v5432.keepGoing;
-      if (v10091) {
-        const v10092 = v5432.bal;
-        const v10094 = v5432.total_amount_claimed;
-        const v10095 = v5432.total_rewards_allcoated;
-        const v10096 = v5432.total_users_claim;
-        const v10097 = v5432.usersNo;
+      const v10568 = v1533;
+      const v10569 = v5600.keepGoing;
+      if (v10569) {
+        const v10570 = v5600.bal;
+        const v10572 = v5600.percent;
+        const v10573 = v5600.total_amount_claimed;
+        const v10574 = v5600.total_rewards_allcoated;
+        const v10575 = v5600.total_users_claim;
+        const v10576 = v5600.usersNo;
         return;
       } else {
-        const v10101 = stdlib.sub(v1506, v1506);
-        const v10102 = stdlib.le(await ctc.getBalance(), v10101)
+        const v10581 = stdlib.sub(v1533, v1533);
+        const v10582 = stdlib.le(await ctc.getBalance(), v10581)
           ? stdlib.checkedBigNumberify(
-              "./index.rsh:294:29:application",
+              "./index.rsh:298:29:application",
               stdlib.UInt_max,
               "0"
             )
-          : stdlib.safeSub(await ctc.getBalance(), v10101);
+          : stdlib.safeSub(await ctc.getBalance(), v10581);
         return;
       }
       break;
@@ -6429,6 +6714,7 @@ const _ALGO = {
     ],
     pure: [
       `Info_Admins(address)byte`,
+      `Info_balance()uint64`,
       `Info_opted(address)byte`,
       `Info_rewards(address)uint64`,
       `Info_totalAllocatedFunds()uint64`,
@@ -6444,6 +6730,7 @@ const _ALGO = {
       `Admin_revokeAdmin(address)byte[0]`,
       `Admin_setReward(address,uint64)byte`,
       `Info_Admins(address)byte`,
+      `Info_balance()uint64`,
       `Info_opted(address)byte`,
       `Info_rewards(address)uint64`,
       `Info_totalAllocatedFunds()uint64`,
@@ -6455,38 +6742,38 @@ const _ALGO = {
       `User_optin()byte[0]`,
     ],
   },
-  GlobalNumByteSlice: 2,
+  GlobalNumByteSlice: 3,
   GlobalNumUint: 0,
   LocalNumByteSlice: 1,
   LocalNumUint: 0,
-  appApproval: `ByAYAAEDCAkCKAz8lKG0Bb/St7YIq+eynwuK4/fnDI2rrp4Jt7KrwgftkPvXB5TS3MEHkLStzAK9+eKuBILyk8EE4oak5gKmmJGUAvKJzMAChbqM1AEFJgUBAAEBAAT/3nkoBJvIVFAiNQAxGEELaSpkSSJbNQElWzUCMRkjEkEACjEAKCEHr2ZCCzY2GgAXSUEB5CI1BCM1BkkhCAxAANtJIQkMQABpSSEKDEAAMEkhCwxAABQhCxJEKjX/gAEINP9QIQavUEIBxiEKEkQ2GgE1/4ABBDT/UCWvUEIBsUkhDAxAABYhDBJENhoBNhoCUDX/gAEFNP9QQgGUIQkSRDYaATX/gAEGNP9QMgNQQgF/SSENDEAAM0khDgxAABYhDhJENAEkEkQoZEk1A1dfCDUHQgqcIQ0SRDQBJBJEKGRJNQNXZwg1B0IKhkkhDwxAABYhDxJENhoBNhoCUDX/gAECNP9QQgEoIQgSRCo1/4ABAzT/UCEGr1BCARRJIRAMQABnSSERDEAAMEkhEgxAABYhEhJENAEkEkQoZEk1A1dPCDUHQgoqIRESRDYaATX/KDT/UCWvUEIA1kkhEwxAABMhExJENhoBNf8pNP9QMgNQQgC8IRASRDQBJBJEKGRJNQNXTwg1B0IJ50khFAxAADpJIRUMQAAUIRUSRCo1/4ABBzT/UCEGr1BCAIQhFBJENAEkEkQ2GgGICdxXCQEiVSMSFlEHCDUHQgmmSSEWDEAAIyEWEkQ0ASQSRCI2GgGICbVXAAlJNf8jWzT/IlVNFjUHQgl8gbuuuZsBEkQ0ASQSRDYaAYgJj1cLASJVIxIWUQcINQdCCVk2GgIXNQQ2GgM2GgEXSSEFDEAH+yEFEkQkNAESRDQESSISTDQCEhFEKGRJNQNJSkpKSVcAIDX/VyAeNf6BPls1/YFGWzX8V04BFzX7gU9bNfqBV1s1+YFfWzX4gWdbNfdJNQU19oAE/FtmxzT2ULA09iJVSYEEDEAGKkmBBgxAAw9JgQcMQAGcSSUMQABCJRJEMQAoMQCICOYpXAtmgAgAAAAAAAAVLLAqNQc0/zT+NPwWNPsWUQcIUDT6FlA0+RZQNPgWUDT3FlAyBjT9QgedSDEAiAipVwAJSTX1IlUjEkQiNPVJNfMjWzTzIlVNNfQ0/TT0NP009A1NNfM09DT9D0EAPCs09BZQsIAJAAAAAAAAE00AsCg1BzT/NP40/BY0+xZRBwhQNPoWUDT5FlA0+BZQNPcjCBZQMgY0/UIHLTEAiAg6VwoBIlUjEkEAXYAJAAAAAAAAE3gBsCk1B7EisgE087III7IQMQCyB7MxACgxAIgICSEEr1wAZjT/NP40/DTzCRY0+xZRBwhQNPo08wgWUDT5FlA0+CMIFlA09xZQMgY0/TTzCUIGwYAJAAAAAAAAE2ABsCk1BycEMQA08xZQNP5QULAxACgxAIgHrylcCmaxIrIBNPOyCCOyEDEAsgezMQAoMQCIB5MhBK9cAGY0/zT+NPw08wkWNPsWUQcIUDT6NPMIFlA0+RZQNPgjCBZQNPcjCBZQMgY0/TTzCUIGSUg09lcBCDX1MQCIB05XAAlJNfQiVSMSRDT1FzXzIjT0STXxI1s08SJVTTXyNPM08jTzNPINTTXxNP008TT9NPENTTXwNPI0/Q9BADwrNPIWULCACQAAAAAAABFhALAoNQc0/zT+NPwWNPsWUQcIUDT6FlA0+RZQNPgWUDT3IwgWUDIGNP1CBcExAIgGzlcKASJVIxJBAF2ACQAAAAAAABGOAbApNQexIrIBNPCyCCOyEDEAsgezMQAoMQCIBp0hBK9cAGY0/zT+NPw08AkWNPsWUQcIUDT6NPAIFlA0+RZQNPgjCBZQNPcWUDIGNP008AlCBVWACQAAAAAAABF1AbApNQcnBDEANPAWUDT+UFCwMQAoMQCIBkMpXApmsSKyATTwsggjshAxALIHszEAKDEAiAYnIQSvXABmNP80/jT8NPAJFjT7FlEHCFA0+jTwCBZQNPkWUDT4IwgWUDT3IwgWUDIGNP008AlCBN1JIRcMQALASDT2VwEoNfU09YEgW0k19DT8DTXzIjT0NPNNNfI0/TTyCDXxNPKIBc409VcAIDXwNPCIBbNXCwEiVSMSQQBrNPAoNPCIBaEpIjTwiAWaVwAJSTXvI1s07yJVTTT0CBZQXABmgAkAAAAAAAAPfAGwKTUHNPNBAAo0/DT0CDXvQgAENPw17zT/NP407xY0+xZRBwhQNPoWUDT5FlA0+BZQNPcWUDIGNPFCBCw080EBCoDMARABneRZb3VyIHVzZXIgaGFzbid0IG9wdGVkIGluAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADTwULCACQAAAAAAAA+PALAoNQc0/zT+NPw09AgWNPsWUQcIUDT6FlA0+RZQNPgWUDT3FlAyBjTxQgMdgMwBEAGd5FRoZSBiYWxhbmNlIHlvdSBhcmUgdHJ5aW5nIHRvIHNldCBmb3IgdGhlIHVzZXIgaXMgaW52YWxpZCBhbmQgdGhleSBoYXZlbid0IG9wdGVkIGluAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANPBQsIAJAAAAAAAAD6IAsCg1BzT/NP40/BY0+xZRBwhQNPoWUDT5FlA0+BZQNPcWUDIGNPFCAhZINPZXASA19TEANP8SRDT1KDT1iAMSKFwJZoAIAAAAAAAADcSwKjUHNP80/jT8FjT7FlEHCFA0+hZQNPkWUDT4FlA09xZQMgY0/UIByUkhBQxAAKZJJAxAADpINP8xABJEgAgAAAAAAAAME7AqNQc0/zT+NPwWNPsWUQcIUDT6FlA0+RZQNPgWUDT3FlAyBjT9QgGCSDT2VwEoNfUxADT/EjEAiAKCVwkBIlUjEhFENPVXACAoNPVXACCIAmspNPVXIAhQXABmgAgAAAAAAAAKY7AqNQc0/zT+NPwWNPsWUQcIUDT6FlA0+RZQNPgWUDT3FlAyBjT9QgEcSSMMQABeSDT2VwEINfU09Rc19DEANP8SMQCIAhFXCQEiVSMSEUQ09IgCEoAIAAAAAAAACKuwKjUHNP80/jT8NPQIFjT7FlEHCFA0+hZQNPkWUDT4FlA09xZQMgY0/TT0CEIAuEg09lcBIDX1MQA0/xIxAIgBuFcJASJVIxIRRDT1KDT1iAGnKVwJZoAIAAAAAAAABvawKjUHNP80/jT8FjT7FlEHCFA0+hZQNPkWUDT4FlA09xZQMgY0/UIAXiISRIGgjQaIAXUiNAESRDQESSISTDQCEhFESTUFNf+ABK215JQ0/1CwMQA0/4ApAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAyBiJCAAA1/zX+Nf01/DX7NP1XCAEXQQBgNP0iWzX6NP1XCAEXNfk0/SEEWzX4NP2BEVs19zT9gRlbNfY0/YEhWzX1NPs0/FA0/xZQNPoWUDT5FlEHCFA0+BZQNPcWUDT2FlA09RZQKEsBVwBvZ0gkNQEyBjUCQgBNsSKyATT/sggjshA0+7IHszIKYDIKeAk0/0kJCTX6sSKyATT6sggjshA0+7IHs0IAADEZIRcSRLEisgEisggjshAyCbIJMgqyB7NCAAUxGSISRCo0ARY0AhZQZzQGQQAKgAQVH3x1NAdQsDQASSMIMgQSRDEWEkQjQzEZIhJEQv/fIjE0EkQhBTE1EkQiMTYSRCMxNxJEIjUBIjUCQv+uSTEYYUAABUghB6+JKGKJNABJSiMINQA4BzIKEkQ4ECMSRDgIEkSJ`,
+  appApproval: `ByAZAAEDCAkoAgyC8pPBBO2Q+9cHjauungmr57KfC4rj9+cMv9K3tgiU0tzBB7eyq8IH/JShtAWQtK3MAprF5fcDvfnirgTihqTmAqaYkZQC8onMwAKFuozUAQUmBQEAAQEABP/eeSgEm8hUUCI1ADEYQQvsKmRJIls1ASVbNQIxGSMSQQAKMQAoIQevZkILuTYaABdJQQIQIjUEIzUGSSEIDEABAUkhCQxAAIlJIQoMQABNSSELDEAAMEkhDAxAABQhDBJEKjX/gAEINP9QIQWvUEIB6yELEkQ2GgE1/4ABBDT/UCWvUEIB1iEKEkQ2GgE2GgJQNf+AAQU0/1BCAcBJIQ0MQAAVIQ0SRDYaATX/gAEGNP9QMgNQQgGkIQkSRDQBJBJEKGQpZFBJNQNXcAg1B0ILI0khDgxAADZJIQ8MQAAZIQ8SRDQBJBJEKGQpZFBJNQNXeAg1B0IK/CEOEkQ2GgE2GgJQNf+AAQI0/1BCAU5JIRAMQAAUIRASRCo1/4ABAzT/UCEFr1BCATMhCBJENAEkEkQoZClkUEk1A1dgCDUHQgqySSERDEAAbUkhEgxAADNJIRMMQAATIRMSRDYaATX/KDT/UCWvUEIA8iESEkQ0ASQSRChkKWRQSTUDVz4INQdCCnFJIRQMQAATIRQSRDYaATX/KTT/UDIDUEIAvyEREkQ0ASQSRChkKWRQSTUDV2gINQdCCj5JIRUMQAA6SSEWDEAAFCEWEkQqNf+AAQc0/1AhBa9QQgCEIRUSRDQBJBJENhoBiAoyVwkBIlUjEhZRBwg1B0IJ/UkhFwxAACMhFxJENAEkEkQiNhoBiAoLVwAJSTX/I1s0/yJVTRY1B0IJ04G7rrmbARJENAEkEkQ2GgGICeVXCwEiVSMSFlEHCDUHQgmwNhoCFzUENhoDNhoBF0khBgxACDAhBhJEJDQBEkQ0BEkiEkw0AhIRRChkKWRQSTUDSUpKSkpXACA1/1cgHjX+gT5bNf2BRls1/FdOARc1+1dPETX6gWBbNfmBaFs1+IFwWzX3gXhbNfZJNQU19YAE/FtmxzT1ULA09SJVSYEEDEAGS0mBBgxAAyRJgQcMQAGoSSUMQABFJRJEMQAoMQCICTQpXAtmgAgAAAAAAAAV07AqNQc0/zT+NPwWNPsWUQcIUDT6UDT5FlA0+BZQNPcWUDT2FlAyBjT9QgfYSDEAiAj0VwAJSTX0IlUjEkQiNPRJNfIjWzTyIlVNNfM0/TTzNP008w1NNfI08zT9D0EAPys08xZQsIAJAAAAAAAAE+IAsCg1BzT/NP40/BY0+xZRBwhQNPpQNPkWUDT4FlA09xZQNPYjCBZQMgY0/UIHZTEAiAiCVwoBIlUjEkEAYIAJAAAAAAAAFA8BsCk1B7EisgE08rIII7IQMQCyB7MxACgxAIgIUSEEr1wAZjT/NP40/DTyCRY0+xZRBwhQNPpQNPk08ggWUDT4FlA09yMIFlA09hZQMgY0/TTyCUIG9oAJAAAAAAAAE/YBsCk1BycEMQA08hZQNP5QULAxACgxAIgH9ClcCmaxIrIBNPKyCCOyEDEAsgezMQAoMQCIB9ghBK9cAGY0/zT+NPw08gkWNPsWUQcIUDT6UDT5NPIIFlA0+BZQNPcjCBZQNPYjCBZQMgY0/TTyCUIGe0g09VcBCDX0MQCIB5BXAAlJNfMiVSMSRDT0FzXyIjTzSTXwI1s08CJVTTXxNPI08TTyNPENTTXwNP008DT9NPANTTXvNPE0/Q9BAD8rNPEWULCACQAAAAAAABHkALAoNQc0/zT+NPwWNPsWUQcIUDT6UDT5FlA0+BZQNPcWUDT2IwgWUDIGNP1CBfAxAIgHDVcKASJVIxJBAGCACQAAAAAAABITAbApNQexIrIBNO+yCCOyEDEAsgezMQAoMQCIBtwhBK9cAGY0/zT+NPw07wkWNPsWUQcIUDT6UDT5NO8IFlA0+BZQNPcjCBZQNPYWUDIGNP007wlCBYGACQAAAAAAABH5AbApNQcnBDEANO8WUDT+UFCwMQAoMQCIBn8pXApmsSKyATTvsggjshAxALIHszEAKDEAiAZjIQSvXABmNP80/jT8NO8JFjT7FlEHCFA0+lA0+TTvCBZQNPgWUDT3IwgWUDT2IwgWUDIGNP007wlCBQZJIRgMQALJSDT1VwEoNfQ09IEgW0k18zT8DTXyIjTzNPJNNfE0/TTxCDXwNPGIBgc09FcAIDXvNO+IBexXCwEiVSMSQQBuNO8oNO+IBdopIjTviAXTVwAJSTXuI1s07iJVTTTzCBZQXABmgAkAAAAAAAAP7QGwKTUHNPJBAAo0/DTzCDXuQgAENPw17jT/NP407hY0+xZRBwhQNPpQNPkWUDT4FlA09xZQNPYWUDIGNPBCBFI08kEBDYDMARABneRZb3VyIHVzZXIgaGFzbid0IG9wdGVkIGluAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADTvULCACQAAAAAAABABALAoNQc0/zT+NPw08wgWNPsWUQcIUDT6UDT5FlA0+BZQNPcWUDT2FlAyBjTwQgNAgMwBEAGd5FRoZSBiYWxhbmNlIHlvdSBhcmUgdHJ5aW5nIHRvIHNldCBmb3IgdGhlIHVzZXIgaXMgaW52YWxpZCBhbmQgdGhleSBoYXZlbid0IG9wdGVkIGluAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANO9QsIAJAAAAAAAAEBUAsCg1BzT/NP40/BY0+xZRBwhQNPpQNPkWUDT4FlA09xZQNPYWUDIGNPBCAjZINPVXASA19DEANP8SRDT0KDT0iANCKFwJZoAIAAAAAAAADiWwKjUHNP80/jT8FjT7FlEHCFA0+lA0+RZQNPgWUDT3FlA09hZQMgY0/UIB5kkhBgxAAKxJJAxAAD1INP8xABJEgAgAAAAAAAAMZLAqNQc0/zT+NPwWNPsWUQcIUDT6UDT5FlA0+BZQNPcWUDT2FlAyBjT9QgGcSDT1VwEoNfQxADT/EjEAiAKsVwkBIlUjEhFENPRXACAoNPRXACCIApUpNPRXIAhQXABmgAgAAAAAAAAKpLAqNQc0/zT+NPwWNPsWUQcIUDT6UDT5FlA0+BZQNPcWUDT2FlAyBjT9QgEzSSMMQABhSDT1VwEINfQ09Bc18zEANP8SMQCIAjhXCQEiVSMSEUQ084gCOYAIAAAAAAAACNywKjUHNP80/jT8NPMIFjT7FlEHCFA0+lA0+RZQNPgWUDT3FlA09hZQMgY0/TTzCEIAzEg09VcBIDX0MQA0/xIxAIgB3FcJASJVIxIRRDT0KDT0iAHLKVwJZoAIAAAAAAAABxewKjUHNP80/jT8FjT7FlEHCFA0+lA0+RZQNPgWUDT3FlA09hZQMgY0/UIAbyISRIGgjQaIAZYiNAESRDQESSISTDQCEhFESTUFNf+ABK215JQ0/1CwMQA0/4A6AAAAAAAAAAABAAAAAAAAAAUAAAAAAAAAZAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADIGIkIAADX/Nf41/TX8Nfs0/VcIARdBAHE0/SJbNfo0/VcIARc1+TT9VwkRNfg0/YEaWzX3NP2BIls19jT9gSpbNfU0/YEyWzX0NPs0/FA0/xZQNPoWUDT5FlEHCFA0+FA09xZQNPYWUDT1FlA09BZQKEsBVwB/ZylLAVd/AWdIJDUBMgY1AkIATbEisgE0/7III7IQNPuyB7MyCmAyCngJNP9JCQk1+rEisgE0+rIII7IQNPuyB7NCAAAxGSEYEkSxIrIBIrIII7IQMgmyCTIKsgezQgAFMRkiEkQqNAEWNAIWUGc0BkEACoAEFR98dTQHULA0AEkjCDIEEkQxFhJEI0MxGSISREL/3yIxNBJEJDE1EkQiMTYSRCMxNxJEIjUBIjUCQv+vSTEYYUAABUghB6+JKGKJNABJSiMINQA4BzIKEkQ4ECMSRDgIEkSJ`,
   appClear: `Bw==`,
   companionInfo: null,
   extraPages: 1,
   mapDataKeys: 1,
   mapDataSize: 12,
-  stateKeys: 1,
-  stateSize: 111,
+  stateKeys: 2,
+  stateSize: 128,
   unsupported: [],
   version: 11,
   warnings: [],
 };
 const _ETH = {
-  ABI: `[{"inputs":[{"components":[{"internalType":"uint256","name":"elem0","type":"uint256"},{"internalType":"bytes30","name":"elem1","type":"bytes30"}],"internalType":"struct T9","name":"v10165","type":"tuple"}],"stateMutability":"payable","type":"constructor"},{"inputs":[{"internalType":"uint256","name":"msg","type":"uint256"}],"name":"ReachError","type":"error"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"address","name":"_who","type":"address"},{"components":[{"internalType":"uint256","name":"elem0","type":"uint256"},{"internalType":"bytes30","name":"elem1","type":"bytes30"}],"indexed":false,"internalType":"struct T9","name":"_a","type":"tuple"}],"name":"_reach_e0","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"address","name":"_who","type":"address"},{"components":[{"internalType":"uint256","name":"elem0","type":"uint256"},{"components":[{"internalType":"enum _enum_T6","name":"which","type":"uint8"},{"components":[{"internalType":"address payable","name":"elem0","type":"address"}],"internalType":"struct T4","name":"_Admin_addAdmin0_90","type":"tuple"},{"components":[{"internalType":"uint256","name":"elem0","type":"uint256"}],"internalType":"struct T5","name":"_Admin_deposit0_90","type":"tuple"},{"components":[{"internalType":"address payable","name":"elem0","type":"address"},{"internalType":"uint256","name":"elem1","type":"uint256"}],"internalType":"struct T2","name":"_Admin_editUserReward0_90","type":"tuple"},{"internalType":"bool","name":"_Admin_endContractAndTransfer0_90","type":"bool"},{"components":[{"internalType":"address payable","name":"elem0","type":"address"}],"internalType":"struct T4","name":"_Admin_revokeAdmin0_90","type":"tuple"},{"components":[{"internalType":"address payable","name":"elem0","type":"address"},{"internalType":"uint256","name":"elem1","type":"uint256"}],"internalType":"struct T2","name":"_Admin_setReward0_90","type":"tuple"},{"components":[{"internalType":"uint256","name":"elem0","type":"uint256"}],"internalType":"struct T5","name":"_User_claim0_90","type":"tuple"},{"internalType":"bool","name":"_User_claimAll0_90","type":"bool"},{"internalType":"bool","name":"_User_optin0_90","type":"bool"}],"internalType":"struct T6","name":"elem1","type":"tuple"}],"indexed":false,"internalType":"struct T7","name":"_a","type":"tuple"}],"name":"_reach_e2","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"bool","name":"v0","type":"bool"}],"name":"_reach_oe_v1782","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"bool","name":"v0","type":"bool"}],"name":"_reach_oe_v2219","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"bool","name":"v0","type":"bool"}],"name":"_reach_oe_v2659","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"bool","name":"v0","type":"bool"}],"name":"_reach_oe_v3091","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"bool","name":"v0","type":"bool"}],"name":"_reach_oe_v3524","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"bool","name":"v0","type":"bool"}],"name":"_reach_oe_v3964","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"bool","name":"v0","type":"bool"}],"name":"_reach_oe_v3983","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"bool","name":"v0","type":"bool"}],"name":"_reach_oe_v4002","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"bool","name":"v0","type":"bool"}],"name":"_reach_oe_v4449","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"bool","name":"v0","type":"bool"}],"name":"_reach_oe_v4469","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"bool","name":"v0","type":"bool"}],"name":"_reach_oe_v4494","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"bool","name":"v0","type":"bool"}],"name":"_reach_oe_v4941","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"bool","name":"v0","type":"bool"}],"name":"_reach_oe_v4960","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"bool","name":"v0","type":"bool"}],"name":"_reach_oe_v4984","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"bool","name":"v0","type":"bool"}],"name":"_reach_oe_v5420","type":"event"},{"anonymous":false,"inputs":[{"components":[{"internalType":"address payable","name":"addr","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"},{"internalType":"bytes30","name":"projectName","type":"bytes30"}],"indexed":false,"internalType":"struct T13","name":"v0","type":"tuple"}],"name":"claimed","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"v0","type":"uint256"}],"name":"insufficient","type":"event"},{"anonymous":false,"inputs":[{"components":[{"internalType":"bytes32","name":"elem0","type":"bytes32"},{"internalType":"bytes32","name":"elem1","type":"bytes32"},{"internalType":"bytes32","name":"elem2","type":"bytes32"},{"internalType":"bytes32","name":"elem3","type":"bytes32"},{"internalType":"bytes32","name":"elem4","type":"bytes32"},{"internalType":"bytes32","name":"elem5","type":"bytes32"},{"internalType":"bytes8","name":"elem6","type":"bytes8"}],"indexed":false,"internalType":"struct T12","name":"v0","type":"tuple"},{"indexed":false,"internalType":"address payable","name":"v1","type":"address"}],"name":"notify","type":"event"},{"stateMutability":"payable","type":"fallback"},{"inputs":[{"internalType":"address payable","name":"v10120","type":"address"}],"name":"Admin_addAdmin","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"uint256","name":"v10125","type":"uint256"}],"name":"Admin_deposit","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"address payable","name":"v10130","type":"address"},{"internalType":"uint256","name":"v10131","type":"uint256"}],"name":"Admin_editUserReward","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"Admin_endContractAndTransfer","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"address payable","name":"v10140","type":"address"}],"name":"Admin_revokeAdmin","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"address payable","name":"v10145","type":"address"},{"internalType":"uint256","name":"v10146","type":"uint256"}],"name":"Admin_setReward","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"address payable","name":"v10103","type":"address"}],"name":"Info_Admins","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address payable","name":"v10106","type":"address"}],"name":"Info_opted","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address payable","name":"v10109","type":"address"}],"name":"Info_rewards","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"Info_totalAllocatedFunds","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"Info_totalAmountClaimed","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"Info_totalClaimed","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"Info_totalOptedIn","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"v10151","type":"uint256"}],"name":"User_claim","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"User_claimAll","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"User_optin","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"_reachCreationTime","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_reachCurrentState","outputs":[{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"bytes","name":"","type":"bytes"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_reachCurrentTime","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"addr","type":"address"}],"name":"_reachm_0Ref","outputs":[{"components":[{"internalType":"enum _enum_T0","name":"which","type":"uint8"},{"internalType":"bool","name":"_None","type":"bool"},{"internalType":"uint256","name":"_Some","type":"uint256"}],"internalType":"struct T0","name":"res","type":"tuple"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"addr","type":"address"}],"name":"_reachm_1Ref","outputs":[{"components":[{"internalType":"enum _enum_T1","name":"which","type":"uint8"},{"internalType":"bool","name":"_None","type":"bool"},{"internalType":"bool","name":"_Some","type":"bool"}],"internalType":"struct T1","name":"res","type":"tuple"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"addr","type":"address"}],"name":"_reachm_2Ref","outputs":[{"components":[{"internalType":"enum _enum_T1","name":"which","type":"uint8"},{"internalType":"bool","name":"_None","type":"bool"},{"internalType":"bool","name":"_Some","type":"bool"}],"internalType":"struct T1","name":"res","type":"tuple"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"addr","type":"address"}],"name":"_reachm_3Ref","outputs":[{"components":[{"internalType":"enum _enum_T1","name":"which","type":"uint8"},{"internalType":"bool","name":"_None","type":"bool"},{"internalType":"bool","name":"_Some","type":"bool"}],"internalType":"struct T1","name":"res","type":"tuple"}],"stateMutability":"view","type":"function"},{"inputs":[{"components":[{"internalType":"uint256","name":"elem0","type":"uint256"},{"components":[{"internalType":"enum _enum_T6","name":"which","type":"uint8"},{"components":[{"internalType":"address payable","name":"elem0","type":"address"}],"internalType":"struct T4","name":"_Admin_addAdmin0_90","type":"tuple"},{"components":[{"internalType":"uint256","name":"elem0","type":"uint256"}],"internalType":"struct T5","name":"_Admin_deposit0_90","type":"tuple"},{"components":[{"internalType":"address payable","name":"elem0","type":"address"},{"internalType":"uint256","name":"elem1","type":"uint256"}],"internalType":"struct T2","name":"_Admin_editUserReward0_90","type":"tuple"},{"internalType":"bool","name":"_Admin_endContractAndTransfer0_90","type":"bool"},{"components":[{"internalType":"address payable","name":"elem0","type":"address"}],"internalType":"struct T4","name":"_Admin_revokeAdmin0_90","type":"tuple"},{"components":[{"internalType":"address payable","name":"elem0","type":"address"},{"internalType":"uint256","name":"elem1","type":"uint256"}],"internalType":"struct T2","name":"_Admin_setReward0_90","type":"tuple"},{"components":[{"internalType":"uint256","name":"elem0","type":"uint256"}],"internalType":"struct T5","name":"_User_claim0_90","type":"tuple"},{"internalType":"bool","name":"_User_claimAll0_90","type":"bool"},{"internalType":"bool","name":"_User_optin0_90","type":"bool"}],"internalType":"struct T6","name":"elem1","type":"tuple"}],"internalType":"struct T7","name":"v10170","type":"tuple"}],"name":"_reachp_2","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"payable","type":"function"},{"stateMutability":"payable","type":"receive"}]`,
-  Bytecode: `0x6080601f6200589838819003918201601f19168301916001600160401b03831184841017620004c557808492604094855283398101031262000630576040805191908201906001600160401b03821183831017620004c55760209160405280518352015161ffff198116810362000630576020820152600080554360035560405161022081016001600160401b03811182821017620004c557600091610200916040528281528260208201528260408201528260608201528260808201528260a08201528260c08201528260e08201528261010082015282610120820152826101408201528261016082015282610180820152826101a0820152826101c0820152826101e0820152015260405190620001188262000635565b6200012262000651565b825260ff6004541662000617577fee7ce511d5b8643c8bc5c542ca8ef8446aa8d6f7cc0d2c6f5d34f08a9dc501da60606040513381528351602082015261ffff196020850151166040820152a1805180159081156200060a575b5015620005f15734620005d85760008251526001602083510152600060408351015260006060835101526000608083510152600060a083510152604051918260a081011060018060401b0360a085011117620004c55760a083016040526000835260006020840152620001ee62000651565b604084015260608301916000835260006080850152338452602061ffff199101511660208401525160408301524390526040516200022c8162000635565b6000815260408201516020015115620004db57506040516001600160401b03610120820190811190821117620004c5578061012061010092016040526000815260006020820152600060408201526000606082015260006080820152600060a0820152600060c0820152600060e082015260008282015260a06040600180831b038551169485845261ffff196020820151166020850152608081015182850152818101515160608501526020828201510151151560808501528180820151015183850152606082820151015160c0850152608082820151015160e0850152015101518282015260036000554360015560405192602084015261ffff19602082015116604084015260408101516060840152606081015160808401526080810151151560a084015260a081015160c084015260c081015160e084015260e08101518284015201516101208201526101208152610140810181811060018060401b03821117620004c55760405280516001600160401b038111620004c557620003b560025462000694565b601f811162000477575b50602091601f82116001146200040d5791819260009262000401575b50508160011b916000199060031b1c1916176002555b60405161518d9081620006eb8239f35b015190503880620003db565b601f19821692600260005260206000209160005b8581106200045e5750836001951062000444575b505050811b01600255620003f1565b015160001960f88460031b161c1916905538808062000435565b9192602060018192868501518155019401920162000421565b6002600052620004b39060008051602062005878833981519152601f840160051c81019160208510620004ba575b601f0160051c0190620006d1565b38620003bf565b9091508190620004a5565b634e487b7160e01b600052604160045260246000fd5b60018060a01b03600080808084875116608088015190828215620005ce575bf115620005b85760008093928193928293478093525116828215620005c4575bf115620005b8576000805560006001556200053760025462000694565b8062000545575b50620003f1565b601f81116001146200055f575060006002555b386200053e565b6002600052620005a790601f0160051c60008051602062005878833981519152017f405787fa12a823e0f2b7631cc41b3ba8828b3321ca811111fa75cd3aa3bb5acf620006d1565b600060208120816002555562000558565b6040513d6000823e3d90fd5b506108fc6200051a565b506108fc620004fa565b60405163100960cb60e01b815260106004820152602490fd5b60405163100960cb60e01b8152600f6004820152602490fd5b905060015414386200017c565b60405163100960cb60e01b8152600e6004820152602490fd5b600080fd5b602081019081106001600160401b03821117620004c557604052565b6040519060c082016001600160401b03811183821017620004c5576040528160a06000918281528260208201528260408201528260608201528260808201520152565b90600182811c92168015620006c6575b6020831014620006b057565b634e487b7160e01b600052602260045260246000fd5b91607f1691620006a4565b818110620006dd575050565b60008155600101620006d156fe60406080815260048036101561001c575b5050361561001a57005b005b600090813560e01c80630a84e99f14610a985780630bda4657146109f45780631e93b0f1146109d557806336e56ea5146109745780633702d0ce146109385780634ab9f8b3146108e2578063523df4f61461087f57806355c42a951461083f578063672422c7146107f157806374623535146107b557806374f16ec91461073f5780637a2b54dc146106fc5780637f0595e214610695578063832307571461067657806392cf8bd514610629578063a579242414610594578063a5928cf514610551578063a8d65f20146104db578063ab53f2c61461046f578063c568a57c1461029c578063c5d86f6f1461024e578063cd6637a814610201578063e0590c9a1461019c5763f33c0dce146101315750610010565b34610198578160031936011261019857600361014b610eac565b925403610181576020610180848460e0610174610166610c42565b86808251830101910161106c565b0151928391015251908152f35b602490600c84519163100960cb60e01b8352820152fd5b5080fd5b50829060203660031901126101fd576020926101f26101c0926101bd610eac565b9283916101c8610ff0565b90358151528781019060068251525160e0825101526101e561101f565b9182525187820152611286565b015115159051908152f35b8280fd5b5034610198578160031936011261019857600361021c610eac565b925403610237576020610160848460a0610174610166610c42565b602490600b84519163100960cb60e01b8352820152fd5b508290346101fd5760203660031901126101fd5735916001600160a01b0383168303610299575061028a61029592610284610ced565b50610d8f565b905191829182610b19565b0390f35b80fd5b50916101a0366003190112610198576102b3610eac565b81516102be81610b80565b8435815261018036602319011261046b578251946101408601906001600160401b0382118783101761045857508352602435600981101561044c5785526020948560431936011261044c57835161031481610bcc565b6001600160a01b03906044358281168103610454578152878301528660631936011261044857845161034581610bcc565b6064358152858301528460831936011261044857845161036481610b80565b608435828116810361045457815260a43588820152606083015260c43580151581036104505760808301528660e3193601126104485784516103a581610bcc565b60e435828116810361045457815260a08301528461010319360112610448578451906103d082610b80565b610104359081168103610450578152610124358782015260c0820152856101431936011261044c57835161040381610bcc565b61014435815260e08201526101643580151581036104485761010082015261018435801515810361044857610120820152858201526104429190611286565b51908152f35b8580fd5b8480fd5b8680fd5b8780fd5b634e487b7160e01b865260419052602485fd5b8380fd5b828434610198578160031936011261019857815461048b610c42565b91805193849283526020828185015284518093850152815b8381106104c457505060608094508284010152601f80199101168101030190f35b8086018201518782016060015286945081016104a3565b8284806003193601126101985760c06020926101f26104f8610ade565b610500610eac565b92839186519061050f82610b80565b6001600160a01b039081168252602435828a019081529061052e61103b565b9251168251525188825101528781019060058251525186825101526101e561101f565b828481600319360112610198576101e06020926101f261056f610eac565b809261057961101f565b878101906007825152511515610100825101526101e561101f565b5034610198576020366003190112610198576105ae610ade565b9060036105b9610eac565b935403610612576020610100858560016105f3876105e66105d8610c42565b88808251830101910161106c565b50828060a01b0316610e5b565b516105fd81610af9565b61060681610af9565b14928391015251908152f35b602490600885519163100960cb60e01b8352820152fd5b50346101985781600319360112610198576003610644610eac565b92540361065f576020610140848460a0610174610166610c42565b602490600a84519163100960cb60e01b8352820152fd5b8284346101985781600319360112610198576020906001549051908152f35b5034610198576020366003190112610198576106af610ade565b9060036106ba610eac565b9354036106e557602060e0858560016105f3876106d86105d8610c42565b50828060a01b0316610d8f565b602490600785519163100960cb60e01b8352820152fd5b828481600319360112610198576102006020926101f261071a610eac565b809261072461101f565b878101906008825152511515610120825101526101e561101f565b8284806003193601126101985760606020926101f261075c610ade565b610764610eac565b92839186519061077382610b80565b6001600160a01b039081168252602435828a019081529061079261103b565b9251168251525188825101528781019060028251525186825101526101e561101f565b508290346101fd5760203660031901126101fd5735916001600160a01b0383168303610299575061028a610295926107eb610ced565b50610e0a565b5034610198578160031936011261019857600361080c610eac565b9254036108285760206101a08484610100610174610166610c42565b602490600d84519163100960cb60e01b8352820152fd5b8284816003193601126101985760806020926101f261085c610eac565b809261086661101f565b87810190600382515251151586825101526101e561101f565b60208484366003190183136102995782906101f261089b610ade565b6108a3610eac565b9283916108ae610ff0565b80516001600160a01b039092169091528581018051839052905181518701526108d561101f565b9182525185820152611286565b50829060203660031901126101fd5760a0906101f2602094610902610ade565b9061090b610eac565b938492610916610ff0565b908151906001808a1b03169052888101918251525186825101526101e561101f565b508290346101fd5760203660031901126101fd5735916001600160a01b0383168303610299575061028a6102959261096e610ced565b50610e5b565b508290346101fd5760203660031901126101fd5735916001600160a01b038316830361029957506109af6060926109a9610ced565b50610d0c565b908080519280516109bf81610af9565b8452602081015115156020850152015190820152f35b8284346101985781600319360112610198576020906003549051908152f35b50903461029957602036600319011261029957610a0f610ade565b610a17610eac565b926003835403610a815760206101208686818787610a366105d8610c42565b506001600160a01b0316906001610a4c83610d0c565b51610a5681610af9565b610a5f81610af9565b03610a76575061017490610d0c565b015251908152f35b915050928391610a6e565b602490600986519163100960cb60e01b8352820152fd5b50829060203660031901126101fd576020926101f28392610ab7610eac565b928391610ac2610ff0565b90358151528781019060018251525186825101526101e561101f565b600435906001600160a01b0382168203610af457565b600080fd5b60021115610b0357565b634e487b7160e01b600052602160045260246000fd5b91909160408060608301948051610b2f81610af9565b845260208101511515602085015201511515910152565b90600182811c92168015610b76575b6020831014610b6057565b634e487b7160e01b600052602260045260246000fd5b91607f1691610b55565b604081019081106001600160401b03821117610b9b57604052565b634e487b7160e01b600052604160045260246000fd5b606081019081106001600160401b03821117610b9b57604052565b602081019081106001600160401b03821117610b9b57604052565b61012081019081106001600160401b03821117610b9b57604052565b61014081019081106001600160401b03821117610b9b57604052565b601f909101601f19168101906001600160401b03821190821017610b9b57604052565b6040519060008260025491610c5683610b46565b808352600193808516908115610ccc5750600114610c7e575b50610c7c92500383610c1f565b565b600260009081526000805160206150e183398151915294602093509091905b818310610cb4575050610c7c935082010138610c6f565b85548884018501529485019487945091830191610c9d565b9050610c7c94506020925060ff191682840152151560051b82010138610c6f565b60405190610cfa82610bb1565b60006040838281528260208201520152565b90610d15610ced565b9160018060a01b03166000908082526005602052600160ff604084205416610d3c81610af9565b03610d845760409293508152600560205220600160405191610d5d83610bb1565b60ff8154818116610d6d81610af9565b855260081c16151560208401520154604082015290565b508083526020830152565b90610d98610ced565b9160018060a01b03166000908082526006602052600160ff604084205416610dbf81610af9565b03610d84576040929350815260066020522060ff60405191610de083610bb1565b54818116610ded81610af9565b8352818160081c161515602084015260101c161515604082015290565b90610e13610ced565b9160018060a01b03166000908082526007602052600160ff604084205416610e3a81610af9565b03610d84576040929350815260076020522060ff60405191610de083610bb1565b90610e64610ced565b9160018060a01b03166000908082526008602052600160ff604084205416610e8b81610af9565b03610d84576040929350815260086020522060ff60405191610de083610bb1565b6040519061022082016001600160401b03811183821017610b9b57604052816102006000918281528260208201528260408201528260608201528260808201528260a08201528260c08201528260e08201528261010082015282610120820152826101408201528261016082015282610180820152826101a0820152826101c0820152826101e08201520152565b60408051919061014083016001600160401b03811184821017610b9b578152610120836000928382528051610f6e81610bcc565b84815260208301528051610f8181610bcc565b848152818301528051610f9381610b80565b84815284602082015260608301528360808301528051610fb281610bcc565b84815260a08301528051610fc581610b80565b84815284602082015260c083015251610fdd81610bcc565b83815260e0820152826101008201520152565b60405190610ffd82610b80565b8160405161100a81610bcc565b600081528152602061101a610f3a565b910152565b6040519061102c82610b80565b8160008152602061101a610f3a565b6040519061104882610b80565b8160405161105581610b80565b60008152600060208201528152602061101a610f3a565b9081610120910312610af4576040519061108582610be7565b80516001600160a01b0381168103610af4578252602081015161ffff1981168103610af4576020830152604081015160408301526060810151606083015260808101518015158103610af457608083015260a081015160a083015260c081015160c083015260e081015160e0830152610100809101519082015290565b6040519060c082016001600160401b03811183821017610b9b576040528160a06000918281528260208201528260408201528260608201528260808201520152565b6040519060e082016001600160401b03811183821017610b9b576040528160c06000918281528260208201528260408201528260608201528260808201528260a08201520152565b80516001600160a01b03168252602090810151910152565b516009811015610b035790565b6040519060a082016001600160401b03811183821017610b9b5760405260006080838281528260208201526111e4611102565b60408201528260608201520152565b81516001600160a01b031681526020808301519082015260409182015161ffff19169181019190915260600190565b815181526020808301519082015260408083015190820152606080830151908201526080808301519082015260a0808301519082015260c0918201516001600160c01b031916918101919091526001600160a01b0390911660e08201526101000190565b60405192919061048084016001600160401b03811185821017610b9b57806040526112b081610bcc565b6000815284526112be611102565b60208501526040516112cf81610bcc565b6000815260408501526112e0611102565b60608501526040516112f181610b80565b60008152600060208201526080850152611309611102565b60a0850152611316611102565b60c085015260405161132781610bcc565b6000815260e0850152611338611102565b61010085015260405161134a81610b80565b600081526000602082015261012085015260006101408501526000610160850152600061018085015260006101a0850152611383611102565b6101c0850152611391611144565b6101e085015261139f611102565b6102008501526113ad611144565b6102208501526113bb611102565b6102408501526040516113cd81610bcc565b600081526102608501526113df610ced565b61028085015260006102a085015260006102c085015260006102e0850152611405611102565b610300850152611413610ced565b610320850152611421611102565b61034085015261142f611102565b61036085015261143d610ced565b61038085015260006103a085015260006103c085015261145b611102565b6103e0850152611469610ced565b610400850152611477611102565b610420850152611485611102565b610440850152611493611102565b61046085015260ff60045416615064576040513381528151602082015260208201518051916009831015610b03576101206101c0927fb212047171f573087bd7daffa4c27e0281c01018b089f7487c3ab5d443db17d294604084015260018060a01b03602082015151166060840152604081015151608084015261151f606082015160a085019061118c565b6080810151151560e084015260a0810151516001600160a01b031661010084015260c0810151611552908385019061118c565b60e0810151516101608401526101008101511515610180840152015115156101a0820152a160036000540361504b57604051600060025461159281610b46565b80845290600181169081156150275750600114614fda575b50906115bb816115ca930382610c1f565b6020808251830101910161106c565b9080518015908115614fce575b5015614fb5576115ea60208201516111a4565b6009811015610b0357611a9b57602090810151015184528051336001600160a01b0390911603611a775760015b15611a5e5734611a45576000602060409360018060a01b0387515116835260068252848320600160ff1982541617905560018060a01b0387515116835284832062ff00001981541690557fea2d183f1d25e4604fc41fedec4a0dd3131c289f0274be0f78466757df15a763828651858152a10152606081015160208501515260808101511515602080860151015260a0810151826020860151015260c081015160606020860151015260e081015160806020860151015261010081015160a06020860151015260206116e76111b1565b82516001600160a01b031681528183015161ffff191682820152940151828501524360608501520151608083015260405161172181610bcc565b600081526040830151602001511561196d575061010060405161174381610be7565b6000815260006020820152600060408201526000606082015260006080820152600060a0820152600060c0820152600060e082015260008282015260a06040600180831b038651169586845261ffff196020820151166020850152608081015182850152818101515160608501526020828201510151151560808501528180820151015183850152606082820151015160c0850152608082820151015160e0850152015101518282015260036000554360015560405193602085015261ffff19602082015116604085015260408101516060850152606081015160808501526080810151151560a085015260a081015160c085015260c081015160e085015260e0810151828501520151610120830152610120825261186182610c03565b81516001600160401b038111610b9b5761187c600254610b46565b601f8111611925575b50602092601f82116001146118c257928192936000926118b7575b50508160011b916000199060031b1c191617600255565b0151905038806118a0565b601f19821693600260005260206000209160005b86811061190d57508360019596106118f4575b505050811b01600255565b015160001960f88460031b161c191690553880806118e9565b919260206001819286850151815501940192016118d6565b600260005261195d906000805160206150e1833981519152601f840160051c81019160208510611963575b601f0160051c01906150c9565b38611885565b9091508190611950565b9091600080808060018060a01b03855116608086015190828215611a3c575bf115611a27574791829052516000918291829182916001600160a01b0316828215611a33575bf115611a27576000805560006001556119cc600254610b46565b806119d45750565b601f81116001146119e757506000600255565b6002600052611a1a90601f0160051c6000805160206150e1833981519152016000805160206151018339815191526150c9565b6000602081208160025555565b6040513d6000823e3d90fd5b506108fc6119b2565b506108fc61198c565b60405163100960cb60e01b815260156004820152602490fd5b60405163100960cb60e01b815260146004820152602490fd5b6001611a8233610d8f565b51611a8c81610af9565b611a9581610af9565b14611617565b611aac6020829694939601516111a4565b6009811015610b0357600103611e435760200151604090810151908301528351336001600160a01b0390911603611e1f5760015b15611e06576040820151513403611ded5760406000917fd7f4731ed527e3ff996296d44c9e1b806a3dcb766a11e3f13cafb59ea68c61b360208351858152a10152611b356060840151604083015151906150a8565b6060820151526080830151151560206060830151015260a083015160406060830151015260c0830151606080830151015260e083015160806060830151015261010083015160a060608301510152604080611b8e6111b1565b85516001600160a01b0316815260208087015161ffff19169082015260608481015183830152439082015294015191015151016080830152604051611bd281610bcc565b600081526040830151602001511561196d5750610100604051611bf481610be7565b6000815260006020820152600060408201526000606082015260006080820152600060a0820152600060c0820152600060e082015260008282015260a06040600180831b038651169586845261ffff196020820151166020850152608081015182850152818101515160608501526020828201510151151560808501528180820151015183850152606082820151015160c0850152608082820151015160e0850152015101518282015260036000554360015560405193602085015261ffff19602082015116604085015260408101516060850152606081015160808501526080810151151560a085015260a081015160c085015260c081015160e085015260e08101518285015201516101208301526101208252611d1282610c03565b81516001600160401b038111610b9b57611d2d600254610b46565b601f8111611db0575b50602092601f8211600114611d6757928192936000926118b75750508160011b916000199060031b1c191617600255565b601f19821693600260005260206000209160005b868110611d9857508360019596106118f457505050811b01600255565b91926020600181928685015181550194019201611d7b565b6002600052611de7906000805160206150e1833981519152601f840160051c8101916020851061196357601f0160051c01906150c9565b38611d36565b60405163100960cb60e01b815260176004820152602490fd5b60405163100960cb60e01b815260166004820152602490fd5b6001611e2a33610d8f565b51611e3481610af9565b611e3d81610af9565b14611ae0565b611e546020829693949601516111a4565b6009811015610b035760020361220b57602001516060015160808501528051336001600160a01b03909116036121e75760015b156121ce57346121b5576000606060409360018060a01b036080880151511683526005602052848320600160ff19825416179055608087015160208101519060018060a01b039051168452600186852001557f9b072679fb5bda2a01d66297897a3a5288969bd830eddc4c1506f7ec90a378f660208651858152a10152606081015160a08501515260808101511515602060a0860151015260a08101518260a0860151015260c0810151606060a0860151015260e0810151608060a0860151015261010081015160a080860151015260a0611f606111b1565b94600180831b03835116865261ffff19602084015116602087015201518285015243606085015201516080830152604051611f9a81610bcc565b600081526040830151602001511561196d5750610100604051611fbc81610be7565b6000815260006020820152600060408201526000606082015260006080820152600060a0820152600060c0820152600060e082015260008282015260a06040600180831b038651169586845261ffff196020820151166020850152608081015182850152818101515160608501526020828201510151151560808501528180820151015183850152606082820151015160c0850152608082820151015160e0850152015101518282015260036000554360015560405193602085015261ffff19602082015116604085015260408101516060850152606081015160808501526080810151151560a085015260a081015160c085015260c081015160e085015260e081015182850152015161012083015261012082526120da82610c03565b81516001600160401b038111610b9b576120f5600254610b46565b601f8111612178575b50602092601f821160011461212f57928192936000926118b75750508160011b916000199060031b1c191617600255565b601f19821693600260005260206000209160005b86811061216057508360019596106118f457505050811b01600255565b91926020600181928685015181550194019201612143565b60026000526121af906000805160206150e1833981519152601f840160051c8101916020851061196357601f0160051c01906150c9565b386120fe565b60405163100960cb60e01b815260196004820152602490fd5b60405163100960cb60e01b815260186004820152602490fd5b60016121f233610d8f565b516121fc81610af9565b61220581610af9565b14611e87565b61221860208201516111a4565b6009811015610b035760030361255957508051336001600160a01b0390911603612540573461252757600060806040937f8c355ae09aca3df54112aabc7db80709d6a9216646b120454cb42cd1fe17df1e60208651858152a10152606081015160c08501515260808101511515602060c0860151015260a08101518260c0860151015260c0810151606060c0860151015260e0810151608060c0860151015261010081015160a060c0860151015260c06122d06111b1565b82516001600160a01b0316815260208084015161ffff191690820152940151828501524360608501520151608083015260405161230c81610bcc565b600081526040830151602001511561196d575061010060405161232e81610be7565b6000815260006020820152600060408201526000606082015260006080820152600060a0820152600060c0820152600060e082015260008282015260a06040600180831b038651169586845261ffff196020820151166020850152608081015182850152818101515160608501526020828201510151151560808501528180820151015183850152606082820151015160c0850152608082820151015160e0850152015101518282015260036000554360015560405193602085015261ffff19602082015116604085015260408101516060850152606081015160808501526080810151151560a085015260a081015160c085015260c081015160e085015260e0810151828501520151610120830152610120825261244c82610c03565b81516001600160401b038111610b9b57612467600254610b46565b601f81116124ea575b50602092601f82116001146124a157928192936000926118b75750508160011b916000199060031b1c191617600255565b601f19821693600260005260206000209160005b8681106124d257508360019596106118f457505050811b01600255565b919260206001819286850151815501940192016124b5565b6002600052612521906000805160206150e1833981519152601f840160051c8101916020851061196357601f0160051c01906150c9565b38612470565b60405163100960cb60e01b8152601b6004820152602490fd5b60405163100960cb60e01b8152601a6004820152602490fd5b61256660208201516111a4565b6009811015610b03576004036128d1576020015160a0015160e085015280516001600160a01b031633036128b8573461289f57600060a0604093600180831b0360e088015151168352600660205282858120557f2a4504ab69422de8320c55ec678c499043eb76ba4a8ee9676d622f808ed80b8d60208651858152a10152606081015161010085015152608081015115156020610100860151015260a081015182610100860151015260c08101516060610100860151015260e08101516080610100860151015261010081015160a061010086015101526101006126486111b1565b82516001600160a01b0316815260208084015161ffff191690820152940151828501524360608501520151608083015260405161268481610bcc565b600081526040830151602001511561196d57506101006040516126a681610be7565b6000815260006020820152600060408201526000606082015260006080820152600060a0820152600060c0820152600060e082015260008282015260a06040600180831b038651169586845261ffff196020820151166020850152608081015182850152818101515160608501526020828201510151151560808501528180820151015183850152606082820151015160c0850152608082820151015160e0850152015101518282015260036000554360015560405193602085015261ffff19602082015116604085015260408101516060850152606081015160808501526080810151151560a085015260a081015160c085015260c081015160e085015260e081015182850152015161012083015261012082526127c482610c03565b81516001600160401b038111610b9b576127df600254610b46565b601f8111612862575b50602092601f821160011461281957928192936000926118b75750508160011b916000199060031b1c191617600255565b601f19821693600260005260206000209160005b86811061284a57508360019596106118f457505050811b01600255565b9192602060018192868501518155019401920161282d565b6002600052612899906000805160206150e1833981519152601f840160051c8101916020851061196357601f0160051c01906150c9565b386127e8565b60405163100960cb60e01b8152601d6004820152602490fd5b60405163100960cb60e01b8152601c6004820152602490fd5b6128e160208296939601516111a4565b6009811015610b03576005036134b05760c0602080920151015180610120840152018051606086015110806101408401526000146134a857515b8061016083015280604086015101610180830152340361348f57610120810151516101809290600190612956906001600160a01b0316610e5b565b5161296081610af9565b61296981610af9565b03612d415760c0600191828060a01b036101208501515116600052600560205260406000208360ff19825416179055826129af818060a01b036101208701515116610d0c565b516129b981610af9565b6129c281610af9565b03612d37576129f560406129e2858060a01b036101208801515116610d0c565b01515b60206101208701510151906150a8565b838060a01b036101208601515116600052600560205283604060002001557f52acfd0f369f8bbda0ebd728d0474105135661fe067783a0c605318fa3745bc76020604051858152a1015261014081015115612d2757612a62606085015160206101208401510151906150a8565b6101a08201525b6101a08101516101c0820151526080840151151560206101c0830151015260a084015160406101c0830151015260c084015160606101c0830151015260e084015160806101c0830151015261010084015160a06101c08301510152612acc6111b1565b9360018060a01b038151168552602061ffff199101511660208501526101c0810151604085015243606085015201516080830152604051612b0c81610bcc565b600081526040830151602001511561196d5750610100604051612b2e81610be7565b6000815260006020820152600060408201526000606082015260006080820152600060a0820152600060c0820152600060e082015260008282015260a06040600180831b038651169586845261ffff196020820151166020850152608081015182850152818101515160608501526020828201510151151560808501528180820151015183850152606082820151015160c0850152608082820151015160e0850152015101518282015260036000554360015560405193602085015261ffff19602082015116604085015260408101516060850152606081015160808501526080810151151560a085015260a081015160c085015260c081015160e085015260e08101518285015201516101208301526101208252612c4c82610c03565b81516001600160401b038111610b9b57612c67600254610b46565b601f8111612cea575b50602092601f8211600114612ca157928192936000926118b75750508160011b916000199060031b1c191617600255565b601f19821693600260005260206000209160005b868110612cd257508360019596106118f457505050811b01600255565b91926020600181928685015181550194019201612cb5565b6002600052612d21906000805160206150e1833981519152601f840160051c8101916020851061196357601f0160051c01906150c9565b38612c70565b60608401516101a0820152612a69565b6129f560006129e5565b61014082015160009160c091156130dd576101e084018051782cb7bab9103ab9b2b9103430b9b713ba1037b83a32b21034b760391b905280516020018490528051604090810185905281516060018590528151608001859052815160a0018590528151840185905290516101208601515191516000805160206151418339815191529290918291612dde916001600160a01b039091169083611222565b0390a17f84cf57cc1815174dbb97b8f4573e5b1b61273c96ec96cbd5c7b6fa9ec2f630016020604051858152a10152612e25606085015160206101208401510151906150a8565b61020082015152608084015115156020610200830151015260a08401516040610200830151015260c08401516060610200830151015260e08401516080610200830151015261010084015160a06102008301510152612e826111b1565b9360018060a01b038151168552602061ffff19910151166020850152610200810151604085015243606085015201516080830152604051612ec281610bcc565b600081526040830151602001511561196d5750610100604051612ee481610be7565b6000815260006020820152600060408201526000606082015260006080820152600060a0820152600060c0820152600060e082015260008282015260a06040600180831b038651169586845261ffff196020820151166020850152608081015182850152818101515160608501526020828201510151151560808501528180820151015183850152606082820151015160c0850152608082820151015160e0850152015101518282015260036000554360015560405193602085015261ffff19602082015116604085015260408101516060850152606081015160808501526080810151151560a085015260a081015160c085015260c081015160e085015260e0810151828501520151610120830152610120825261300282610c03565b81516001600160401b038111610b9b5761301d600254610b46565b601f81116130a0575b50602092601f821160011461305757928192936000926118b75750508160011b916000199060031b1c191617600255565b601f19821693600260005260206000209160005b86811061308857508360019596106118f457505050811b01600255565b9192602060018192868501518155019401920161306b565b60026000526130d7906000805160206150e1833981519152601f840160051c8101916020851061196357601f0160051c01906150c9565b38613026565b610220840180517f5468652062616c616e636520796f752061726520747279696e6720746f207365905280517f7420666f7220746865207573657220697320696e76616c696420616e6420746860209091015280517232bc903430bb32b713ba1037b83a32b21034b760691b60409182015281516060018590528151608001859052815160a00185905281518401859052905161012086015151915160008051602061514183398151915292909182916131a3916001600160a01b039091169083611222565b0390a17fa5de003b2ba0d437c5061b4eea66167a7a4699edfbf105570f3b20a9286fa44a6020604051858152a10152606084015161024082015152608084015115156020610240830151015260a08401516040610240830151015260c08401516060610240830151015260e08401516080610240830151015261010084015160a061024083015101526132346111b1565b9360018060a01b038151168552602061ffff1991015116602085015261024081015160408501524360608501520151608083015260405161327481610bcc565b600081526040830151602001511561196d575061010060405161329681610be7565b6000815260006020820152600060408201526000606082015260006080820152600060a0820152600060c0820152600060e082015260008282015260a06040600180831b038651169586845261ffff196020820151166020850152608081015182850152818101515160608501526020828201510151151560808501528180820151015183850152606082820151015160c0850152608082820151015160e0850152015101518282015260036000554360015560405193602085015261ffff19602082015116604085015260408101516060850152606081015160808501526080810151151560a085015260a081015160c085015260c081015160e085015260e081015182850152015161012083015261012082526133b482610c03565b81516001600160401b038111610b9b576133cf600254610b46565b601f8111613452575b50602092601f821160011461340957928192936000926118b75750508160011b916000199060031b1c191617600255565b601f19821693600260005260206000209160005b86811061343a57508360019596106118f457505050811b01600255565b9192602060018192868501518155019401920161341d565b6002600052613489906000805160206150e1833981519152601f840160051c8101916020851061196357601f0160051c01906150c9565b386133d8565b60405163100960cb60e01b8152601e6004820152602490fd5b50600061291b565b6134c16020829694939601516111a4565b6009811015610b035760060361401e576020015160e0015161026085015260016134ea33610d0c565b80610280870152516134fb81610af9565b61350481610af9565b036140055734613fec5760016102808501515161352081610af9565b61352981610af9565b03613fe557604061028085015101515b806102a086015261026085015151818111600014613fe05750805b806102c08701526040840151818111600014613fd957505b6102e0860152604083015111613890579060006101c060409360008051602061512183398151915260206102a08901518751908152a17fa3d036b483d035b12aab158e304f27a499224bec5bd5657ce3d3722de033b73360208651858152a10152606081015161030085015152608081015115156020610300860151015260a081015182610300860151015260c08101516060610300860151015260e08101516080610300860151015261362461010082015161507d565b60a061030086015101526103006136396111b1565b82516001600160a01b0316815260208084015161ffff191690820152940151828501524360608501520151608083015260405161367581610bcc565b600081526040830151602001511561196d575061010060405161369781610be7565b6000815260006020820152600060408201526000606082015260006080820152600060a0820152600060c0820152600060e082015260008282015260a06040600180831b038651169586845261ffff196020820151166020850152608081015182850152818101515160608501526020828201510151151560808501528180820151015183850152606082820151015160c0850152608082820151015160e0850152015101518282015260036000554360015560405193602085015261ffff19602082015116604085015260408101516060850152606081015160808501526080810151151560a085015260a081015160c085015260c081015160e085015260e081015182850152015161012083015261012082526137b582610c03565b81516001600160401b038111610b9b576137d0600254610b46565b601f8111613853575b50602092601f821160011461380a57928192936000926118b75750508160011b916000199060031b1c191617600255565b601f19821693600260005260206000209160005b86811061383b57508360019596106118f457505050811b01600255565b9192602060018192868501518155019401920161381e565b600260005261388a906000805160206150e1833981519152601f840160051c8101916020851061196357601f0160051c01906150c9565b386137d9565b6101c0600191826138a396949633610e0a565b516138ad81610af9565b6138b681610af9565b03613c0e577fc841553f4db44acfe456c6b4724fc10d5525f9c3f60915b115b9b5c4b08c96026020604051858152a1015260008080806102e0850151818115613c05575b3390f115611a27573360005260056020526000600160408220828155015561392c60608401516102e0830151906150bc565b61036082015152608083015115156020610360830151015261395860a08401516102e0830151906150a8565b6040610360830151015260c08301516060610360830151015261397e60e084015161507d565b6080610360830151015261010083015160a061036083015101526102e060406139a56111b1565b85516001600160a01b0316815260208087015161ffff19169082015261036084015182820152436060820152940151910151900360808301526040516139ea81610bcc565b600081526040830151602001511561196d5750610100604051613a0c81610be7565b6000815260006020820152600060408201526000606082015260006080820152600060a0820152600060c0820152600060e082015260008282015260a06040600180831b038651169586845261ffff196020820151166020850152608081015182850152818101515160608501526020828201510151151560808501528180820151015183850152606082820151015160c0850152608082820151015160e0850152015101518282015260036000554360015560405193602085015261ffff19602082015116604085015260408101516060850152606081015160808501526080810151151560a085015260a081015160c085015260c081015160e085015260e08101518285015201516101208301526101208252613b2a82610c03565b81516001600160401b038111610b9b57613b45600254610b46565b601f8111613bc8575b50602092601f8211600114613b7f57928192936000926118b75750508160011b916000199060031b1c191617600255565b601f19821693600260005260206000209160005b868110613bb057508360019596106118f457505050811b01600255565b91926020600181928685015181550194019201613b93565b6002600052613bff906000805160206150e1833981519152601f840160051c8101916020851061196357601f0160051c01906150c9565b38613b4e565b506108fc6138fa565b7fd7667941bef2d4390affdaf7cb9d17745929bb0b18771c4857f4a665ff3c8a0d6020604051858152a1015233610320820151526102e08101516020610320830151015261ffff1960208401511660406103208301510152600080516020615161833981519152613c8a610320830151604051918291826111f3565b0390a1336000908152600760205260408120805462ff00ff191660011790556102e0820151819081908190818115613fd0575b3390f115611a275733600052600560205260006001604082208281550155613cef60608401516102e0830151906150bc565b610340820151526080830151151560206103408301510152613d1b60a08401516102e0830151906150a8565b6040610340830151015260c083015160606103408301510152613d4160e084015161507d565b60806103408301510152613d5961010084015161507d565b60a061034083015101526102e06040613d706111b1565b85516001600160a01b0316815260208087015161ffff1916908201526103408401518282015243606082015294015191015190036080830152604051613db581610bcc565b600081526040830151602001511561196d5750610100604051613dd781610be7565b6000815260006020820152600060408201526000606082015260006080820152600060a0820152600060c0820152600060e082015260008282015260a06040600180831b038651169586845261ffff196020820151166020850152608081015182850152818101515160608501526020828201510151151560808501528180820151015183850152606082820151015160c0850152608082820151015160e0850152015101518282015260036000554360015560405193602085015261ffff19602082015116604085015260408101516060850152606081015160808501526080810151151560a085015260a081015160c085015260c081015160e085015260e08101518285015201516101208301526101208252613ef582610c03565b81516001600160401b038111610b9b57613f10600254610b46565b601f8111613f93575b50602092601f8211600114613f4a57928192936000926118b75750508160011b916000199060031b1c191617600255565b601f19821693600260005260206000209160005b868110613f7b57508360019596106118f457505050811b01600255565b91926020600181928685015181550194019201613f5e565b6002600052613fca906000805160206150e1833981519152601f840160051c8101916020851061196357601f0160051c01906150c9565b38613f19565b506108fc613cbd565b905061356c565b613554565b6000613539565b60405163100960cb60e01b815260206004820152602490fd5b60405163100960cb60e01b8152601f6004820152602490fd5b61402e60208294939401516111a4565b6009811015610b0357600703614b5e575090600161404b33610d0c565b806103808701525161405c81610af9565b61406581610af9565b03614b455734614b2c5760016103808501515161408181610af9565b61408a81610af9565b03614b2557604061038085015101515b806103a08601526040830151818111600014614b205750805b6103c08601526040830151116143d7579060006101e060409360008051602061512183398151915260206103a08901518751908152a17f0924bc3ed8d8fa4ac0609ccd5d6a1bd500c478efc3aa0ce23726f904f5c70cd360208651858152a1015260608101516103e0850151526080810151151560206103e0860151015260a0810151826103e0860151015260c081015160606103e0860151015260e081015160806103e0860151015261416b61010082015161507d565b60a06103e086015101526103e06141806111b1565b82516001600160a01b0316815260208084015161ffff19169082015294015182850152436060850152015160808301526040516141bc81610bcc565b600081526040830151602001511561196d57506101006040516141de81610be7565b6000815260006020820152600060408201526000606082015260006080820152600060a0820152600060c0820152600060e082015260008282015260a06040600180831b038651169586845261ffff196020820151166020850152608081015182850152818101515160608501526020828201510151151560808501528180820151015183850152606082820151015160c0850152608082820151015160e0850152015101518282015260036000554360015560405193602085015261ffff19602082015116604085015260408101516060850152606081015160808501526080810151151560a085015260a081015160c085015260c081015160e085015260e081015182850152015161012083015261012082526142fc82610c03565b81516001600160401b038111610b9b57614317600254610b46565b601f811161439a575b50602092601f821160011461435157928192936000926118b75750508160011b916000199060031b1c191617600255565b601f19821693600260005260206000209160005b86811061438257508360019596106118f457505050811b01600255565b91926020600181928685015181550194019201614365565b60026000526143d1906000805160206150e1833981519152601f840160051c8101916020851061196357601f0160051c01906150c9565b38614320565b6101e0600191826143ea96949633610e0a565b516143f481610af9565b6143fd81610af9565b03614755577f71485651b6791e3f9157dd0d695e9ad23f5c8e7939fe1151ed85b9eb5618bf986020604051858152a1015260008080806103c085015181811561474c575b3390f115611a27573360005260056020526000600160408220828155015561447360608401516103c0830151906150bc565b61044082015152608083015115156020610440830151015261449f60a08401516103c0830151906150a8565b6040610440830151015260c0830151606061044083015101526144c560e084015161507d565b6080610440830151015261010083015160a061044083015101526103c060406144ec6111b1565b85516001600160a01b0316815260208087015161ffff191690820152610440840151828201524360608201529401519101519003608083015260405161453181610bcc565b600081526040830151602001511561196d575061010060405161455381610be7565b6000815260006020820152600060408201526000606082015260006080820152600060a0820152600060c0820152600060e082015260008282015260a06040600180831b038651169586845261ffff196020820151166020850152608081015182850152818101515160608501526020828201510151151560808501528180820151015183850152606082820151015160c0850152608082820151015160e0850152015101518282015260036000554360015560405193602085015261ffff19602082015116604085015260408101516060850152606081015160808501526080810151151560a085015260a081015160c085015260c081015160e085015260e0810151828501520151610120830152610120825261467182610c03565b81516001600160401b038111610b9b5761468c600254610b46565b601f811161470f575b50602092601f82116001146146c657928192936000926118b75750508160011b916000199060031b1c191617600255565b601f19821693600260005260206000209160005b8681106146f757508360019596106118f457505050811b01600255565b919260206001819286850151815501940192016146da565b6002600052614746906000805160206150e1833981519152601f840160051c8101916020851061196357601f0160051c01906150c9565b38614695565b506108fc614441565b7fab11ef0dd1cc3ed40095b7ce323d9e4e8af3de75c79ef2a575ae41a9c19dec746020604051858152a1015233610400820151526103c08101516020610400830151015261ffff19602084015116604061040083015101526000805160206151618339815191526147d1610400830151604051918291826111f3565b0390a1336000908152600760205260408120805462ff00ff191660011790556103c0820151819081908190818115614b17575b3390f115611a27573360005260056020526000600160408220828155015561483660608401516103c0830151906150bc565b61042082015152608083015115156020610420830151015261486260a08401516103c0830151906150a8565b6040610420830151015260c08301516060610420830151015261488860e084015161507d565b608061042083015101526148a061010084015161507d565b60a061042083015101526103c060406148b76111b1565b85516001600160a01b0316815260208087015161ffff19169082015261042084015182820152436060820152940151910151900360808301526040516148fc81610bcc565b600081526040830151602001511561196d575061010060405161491e81610be7565b6000815260006020820152600060408201526000606082015260006080820152600060a0820152600060c0820152600060e082015260008282015260a06040600180831b038651169586845261ffff196020820151166020850152608081015182850152818101515160608501526020828201510151151560808501528180820151015183850152606082820151015160c0850152608082820151015160e0850152015101518282015260036000554360015560405193602085015261ffff19602082015116604085015260408101516060850152606081015160808501526080810151151560a085015260a081015160c085015260c081015160e085015260e08101518285015201516101208301526101208252614a3c82610c03565b81516001600160401b038111610b9b57614a57600254610b46565b601f8111614ada575b50602092601f8211600114614a9157928192936000926118b75750508160011b916000199060031b1c191617600255565b601f19821693600260005260206000209160005b868110614ac257508360019596106118f457505050811b01600255565b91926020600181928685015181550194019201614aa5565b6002600052614b11906000805160206150e1833981519152601f840160051c8101916020851061196357601f0160051c01906150c9565b38614a60565b506108fc614804565b6140b3565b600061409a565b60405163100960cb60e01b815260226004820152602490fd5b60405163100960cb60e01b815260216004820152602490fd5b6020614b6b9101516111a4565b6009811015610b0357600814614b82575b50509050565b34614f9c57336000908152600860209081526040808320805462ff00ff19166001179055805183815290946102009290917f2a42775f6a9becb80fe857767501a74d5a8bc3354bc87bcf25fe8fec8eb28e859190a10152606081015161046085015152608081015115156020610460860151015260a081015182610460860151015260c08101516060610460860151015260e08101516080610460860151015261010081015160a06104608601510152610460614c3d6111b1565b82516001600160a01b0316815260208084015161ffff1916908201529401518285015243606085015201516080830152604051614c7981610bcc565b6000815260408301516020015115614ec45750610100604051614c9b81610be7565b6000815260006020820152600060408201526000606082015260006080820152600060a0820152600060c0820152600060e082015260008282015260a06040600180831b038651169586845261ffff196020820151166020850152608081015182850152818101515160608501526020828201510151151560808501528180820151015183850152606082820151015160c0850152608082820151015160e0850152015101518282015260036000554360015560405193602085015261ffff19602082015116604085015260408101516060850152606081015160808501526080810151151560a085015260a081015160c085015260c081015160e085015260e08101518285015201516101208301526101208252614db982610c03565b81516001600160401b038111610b9b57614dd4600254610b46565b601f8111614e87575b50602092601f8211600114614e215792819293600092614e16575b50508160011b916000199060031b1c1916176002555b803880614b7c565b015190503880614df8565b601f19821693600260005260206000209160005b868110614e6f5750836001959610614e56575b505050811b01600255614e0e565b015160001960f88460031b161c19169055388080614e48565b91926020600181928685015181550194019201614e35565b6002600052614ebe906000805160206150e1833981519152601f840160051c8101916020851061196357601f0160051c01906150c9565b38614ddd565b9091600080808060018060a01b03855116608086015190828215614f93575bf115611a27574791829052516000918291829182916001600160a01b0316828215614f8a575bf115611a2757600080556000600155614f23600254610b46565b80614f2f575b50614e0e565b601f8111600114614f47575060006002555b38614f29565b6002600052614f7a90601f0160051c6000805160206150e1833981519152016000805160206151018339815191526150c9565b6000602081208160025555614f41565b506108fc614f09565b506108fc614ee3565b60405163100960cb60e01b815260236004820152602490fd5b60405163100960cb60e01b815260136004820152602490fd5b905060015414386115d7565b600260009081526000805160206150e1833981519152939250905b80821061500d575090915081016020016115bb6115aa565b919260018160209254838588010152019101909291614ff5565b60ff191660208086019190915291151560051b840190910191506115bb90506115aa565b60405163100960cb60e01b815260126004820152602490fd5b60405163100960cb60e01b815260116004820152602490fd5b906001820191828111615092578210610af457565b634e487b7160e01b600052601160045260246000fd5b9190820191828111615092578210610af457565b9081039081116150925790565b8181106150d4575050565b600081556001016150c956fe405787fa12a823e0f2b7631cc41b3ba8828b3321ca811111fa75cd3aa3bb5ace405787fa12a823e0f2b7631cc41b3ba8828b3321ca811111fa75cd3aa3bb5acf98466a02b4f346c6df500218540796dcdc48e95956b3854f55ba27c765e9835109d8b835c4a9bc404ae4d3376ad99a9231f0da2c04c16034ca895777fffc54ba0a8804e0c8b7a13171d7d6d0b8388bfd3b16bed84cac10f9276a3659d382ce23a164736f6c6343000810000a405787fa12a823e0f2b7631cc41b3ba8828b3321ca811111fa75cd3aa3bb5ace`,
-  BytecodeLen: 22680,
+  ABI: `[{"inputs":[{"components":[{"internalType":"uint256","name":"elem0","type":"uint256"},{"internalType":"bytes30","name":"elem1","type":"bytes30"}],"internalType":"struct T11","name":"v10647","type":"tuple"}],"stateMutability":"payable","type":"constructor"},{"inputs":[{"internalType":"uint256","name":"msg","type":"uint256"}],"name":"ReachError","type":"error"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"address","name":"_who","type":"address"},{"components":[{"internalType":"uint256","name":"elem0","type":"uint256"},{"internalType":"bytes30","name":"elem1","type":"bytes30"}],"indexed":false,"internalType":"struct T11","name":"_a","type":"tuple"}],"name":"_reach_e0","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"address","name":"_who","type":"address"},{"components":[{"internalType":"uint256","name":"elem0","type":"uint256"},{"components":[{"internalType":"enum _enum_T6","name":"which","type":"uint8"},{"components":[{"internalType":"address payable","name":"elem0","type":"address"}],"internalType":"struct T4","name":"_Admin_addAdmin0_98","type":"tuple"},{"components":[{"internalType":"uint256","name":"elem0","type":"uint256"}],"internalType":"struct T5","name":"_Admin_deposit0_98","type":"tuple"},{"components":[{"internalType":"address payable","name":"elem0","type":"address"},{"internalType":"uint256","name":"elem1","type":"uint256"}],"internalType":"struct T2","name":"_Admin_editUserReward0_98","type":"tuple"},{"internalType":"bool","name":"_Admin_endContractAndTransfer0_98","type":"bool"},{"components":[{"internalType":"address payable","name":"elem0","type":"address"}],"internalType":"struct T4","name":"_Admin_revokeAdmin0_98","type":"tuple"},{"components":[{"internalType":"address payable","name":"elem0","type":"address"},{"internalType":"uint256","name":"elem1","type":"uint256"}],"internalType":"struct T2","name":"_Admin_setReward0_98","type":"tuple"},{"components":[{"internalType":"uint256","name":"elem0","type":"uint256"}],"internalType":"struct T5","name":"_User_claim0_98","type":"tuple"},{"internalType":"bool","name":"_User_claimAll0_98","type":"bool"},{"internalType":"bool","name":"_User_optin0_98","type":"bool"}],"internalType":"struct T6","name":"elem1","type":"tuple"}],"indexed":false,"internalType":"struct T7","name":"_a","type":"tuple"}],"name":"_reach_e2","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"bool","name":"v0","type":"bool"}],"name":"_reach_oe_v1815","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"bool","name":"v0","type":"bool"}],"name":"_reach_oe_v2268","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"bool","name":"v0","type":"bool"}],"name":"_reach_oe_v2724","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"bool","name":"v0","type":"bool"}],"name":"_reach_oe_v3172","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"bool","name":"v0","type":"bool"}],"name":"_reach_oe_v3621","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"bool","name":"v0","type":"bool"}],"name":"_reach_oe_v4077","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"bool","name":"v0","type":"bool"}],"name":"_reach_oe_v4097","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"bool","name":"v0","type":"bool"}],"name":"_reach_oe_v4117","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"bool","name":"v0","type":"bool"}],"name":"_reach_oe_v4580","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"bool","name":"v0","type":"bool"}],"name":"_reach_oe_v4601","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"bool","name":"v0","type":"bool"}],"name":"_reach_oe_v4627","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"bool","name":"v0","type":"bool"}],"name":"_reach_oe_v5090","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"bool","name":"v0","type":"bool"}],"name":"_reach_oe_v5110","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"bool","name":"v0","type":"bool"}],"name":"_reach_oe_v5135","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"bool","name":"v0","type":"bool"}],"name":"_reach_oe_v5587","type":"event"},{"anonymous":false,"inputs":[{"components":[{"internalType":"address payable","name":"addr","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"},{"internalType":"bytes30","name":"projectName","type":"bytes30"}],"indexed":false,"internalType":"struct T15","name":"v0","type":"tuple"}],"name":"claimed","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"v0","type":"uint256"}],"name":"insufficient","type":"event"},{"anonymous":false,"inputs":[{"components":[{"internalType":"bytes32","name":"elem0","type":"bytes32"},{"internalType":"bytes32","name":"elem1","type":"bytes32"},{"internalType":"bytes32","name":"elem2","type":"bytes32"},{"internalType":"bytes32","name":"elem3","type":"bytes32"},{"internalType":"bytes32","name":"elem4","type":"bytes32"},{"internalType":"bytes32","name":"elem5","type":"bytes32"},{"internalType":"bytes8","name":"elem6","type":"bytes8"}],"indexed":false,"internalType":"struct T14","name":"v0","type":"tuple"},{"indexed":false,"internalType":"address payable","name":"v1","type":"address"}],"name":"notify","type":"event"},{"stateMutability":"payable","type":"fallback"},{"inputs":[{"internalType":"address payable","name":"v10602","type":"address"}],"name":"Admin_addAdmin","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"uint256","name":"v10607","type":"uint256"}],"name":"Admin_deposit","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"address payable","name":"v10612","type":"address"},{"internalType":"uint256","name":"v10613","type":"uint256"}],"name":"Admin_editUserReward","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"Admin_endContractAndTransfer","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"address payable","name":"v10622","type":"address"}],"name":"Admin_revokeAdmin","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"address payable","name":"v10627","type":"address"},{"internalType":"uint256","name":"v10628","type":"uint256"}],"name":"Admin_setReward","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"address payable","name":"v10583","type":"address"}],"name":"Info_Admins","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"Info_balance","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address payable","name":"v10588","type":"address"}],"name":"Info_opted","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address payable","name":"v10591","type":"address"}],"name":"Info_rewards","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"Info_totalAllocatedFunds","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"Info_totalAmountClaimed","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"Info_totalClaimed","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"Info_totalOptedIn","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"v10633","type":"uint256"}],"name":"User_claim","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"User_claimAll","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"User_optin","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"_reachCreationTime","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_reachCurrentState","outputs":[{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"bytes","name":"","type":"bytes"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_reachCurrentTime","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"addr","type":"address"}],"name":"_reachm_0Ref","outputs":[{"components":[{"internalType":"enum _enum_T0","name":"which","type":"uint8"},{"internalType":"bool","name":"_None","type":"bool"},{"internalType":"uint256","name":"_Some","type":"uint256"}],"internalType":"struct T0","name":"res","type":"tuple"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"addr","type":"address"}],"name":"_reachm_1Ref","outputs":[{"components":[{"internalType":"enum _enum_T1","name":"which","type":"uint8"},{"internalType":"bool","name":"_None","type":"bool"},{"internalType":"bool","name":"_Some","type":"bool"}],"internalType":"struct T1","name":"res","type":"tuple"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"addr","type":"address"}],"name":"_reachm_2Ref","outputs":[{"components":[{"internalType":"enum _enum_T1","name":"which","type":"uint8"},{"internalType":"bool","name":"_None","type":"bool"},{"internalType":"bool","name":"_Some","type":"bool"}],"internalType":"struct T1","name":"res","type":"tuple"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"addr","type":"address"}],"name":"_reachm_3Ref","outputs":[{"components":[{"internalType":"enum _enum_T1","name":"which","type":"uint8"},{"internalType":"bool","name":"_None","type":"bool"},{"internalType":"bool","name":"_Some","type":"bool"}],"internalType":"struct T1","name":"res","type":"tuple"}],"stateMutability":"view","type":"function"},{"inputs":[{"components":[{"internalType":"uint256","name":"elem0","type":"uint256"},{"components":[{"internalType":"enum _enum_T6","name":"which","type":"uint8"},{"components":[{"internalType":"address payable","name":"elem0","type":"address"}],"internalType":"struct T4","name":"_Admin_addAdmin0_98","type":"tuple"},{"components":[{"internalType":"uint256","name":"elem0","type":"uint256"}],"internalType":"struct T5","name":"_Admin_deposit0_98","type":"tuple"},{"components":[{"internalType":"address payable","name":"elem0","type":"address"},{"internalType":"uint256","name":"elem1","type":"uint256"}],"internalType":"struct T2","name":"_Admin_editUserReward0_98","type":"tuple"},{"internalType":"bool","name":"_Admin_endContractAndTransfer0_98","type":"bool"},{"components":[{"internalType":"address payable","name":"elem0","type":"address"}],"internalType":"struct T4","name":"_Admin_revokeAdmin0_98","type":"tuple"},{"components":[{"internalType":"address payable","name":"elem0","type":"address"},{"internalType":"uint256","name":"elem1","type":"uint256"}],"internalType":"struct T2","name":"_Admin_setReward0_98","type":"tuple"},{"components":[{"internalType":"uint256","name":"elem0","type":"uint256"}],"internalType":"struct T5","name":"_User_claim0_98","type":"tuple"},{"internalType":"bool","name":"_User_claimAll0_98","type":"bool"},{"internalType":"bool","name":"_User_optin0_98","type":"bool"}],"internalType":"struct T6","name":"elem1","type":"tuple"}],"internalType":"struct T7","name":"v10652","type":"tuple"}],"name":"_reachp_2","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"payable","type":"function"},{"stateMutability":"payable","type":"receive"}]`,
+  Bytecode: `0x6080601f62005e7538819003918201601f19168301916001600160401b038311848410176200059a57808492604094855283398101031262000705576020604051916200004c836200070a565b80518352015161ffff198116810362000705576020820152600080554360035560405161024081016001600160401b038111828210176200059a57600091610220916040528281528260208201528260408201528260608201528260808201528260a08201528260c08201528260e08201528261010082015282610120820152826101408201528261016082015282610180820152826101a0820152826101c0820152826101e08201528261020082015201526040519081606081011060018060401b036060840111176200059a576060820160405262000130606083016200070a565b60006060830152600060808301526060820182526200014e62000726565b60208301526200015d62000756565b604083015260ff60045416620006ec577fee7ce511d5b8643c8bc5c542ca8ef8446aa8d6f7cc0d2c6f5d34f08a9dc501da60606040513381528351602082015261ffff196020850151166040820152a180518015908115620006df575b5015620006c65734620006ad5760058251526064602083510152815160208301515260016020808401510152600060408301515260016020604084015101526020820151604080840151015260006060604084015101526000608060408401510152600060a060408401510152600060c060408401510152604051918260a081011060018060401b0360a0850111176200059a5760409060a08401825260008452600060208501526200026c62000756565b8285015260608401926000845260006080860152338552602061ffff199101511660208501520151604083015243905260405180602081011060018060401b036020830111176200059a576020818101604090815260008352830151015115620005b057506040516001600160401b036101408201908111908211176200059a5780610140610120920160405260008152600060208201526000604082015260006060820152600060808201526200032362000726565b60a0820152600060c0820152600060e0820152600061010082015260008282015260c0604060018060a01b038551169485845261ffff196020820151166020850152608081015182850152818101515160608501526020828201510151151560808501528180820151015160a0850152606082820151015183850152608082820151015160e085015260a0828201510151610100850152015101518282015260036000554360015560405192602084015261ffff19602082015116604084015260408101516060840152606081015160808401526080810151151560a0840152602060a0820151818151805160c0880152015160e08601520151151561010084015260c08101518284015260e0810151610140840152610100810151610160840152015161018082015261018081526101a0810181811060018060401b038211176200059a5760405280516001600160401b0381116200059a576200048a600254620007a8565b601f81116200054c575b50602091601f8211600114620004e257918192600092620004d6575b50508160011b916000199060031b1c1916176002555b6040516156569081620007ff8239f35b015190503880620004b0565b601f19821692600260005260206000209160005b858110620005335750836001951062000519575b505050811b01600255620004c6565b015160001960f88460031b161c191690553880806200050a565b91926020600181928685015181550194019201620004f6565b6002600052620005889060008051602062005e55833981519152601f840160051c810191602085106200058f575b601f0160051c0190620007e5565b3862000494565b90915081906200057a565b634e487b7160e01b600052604160045260246000fd5b60018060a01b03600080808084875116608088015190828215620006a3575bf1156200068d576000809392819392829347809352511682821562000699575bf1156200068d576000805560006001556200060c600254620007a8565b806200061a575b50620004c6565b601f811160011462000634575060006002555b3862000613565b60026000526200067c90601f0160051c60008051602062005e55833981519152017f405787fa12a823e0f2b7631cc41b3ba8828b3321ca811111fa75cd3aa3bb5acf620007e5565b60006020812081600255556200062d565b6040513d6000823e3d90fd5b506108fc620005ef565b506108fc620005cf565b60405163100960cb60e01b815260116004820152602490fd5b60405163100960cb60e01b815260106004820152602490fd5b90506001541438620001ba565b60405163100960cb60e01b8152600f6004820152602490fd5b600080fd5b604081019081106001600160401b038211176200059a57604052565b6040519062000735826200070a565b600060208360405162000748816200070a565b838152838382015281520152565b6040519060e082016001600160401b038111838210176200059a576040528160c06000918281528260208201526200078d62000726565b60408201528260608201528260808201528260a08201520152565b90600182811c92168015620007da575b6020831014620007c457565b634e487b7160e01b600052602260045260246000fd5b91607f1691620007b8565b818110620007f1575050565b60008155600101620007e556fe60406080815260048036101561001c575b5050361561001a57005b005b600090813560e01c80630a84e99f14610ac75780630bda465714610a235780631e93b0f114610a0457806336e56ea5146109a35780633702d0ce146109675780634ab9f8b314610911578063523df4f6146108ae57806355c42a951461086e578063672422c71461082057806374623535146107e457806374f16ec91461076e5780637a2b54dc1461072b5780637f0595e2146106c457806383230757146106a5578063883513de1461065957806392cf8bd51461060c578063a579242414610577578063a5928cf514610534578063a8d65f20146104be578063ab53f2c614610452578063c568a57c146102a8578063c5d86f6f1461025a578063cd6637a81461020d578063e0590c9a146101a85763f33c0dce1461013c5750610010565b346101a457816003193601126101a4576003610156610edd565b92540361018d5760206101a08484610100610180610172610c69565b8680825183010191016110a1565b0151928391015251908152f35b602490600d84519163100960cb60e01b8352820152fd5b5080fd5b5082906020366003190112610209576020926101fe6101e0926101c9610edd565b9283916101d4611018565b90358151528781019060068251525160e0825101526101f1611047565b9182525187820152611328565b015115159051908152f35b8280fd5b50346101a457816003193601126101a4576003610228610edd565b925403610243576020610180848460c0610180610172610c69565b602490600c84519163100960cb60e01b8352820152fd5b508290346102095760203660031901126102095735916001600160a01b03831683036102a557506102966102a192610290610d1e565b50610dc0565b905191829182610b48565b0390f35b80fd5b50916101a03660031901126101a4576102bf610edd565b8151936102cb85610baf565b358452610180366023190112610209578151936102e785610be0565b60243560098110156104465785526020948560431936011261044657835161030e81610c17565b6001600160a01b0390604435828116810361044e578152878301528660631936011261044257845161033f81610c17565b6064358152858301528460831936011261044257845161035e81610baf565b608435828116810361044e57815260a43588820152606083015260c435801515810361044a5760808301528660e31936011261044257845161039f81610c17565b60e435828116810361044e57815260a08301528461010319360112610442578451906103ca82610baf565b61010435908116810361044a578152610124358782015260c082015285610143193601126104465783516103fd81610c17565b61014435815260e082015261016435801515810361044257610100820152610184358015158103610442576101208201528582015261043c9190611328565b51908152f35b8580fd5b8480fd5b8680fd5b8780fd5b8284346101a457816003193601126101a457815461046e610c69565b91805193849283526020828185015284518093850152815b8381106104a757505060608094508284010152601f80199101168101030190f35b808601820151878201606001528694508101610486565b8284806003193601126101a45760c06020926101fe6104db610b0d565b6104e3610edd565b9283918651906104f282610baf565b6001600160a01b039081168252602435828a0190815290610511611063565b9251168251525188825101528781019060058251525186825101526101f1611047565b8284816003193601126101a4576102006020926101fe610552610edd565b809261055c611047565b878101906007825152511515610100825101526101f1611047565b50346101a45760203660031901126101a457610591610b0d565b90600361059c610edd565b9354036105f5576020610120858560016105d6876105c96105bb610c69565b8880825183010191016110a1565b50828060a01b0316610e8c565b516105e081610b28565b6105e981610b28565b14928391015251908152f35b602490600985519163100960cb60e01b8352820152fd5b50346101a457816003193601126101a4576003610627610edd565b925403610642576020610160848460e0610180610172610c69565b602490600b84519163100960cb60e01b8352820152fd5b50346101a457816003193601126101a4576003610674610edd565b92540361068e576020610100848481610180610172610c69565b602490600884519163100960cb60e01b8352820152fd5b8284346101a457816003193601126101a4576020906001549051908152f35b50346101a45760203660031901126101a4576106de610b0d565b9060036106e9610edd565b93540361071457602060e0858560016105d6876107076105bb610c69565b50828060a01b0316610dc0565b602490600785519163100960cb60e01b8352820152fd5b8284816003193601126101a4576102206020926101fe610749610edd565b8092610753611047565b878101906008825152511515610120825101526101f1611047565b8284806003193601126101a45760606020926101fe61078b610b0d565b610793610edd565b9283918651906107a282610baf565b6001600160a01b039081168252602435828a01908152906107c1611063565b9251168251525188825101528781019060028251525186825101526101f1611047565b508290346102095760203660031901126102095735916001600160a01b03831683036102a557506102966102a19261081a610d1e565b50610e3b565b50346101a457816003193601126101a457600361083b610edd565b9254036108575760206101c08484610120610180610172610c69565b602490600e84519163100960cb60e01b8352820152fd5b8284816003193601126101a45760806020926101fe61088b610edd565b8092610895611047565b87810190600382515251151586825101526101f1611047565b60208484366003190183136102a55782906101fe6108ca610b0d565b6108d2610edd565b9283916108dd611018565b80516001600160a01b03909216909152858101805183905290518151870152610904611047565b9182525185820152611328565b50829060203660031901126102095760a0906101fe602094610931610b0d565b9061093a610edd565b938492610945611018565b908151906001808a1b03169052888101918251525186825101526101f1611047565b508290346102095760203660031901126102095735916001600160a01b03831683036102a557506102966102a19261099d610d1e565b50610e8c565b508290346102095760203660031901126102095735916001600160a01b03831683036102a557506109de6060926109d8610d1e565b50610d3d565b908080519280516109ee81610b28565b8452602081015115156020850152015190820152f35b8284346101a457816003193601126101a4576020906003549051908152f35b5090346102a55760203660031901126102a557610a3e610b0d565b610a46610edd565b926003835403610ab05760206101408686818787610a656105bb610c69565b506001600160a01b0316906001610a7b83610d3d565b51610a8581610b28565b610a8e81610b28565b03610aa5575061018090610d3d565b015251908152f35b915050928391610a9d565b602490600a86519163100960cb60e01b8352820152fd5b5082906020366003190112610209576020926101fe8392610ae6610edd565b928391610af1611018565b90358151528781019060018251525186825101526101f1611047565b600435906001600160a01b0382168203610b2357565b600080fd5b60021115610b3257565b634e487b7160e01b600052602160045260246000fd5b91909160408060608301948051610b5e81610b28565b845260208101511515602085015201511515910152565b90600182811c92168015610ba5575b6020831014610b8f57565b634e487b7160e01b600052602260045260246000fd5b91607f1691610b84565b604081019081106001600160401b03821117610bca57604052565b634e487b7160e01b600052604160045260246000fd5b61014081019081106001600160401b03821117610bca57604052565b606081019081106001600160401b03821117610bca57604052565b602081019081106001600160401b03821117610bca57604052565b60e081019081106001600160401b03821117610bca57604052565b6101a081019081106001600160401b03821117610bca57604052565b604051906000600254610c7b81610b75565b808552600191808316908115610cff5750600114610cb9575b5050829003601f01601f191682016001600160401b03811183821017610bca57604052565b600260009081526020935091836000805160206155aa8339815191525b838510610ceb57505050508301013880610c94565b805488860183015293019284908201610cd6565b919250506020925060ff191682850152151560051b8301013880610c94565b60405190610d2b82610bfc565b60006040838281528260208201520152565b90610d46610d1e565b9160018060a01b03166000908082526005602052600160ff604084205416610d6d81610b28565b03610db55760409293508152600560205220600160405191610d8e83610bfc565b60ff8154818116610d9e81610b28565b855260081c16151560208401520154604082015290565b508083526020830152565b90610dc9610d1e565b9160018060a01b03166000908082526006602052600160ff604084205416610df081610b28565b03610db5576040929350815260066020522060ff60405191610e1183610bfc565b54818116610e1e81610b28565b8352818160081c161515602084015260101c161515604082015290565b90610e44610d1e565b9160018060a01b03166000908082526007602052600160ff604084205416610e6b81610b28565b03610db5576040929350815260076020522060ff60405191610e1183610bfc565b90610e95610d1e565b9160018060a01b03166000908082526008602052600160ff604084205416610ebc81610b28565b03610db5576040929350815260086020522060ff60405191610e1183610bfc565b6040519061024082016001600160401b03811183821017610bca57604052816102206000918281528260208201528260408201528260608201528260808201528260a08201528260c08201528260e08201528261010082015282610120820152826101408201528261016082015282610180820152826101a0820152826101c0820152826101e0820152826102008201520152565b604090815191610f8183610be0565b610120836000928382528051610f9681610c17565b84815260208301528051610fa981610c17565b848152818301528051610fbb81610baf565b84815284602082015260608301528360808301528051610fda81610c17565b84815260a08301528051610fed81610baf565b84815284602082015260c08301525161100581610c17565b83815260e0820152826101008201520152565b6040519061102582610baf565b8160405161103281610c17565b6000815281526020611042610f72565b910152565b6040519061105482610baf565b81600081526020611042610f72565b6040519061107082610baf565b8160405161107d81610baf565b600081526000602082015281526020611042610f72565b51908115158203610b2357565b809103906101808212610b235760408051926110bc84610be0565b82516001600160a01b0381168103610b23578452602083015161ffff1981168103610b2357602085015281830151828501526060830151606085015261110460808401611094565b6080850152609f19019060608212610b23578080519261112384610baf565b12610b23575161113281610baf565b60a0830151815260c08301516020820152815261115160e08301611094565b602082015260a0830152610160610100918281015160c0850152610120928382015160e08601526101408201519085015201519082015290565b6040519061119882610baf565b60006020836040516111a981610baf565b838152838382015281520152565b604051906111c482610c32565b8160c06000918281528260208201526111db61118b565b60408201528260608201528260808201528260a08201520152565b6040519061120382610c32565b8160c06000918281528260208201528260408201528260608201528260808201528260a08201520152565b80516001600160a01b03168252602090810151910152565b516009811015610b325790565b6040519060a082016001600160401b03811183821017610bca5760405260006080838281528260208201526112866111b7565b60408201528260608201520152565b81516001600160a01b031681526020808301519082015260409182015161ffff19169181019190915260600190565b815181526020808301519082015260408083015190820152606080830151908201526080808301519082015260a0808301519082015260c0918201516001600160c01b031916918101919091526001600160a01b0390911660e08201526101000190565b60405192919061048084016001600160401b03811185821017610bca578060405261135281610c17565b6000815284526113606111b7565b602085015260405161137181610c17565b6000815260408501526113826111b7565b606085015260405161139381610baf565b600081526000602082015260808501526113ab6111b7565b60a08501526113b86111b7565b60c08501526040516113c981610c17565b6000815260e08501526113da6111b7565b6101008501526040516113ec81610baf565b600081526000602082015261012085015260006101408501526000610160850152600061018085015260006101a08501526114256111b7565b6101c08501526114336111f6565b6101e08501526114416111b7565b61020085015261144f6111f6565b61022085015261145d6111b7565b61024085015260405161146f81610c17565b60008152610260850152611481610d1e565b61028085015260006102a085015260006102c085015260006102e08501526114a76111b7565b6103008501526114b5610d1e565b6103208501526114c36111b7565b6103408501526114d16111b7565b6103608501526114df610d1e565b61038085015260006103a085015260006103c08501526114fd6111b7565b6103e085015261150b610d1e565b6104008501526115196111b7565b6104208501526115276111b7565b6104408501526115356111b7565b61046085015260ff6004541661552d576040513381528151602082015260208201518051916009831015610b32576101206101c0927fb212047171f573087bd7daffa4c27e0281c01018b089f7487c3ab5d443db17d294604084015260018060a01b0360208201515116606084015260408101515160808401526115c1606082015160a085019061122e565b6080810151151560e084015260a0810151516001600160a01b031661010084015260c08101516115f4908385019061122e565b60e0810151516101608401526101008101511515610180840152015115156101a0820152a16003600054036155145761163d61162e610c69565b602080825183010191016110a1565b9080518015908115615508575b50156154ef5761165d6020820151611246565b6009811015610b3257611b5f57602090810151015184528051336001600160a01b0390911603611b3b5760015b15611b225734611b09576000602060409360018060a01b0387515116835260068252848320600160ff1982541617905560018060a01b0387515116835284832062ff00001981541690557fbbe685d3081b655043fc78e3a46b09bdbbbf947e90eecc1653018a245b84bf56828651858152a10152606081015160208501515260808101511515602080860151015260a0810151826020860151015260c081015160606020860151015260e081015160806020860151015261010081015160a06020860151015261012081015160c0602086015101526020611769611253565b82516001600160a01b031681528183015161ffff19168282015294015182850152436060850152015160808301526040516117a381610c17565b6000815260408301516020015115611a3157506101206040516117c581610be0565b60008152600060208201526000604082015260006060820152600060808201526117ed61118b565b60a0820152600060c0820152600060e0820152600061010082015260008282015260c0604060018060a01b038651169586845261ffff196020820151166020850152608081015182850152818101515160608501526020828201510151151560808501528180820151015160a0850152606082820151015183850152608082820151015160e085015260a0828201510151610100850152015101518282015260036000554360015560405193602085015261ffff19602082015116604085015260408101516060850152606081015160808501526080810151151560a0850152602060a0820151818151805160c0890152015160e08701520151151561010085015260c08101518285015260e08101516101408501526101008101516101608501520151610180830152610180825261192582610c4d565b81516001600160401b038111610bca57611940600254610b75565b601f81116119e9575b50602092601f8211600114611986579281929360009261197b575b50508160011b916000199060031b1c191617600255565b015190503880611964565b601f19821693600260005260206000209160005b8681106119d157508360019596106119b8575b505050811b01600255565b015160001960f88460031b161c191690553880806119ad565b9192602060018192868501518155019401920161199a565b6002600052611a21906000805160206155aa833981519152601f840160051c81019160208510611a27575b601f0160051c0190615592565b38611949565b9091508190611a14565b9091600080808060018060a01b03855116608086015190828215611b00575bf115611aeb574791829052516000918291829182916001600160a01b0316828215611af7575bf115611aeb57600080556000600155611a90600254610b75565b80611a985750565b601f8111600114611aab57506000600255565b6002600052611ade90601f0160051c6000805160206155aa833981519152016000805160206155ca833981519152615592565b6000602081208160025555565b6040513d6000823e3d90fd5b506108fc611a76565b506108fc611a50565b60405163100960cb60e01b815260166004820152602490fd5b60405163100960cb60e01b815260156004820152602490fd5b6001611b4633610dc0565b51611b5081610b28565b611b5981610b28565b1461168a565b611b70602082969493960151611246565b6009811015610b3257600103611f585760200151604090810151908301528351336001600160a01b0390911603611f345760015b15611f1b576040820151513403611f025760406000917f84d8dc2cce30744f2e5061e0fe4a8373a1ca4851badf840e0c3e7de022602ebf60208351858152a10152611bf9606084015160408301515190615571565b6060820151526080830151151560206060830151015260a083015160406060830151015260c0830151606080830151015260e083015160806060830151015261010083015160a06060830151015261012083015160c060608301510152604080611c61611253565b85516001600160a01b0316815260208087015161ffff19169082015260608481015183830152439082015294015191015151016080830152604051611ca581610c17565b6000815260408301516020015115611a315750610120604051611cc781610be0565b6000815260006020820152600060408201526000606082015260006080820152611cef61118b565b60a0820152600060c0820152600060e0820152600061010082015260008282015260c0604060018060a01b038651169586845261ffff196020820151166020850152608081015182850152818101515160608501526020828201510151151560808501528180820151015160a0850152606082820151015183850152608082820151015160e085015260a0828201510151610100850152015101518282015260036000554360015560405193602085015261ffff19602082015116604085015260408101516060850152606081015160808501526080810151151560a0850152602060a0820151818151805160c0890152015160e08701520151151561010085015260c08101518285015260e081015161014085015261010081015161016085015201516101808301526101808252611e2782610c4d565b81516001600160401b038111610bca57611e42600254610b75565b601f8111611ec5575b50602092601f8211600114611e7c579281929360009261197b5750508160011b916000199060031b1c191617600255565b601f19821693600260005260206000209160005b868110611ead57508360019596106119b857505050811b01600255565b91926020600181928685015181550194019201611e90565b6002600052611efc906000805160206155aa833981519152601f840160051c81019160208510611a2757601f0160051c0190615592565b38611e4b565b60405163100960cb60e01b815260186004820152602490fd5b60405163100960cb60e01b815260176004820152602490fd5b6001611f3f33610dc0565b51611f4981610b28565b611f5281610b28565b14611ba4565b611f69602082969394960151611246565b6009811015610b325760020361237157602001516060015160808501528051336001600160a01b039091160361234d5760015b15612334573461231b576000606060409360018060a01b036080880151511683526005602052848320600160ff19825416179055608087015160208101519060018060a01b039051168452600186852001557fbf9010c7a14480e2d678128641f3d3f63f44ac9c3214406ad030f7bfb44147ee60208651858152a10152606081015160a08501515260808101511515602060a0860151015260a08101518260a0860151015260c0810151606060a0860151015260e0810151608060a0860151015261010081015160a080860151015261012081015160c060a0860151015260a0612084611253565b94600180831b03835116865261ffff196020840151166020870152015182850152436060850152015160808301526040516120be81610c17565b6000815260408301516020015115611a3157506101206040516120e081610be0565b600081526000602082015260006040820152600060608201526000608082015261210861118b565b60a0820152600060c0820152600060e0820152600061010082015260008282015260c0604060018060a01b038651169586845261ffff196020820151166020850152608081015182850152818101515160608501526020828201510151151560808501528180820151015160a0850152606082820151015183850152608082820151015160e085015260a0828201510151610100850152015101518282015260036000554360015560405193602085015261ffff19602082015116604085015260408101516060850152606081015160808501526080810151151560a0850152602060a0820151818151805160c0890152015160e08701520151151561010085015260c08101518285015260e08101516101408501526101008101516101608501520151610180830152610180825261224082610c4d565b81516001600160401b038111610bca5761225b600254610b75565b601f81116122de575b50602092601f8211600114612295579281929360009261197b5750508160011b916000199060031b1c191617600255565b601f19821693600260005260206000209160005b8681106122c657508360019596106119b857505050811b01600255565b919260206001819286850151815501940192016122a9565b6002600052612315906000805160206155aa833981519152601f840160051c81019160208510611a2757601f0160051c0190615592565b38612264565b60405163100960cb60e01b8152601a6004820152602490fd5b60405163100960cb60e01b815260196004820152602490fd5b600161235833610dc0565b5161236281610b28565b61236b81610b28565b14611f9c565b61237e6020820151611246565b6009811015610b325760030361270f57508051336001600160a01b03909116036126f657346126dd57600060806040937f43a545e32e7ae43fe843082985444a746bc01dff92df64050ccf4084efbc94bb60208651858152a10152606081015160c08501515260808101511515602060c0860151015260a08101518260c0860151015260c0810151606060c0860151015260e0810151608060c0860151015261010081015160a060c0860151015261012081015160c080860151015260c0612444611253565b82516001600160a01b0316815260208084015161ffff191690820152940151828501524360608501520151608083015260405161248081610c17565b6000815260408301516020015115611a3157506101206040516124a281610be0565b60008152600060208201526000604082015260006060820152600060808201526124ca61118b565b60a0820152600060c0820152600060e0820152600061010082015260008282015260c0604060018060a01b038651169586845261ffff196020820151166020850152608081015182850152818101515160608501526020828201510151151560808501528180820151015160a0850152606082820151015183850152608082820151015160e085015260a0828201510151610100850152015101518282015260036000554360015560405193602085015261ffff19602082015116604085015260408101516060850152606081015160808501526080810151151560a0850152602060a0820151818151805160c0890152015160e08701520151151561010085015260c08101518285015260e08101516101408501526101008101516101608501520151610180830152610180825261260282610c4d565b81516001600160401b038111610bca5761261d600254610b75565b601f81116126a0575b50602092601f8211600114612657579281929360009261197b5750508160011b916000199060031b1c191617600255565b601f19821693600260005260206000209160005b86811061268857508360019596106119b857505050811b01600255565b9192602060018192868501518155019401920161266b565b60026000526126d7906000805160206155aa833981519152601f840160051c81019160208510611a2757601f0160051c0190615592565b38612626565b60405163100960cb60e01b8152601c6004820152602490fd5b60405163100960cb60e01b8152601b6004820152602490fd5b61271c6020820151611246565b6009811015610b3257600403612ad9576020015160a0015160e085015280516001600160a01b03163303612ac05734612aa757600060a0604093600180831b0360e088015151168352600660205282858120557f45906bf0ff273d8535d82b0b7f0e187bdfceea83cd0f7d7baa96e6dcdaa2a89e60208651858152a10152606081015161010085015152608081015115156020610100860151015260a081015182610100860151015260c08101516060610100860151015260e08101516080610100860151015261010081015160a0610100860151015261012081015160c0610100860151015261010061280e611253565b82516001600160a01b0316815260208084015161ffff191690820152940151828501524360608501520151608083015260405161284a81610c17565b6000815260408301516020015115611a31575061012060405161286c81610be0565b600081526000602082015260006040820152600060608201526000608082015261289461118b565b60a0820152600060c0820152600060e0820152600061010082015260008282015260c0604060018060a01b038651169586845261ffff196020820151166020850152608081015182850152818101515160608501526020828201510151151560808501528180820151015160a0850152606082820151015183850152608082820151015160e085015260a0828201510151610100850152015101518282015260036000554360015560405193602085015261ffff19602082015116604085015260408101516060850152606081015160808501526080810151151560a0850152602060a0820151818151805160c0890152015160e08701520151151561010085015260c08101518285015260e0810151610140850152610100810151610160850152015161018083015261018082526129cc82610c4d565b81516001600160401b038111610bca576129e7600254610b75565b601f8111612a6a575b50602092601f8211600114612a21579281929360009261197b5750508160011b916000199060031b1c191617600255565b601f19821693600260005260206000209160005b868110612a5257508360019596106119b857505050811b01600255565b91926020600181928685015181550194019201612a35565b6002600052612aa1906000805160206155aa833981519152601f840160051c81019160208510611a2757601f0160051c0190615592565b386129f0565b60405163100960cb60e01b8152601e6004820152602490fd5b60405163100960cb60e01b8152601d6004820152602490fd5b612ae96020829693960151611246565b6009811015610b32576005036137ae5760c0602080920151015180610120840152018051606086015110806101408401526000146137a657515b8061016083015280604086015101610180830152340361378d57610120810151516101809290600190612b5e906001600160a01b0316610e8c565b51612b6881610b28565b612b7181610b28565b03612f9b5760c0600191828060a01b036101208501515116600052600560205260406000208360ff1982541617905582612bb7818060a01b036101208701515116610d3d565b51612bc181610b28565b612bca81610b28565b03612f9157612bfd6040612bea858060a01b036101208801515116610d3d565b01515b6020610120870151015190615571565b838060a01b036101208601515116600052600560205283604060002001557faff498894b871853ab4ce4c86985d1dd3d3443041c5bf21333686bf2052524966020604051858152a1015261014081015115612f8157612c6a60608501516020610120840151015190615571565b6101a08201525b6101a08101516101c0820151526080840151151560206101c0830151015260a084015160406101c0830151015260c084015160606101c0830151015260e084015160806101c0830151015261010084015160a06101c0830151015261012084015160c06101c08301510152612ce4611253565b9360018060a01b038151168552602061ffff199101511660208501526101c0810151604085015243606085015201516080830152604051612d2481610c17565b6000815260408301516020015115611a315750610120604051612d4681610be0565b6000815260006020820152600060408201526000606082015260006080820152612d6e61118b565b60a0820152600060c0820152600060e0820152600061010082015260008282015260c0604060018060a01b038651169586845261ffff196020820151166020850152608081015182850152818101515160608501526020828201510151151560808501528180820151015160a0850152606082820151015183850152608082820151015160e085015260a0828201510151610100850152015101518282015260036000554360015560405193602085015261ffff19602082015116604085015260408101516060850152606081015160808501526080810151151560a0850152602060a0820151818151805160c0890152015160e08701520151151561010085015260c08101518285015260e081015161014085015261010081015161016085015201516101808301526101808252612ea682610c4d565b81516001600160401b038111610bca57612ec1600254610b75565b601f8111612f44575b50602092601f8211600114612efb579281929360009261197b5750508160011b916000199060031b1c191617600255565b601f19821693600260005260206000209160005b868110612f2c57508360019596106119b857505050811b01600255565b91926020600181928685015181550194019201612f0f565b6002600052612f7b906000805160206155aa833981519152601f840160051c81019160208510611a2757601f0160051c0190615592565b38612eca565b60608401516101a0820152612c71565b612bfd6000612bed565b61014082015160009160c09115613389576101e084018051782cb7bab9103ab9b2b9103430b9b713ba1037b83a32b21034b760391b905280516020018490528051604090810185905281516060018590528151608001859052815160a00185905281518401859052905161012086015151915160008051602061560a8339815191529290918291613038916001600160a01b0390911690836112c4565b0390a17f29555fd10803e5fe7058adf9f82d69ac27fa63fe43221059f9d1fdf834b368966020604051858152a1015261307f60608501516020610120840151015190615571565b61020082015152608084015115156020610200830151015260a08401516040610200830151015260c08401516060610200830151015260e08401516080610200830151015261010084015160a0610200830151015261012084015160c061020083015101526130ec611253565b9360018060a01b038151168552602061ffff1991015116602085015261020081015160408501524360608501520151608083015260405161312c81610c17565b6000815260408301516020015115611a31575061012060405161314e81610be0565b600081526000602082015260006040820152600060608201526000608082015261317661118b565b60a0820152600060c0820152600060e0820152600061010082015260008282015260c0604060018060a01b038651169586845261ffff196020820151166020850152608081015182850152818101515160608501526020828201510151151560808501528180820151015160a0850152606082820151015183850152608082820151015160e085015260a0828201510151610100850152015101518282015260036000554360015560405193602085015261ffff19602082015116604085015260408101516060850152606081015160808501526080810151151560a0850152602060a0820151818151805160c0890152015160e08701520151151561010085015260c08101518285015260e0810151610140850152610100810151610160850152015161018083015261018082526132ae82610c4d565b81516001600160401b038111610bca576132c9600254610b75565b601f811161334c575b50602092601f8211600114613303579281929360009261197b5750508160011b916000199060031b1c191617600255565b601f19821693600260005260206000209160005b86811061333457508360019596106119b857505050811b01600255565b91926020600181928685015181550194019201613317565b6002600052613383906000805160206155aa833981519152601f840160051c81019160208510611a2757601f0160051c0190615592565b386132d2565b610220840180517f5468652062616c616e636520796f752061726520747279696e6720746f207365905280517f7420666f7220746865207573657220697320696e76616c696420616e6420746860209091015280517232bc903430bb32b713ba1037b83a32b21034b760691b60409182015281516060018590528151608001859052815160a00185905281518401859052905161012086015151915160008051602061560a833981519152929091829161344f916001600160a01b0390911690836112c4565b0390a17fea23cbaf997f6dae92b4cc378d0c2267a895cc733f12ebf21adbb54f8098b7846020604051858152a10152606084015161024082015152608084015115156020610240830151015260a08401516040610240830151015260c08401516060610240830151015260e08401516080610240830151015261010084015160a0610240830151015261012084015160c061024083015101526134f0611253565b9360018060a01b038151168552602061ffff1991015116602085015261024081015160408501524360608501520151608083015260405161353081610c17565b6000815260408301516020015115611a31575061012060405161355281610be0565b600081526000602082015260006040820152600060608201526000608082015261357a61118b565b60a0820152600060c0820152600060e0820152600061010082015260008282015260c0604060018060a01b038651169586845261ffff196020820151166020850152608081015182850152818101515160608501526020828201510151151560808501528180820151015160a0850152606082820151015183850152608082820151015160e085015260a0828201510151610100850152015101518282015260036000554360015560405193602085015261ffff19602082015116604085015260408101516060850152606081015160808501526080810151151560a0850152602060a0820151818151805160c0890152015160e08701520151151561010085015260c08101518285015260e0810151610140850152610100810151610160850152015161018083015261018082526136b282610c4d565b81516001600160401b038111610bca576136cd600254610b75565b601f8111613750575b50602092601f8211600114613707579281929360009261197b5750508160011b916000199060031b1c191617600255565b601f19821693600260005260206000209160005b86811061373857508360019596106119b857505050811b01600255565b9192602060018192868501518155019401920161371b565b6002600052613787906000805160206155aa833981519152601f840160051c81019160208510611a2757601f0160051c0190615592565b386136d6565b60405163100960cb60e01b8152601f6004820152602490fd5b506000612b23565b6137bf602082969493960151611246565b6009811015610b3257600603614412576020015160e0015161026085015260016137e833610d3d565b80610280870152516137f981610b28565b61380281610b28565b036143f957346143e05760016102808501515161381e81610b28565b61382781610b28565b036143d957604061028085015101515b806102a0860152610260850151518181116000146143d45750805b806102c087015260408401518181116000146143cd57505b6102e0860152604083015111613be0579060006101e06040936000805160206155ea83398151915260206102a08901518751908152a17f59cca261a9fe8515f7698ad4368e719f8d8b90f0c345055556c986bd74bcacd760208651858152a10152606081015161030085015152608081015115156020610300860151015260a081015182610300860151015260c08101516060610300860151015260e08101516080610300860151015261010081015160a06103008601510152613932610120820151615546565b60c06103008601510152610300613947611253565b82516001600160a01b0316815260208084015161ffff191690820152940151828501524360608501520151608083015260405161398381610c17565b6000815260408301516020015115611a3157506101206040516139a581610be0565b60008152600060208201526000604082015260006060820152600060808201526139cd61118b565b60a0820152600060c0820152600060e0820152600061010082015260008282015260c0604060018060a01b038651169586845261ffff196020820151166020850152608081015182850152818101515160608501526020828201510151151560808501528180820151015160a0850152606082820151015183850152608082820151015160e085015260a0828201510151610100850152015101518282015260036000554360015560405193602085015261ffff19602082015116604085015260408101516060850152606081015160808501526080810151151560a0850152602060a0820151818151805160c0890152015160e08701520151151561010085015260c08101518285015260e081015161014085015261010081015161016085015201516101808301526101808252613b0582610c4d565b81516001600160401b038111610bca57613b20600254610b75565b601f8111613ba3575b50602092601f8211600114613b5a579281929360009261197b5750508160011b916000199060031b1c191617600255565b601f19821693600260005260206000209160005b868110613b8b57508360019596106119b857505050811b01600255565b91926020600181928685015181550194019201613b6e565b6002600052613bda906000805160206155aa833981519152601f840160051c81019160208510611a2757601f0160051c0190615592565b38613b29565b6101e060019182613bf396949633610e3b565b51613bfd81610b28565b613c0681610b28565b03613fb0577f5504544b37849716b55a2ac9743fcab18b2402bbc736040cf88994b33f2405c06020604051858152a1015260008080806102e0850151818115613fa7575b3390f115611aeb5733600052600560205260006001604082208281550155613c7c60608401516102e083015190615585565b61036082015152608083015115156020610360830151015260a083015160406103608301510152613cb760c08401516102e083015190615571565b6060610360830151015260e083015160806103608301510152613cde610100840151615546565b60a0610360830151015261012083015160c061036083015101526102e06040613d05611253565b85516001600160a01b0316815260208087015161ffff1916908201526103608401518282015243606082015294015191015190036080830152604051613d4a81610c17565b6000815260408301516020015115611a315750610120604051613d6c81610be0565b6000815260006020820152600060408201526000606082015260006080820152613d9461118b565b60a0820152600060c0820152600060e0820152600061010082015260008282015260c0604060018060a01b038651169586845261ffff196020820151166020850152608081015182850152818101515160608501526020828201510151151560808501528180820151015160a0850152606082820151015183850152608082820151015160e085015260a0828201510151610100850152015101518282015260036000554360015560405193602085015261ffff19602082015116604085015260408101516060850152606081015160808501526080810151151560a0850152602060a0820151818151805160c0890152015160e08701520151151561010085015260c08101518285015260e081015161014085015261010081015161016085015201516101808301526101808252613ecc82610c4d565b81516001600160401b038111610bca57613ee7600254610b75565b601f8111613f6a575b50602092601f8211600114613f21579281929360009261197b5750508160011b916000199060031b1c191617600255565b601f19821693600260005260206000209160005b868110613f5257508360019596106119b857505050811b01600255565b91926020600181928685015181550194019201613f35565b6002600052613fa1906000805160206155aa833981519152601f840160051c81019160208510611a2757601f0160051c0190615592565b38613ef0565b506108fc613c4a565b7f4e7de3588647f4f012eabf7fe65d4a025f38252c417e769aa69d1cf286439a8a6020604051858152a1015233610320820151526102e08101516020610320830151015261ffff196020840151166040610320830151015260008051602061562a83398151915261402c61032083015160405191829182611295565b0390a1336000908152600760205260408120805462ff00ff191660011790556102e08201518190819081908181156143c4575b3390f115611aeb573360005260056020526000600160408220828155015561409160608401516102e083015190615585565b61034082015152608083015115156020610340830151015260a0830151604061034083015101526140cc60c08401516102e083015190615571565b6060610340830151015260e0830151608061034083015101526140f3610100840151615546565b60a0610340830151015261410b610120840151615546565b60c061034083015101526102e06040614122611253565b85516001600160a01b0316815260208087015161ffff191690820152610340840151828201524360608201529401519101519003608083015260405161416781610c17565b6000815260408301516020015115611a31575061012060405161418981610be0565b60008152600060208201526000604082015260006060820152600060808201526141b161118b565b60a0820152600060c0820152600060e0820152600061010082015260008282015260c0604060018060a01b038651169586845261ffff196020820151166020850152608081015182850152818101515160608501526020828201510151151560808501528180820151015160a0850152606082820151015183850152608082820151015160e085015260a0828201510151610100850152015101518282015260036000554360015560405193602085015261ffff19602082015116604085015260408101516060850152606081015160808501526080810151151560a0850152602060a0820151818151805160c0890152015160e08701520151151561010085015260c08101518285015260e0810151610140850152610100810151610160850152015161018083015261018082526142e982610c4d565b81516001600160401b038111610bca57614304600254610b75565b601f8111614387575b50602092601f821160011461433e579281929360009261197b5750508160011b916000199060031b1c191617600255565b601f19821693600260005260206000209160005b86811061436f57508360019596106119b857505050811b01600255565b91926020600181928685015181550194019201614352565b60026000526143be906000805160206155aa833981519152601f840160051c81019160208510611a2757601f0160051c0190615592565b3861430d565b506108fc61405f565b905061386a565b613852565b6000613837565b60405163100960cb60e01b815260216004820152602490fd5b60405163100960cb60e01b815260206004820152602490fd5b6144226020829493940151611246565b6009811015610b3257600703615048575090600161443f33610d3d565b806103808701525161445081610b28565b61445981610b28565b0361502f57346150165760016103808501515161447581610b28565b61447e81610b28565b0361500f57604061038085015101515b806103a0860152604083015181811160001461500a5750805b6103c086015260408301511161481d579060006102006040936000805160206155ea83398151915260206103a08901518751908152a17fa8f1448ee5eaf3ab96a088fe4652ed076a0c9985bf7a678068e95557d2f5063760208651858152a1015260608101516103e0850151526080810151151560206103e0860151015260a0810151826103e0860151015260c081015160606103e0860151015260e081015160806103e0860151015261010081015160a06103e0860151015261456f610120820151615546565b60c06103e086015101526103e0614584611253565b82516001600160a01b0316815260208084015161ffff19169082015294015182850152436060850152015160808301526040516145c081610c17565b6000815260408301516020015115611a3157506101206040516145e281610be0565b600081526000602082015260006040820152600060608201526000608082015261460a61118b565b60a0820152600060c0820152600060e0820152600061010082015260008282015260c0604060018060a01b038651169586845261ffff196020820151166020850152608081015182850152818101515160608501526020828201510151151560808501528180820151015160a0850152606082820151015183850152608082820151015160e085015260a0828201510151610100850152015101518282015260036000554360015560405193602085015261ffff19602082015116604085015260408101516060850152606081015160808501526080810151151560a0850152602060a0820151818151805160c0890152015160e08701520151151561010085015260c08101518285015260e08101516101408501526101008101516101608501520151610180830152610180825261474282610c4d565b81516001600160401b038111610bca5761475d600254610b75565b601f81116147e0575b50602092601f8211600114614797579281929360009261197b5750508160011b916000199060031b1c191617600255565b601f19821693600260005260206000209160005b8681106147c857508360019596106119b857505050811b01600255565b919260206001819286850151815501940192016147ab565b6002600052614817906000805160206155aa833981519152601f840160051c81019160208510611a2757601f0160051c0190615592565b38614766565b6102006001918261483096949633610e3b565b5161483a81610b28565b61484381610b28565b03614bed577fdcfc54f5a68098b75c1d064229d1b19258d12816ef94d6018a8cd3efeda6e4e16020604051858152a1015260008080806103c0850151818115614be4575b3390f115611aeb57336000526005602052600060016040822082815501556148b960608401516103c083015190615585565b61044082015152608083015115156020610440830151015260a0830151604061044083015101526148f460c08401516103c083015190615571565b6060610440830151015260e08301516080610440830151015261491b610100840151615546565b60a0610440830151015261012083015160c061044083015101526103c06040614942611253565b85516001600160a01b0316815260208087015161ffff191690820152610440840151828201524360608201529401519101519003608083015260405161498781610c17565b6000815260408301516020015115611a3157506101206040516149a981610be0565b60008152600060208201526000604082015260006060820152600060808201526149d161118b565b60a0820152600060c0820152600060e0820152600061010082015260008282015260c0604060018060a01b038651169586845261ffff196020820151166020850152608081015182850152818101515160608501526020828201510151151560808501528180820151015160a0850152606082820151015183850152608082820151015160e085015260a0828201510151610100850152015101518282015260036000554360015560405193602085015261ffff19602082015116604085015260408101516060850152606081015160808501526080810151151560a0850152602060a0820151818151805160c0890152015160e08701520151151561010085015260c08101518285015260e081015161014085015261010081015161016085015201516101808301526101808252614b0982610c4d565b81516001600160401b038111610bca57614b24600254610b75565b601f8111614ba7575b50602092601f8211600114614b5e579281929360009261197b5750508160011b916000199060031b1c191617600255565b601f19821693600260005260206000209160005b868110614b8f57508360019596106119b857505050811b01600255565b91926020600181928685015181550194019201614b72565b6002600052614bde906000805160206155aa833981519152601f840160051c81019160208510611a2757601f0160051c0190615592565b38614b2d565b506108fc614887565b7fa5cb000f7fef2d76fcd1168e98b2502bd150c96df3136996d0cf583f6ec264cc6020604051858152a1015233610400820151526103c08101516020610400830151015261ffff196020840151166040610400830151015260008051602061562a833981519152614c6961040083015160405191829182611295565b0390a1336000908152600760205260408120805462ff00ff191660011790556103c0820151819081908190818115615001575b3390f115611aeb5733600052600560205260006001604082208281550155614cce60608401516103c083015190615585565b61042082015152608083015115156020610420830151015260a083015160406104208301510152614d0960c08401516103c083015190615571565b6060610420830151015260e083015160806104208301510152614d30610100840151615546565b60a06104208301510152614d48610120840151615546565b60c061042083015101526103c06040614d5f611253565b85516001600160a01b0316815260208087015161ffff1916908201526104208401518282015243606082015294015191015190036080830152604051614da481610c17565b6000815260408301516020015115611a315750610120604051614dc681610be0565b6000815260006020820152600060408201526000606082015260006080820152614dee61118b565b60a0820152600060c0820152600060e0820152600061010082015260008282015260c0604060018060a01b038651169586845261ffff196020820151166020850152608081015182850152818101515160608501526020828201510151151560808501528180820151015160a0850152606082820151015183850152608082820151015160e085015260a0828201510151610100850152015101518282015260036000554360015560405193602085015261ffff19602082015116604085015260408101516060850152606081015160808501526080810151151560a0850152602060a0820151818151805160c0890152015160e08701520151151561010085015260c08101518285015260e081015161014085015261010081015161016085015201516101808301526101808252614f2682610c4d565b81516001600160401b038111610bca57614f41600254610b75565b601f8111614fc4575b50602092601f8211600114614f7b579281929360009261197b5750508160011b916000199060031b1c191617600255565b601f19821693600260005260206000209160005b868110614fac57508360019596106119b857505050811b01600255565b91926020600181928685015181550194019201614f8f565b6002600052614ffb906000805160206155aa833981519152601f840160051c81019160208510611a2757601f0160051c0190615592565b38614f4a565b506108fc614c9c565b6144a7565b600061448e565b60405163100960cb60e01b815260236004820152602490fd5b60405163100960cb60e01b815260226004820152602490fd5b6020615055910151611246565b6009811015610b325760081461506c575b50509050565b346154d857336000908152600860209081526040808320805462ff00ff19166001179055805183815290946102209290917f6f5740580847314510b7c1c1a1eb349204138a23cedfcd080e16df4f754f176d9190a10152606081015161046085015152608081015115156020610460860151015260a081015182610460860151015260c08101516060610460860151015260e08101516080610460860151015261010081015160a0610460860151015261012081015160c06104608601510152610460615137611253565b82516001600160a01b0316815260208084015161ffff191690820152940151828501524360608501520151608083015260405161517381610c17565b6000815260408301516020015115615400575061012060405161519581610be0565b60008152600060208201526000604082015260006060820152600060808201526151bd61118b565b60a0820152600060c0820152600060e0820152600061010082015260008282015260c0604060018060a01b038651169586845261ffff196020820151166020850152608081015182850152818101515160608501526020828201510151151560808501528180820151015160a0850152606082820151015183850152608082820151015160e085015260a0828201510151610100850152015101518282015260036000554360015560405193602085015261ffff19602082015116604085015260408101516060850152606081015160808501526080810151151560a0850152602060a0820151818151805160c0890152015160e08701520151151561010085015260c08101518285015260e0810151610140850152610100810151610160850152015161018083015261018082526152f582610c4d565b81516001600160401b038111610bca57615310600254610b75565b601f81116153c3575b50602092601f821160011461535d5792819293600092615352575b50508160011b916000199060031b1c1916176002555b803880615066565b015190503880615334565b601f19821693600260005260206000209160005b8681106153ab5750836001959610615392575b505050811b0160025561534a565b015160001960f88460031b161c19169055388080615384565b91926020600181928685015181550194019201615371565b60026000526153fa906000805160206155aa833981519152601f840160051c81019160208510611a2757601f0160051c0190615592565b38615319565b9091600080808060018060a01b038551166080860151908282156154cf575bf115611aeb574791829052516000918291829182916001600160a01b03168282156154c6575bf115611aeb5760008055600060015561545f600254610b75565b8061546b575b5061534a565b601f8111600114615483575060006002555b38615465565b60026000526154b690601f0160051c6000805160206155aa833981519152016000805160206155ca833981519152615592565b600060208120816002555561547d565b506108fc615445565b506108fc61541f565b602460405163100960cb60e01b8152816004820152fd5b60405163100960cb60e01b815260146004820152602490fd5b9050600154143861164a565b60405163100960cb60e01b815260136004820152602490fd5b60405163100960cb60e01b815260126004820152602490fd5b90600182019182811161555b578210610b2357565b634e487b7160e01b600052601160045260246000fd5b919082019182811161555b578210610b2357565b90810390811161555b5790565b81811061559d575050565b6000815560010161559256fe405787fa12a823e0f2b7631cc41b3ba8828b3321ca811111fa75cd3aa3bb5ace405787fa12a823e0f2b7631cc41b3ba8828b3321ca811111fa75cd3aa3bb5acf98466a02b4f346c6df500218540796dcdc48e95956b3854f55ba27c765e9835109d8b835c4a9bc404ae4d3376ad99a9231f0da2c04c16034ca895777fffc54ba0a8804e0c8b7a13171d7d6d0b8388bfd3b16bed84cac10f9276a3659d382ce23a164736f6c6343000810000a405787fa12a823e0f2b7631cc41b3ba8828b3321ca811111fa75cd3aa3bb5ace`,
+  BytecodeLen: 24181,
   version: 9,
   views: {},
 };
 export const _stateSourceMap = {
   2: {
-    at: "./index.rsh:295:11:after expr stmt semicolon",
+    at: "./index.rsh:299:11:after expr stmt semicolon",
     fs: [],
     msg: null,
     who: "Module",
   },
   3: {
-    at: "./index.rsh:70:37:after expr stmt semicolon",
+    at: "./index.rsh:72:37:after expr stmt semicolon",
     fs: [],
     msg: null,
     who: "Module",

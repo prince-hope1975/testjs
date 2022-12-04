@@ -58,12 +58,12 @@ export const totalUsersClaim = async (
 };
 
 export const totalAmountClaimed = async (
-  acc: any,
+  acc: any, 
   ctcInfo: typeof info = info
 ) => {
   // @ts-ignore
   const ctcUsers = acc.contract(backend, reach.bigNumberToNumber(ctcInfo));
-  const total = await ctcUsers.unsafeViews.Info.totalAmountClaimed(acc);
+  const total = await ctcUsers.unsafeViews.Info.totalAmountClaimed();
   return total;
 };
 

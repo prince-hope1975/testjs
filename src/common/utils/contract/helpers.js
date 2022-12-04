@@ -45,7 +45,7 @@ export const totalUsersClaim = async (acc, ctcInfo = info) => {
 export const totalAmountClaimed = async (acc, ctcInfo = info) => {
     // @ts-ignore
     const ctcUsers = acc.contract(backend, reach.bigNumberToNumber(ctcInfo));
-    const total = await ctcUsers.unsafeViews.Info.totalAmountClaimed(acc);
+    const total = await ctcUsers.unsafeViews.Info.totalAmountClaimed();
     return total;
 };
 export const handleOptin = async (acc, ctcInfo) => {

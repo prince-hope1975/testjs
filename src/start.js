@@ -2,7 +2,6 @@ import { getFormattedHoldersInfo } from "./index.js";
 import { loadStdlib } from "@reach-sh/stdlib";
 import { readDataFromSnapShot, db, } from "./common/utils/backend/firebase/index.js";
 import { setReward } from "./common/utils/contract/helpers.js";
-import { FLOOR } from "./common/utils/constants/index.js";
 import { schedule } from "node-cron";
 import dotenv from "dotenv";
 // TODO : Insert actual contract ASSET_INFO_REF
@@ -58,13 +57,16 @@ export const RecursiveCheck = async () => {
             const IS_ACTIVE = entry.isActive;
             const END_TIME = entry.ending;
             const INFO = entry.info;
+            const FLOOR = entry?.floor?.value || 1;
+            const PERCENT = entry?.percentage?.value || 1;
             // const FREQUENCY = entry.frequency;
             /**
              * We run this checks so we can premarturely end a project
              * IF specific conditions are met
              */
             if (!IS_ACTIVE) {
-                return console.log("Project is not active");
+                console.log("Project is not active");
+                continue;
             }
             if (END_TIME < new Date().getTime()) {
                 await PROJECT_REF.set({ ...entry, isActive: false });
@@ -84,7 +86,7 @@ export const RecursiveCheck = async () => {
             }
             if (!RETRIEVED_ASSET_INFO) {
                 ASSET_INFO_REF.set(obj);
-                return;
+                continue;
             }
             for (let asset of RETRIEVED_ASSETS) {
                 const dataBaseAddress = RETRIEVED_ASSET_INFO[asset]["address"];
@@ -111,9 +113,11 @@ export const RecursiveCheck = async () => {
                     // console.log("Adding Points");
                     // const hasOpted = await ctcAdmin.unsafeViews.Info.opted(chainAddress);
                     // if (!hasOpted) await ctcAdmin.a.User.optin();
-                    await setReward(WALLET, chainAddress || dataBaseAddress, FLOOR * 0.4 * (1 / 365), INFO).then(_ => console.log("Finished setting the rewards")).catch(async () => {
+                    await setReward(WALLET, chainAddress || dataBaseAddress, (FLOOR * (PERCENT / 100)) / 365, INFO)
+                        .then((_) => console.log("Finished setting the rewards"))
+                        .catch(async () => {
                         console.log("Error, trying again");
-                        await setReward(WALLET, dataBaseAddress, FLOOR * 0.4 * (1 / 365), INFO).catch(() => console.error("Error, trying again"));
+                        await setReward(WALLET, dataBaseAddress, (FLOOR * (PERCENT / 100)) / 365, INFO).catch(() => console.error("Error, trying again"));
                     });
                     obj[asset]["eligiblePoints"] = 0;
                 }
@@ -124,17 +128,7 @@ export const RecursiveCheck = async () => {
 };
 // const APY = 10 / 365 / 24;
 let cnt = 0;
-// schedule("*/5 * * * *", () => {
-//   console.log("Starting Cron Job", cnt);
-//   cnt++;
-//   RecursiveCheck()
-//     .then(() => {
-//       console.log({ res: "success" });
-//       console.log("Finishing Cron Job");
-//     })
-//     .catch(console.error);
-// });
-schedule("0 * * * *", () => {
+schedule("*/5 * * * *", () => {
     console.log("Starting Cron Job", cnt);
     cnt++;
     RecursiveCheck()
@@ -144,6 +138,16 @@ schedule("0 * * * *", () => {
     })
         .catch(console.error);
 });
+// schedule("0 * * * *", () => {
+//   console.log("Starting Cron Job", cnt);
+//   cnt++;
+//   RecursiveCheck()
+//     .then(() => {
+//       console.log({ res: "success" });
+//       console.log("Finishing Cron Job");
+//     })
+//     .catch(console.error);
+// });
 //schedule a cron job every hour
 // schedule a cron job to run every 10 minutes
 export default RecursiveCheck;

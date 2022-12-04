@@ -19,6 +19,8 @@ export interface Project {
   isActive: boolean;
   count?: number;
   info: { _hex: string; _isBigNumber: boolean };
+  floor?: { value: number };
+  percentage?: { value: number };
   frequency_duration_picker?: number | string;
   socials: { discordLink?: string; twitterLink?: string; youtubeLink?: string };
 }
