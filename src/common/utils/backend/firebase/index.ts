@@ -32,10 +32,30 @@ export const dBase = getDatabase();
 
 export async function readDataFromSnapShot<T>(ref: Reference): Promise<T> {
   const snapShot = await ref.once("value", function (snapshot: any) {
-    console.log(snapshot.val());
+    // console.log(snapshot.val());
     return snapshot.val();
   });
   return snapShot.val();
+}
+
+export async function readDataFromSnapShots<T>(
+  ...ref: Reference[]
+): Promise<T[]> {
+  const snapShot = ref.map((ref) => {
+    return ref.once("value", function (snapshot: any) {
+      return snapshot.val();
+    });
+  });
+  const snaps = await Promise.allSettled(snapShot);
+  const res = snaps
+    .map((snap) => {
+      if (snap.status === "fulfilled") {
+        return snap.value.val();
+      }
+      return null;
+    })
+    .filter((snap) => snap !== null);
+  return res;
 }
 export const doesSnapshopExist = async (Ref: Reference): Promise<boolean> => {
   const snapShot = await Ref.once("value", (snapshot) => {

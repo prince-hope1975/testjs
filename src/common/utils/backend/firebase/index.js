@@ -26,10 +26,27 @@ export const db = admin.database();
 export const dBase = getDatabase();
 export async function readDataFromSnapShot(ref) {
     const snapShot = await ref.once("value", function (snapshot) {
-        console.log(snapshot.val());
+        // console.log(snapshot.val());
         return snapshot.val();
     });
     return snapShot.val();
+}
+export async function readDataFromSnapShots(...ref) {
+    const snapShot = ref.map((ref) => {
+        return ref.once("value", function (snapshot) {
+            return snapshot.val();
+        });
+    });
+    const snaps = await Promise.allSettled(snapShot);
+    const res = snaps
+        .map((snap) => {
+        if (snap.status === "fulfilled") {
+            return snap.value.val();
+        }
+        return null;
+    })
+        .filter((snap) => snap !== null);
+    return res;
 }
 export const doesSnapshopExist = async (Ref) => {
     const snapShot = await Ref.once("value", (snapshot) => {

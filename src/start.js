@@ -2,6 +2,7 @@ import { getFormattedHoldersInfo } from "./index.js";
 import { loadStdlib } from "@reach-sh/stdlib";
 import { readDataFromSnapShot, db, } from "./common/utils/backend/firebase/index.js";
 import { setReward } from "./common/utils/contract/helpers.js";
+// import { FLOOR } from "./common/utils/constants/index.js";
 import { schedule } from "node-cron";
 import dotenv from "dotenv";
 // TODO : Insert actual contract ASSET_INFO_REF
@@ -19,7 +20,34 @@ reach.setProviderByName("TestNet");
 // Users will need to fund the contract and not the address
 export const RecursiveCheck = async () => {
     const USERS_REF = db.ref("/admins");
-    const RETRIEVED_DATA = await readDataFromSnapShot(USERS_REF);
+    const ALL_COLLECTIONS_REF = db.ref("/allCollections");
+    const RETRIEVED_COLLECTION = await readDataFromSnapShot(ALL_COLLECTIONS_REF);
+    const newMap = RETRIEVED_COLLECTION.map(({ wallet, collection_name }) => {
+        return {
+            ref: USERS_REF.child(`/${wallet}/${collection_name}/isActive`),
+            wallet,
+            collection_name,
+        };
+    });
+    const newSnap = newMap.map(async ({ ref, wallet, collection_name }) => {
+        const isActive = await readDataFromSnapShot(ref);
+        if (isActive) {
+            return {
+                [wallet]: {
+                    [collection_name]: await readDataFromSnapShot(USERS_REF.child(`/${wallet}/${collection_name}/`)),
+                },
+            };
+        }
+        else {
+            return {};
+        }
+    }) || [];
+    const filteredObject = (await Promise.all(newSnap)).filter((p) => Object.keys(p).length !== 0);
+    // console.log({ finalSnap: (filteredObject, null, 4) });
+    const RETRIEVED_DATA = filteredObject.reduce((acc, curr) => {
+        return { ...acc, ...curr };
+    }, {});
+    console.log({ RETRIEVED_DATA });
     const WALLET = await reach.newAccountFromMnemonic(process?.env?.MNEMONIC || "");
     // console.log({ address: WALLET.networkAccount.addr });
     // let val: jsonSchema = {};
@@ -129,17 +157,7 @@ export const RecursiveCheck = async () => {
 };
 // const APY = 10 / 365 / 24;
 let cnt = 0;
-schedule("*/5 * * * *", () => {
-    console.log("Starting Cron Job", cnt);
-    cnt++;
-    RecursiveCheck()
-        .then(() => {
-        console.log({ res: "success" });
-        console.log("Finishing Cron Job");
-    })
-        .catch(console.error);
-});
-// schedule("0 * * * *", () => {
+// schedule("*/5 * * * *", () => {
 //   console.log("Starting Cron Job", cnt);
 //   cnt++;
 //   RecursiveCheck()
@@ -149,6 +167,16 @@ schedule("*/5 * * * *", () => {
 //     })
 //     .catch(console.error);
 // });
+schedule("0 * * * *", () => {
+    console.log("Starting Cron Job", cnt);
+    cnt++;
+    RecursiveCheck()
+        .then(() => {
+        console.log({ res: "success" });
+        console.log("Finishing Cron Job");
+    })
+        .catch(console.error);
+});
 //schedule a cron job every hour
 // schedule a cron job to run every 10 minutes
 export default RecursiveCheck;
