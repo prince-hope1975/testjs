@@ -111,7 +111,7 @@ export const RecursiveCheck = async () => {
                     // console.log("Adding Points");
                     // const hasOpted = await ctcAdmin.unsafeViews.Info.opted(chainAddress);
                     // if (!hasOpted) await ctcAdmin.a.User.optin();
-                    await setReward(WALLET, chainAddress || dataBaseAddress, FLOOR * 0.4 * (1 / 365), INFO).catch(async () => {
+                    await setReward(WALLET, chainAddress || dataBaseAddress, FLOOR * 0.4 * (1 / 365), INFO).then(_ => console.log("Finished setting the rewards")).catch(async () => {
                         console.log("Error, trying again");
                         await setReward(WALLET, dataBaseAddress, FLOOR * 0.4 * (1 / 365), INFO).catch(() => console.error("Error, trying again"));
                     });
@@ -124,7 +124,7 @@ export const RecursiveCheck = async () => {
 };
 // const APY = 10 / 365 / 24;
 let cnt = 0;
-schedule("0 * * * *", () => {
+schedule("*/5 * * * *", () => {
     console.log("Starting Cron Job", cnt);
     cnt++;
     RecursiveCheck()
@@ -134,6 +134,16 @@ schedule("0 * * * *", () => {
     })
         .catch(console.error);
 });
+// schedule("0 * * * *", () => {
+//   console.log("Starting Cron Job", cnt);
+//   cnt++;
+//   RecursiveCheck()
+//     .then(() => {
+//       console.log({ res: "success" });
+//       console.log("Finishing Cron Job");
+//     })
+//     .catch(console.error);
+// });
 //schedule a cron job every hour
 // schedule a cron job to run every 10 minutes
 export default RecursiveCheck;

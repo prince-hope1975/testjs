@@ -12,7 +12,7 @@ import {
 } from "@reach-sh/stdlib";
 export const reach = loadStdlib("ALGO");
 reach.setProviderByName("TestNet");
-reach.providerEnvByName("TestNet");
+// reach.providerEnvByName("TestNet");
 
 const info = { _hex: "0x08adfb83", _isBigNumber: true };
 export const checkEligibility = async (
