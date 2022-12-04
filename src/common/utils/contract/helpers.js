@@ -8,6 +8,8 @@ import { loadStdlib,
 // ALGO_PeraConnect as peraConnect,
  } from "@reach-sh/stdlib";
 export const reach = loadStdlib("ALGO");
+reach.setProviderByName("TestNet");
+reach.providerEnvByName("TestNet");
 const info = { _hex: "0x08adfb83", _isBigNumber: true };
 export const checkEligibility = async (acc, ctcInfo = info) => {
     // @ts-ignore
@@ -46,12 +48,15 @@ export const totalAmountClaimed = async (acc, ctcInfo = info) => {
     const total = await ctcUsers.unsafeViews.Info.totalAmountClaimed(acc);
     return total;
 };
-export const handleOptin = async (acc, ctcInfo = info) => {
+export const handleOptin = async (acc, ctcInfo) => {
+    const ctcUsers = acc.contract(backend, 
     // @ts-ignore
-    const ctcUsers = acc.contract(backend, reach.bigNumberToNumber(ctcInfo));
+    reach.bigNumberToNumber(ctcInfo || info));
     const hasOpted = await ctcUsers.unsafeViews.Info.opted(acc);
+    console.log("Viewing optin status", hasOpted);
     if (!hasOpted)
         await ctcUsers.a.User.optin();
+    console.log("done optin");
     return;
 };
 export const handleClaim = async (acc) => {

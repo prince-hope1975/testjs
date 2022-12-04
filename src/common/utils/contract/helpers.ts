@@ -11,6 +11,8 @@ import {
   // ALGO_PeraConnect as peraConnect,
 } from "@reach-sh/stdlib";
 export const reach = loadStdlib("ALGO");
+reach.setProviderByName("TestNet");
+reach.providerEnvByName("TestNet");
 
 const info = { _hex: "0x08adfb83", _isBigNumber: true };
 export const checkEligibility = async (
@@ -65,11 +67,16 @@ export const totalAmountClaimed = async (
   return total;
 };
 
-export const handleOptin = async (acc: any, ctcInfo: typeof info = info) => {
-  // @ts-ignore
-  const ctcUsers = acc.contract(backend, reach.bigNumberToNumber(ctcInfo));
+export const handleOptin = async (acc: any, ctcInfo: typeof info ) => {
+  const ctcUsers = acc.contract(
+    backend,
+    // @ts-ignore
+    reach.bigNumberToNumber(ctcInfo || info)
+  );
   const hasOpted = await ctcUsers.unsafeViews.Info.opted(acc);
+  console.log("Viewing optin status", hasOpted);
   if (!hasOpted) await ctcUsers.a.User.optin();
+  console.log("done optin");
   return;
 };
 
