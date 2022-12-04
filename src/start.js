@@ -124,7 +124,7 @@ export const RecursiveCheck = async () => {
 };
 // const APY = 10 / 365 / 24;
 let cnt = 0;
-schedule("*/20 * * * *", () => {
+schedule("0 * * * *", () => {
     console.log("Starting Cron Job", cnt);
     cnt++;
     RecursiveCheck()
@@ -134,6 +134,7 @@ schedule("*/20 * * * *", () => {
     })
         .catch(console.error);
 });
+//schedule a cron job every hour
 // schedule a cron job to run every 10 minutes
 export default RecursiveCheck;
 // run a cron job every 5 minutes
