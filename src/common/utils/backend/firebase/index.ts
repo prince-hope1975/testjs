@@ -1,6 +1,6 @@
 import serviceAccount  from "../../../../staking-f1d33-firebase-adminsdk-hnz9e-f2e618a564.json" assert { type: "json" };
 // import Admin, { firestore, database } from "firebase-admin";
-import admin from "firebase-admin";
+import admin from "firebase-admin"; 
 import { getDatabase, Reference } from "firebase-admin/database";
 
 // import { ref, set, onValue, get, child } from "firebase/database";
@@ -11,6 +11,9 @@ import { getDatabase, Reference } from "firebase-admin/database";
 
 // Initialize the app with a service account, granting admin privileges
 
+
+    // Q: find processes running on the bg
+    
 try {
   console.log("initializingApp");
   admin.initializeApp({

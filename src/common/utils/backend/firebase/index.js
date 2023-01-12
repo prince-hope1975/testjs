@@ -6,6 +6,7 @@ import { getDatabase } from "firebase-admin/database";
 // Fetch the service account key JSON file contents
 // const serviceAccount = require("../../../staking-f1d33-firebase-adminsdk-hnz9e-f2e618a564.json");
 // Initialize the app with a service account, granting admin privileges
+// Q: find processes running on the bg
 try {
     console.log("initializingApp");
     admin.initializeApp({
