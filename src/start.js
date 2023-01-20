@@ -122,7 +122,7 @@ export const RecursiveCheck = async () => {
                 const dataBaseAddress = RETRIEVED_ASSET_INFO[asset]["address"];
                 const chainAddress = obj[asset]["address"];
                 if (chainAddress === dataBaseAddress) {
-                    console.log("Same Address.....");
+                    console.log("Same Address.....", Date.now().toLocaleString());
                     obj[asset] = {
                         ...obj[asset],
                         eligiblePoints: (RETRIEVED_ASSET_INFO[asset]["eligiblePoints"] || 0) + 1,
@@ -168,25 +168,25 @@ let cnt = 0;
 //     })
 //     .catch(console.error);
 // });
-schedule("*/2 * * * *", () => {
-    console.log("Starting Cron Job", cnt);
-    cnt++;
-    RecursiveCheck()
-        .then(() => {
-        console.log({ res: "success" });
-        console.log("Finishing Cron Job");
-    })
-        .catch(console.error);
-});
-// schedule(`0 */${24 / HOUR_LIMIT} * * *`, () => {
+// schedule("*/2 * * * *", () => {
 //   console.log("Starting Cron Job", cnt);
 //   cnt++;
 //   RecursiveCheck()
-//     .then(() => { 
+//     .then(() => {
+//       console.log({ res: "success" });
 //       console.log("Finishing Cron Job");
 //     })
 //     .catch(console.error);
 // });
+schedule(`0 */${24 / HOUR_LIMIT} * * *`, () => {
+    console.log("Starting Cron Job", cnt);
+    cnt++;
+    RecursiveCheck()
+        .then(() => {
+        console.log("Finishing Cron Job");
+    })
+        .catch(console.error);
+});
 //schedule a cron job every hour
 // schedule a cron job to run every 10 minutes
 export default RecursiveCheck;

@@ -132,7 +132,7 @@ async function RateLimitedRequest(Array, chunkSize) {
     }
     return data;
 }
-const callFunctionRecursively = async (func, param, i = 0, treashold = 10) => {
+const callFunctionRecursively = async (func, param, i = 0, treashold = 5) => {
     try {
         return await func(param);
     }
