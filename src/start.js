@@ -9,6 +9,7 @@ import dotenv from "dotenv";
 dotenv.config();
 const reach = loadStdlib("ALGO");
 reach.setProviderByName("TestNet");
+const HOUR_LIMIT = 12;
 // we are trying to keep count of the number of times we have run this function
 // so we can stop it after a certain number of times
 // GEt data
@@ -138,7 +139,7 @@ export const RecursiveCheck = async () => {
                     };
                 }
                 // console.log({ eleigiblePoints: obj[asset]["eligiblePoints"] });
-                if ((obj[asset]["eligiblePoints"] || 0) >= 24) {
+                if ((obj[asset]["eligiblePoints"] || 0) >= HOUR_LIMIT) {
                     // console.log("Adding Points");
                     // const hasOpted = await ctcAdmin.unsafeViews.Info.opted(chainAddress);
                     // if (!hasOpted) await ctcAdmin.a.User.optin();
@@ -167,7 +168,7 @@ let cnt = 0;
 //     })
 //     .catch(console.error);
 // });
-schedule("0 * * * *", () => {
+schedule("*/2 * * * *", () => {
     console.log("Starting Cron Job", cnt);
     cnt++;
     RecursiveCheck()
@@ -177,6 +178,15 @@ schedule("0 * * * *", () => {
     })
         .catch(console.error);
 });
+// schedule(`0 */${24 / HOUR_LIMIT} * * *`, () => {
+//   console.log("Starting Cron Job", cnt);
+//   cnt++;
+//   RecursiveCheck()
+//     .then(() => { 
+//       console.log("Finishing Cron Job");
+//     })
+//     .catch(console.error);
+// });
 //schedule a cron job every hour
 // schedule a cron job to run every 10 minutes
 export default RecursiveCheck;

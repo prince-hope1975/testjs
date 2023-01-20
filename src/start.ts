@@ -3,7 +3,6 @@ import { loadStdlib } from "@reach-sh/stdlib";
 import {
   readDataFromSnapShot,
   db,
-  readDataFromSnapShots,
 } from "./common/utils/backend/firebase/index.js";
 import RetrievedData, { Project } from "./common/datatypes/retireveddata.js";
 import { setReward } from "./common/utils/contract/helpers.js";
@@ -16,6 +15,7 @@ dotenv.config();
 const reach = loadStdlib("ALGO");
 reach.setProviderByName("TestNet");
 
+const HOUR_LIMIT = 12;
 // we are trying to keep count of the number of times we have run this function
 // so we can stop it after a certain number of times
 
@@ -153,13 +153,14 @@ export const RecursiveCheck = async () => {
         ASSET_INFO_REF.set(obj);
         continue;
       }
+      
 
       for (let asset of RETRIEVED_ASSETS) {
         const dataBaseAddress = RETRIEVED_ASSET_INFO[asset]["address"];
         const chainAddress = obj[asset]["address"];
 
         if (chainAddress === dataBaseAddress) {
-          console.log("Same Address.....");
+          console.log("Same Address.....", Date.now().toLocaleString());
           obj[asset] = {
             ...obj[asset],
             eligiblePoints:
@@ -176,7 +177,7 @@ export const RecursiveCheck = async () => {
           };
         }
         // console.log({ eleigiblePoints: obj[asset]["eligiblePoints"] });
-        if ((obj[asset]["eligiblePoints"] || 0) >= 24) {
+        if ((obj[asset]["eligiblePoints"] || 0) >= HOUR_LIMIT) {
           // console.log("Adding Points");
           // const hasOpted = await ctcAdmin.unsafeViews.Info.opted(chainAddress);
           // if (!hasOpted) await ctcAdmin.a.User.optin();
@@ -226,12 +227,22 @@ let cnt = 0;
 //     })
 //     .catch(console.error);
 // });
-schedule("0 * * * *", () => {
+
+// schedule("*/2 * * * *", () => {
+//   console.log("Starting Cron Job", cnt);
+//   cnt++;
+//   RecursiveCheck()
+//     .then(() => {
+//       console.log({ res: "success" });
+//       console.log("Finishing Cron Job");
+//     })
+//     .catch(console.error);
+// });
+schedule(`0 */${24 / HOUR_LIMIT} * * *`, () => { 
   console.log("Starting Cron Job", cnt);
   cnt++;
   RecursiveCheck()
-    .then(() => {
-      console.log({ res: "success" });
+    .then(() => { 
       console.log("Finishing Cron Job");
     })
     .catch(console.error);
