@@ -44,4 +44,12 @@ interface RetrievedData {
   };
 }
 
+export interface queryTypes {
+    assetId: number;
+    sellerAddress: string;
+    creatorRoyalty: number;
+    timestamp: number;
+    price: number;
+    version: string;
+}
 export default RetrievedData;

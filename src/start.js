@@ -20,6 +20,15 @@ const HOUR_LIMIT = 12;
 // Users will have to create their own contracts and have the mmemonic interact with the contract
 // Users will need to fund the contract and not the address
 export const RecursiveCheck = async () => {
+    const floor = await fetch("https://www.randswap.com/v1/listings/creator/YYWVXM6ITE2QBD2IOUNMO5DIAILK43ABMBDCE6PHAX3U6GOYO4XPA6JGLQ")
+        .then((res) => res.json())
+        .then((res) => {
+        res.sort((a, b) => {
+            return a.price - b.price;
+        });
+        return res[0].price;
+    });
+    console.log({ floor });
     const USERS_REF = db.ref("/admins");
     const ALL_COLLECTIONS_REF = db.ref("/allCollections");
     const RETRIEVED_COLLECTION = await readDataFromSnapShot(ALL_COLLECTIONS_REF);
@@ -122,7 +131,7 @@ export const RecursiveCheck = async () => {
                 const dataBaseAddress = RETRIEVED_ASSET_INFO[asset]["address"];
                 const chainAddress = obj[asset]["address"];
                 if (chainAddress === dataBaseAddress) {
-                    console.log("Same Address.....", Date.now().toLocaleString());
+                    console.log("Same Address.....", (new Date()).toDateString());
                     obj[asset] = {
                         ...obj[asset],
                         eligiblePoints: (RETRIEVED_ASSET_INFO[asset]["eligiblePoints"] || 0) + 1,
@@ -178,7 +187,16 @@ let cnt = 0;
 //     })
 //     .catch(console.error);
 // });
-schedule(`0 */${24 / HOUR_LIMIT} * * *`, () => {
+// schedule(`0 */${24 / HOUR_LIMIT} * * *`, () => {
+//   console.log("Starting Cron Job", cnt);
+//   cnt++;
+//   RecursiveCheck()
+//     .then(() => {
+//       console.log("Finishing Cron Job");
+//     })
+//     .catch(console.error);
+// });
+schedule("* * * * *", () => {
     console.log("Starting Cron Job", cnt);
     cnt++;
     RecursiveCheck()
@@ -186,6 +204,7 @@ schedule(`0 */${24 / HOUR_LIMIT} * * *`, () => {
         console.log("Finishing Cron Job");
     })
         .catch(console.error);
+    console.log("running a task every minute");
 });
 //schedule a cron job every hour
 // schedule a cron job to run every 10 minutes

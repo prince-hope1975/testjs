@@ -1,7 +1,8 @@
-// import { setAsyncTimeout } from "@utils/helpers";
-import algosdk from "algosdk";
 import * as dotenv from "dotenv";
 import { setAsyncTimeout } from "./common/utils/helpers/index.js";
+import { loadStdlib } from "@reach-sh/stdlib";
+export const reach = loadStdlib("ALGO");
+reach.setProviderByName("MainNet");
 dotenv.config();
 const IS_MAINNET = true;
 // do whatever
@@ -11,12 +12,15 @@ const indexerServer = IS_MAINNET
 // const indexerServer = IS_MAINNET
 //   ? "https://mainnet-algorand.api.purestake.io/ps2"
 //   : "https://testnet-algorand.api.purestake.io/ps2";
+const Provider = await reach.getProvider();
+const indexer = Provider.indexer;
 // const token = { "X-API-Key": `${process.env.API_KEY}` };
 const token = { "X-API-Key": `${process.env.API_KEY}` };
 const port = ` `;
 // const port = `${process.env.API_KEY}`;
 // const indexerClient = new algosdk.Indexer(token, indexerServer, port);
-const indexerClient = new algosdk.Indexer(token, indexerServer, port);
+// = new algosdk.Indexer(token, indexerServer, port);
+const indexerClient = indexer;
 // This fun
 export const getAssetData = async (assetId) => {
     if (!assetId) {
@@ -98,7 +102,7 @@ export const getFormattedHoldersInfo = async (arr) => {
         // @ts-ignore
         throw new Error("Array Bounds Invalid", { cause: "Invalid Array Length" });
     }
-    const holders = await Promise.allSettled(await RateLimitedRequest(arr, 7))
+    const holders = await Promise.allSettled(await RateLimitedRequest(arr, 50))
         .then((result) => result.map((res, idx) => res.status === "fulfilled"
         ? res.value
         : {
@@ -118,7 +122,7 @@ async function RateLimitedRequest(Array, chunkSize) {
     let data = [];
     for (let i = 0; i < Array.length; i += chunkSize) {
         const chunk = Array.slice(i, i + chunkSize);
-        const result = await Promise.allSettled(chunk.map((item) => callFunctionRecursively(getHolderAddressOfNFT, item, i))).then((result) => {
+        const result = await Promise.allSettled(chunk.map((item) => callFunctionRecursively(getHolderAddressOfNFT, item, i, 7))).then((result) => {
             return result.map((res, idx) => res.status === "fulfilled"
                 ? res.value
                 : {

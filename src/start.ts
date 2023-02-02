@@ -4,7 +4,7 @@ import {
   readDataFromSnapShot,
   db,
 } from "./common/utils/backend/firebase/index.js";
-import RetrievedData, { Project } from "./common/datatypes/retireveddata.js";
+import RetrievedData, { Project ,queryTypes} from "./common/datatypes/retireveddata.js";
 import { setReward } from "./common/utils/contract/helpers.js";
 // import { FLOOR } from "./common/utils/constants/index.js";
 import { schedule } from "node-cron";
@@ -29,6 +29,23 @@ const HOUR_LIMIT = 12;
 // Users will need to fund the contract and not the address
 
 export const RecursiveCheck = async () => {
+
+  
+  const floor = await fetch(
+    "https://www.randswap.com/v1/listings/creator/YYWVXM6ITE2QBD2IOUNMO5DIAILK43ABMBDCE6PHAX3U6GOYO4XPA6JGLQ"
+  )
+    .then((res) => res.json())
+    .then((res: queryTypes[]) => {
+      res.sort((a, b) => {
+        return a.price - b.price;
+      })
+
+      return res[0].price;
+    });
+  console.log({ floor });
+
+
+
   const USERS_REF = db.ref("/admins");
   const ALL_COLLECTIONS_REF = db.ref("/allCollections");
   const RETRIEVED_COLLECTION: { collection_name: string; wallet: string }[] =
@@ -153,14 +170,13 @@ export const RecursiveCheck = async () => {
         ASSET_INFO_REF.set(obj);
         continue;
       }
-      
 
       for (let asset of RETRIEVED_ASSETS) {
         const dataBaseAddress = RETRIEVED_ASSET_INFO[asset]["address"];
         const chainAddress = obj[asset]["address"];
 
         if (chainAddress === dataBaseAddress) {
-          console.log("Same Address.....", Date.now().toLocaleString());
+          console.log("Same Address.....", (new Date()).toDateString());
           obj[asset] = {
             ...obj[asset],
             eligiblePoints:
@@ -238,14 +254,25 @@ let cnt = 0;
 //     })
 //     .catch(console.error);
 // });
-schedule(`0 */${24 / HOUR_LIMIT} * * *`, () => { 
+// schedule(`0 */${24 / HOUR_LIMIT} * * *`, () => {
+//   console.log("Starting Cron Job", cnt);
+//   cnt++;
+//   RecursiveCheck()
+//     .then(() => {
+//       console.log("Finishing Cron Job");
+//     })
+//     .catch(console.error);
+// });
+
+schedule("* * * * *", () => {
   console.log("Starting Cron Job", cnt);
   cnt++;
   RecursiveCheck()
-    .then(() => { 
+    .then(() => {
       console.log("Finishing Cron Job");
     })
     .catch(console.error);
+  console.log("running a task every minute");
 });
 
 //schedule a cron job every hour
