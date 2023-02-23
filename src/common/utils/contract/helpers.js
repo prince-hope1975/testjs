@@ -111,6 +111,18 @@ export const setReward = async (acc, address, amt, ctcInfo) => {
         console.error("An error occured", error);
     }
 };
+export const hasOpted = async (acc, address, ctcInfo) => {
+    try {
+        // @ts-ignore
+        const ctcAdmin = acc.contract(backend, reach.bigNumberToNumber(ctcInfo));
+        const hasOpted = await ctcAdmin.unsafeViews.Info.opted(address);
+        return hasOpted;
+    }
+    catch (error) {
+        console.error("An error occured", error);
+        return error;
+    }
+};
 export const editUserReward = async (acc, address, amt, ctcInfo = info) => {
     // @ts-ignore
     const ctcAdmin = acc.contract(backend, reach.bigNumberToNumber(ctcInfo));

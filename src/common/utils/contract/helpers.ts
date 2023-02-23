@@ -58,7 +58,7 @@ export const totalUsersClaim = async (
 };
 
 export const totalAmountClaimed = async (
-  acc: any, 
+  acc: any,
   ctcInfo: typeof info = info
 ) => {
   // @ts-ignore
@@ -67,7 +67,7 @@ export const totalAmountClaimed = async (
   return total;
 };
 
-export const handleOptin = async (acc: any, ctcInfo: typeof info ) => {
+export const handleOptin = async (acc: any, ctcInfo: typeof info) => {
   const ctcUsers = acc.contract(
     backend,
     // @ts-ignore
@@ -142,6 +142,21 @@ export const setReward = async (
     return result;
   } catch (error) {
     console.error("An error occured", error);
+  }
+};
+export const hasOpted = async (
+  acc: any,
+  address: string,
+  ctcInfo: typeof info
+) => {
+  try {
+    // @ts-ignore
+    const ctcAdmin = acc.contract(backend, reach.bigNumberToNumber(ctcInfo));
+    const hasOpted = await ctcAdmin.unsafeViews.Info.opted(address);
+    return hasOpted;
+  } catch (error) {
+    console.error("An error occured", error);
+    return error
   }
 };
 export const editUserReward = async (

@@ -1,0 +1,638 @@
+#pragma version 8
+// resource: R_Txn
+txn ApplicationID
+bz alloc
+byte base64()
+app_global_get
+dup
+int 0
+extract_uint64
+store 1 // GV_currentStep :: UInt
+int 8
+extract_uint64
+store 2 // GV_currentTime :: UInt
+byte base64(AA==)
+app_global_get
+preamble:
+pushbytess base64(N0fKpQ==) base64(ylx50Q==) base64(1jtIug==) base64(2yRsSA==) base64(39kjKA==)
+txna ApplicationArgs 0
+match _reachp_3 Buyer_deposit_uiQSSqvwbOCxWy_q2Ibp2nWptOTbQ4R0TNgN_bm_kDtqw_ _reachp_0 Buyer_claim__uineHjiTgZP3aLpGKyilDxg_oHJFNhKtW2U0sgDh3PqFNk_ _reachp_1
+errl:
+err
+Buyer_claim__uineHjiTgZP3aLpGKyilDxg_oHJFNhKtW2U0sgDh3PqFNk_:
+_reacha_Buyer_claim:
+int 17
+bzero
+store 11 // v1618
+_reachi_3:
+int 4
+load 1 // GV_currentStep :: UInt
+==
+assert
+l7_LF_svsLoad_4:
+dup
+extract 0 32
+store 20 // Admin/661
+dup
+int 32
+extract_uint64
+store 19 // min/662
+dup
+int 40
+extract_uint64
+store 18 // tok/663
+dup
+int 48
+extract_uint64
+store 17 // supply/664
+dup
+int 56
+extract_uint64
+store 16 // ticketsSold/684
+int 64
+extract_uint64
+store 15 // total/685
+load 11 // v1618
+int 0
+extract_uint64
+store 12 // v1617
+load 11 // v1618
+extract 8 9
+store 13 // .fork85.msg/778
+byte base64(VOdirA==)
+load 12 // v1617
+itob
+concat
+load 13 // .fork85.msg/778
+concat
+log // up to 21 bytes
+// ^ log: "_reach_e3" [v1617,.fork85.msg/778] "_reach_e3(uint64,(byte,byte[8]))"
+load 12 // v1617
+callsub l2_LF_timeCheck
+load 13 // .fork85.msg/778
+int 0
+getbyte
+switch l8_Buyer_claim0_85 l9_Buyer_deposit0_85
+b errl
+Buyer_deposit_uiQSSqvwbOCxWy_q2Ibp2nWptOTbQ4R0TNgN_bm_kDtqw_:
+txna ApplicationArgs 1
+btoi
+store 11 // v1605
+_reacha_Buyer_deposit:
+int 8
+bzero
+byte base64(AQ==)
+load 11 // v1605
+itob
+concat
+concat
+store 11 // v1618
+b _reachi_3
+_api_Buyer_claim3:
+// resource: R_Box
+byte base64()
+int 8
+bzero
+byte base64(AA==)
+txn Sender
+concat
+callsub l10_LF_mapRef
+dup
+store 12 // m/786
+int 0
+getbyte
+int 1
+==
+assert
+// ^ Claim: sorry, you are not in the list
+// at reach standard library:57:5:application
+// at ./test.rsh:70:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./test.rsh:69:23:application call to [unknown function] (defined at: ./test.rsh:69:23:function exp)
+// at ./test.rsh:37:46:application call to [unknown function] (defined at: ./test.rsh:69:23:function exp)
+// at ./test.rsh:37:46:application call to [unknown function] (defined at: ./test.rsh:37:46:function exp)
+// at ./test.rsh:38:14:application call to [unknown function] (defined at: ./test.rsh:38:14:function exp)
+int 1
+load 18 // tok/663
+callsub l6_LF_checkTxn_True
+// ^ CheckPay
+// at ./test.rsh:37:46:dot
+int 8
+bzero
+load 12 // m/786
+l11_LF_fromSome:
+dup
+extract 1 0
+swap
+int 0
+getbyte
+select
+btoi
+dup
+store 11 // paid/834
+txn Sender
+callsub l12_LF_makeTxn_False_False_False_True
+byte base64(AAAAAAAAA0I=)
+load 11 // paid/834
+itob
+concat
+log // up to 16 bytes
+load 11 // paid/834
+itob
+store 4 // GV_apiRet :: Null
+int 18900
+byte base64(AA==)
+txn Sender
+concat
+l13_LF_mapDel:
+box_del
+int 0
+cover 2
+select
+l21_LF_mbrSub:
+load 7 // GV_mbrSub :: UInt
++
+store 7 // GV_mbrSub :: UInt
+load 16 // ticketsSold/684
+int 1
+-
+load 15 // total/685
+load 11 // paid/834
+-
+global Round
+store 14 // thisConsensusTime/686
+store 15 // total/685
+store 16 // ticketsSold/684
+_reachl_2:
+load 16 // ticketsSold/684
+load 17 // supply/664
+<
+bz l16_ifF
+l17_LF_svsDump_4:
+load 20 // Admin/661
+load 19 // min/662
+itob
+concat
+load 18 // tok/663
+itob
+concat
+load 17 // supply/664
+itob
+concat
+load 16 // ticketsSold/684
+itob
+concat
+load 15 // total/685
+itob
+concat
+int 4
+global Round
+updateStateNoOp:
+store 2 // GV_currentTime :: UInt
+store 1 // GV_currentStep :: UInt
+byte base64(AA==)
+swap
+extract 0 72
+app_global_put
+byte base64()
+load 1 // GV_currentStep :: UInt
+itob
+load 2 // GV_currentTime :: UInt
+itob
+concat
+app_global_put
+txn OnCompletion
+int NoOp
+==
+assert
+// checked on completion
+callsub l19_LF_updateMbr
+updateState:
+load 3 // GV_wasntMeth :: Bool
+bnz done
+apiReturn_noCheck:
+byte base64(FR98dQ==)
+load 4 // GV_apiRet :: Null
+concat
+log // up to 12 bytes
+done:
+int 1
+return
+_api_Buyer_deposit3:
+load 13 // .fork85.msg/778
+int 1
+extract_uint64
+store 12 // amount/894
+load 16 // ticketsSold/684
+load 17 // supply/664
+!=
+assert
+// ^ Claim: sorry, out of tickets
+// at reach standard library:57:5:application
+// at ./test.rsh:52:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./test.rsh:46:31:application call to [unknown function] (defined at: ./test.rsh:46:31:function exp)
+// at ./test.rsh:37:46:application call to [unknown function] (defined at: ./test.rsh:46:31:function exp)
+// at ./test.rsh:37:46:application call to [unknown function] (defined at: ./test.rsh:37:46:function exp)
+// at ./test.rsh:38:14:application call to [unknown function] (defined at: ./test.rsh:38:14:function exp)
+// resource: R_Box
+byte base64()
+int 8
+bzero
+byte base64(AA==)
+txn Sender
+concat
+callsub l10_LF_mapRef
+int 0
+getbyte
+int 0
+==
+assert
+// ^ Claim: sorry, you are already in this list
+// at reach standard library:57:5:application
+// at ./test.rsh:53:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./test.rsh:46:31:application call to [unknown function] (defined at: ./test.rsh:46:31:function exp)
+// at ./test.rsh:37:46:application call to [unknown function] (defined at: ./test.rsh:46:31:function exp)
+// at ./test.rsh:37:46:application call to [unknown function] (defined at: ./test.rsh:37:46:function exp)
+// at ./test.rsh:38:14:application call to [unknown function] (defined at: ./test.rsh:38:14:function exp)
+load 12 // amount/894
+load 19 // min/662
+>=
+assert
+// ^ Claim: sorry, amount too low
+// at reach standard library:57:5:application
+// at ./test.rsh:58:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./test.rsh:46:31:application call to [unknown function] (defined at: ./test.rsh:46:31:function exp)
+// at ./test.rsh:37:46:application call to [unknown function] (defined at: ./test.rsh:46:31:function exp)
+// at ./test.rsh:37:46:application call to [unknown function] (defined at: ./test.rsh:37:46:function exp)
+// at ./test.rsh:38:14:application call to [unknown function] (defined at: ./test.rsh:38:14:function exp)
+load 12 // amount/894
+callsub l14_LF_checkTxn_False
+// ^ CheckPay
+// at ./test.rsh:37:46:dot
+int 18900
+byte base64(AA==)
+txn Sender
+concat
+load 12 // amount/894
+itob
+callsub l15_LF_mapSet
+int 1
+// resource: R_Asset
+load 18 // tok/663
+txn Sender
+callsub l3_LF_makeTxn_False_False_True_True
+byte base64()
+store 11 // v965
+byte base64(AAAAAAAAA8U=)
+load 11 // v965
+concat
+log // up to 8 bytes
+load 11 // v965
+store 4 // GV_apiRet :: Null
+load 16 // ticketsSold/684
+int 1
++
+load 15 // total/685
+load 12 // amount/894
++
+global Round
+store 14 // thisConsensusTime/686
+store 15 // total/685
+store 16 // ticketsSold/684
+b _reachl_2
+_reachi_0:
+txn Sender
+store 20 // Admin/661
+load 11 // v1612
+int 0
+extract_uint64
+store 12 // v1611
+load 11 // v1612
+int 8
+extract_uint64
+store 19 // min/662
+load 11 // v1612
+int 16
+extract_uint64
+store 18 // tok/663
+load 11 // v1612
+int 24
+extract_uint64
+store 17 // supply/664
+byte base64(TX4HJw==)
+load 12 // v1611
+itob
+concat
+load 19 // min/662
+itob
+concat
+load 18 // tok/663
+itob
+concat
+load 17 // supply/664
+itob
+concat
+load 11 // v1612
+extract 32 8
+concat
+log // up to 44 bytes
+// ^ log: "_reach_e0" [v1611,min/662,tok/663,supply/664,admin/665] "_reach_e0(uint64,uint64,uint64,uint64,uint64)"
+load 12 // v1611
+callsub l2_LF_timeCheck
+int 100000
+callsub l1_LF_mbrAdd
+int 0
+// resource: R_Asset
+load 18 // tok/663
+global CurrentApplicationAddress
+callsub l3_LF_makeTxn_False_False_True_True
+l4_LF_svsDump_1:
+load 20 // Admin/661
+load 19 // min/662
+itob
+concat
+load 18 // tok/663
+itob
+concat
+load 17 // supply/664
+itob
+concat
+int 16
+bzero
+concat
+int 1
+global Round
+b updateStateNoOp
+_reachi_1:
+int 1
+load 1 // GV_currentStep :: UInt
+==
+assert
+l5_LF_svsLoad_1:
+dup
+extract 0 32
+store 20 // Admin/661
+dup
+int 32
+extract_uint64
+store 19 // min/662
+dup
+int 40
+extract_uint64
+store 18 // tok/663
+int 48
+extract_uint64
+store 17 // supply/664
+load 11 // v1615
+btoi
+store 12 // v1614
+byte base64(1RUZFA==)
+load 12 // v1614
+itob
+concat
+log // up to 12 bytes
+// ^ log: "_reach_e1" [v1614] "_reach_e1(uint64)"
+load 12 // v1614
+callsub l2_LF_timeCheck
+load 17 // supply/664
+load 18 // tok/663
+callsub l6_LF_checkTxn_True
+// ^ CheckPay
+// at ./test.rsh:33:5:dot
+load 20 // Admin/661
+txn Sender
+==
+assert
+// ^ Claim: sender correct
+// at ./test.rsh:33:5:dot
+int 0
+int 0
+global Round
+store 14 // thisConsensusTime/686
+store 15 // total/685
+store 16 // ticketsSold/684
+b _reachl_2
+_reachp_0:
+callsub l0_LF_wasntMeth
+int 100000
+callsub l1_LF_mbrAdd
+txna ApplicationArgs 1
+store 11 // v1612
+b _reachi_0
+_reachp_1:
+callsub l0_LF_wasntMeth
+txna ApplicationArgs 1
+store 11 // v1615
+b _reachi_1
+_reachp_3:
+callsub l0_LF_wasntMeth
+txna ApplicationArgs 1
+store 11 // v1618
+b _reachi_3
+alloc:
+int 0
+txn GlobalNumUint
+==
+assert
+int 2
+txn GlobalNumByteSlice
+==
+assert
+int 0
+txn LocalNumUint
+==
+assert
+int 0
+txn LocalNumByteSlice
+==
+assert
+callsub l0_LF_wasntMeth
+int 72
+bzero
+int 0
+int 0
+b updateStateNoOp
+apiReturn_check:
+txn OnCompletion
+int NoOp
+==
+assert
+// checked on completion
+b apiReturn_noCheck
+l16_ifF:
+load 15 // total/685
+// resource: R_Account
+load 20 // Admin/661
+callsub l12_LF_makeTxn_False_False_False_True
+// resource: R_Account
+int 0
+// resource: R_Asset
+load 18 // tok/663
+global CurrentApplicationAddress
+global CreatorAddress
+callsub l18_LF_makeTxn_False_True_True_True
+updateStateHalt:
+txn OnCompletion
+int DeleteApplication
+==
+assert
+// checked on completion
+callsub l19_LF_updateMbr
+// resource: R_Account
+int 0
+global CurrentApplicationAddress
+global CreatorAddress
+callsub l20_LF_makeTxn_False_True_False_True
+b updateState
+l22_boxSet:
+pop
+swap
+box_put
+pop
+retsub
+l23_LF_makeTxnK_False_True:
+int 0
+itxn_field Fee
+int pay
+itxn_field TypeEnum
+itxn_field Receiver
+itxn_field Amount
+itxn_submit
+retsub
+l24_LF_makeTxnK_True_True:
+int 0
+itxn_field Fee
+int axfer
+itxn_field TypeEnum
+itxn_field AssetReceiver
+itxn_field XferAsset
+itxn_field AssetAmount
+itxn_submit
+retsub
+l8_Buyer_claim0_85:
+b _api_Buyer_claim3
+l9_Buyer_deposit0_85:
+b _api_Buyer_deposit3
+updateMbr_eq:
+pop
+retsub
+updateMbr_neg:
+swap
+-
+dup
+store 6 // GV_mbrAdd :: UInt
+global CreatorAddress
+callsub l12_LF_makeTxn_False_False_False_True
+retsub
+updateMbr_pos_eq:
+-
+dup
+bz updateMbr_eq
+dup
+store 6 // GV_mbrAdd :: UInt
+callsub l14_LF_checkTxn_False
+retsub
+l0_LF_wasntMeth:
+int 1
+store 3 // GV_wasntMeth :: Bool
+retsub
+l2_LF_timeCheck:
+dup
+int 0
+==
+swap
+load 2 // GV_currentTime :: UInt
+==
+||
+assert
+retsub
+l1_LF_mbrAdd:
+load 6 // GV_mbrAdd :: UInt
++
+store 6 // GV_mbrAdd :: UInt
+retsub
+l12_LF_makeTxn_False_False_False_True:
+itxn_begin
+b l23_LF_makeTxnK_False_True
+l6_LF_checkTxn_True:
+// resource: R_Txn
+txn GroupIndex
+load 0 // GV_txnCounter :: UInt
+int 1
++
+dup
+store 0 // GV_txnCounter :: UInt
+-
+dupn 3
+gtxns AssetReceiver
+global CurrentApplicationAddress
+==
+assert
+gtxns TypeEnum
+int axfer
+==
+assert
+gtxns XferAsset
+uncover 2
+==
+assert
+gtxns AssetAmount
+==
+assert
+retsub
+l3_LF_makeTxn_False_False_True_True:
+itxn_begin
+b l24_LF_makeTxnK_True_True
+l19_LF_updateMbr:
+load 6 // GV_mbrAdd :: UInt
+load 7 // GV_mbrSub :: UInt
+dup2
+>=
+bz updateMbr_neg
+b updateMbr_pos_eq
+l14_LF_checkTxn_False:
+// resource: R_Txn
+txn GroupIndex
+load 0 // GV_txnCounter :: UInt
+int 1
++
+dup
+store 0 // GV_txnCounter :: UInt
+-
+dupn 2
+gtxns Receiver
+global CurrentApplicationAddress
+==
+assert
+gtxns TypeEnum
+int pay
+==
+assert
+gtxns Amount
+==
+assert
+retsub
+l10_LF_mapRef:
+box_get
+dup
+itob
+substring 7 8
+bury 4
+select
+concat
+retsub
+l20_LF_makeTxn_False_True_False_True:
+itxn_begin
+itxn_field CloseRemainderTo
+b l23_LF_makeTxnK_False_True
+l18_LF_makeTxn_False_True_True_True:
+itxn_begin
+itxn_field AssetCloseTo
+b l24_LF_makeTxnK_True_True
+l15_LF_mapSet:
+swap
+dup
+box_len
+bnz l22_boxSet
+dig 3
+callsub l1_LF_mbrAdd
+b l22_boxSet

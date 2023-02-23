@@ -4,8 +4,11 @@ import {
   readDataFromSnapShot,
   db,
 } from "./common/utils/backend/firebase/index.js";
-import RetrievedData, { Project ,queryTypes} from "./common/datatypes/retireveddata.js";
-import { setReward } from "./common/utils/contract/helpers.js";
+import RetrievedData, {
+  Project,
+  queryTypes,
+} from "./common/datatypes/retireveddata.js";
+import { hasOpted, setReward } from "./common/utils/contract/helpers.js";
 // import { FLOOR } from "./common/utils/constants/index.js";
 import { schedule } from "node-cron";
 import dotenv from "dotenv";
@@ -29,8 +32,6 @@ const HOUR_LIMIT = 12;
 // Users will need to fund the contract and not the address
 
 export const RecursiveCheck = async () => {
-
-  
   const floor = await fetch(
     "https://www.randswap.com/v1/listings/creator/YYWVXM6ITE2QBD2IOUNMO5DIAILK43ABMBDCE6PHAX3U6GOYO4XPA6JGLQ"
   )
@@ -38,13 +39,11 @@ export const RecursiveCheck = async () => {
     .then((res: queryTypes[]) => {
       res.sort((a, b) => {
         return a.price - b.price;
-      })
+      });
 
       return res[0].price;
     });
   console.log({ floor });
-
-
 
   const USERS_REF = db.ref("/admins");
   const ALL_COLLECTIONS_REF = db.ref("/allCollections");
@@ -79,10 +78,6 @@ export const RecursiveCheck = async () => {
   );
 
   // console.log({ finalSnap: (filteredObject, null, 4) });
-  const RETRIEVED_DATA: RetrievedData = filteredObject.reduce((acc, curr) => {
-    return { ...acc, ...curr };
-  }, {} as RetrievedData);
-  console.log({ RETRIEVED_DATA });
 
   const WALLET = await reach.newAccountFromMnemonic(
     process?.env?.MNEMONIC || ""
@@ -90,133 +85,139 @@ export const RecursiveCheck = async () => {
 
   // console.log({ address: WALLET.networkAccount.addr });
   // let val: jsonSchema = {};
+  for (const RETRIEVED_DATA of filteredObject) {
+    const entries = Object.entries(RETRIEVED_DATA);
 
-  const entries = Object.entries(RETRIEVED_DATA);
+    /**
+     * We map through all the assets to be able to store the locally so we can use it in our server
+     * We use it for authentication to confirm if our user has the asset in their wallet
+     */
 
-  /**
-   * We map through all the assets to be able to store the locally so we can use it in our server
-   * We use it for authentication to confirm if our user has the asset in their wallet
-   */
-  // entries.forEach(([_, project]) => {
-  //   const entry = Object.entries(project);
-  //   entry.forEach(
-  //     ([name, p]) => {
-  //       val = {
-  //         ...val,
-  //         [name]: p,
-  //       };
-  //     }
-  //   );
-  // });
-  // usersRepo.createAll(val);
+    /**
+     * Map through both the data in the centralized database and that gotten from the chain and use that data
+     * We use both data points to validate our logic
+     */
 
-  /**
-   * Map through both the data in the centralized database and that gotten from the chain and use that data
-   * We use both data points to validate our logic
-   */
+    for (const [address, objectEntry] of entries) {
+      for (const [projectName, entry] of Object.entries(objectEntry)) {
+        /**
+         * WE RETRIEVE THE ASSET INFO SO FROM THE FIREBASE DATABASE SO WE CAN
+         * COMPARE THE RECENT HOLDERS TO THOSE ALREADY IN OUR DATABASE
+         */
+        const PROJECT_REF = db.ref(`admins/${address}/${projectName}`);
+        const ASSET_INFO_REF = PROJECT_REF.child("assetInfo");
+        const RETRIEVED_ASSET_INFO = entry.assetInfo;
+        const RETRIEVED_ASSETS = entry.assets;
+        const IS_ACTIVE = entry.isActive;
+        const END_TIME = entry.ending;
+        const INFO = entry.info;
+        const FLOOR = entry?.floor?.value || 1;
+        const PERCENT = entry?.percentage?.value || 1;
+        // const FREQUENCY = entry.frequency;
 
-  for (const [address, objectEntry] of entries) {
-    for (const [projectName, entry] of Object.entries(objectEntry)) {
-      /**
-       * WE RETRIEVE THE ASSET INFO SO FROM THE FIREBASE DATABASE SO WE CAN
-       * COMPARE THE RECENT HOLDERS TO THOSE ALREADY IN OUR DATABASE
-       */
-      const PROJECT_REF = db.ref(`admins/${address}/${projectName}`);
-      const ASSET_INFO_REF = PROJECT_REF.child("assetInfo");
-      const RETRIEVED_ASSET_INFO = entry.assetInfo;
-      const RETRIEVED_ASSETS = entry.assets;
-      const IS_ACTIVE = entry.isActive;
-      const END_TIME = entry.ending;
-      const INFO = entry.info;
-      const FLOOR = entry?.floor?.value || 1;
-      const PERCENT = entry?.percentage?.value || 1;
-      // const FREQUENCY = entry.frequency;
+        /**
+         * We run this checks so we can premarturely end a project
+         * IF specific conditions are met
+         */
+        if (!IS_ACTIVE) {
+          console.log("Project is not active");
+          continue;
+        }
+        if (END_TIME < new Date().getTime()) {
+          await PROJECT_REF.set({ ...entry, isActive: false });
+          console.log({ ended: "Rewards have ended" });
+          continue;
+        }
 
-      /**
-       * We run this checks so we can premarturely end a project
-       * IF specific conditions are met
-       */
-      if (!IS_ACTIVE) {
-        console.log("Project is not active");
-        continue;
-      }
-      if (END_TIME < new Date().getTime()) {
-        await PROJECT_REF.set({ ...entry, isActive: false });
-        console.log({ ended: "Rewards have ended" });
-        continue;
-      }
+        const assetInfosFromChain = await getFormattedHoldersInfo(
+          RETRIEVED_ASSETS
+        );
+        let obj: uniqueQuery = {};
 
-      const assetInfosFromChain = await getFormattedHoldersInfo(
-        RETRIEVED_ASSETS
-      );
-      let obj: uniqueQuery = {};
+        const chainAddressAndAssetId = assetInfosFromChain.reduce(
+          (a, v) => ({ ...a, ...v }),
+          {}
+        );
 
-      const chainAddressAndAssetId = assetInfosFromChain.reduce(
-        (a, v) => ({ ...a, ...v }),
-        {}
-      );
-
-      for (let assetData in chainAddressAndAssetId) {
-        obj = {
-          ...obj,
-          [assetData]: {
-            ...chainAddressAndAssetId[assetData],
-            eligiblePoints: 0,
-          },
-        };
-      }
-
-      if (!RETRIEVED_ASSET_INFO) {
-        ASSET_INFO_REF.set(obj);
-        continue;
-      }
-
-      for (let asset of RETRIEVED_ASSETS) {
-        const dataBaseAddress = RETRIEVED_ASSET_INFO[asset]["address"];
-        const chainAddress = obj[asset]["address"];
-
-        if (chainAddress === dataBaseAddress) {
-          console.log("Same Address.....", (new Date()).toDateString());
-          obj[asset] = {
-            ...obj[asset],
-            eligiblePoints:
-              (RETRIEVED_ASSET_INFO[asset]["eligiblePoints"] || 0) + 1,
-          };
-          // execute a call to the contract that allocates an amount of the reward to this address
-          // clear the value of the eligible points
-        } else {
-          const address = obj[asset]["address"];
-          obj[asset] = {
-            ...RETRIEVED_ASSET_INFO[asset],
-            address,
-            eligiblePoints: 0,
+        for (let assetData in chainAddressAndAssetId) {
+          obj = {
+            ...obj,
+            [assetData]: {
+              ...chainAddressAndAssetId[assetData],
+              eligiblePoints: 0,
+            },
           };
         }
-        // console.log({ eleigiblePoints: obj[asset]["eligiblePoints"] });
-        if ((obj[asset]["eligiblePoints"] || 0) >= HOUR_LIMIT) {
-          // console.log("Adding Points");
-          // const hasOpted = await ctcAdmin.unsafeViews.Info.opted(chainAddress);
-          // if (!hasOpted) await ctcAdmin.a.User.optin();
-          await setReward(
-            WALLET,
-            chainAddress || dataBaseAddress,
-            (FLOOR * (PERCENT / 100)) / 365,
-            INFO
-          )
-            .then((_) => console.log("Finished setting the rewards"))
-            .catch(async () => {
-              console.log("Error, trying again");
+
+        if (!RETRIEVED_ASSET_INFO) {
+          ASSET_INFO_REF.set(obj);
+          continue;
+        }
+
+        for (let asset of RETRIEVED_ASSETS) {
+          const dataBaseAddress = RETRIEVED_ASSET_INFO[asset]["address"];
+          const chainAddress = obj[asset]["address"];
+
+          if (chainAddress === dataBaseAddress) {
+            console.log(
+              "Same Address.....",
+              new Date().toDateString(),
+              " ",
+              new Date().toTimeString()
+            );
+            obj[asset] = {
+              ...obj[asset],
+              eligiblePoints:
+                (RETRIEVED_ASSET_INFO[asset]["eligiblePoints"] || 0) + 1,
+            };
+            // execute a call to the contract that allocates an amount of the reward to this address
+            // clear the value of the eligible points
+          } else {
+            const address = obj[asset]["address"];
+            obj[asset] = {
+              ...RETRIEVED_ASSET_INFO[asset],
+              address,
+              eligiblePoints: 0,
+            };
+          }
+          // console.log({ eleigiblePoints: obj[asset]["eligiblePoints"] });
+          if ((obj[asset]["eligiblePoints"] || 0) >= HOUR_LIMIT) {
+            const optedIn = await hasOpted(
+              WALLET,
+              chainAddress || dataBaseAddress,
+              INFO
+            );
+
+            if (!optedIn) {
+              console.log(
+                `Wallet ${chainAddress}/${dataBaseAddress} with asset ${asset} has not opted into contract  Opted: ${optedIn}`
+              );
+            } else {
+              console.log(
+                `Wallet ${chainAddress}/${dataBaseAddress} with asset ${asset} has opted into contract OPted: ${optedIn}`
+              );
               await setReward(
                 WALLET,
-                dataBaseAddress,
+                chainAddress || dataBaseAddress,
                 (FLOOR * (PERCENT / 100)) / 365,
                 INFO
-              ).catch(() => console.error("Error, trying again"));
-            });
-          obj[asset]["eligiblePoints"] = 0;
-        }
+              )
+                .then((_) => console.log("Finished setting the rewards"))
+                .catch(async () => {
+                  console.log("Error, trying again");
+                  await setReward(
+                    WALLET,
+                    dataBaseAddress,
+                    (FLOOR * (PERCENT / 100)) / 365,
+                    INFO
+                  ).catch(() => console.error("Failed to Set Rewards Sorry"));
+                });
+            }
+            obj[asset]["eligiblePoints"] = 0;
+          }
 
-        await ASSET_INFO_REF.child(`${asset}`).set(obj[asset]);
+          await ASSET_INFO_REF.child(`${asset}`).set(obj[asset]);
+        }
       }
     }
   }
@@ -231,7 +232,7 @@ type uniqueQuery = {
 };
 
 // const APY = 10 / 365 / 24;
-let cnt = 0;
+// let cnt = 0;
 
 // schedule("*/5 * * * *", () => {
 //   console.log("Starting Cron Job", cnt);
@@ -244,6 +245,12 @@ let cnt = 0;
 //     .catch(console.error);
 // });
 
+RecursiveCheck()
+  .then(() => {
+    console.log({ res: "success" });
+    console.log("Finishing Cron Job");
+  })
+  .catch(console.error);
 // schedule("*/2 * * * *", () => {
 //   console.log("Starting Cron Job", cnt);
 //   cnt++;
@@ -264,16 +271,16 @@ let cnt = 0;
 //     .catch(console.error);
 // });
 
-schedule("* * * * *", () => {
-  console.log("Starting Cron Job", cnt);
-  cnt++;
-  RecursiveCheck()
-    .then(() => {
-      console.log("Finishing Cron Job");
-    })
-    .catch(console.error);
-  console.log("running a task every minute");
-});
+// schedule("* * * * *", () => {
+//   console.log("Starting Cron Job", cnt);
+//   cnt++;
+//   RecursiveCheck()
+//     .then(() => {
+//       console.log("Finishing Cron Job");
+//     })
+//     .catch(console.error);
+//   console.log("running a task every minute");
+// });
 
 //schedule a cron job every hour
 
