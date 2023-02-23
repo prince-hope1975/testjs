@@ -232,7 +232,7 @@ type uniqueQuery = {
 };
 
 // const APY = 10 / 365 / 24;
-// let cnt = 0;
+let cnt = 0;
 
 // schedule("*/5 * * * *", () => {
 //   console.log("Starting Cron Job", cnt);
@@ -245,12 +245,14 @@ type uniqueQuery = {
 //     .catch(console.error);
 // });
 
-RecursiveCheck()
-  .then(() => {
-    console.log({ res: "success" });
-    console.log("Finishing Cron Job");
-  })
-  .catch(console.error);
+// RecursiveCheck()
+//   .then(() => {
+//     console.log({ res: "success" });
+//     console.log("Finishing Cron Job");
+//   })
+//   .catch(console.error);
+
+
 // schedule("*/2 * * * *", () => {
 //   console.log("Starting Cron Job", cnt);
 //   cnt++;
@@ -261,15 +263,15 @@ RecursiveCheck()
 //     })
 //     .catch(console.error);
 // });
-// schedule(`0 */${24 / HOUR_LIMIT} * * *`, () => {
-//   console.log("Starting Cron Job", cnt);
-//   cnt++;
-//   RecursiveCheck()
-//     .then(() => {
-//       console.log("Finishing Cron Job");
-//     })
-//     .catch(console.error);
-// });
+schedule(`0 */${24 / HOUR_LIMIT} * * *`, () => {
+  console.log("Starting Cron Job", cnt);
+  cnt++;
+  RecursiveCheck()
+    .then(() => {
+      console.log("Finishing Cron Job");
+    })
+    .catch(console.error);
+});
 
 // schedule("* * * * *", () => {
 //   console.log("Starting Cron Job", cnt);
