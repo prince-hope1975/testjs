@@ -1,6 +1,11 @@
 // @ts-ignore
-import * as backend from "../build/index.main.mjs";
-
+import { wallet } from "../airdrop/type.js";
+// @ts-ignore
+import * as _v1_backend from "../build/v1/index.main.mjs";
+// @ts-ignore
+import * as _v2_backend from "../build/v2/index.main.mjs";
+// @ts-ignore
+import * as _v2_tokenBackend from "../build/v2/token.main.mjs";
 import {
   loadStdlib,
   // ALGO_MyAlgoConnect as MyAlgoConnect,
@@ -12,7 +17,7 @@ import {
 } from "@reach-sh/stdlib";
 export const reach = loadStdlib("ALGO");
 reach.setProviderByName("TestNet");
-// reach.providerEnvByName("TestNet");
+
 
 const info = { _hex: "0x08adfb83", _isBigNumber: true };
 export const checkEligibility = async (
@@ -125,24 +130,23 @@ export const deploy = async (acc: any, name: string) => {
 };
 
 export const setReward = async (
-  acc: any,
+  acc: wallet,
   address: string,
   amt: number,
-  ctcInfo: typeof info
+  ctcInfo: BigNumber,
+  isToken: boolean
 ) => {
-  try {
-    // @ts-ignore
-    const ctcAdmin = acc.contract(backend, reach.bigNumberToNumber(ctcInfo));
-    const hasOpted = await ctcAdmin.unsafeViews.Info.opted(address);
-    if (!hasOpted) await ctcAdmin.a.User.optin();
-    const result = await ctcAdmin.a.Admin.setReward(
-      reach.formatAddress(address),
-      reach.parseCurrency(amt)
-    );
-    return result;
-  } catch (error) {
-    console.error("An error occured", error);
-  }
+  const ctcAdmin = acc.contract(
+    isToken ? _v2_tokenBackend : _v2_backend,
+    reach.bigNumberToNumber(ctcInfo)
+  );
+  const hasOpted = await ctcAdmin.unsafeViews.Info.opted(acc);
+  if (!hasOpted) await ctcAdmin.a.User.optin();
+  const result = await ctcAdmin.a.Admin.setReward(
+    reach.formatAddress(address),
+    reach.parseCurrency(amt)
+  );
+  return result;
 };
 export const hasOpted = async (
   acc: any,
@@ -156,7 +160,7 @@ export const hasOpted = async (
     return hasOpted;
   } catch (error) {
     console.error("An error occured", error);
-    return error
+    return error;
   }
 };
 export const editUserReward = async (
