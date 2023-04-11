@@ -41,3 +41,5 @@ export const makeInterval = (
 
   return { interval, stopInterval };
 };
+
+export {}

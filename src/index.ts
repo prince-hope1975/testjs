@@ -1,5 +1,5 @@
 // import { setAsyncTimeout } from "@utils/helpers";
-import algosdk, { Indexer as indexer } from "algosdk";
+import { Indexer as indexer } from "algosdk";
 import * as dotenv from "dotenv";
 import { data, resolvedData } from "./common/datatypes/types.js";
 import { setAsyncTimeout } from "./common/utils/helpers/index.js";
@@ -20,14 +20,14 @@ const indexerServer = IS_MAINNET
 //   : "https://testnet-algorand.api.purestake.io/ps2";
 
 const Provider = await reach.getProvider()
-const indexer:indexer = Provider.indexer
+const Indexer:indexer = Provider.indexer
 // const token = { "X-API-Key": `${process.env.API_KEY}` };
 const token = { "X-API-Key": `${process.env.API_KEY}` };
 const port = ` `;
 // const port = `${process.env.API_KEY}`;
 // const indexerClient = new algosdk.Indexer(token, indexerServer, port);
 // = new algosdk.Indexer(token, indexerServer, port);
-const indexerClient  = indexer
+const indexerClient  = Indexer
 
 // This fun
 export const getAssetData = async (assetId: string | number) => {
@@ -228,3 +228,4 @@ type requestData = {
 // });
 
 // run a cron job every 5 minuite
+export {}

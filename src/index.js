@@ -13,14 +13,14 @@ const indexerServer = IS_MAINNET
 //   ? "https://mainnet-algorand.api.purestake.io/ps2"
 //   : "https://testnet-algorand.api.purestake.io/ps2";
 const Provider = await reach.getProvider();
-const indexer = Provider.indexer;
+const Indexer = Provider.indexer;
 // const token = { "X-API-Key": `${process.env.API_KEY}` };
 const token = { "X-API-Key": `${process.env.API_KEY}` };
 const port = ` `;
 // const port = `${process.env.API_KEY}`;
 // const indexerClient = new algosdk.Indexer(token, indexerServer, port);
 // = new algosdk.Indexer(token, indexerServer, port);
-const indexerClient = indexer;
+const indexerClient = Indexer;
 // This fun
 export const getAssetData = async (assetId) => {
     if (!assetId) {
@@ -150,21 +150,3 @@ const callFunctionRecursively = async (func, param, i = 0, treashold = 5) => {
         return callFunctionRecursively(func, param, i + 1);
     }
 };
-// schedule cron job every hour
-// cron.schedule('0 0 * * *', () => {
-//   console.log('running a task every hour');
-// });
-// cron.schedule("* */5 * * * *", () => {
-//   console.log("running a task every 5 minutes");
-// });
-// cron.schedule("* * * * *", () => {
-//   console.log("running a task every minute");
-// });
-// schedule("* */3 * * * *", () => {
-//   RecursiveCheck()
-//     .then((res) => {
-//       console.log({ res: "success" });
-//     })
-//     .catch(console.error);
-// });
-// run a cron job every 5 minuite

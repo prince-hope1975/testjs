@@ -75,4 +75,6 @@ export async function writeToDb({ ref, data }: { ref: any; data: number[] }) {
   }
 }
 
+
+export  {}
 // q: How to install ts-node globally yarn global add ts-node

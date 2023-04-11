@@ -18,11 +18,14 @@ export interface Project {
   started?: number;
   isActive: boolean;
   count?: number;
+  isToken?: boolean;
+  token?: { value: number };
   info: { _hex: string; _isBigNumber: boolean };
   floor?: { value: number };
   percentage?: { value: number };
   frequency_duration_picker?: number | string;
   socials: { discordLink?: string; twitterLink?: string; youtubeLink?: string };
+  dailyRewardAmount?: number;
 }
 interface RetrievedData {
   [address: string]: {
@@ -45,11 +48,11 @@ interface RetrievedData {
 }
 
 export interface queryTypes {
-    assetId: number;
-    sellerAddress: string;
-    creatorRoyalty: number;
-    timestamp: number;
-    price: number;
-    version: string;
+  assetId: number;
+  sellerAddress: string;
+  creatorRoyalty: number;
+  timestamp: number;
+  price: number;
+  version: string;
 }
 export default RetrievedData;
