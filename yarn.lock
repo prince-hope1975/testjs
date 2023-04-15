@@ -563,10 +563,10 @@
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==
 
-"@reach-sh/stdlib@^0.1.13-rc.0":
-  version "0.1.13-rc.0"
-  resolved "https://registry.yarnpkg.com/@reach-sh/stdlib/-/stdlib-0.1.13-rc.0.tgz#aefc744a1ba041b4ba6233cbe54fef3006dbec2b"
-  integrity sha512-aO2qhS95BUTxHQQMl3kQUb9QVdAl3vmygnUosQGRVs6xonk9Fyk/d45RtnMHSAuDzEfEovfo3SiwK1X5xjxtTw==
+"@reach-sh/stdlib@^0.1.13-rc.3":
+  version "0.1.13-rc.3"
+  resolved "https://registry.yarnpkg.com/@reach-sh/stdlib/-/stdlib-0.1.13-rc.3.tgz#d81642908a8a7e077466f63d1772b193e779b17b"
+  integrity sha512-dSqxzLwzOHic23AqeC9igl+ZqjmOAV2FAzvpOT6m3sqTKXkISnHi63eCL3dYUj+PiZk5BeiAdaSjBRMklwZDIQ==
   dependencies:
     algosdk "^1.23.2"
     await-timeout "^0.6.0"

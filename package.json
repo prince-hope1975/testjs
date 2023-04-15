@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@lyrasearch/lyra": "^0.3.1",
-    "@reach-sh/stdlib": "^0.1.13-rc.0",
+    "@reach-sh/stdlib": "^0.1.13-rc.3",
     "@types/node": "^18.11.10",
     "@types/node-cron": "^3.0.6",
     "algosdk": "^1.23.2",
