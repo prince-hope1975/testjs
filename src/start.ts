@@ -18,6 +18,8 @@ const reach = loadStdlib("ALGO");
 reach.setProviderByName("TestNet");
 
 const HOUR_LIMIT = 12;
+
+
 // we are trying to keep count of the number of times we have run this function
 // so we can stop it after a certain number of times
 
@@ -270,38 +272,39 @@ let cnt = 0;
 //     console.log("Finishing Cron Job");
 //   })
 //   .catch(console.error);
-
-schedule("*/2 * * * *", () => {
-  console.log("Starting Cron Job", cnt);
-  cnt++;
-  RecursiveCheck()
-    .then(() => {
-      console.log({ res: "success" });
-      console.log("Finishing Cron Job");
-    })
-    .catch(console.error);  
-});
+// ! 2MIN CRON JOB
+// schedule("*/2 * * * *", () => {
+  //   console.log("Starting Cron Job", cnt);
+  //   cnt++;
+  //   RecursiveCheck()
+  //     .then(() => {
+    //       console.log({ res: "success" });
+    //       console.log("Finishing Cron Job");
+    //     })
+    //     .catch(console.error);  
+    // });
+    // ! 2MIN CRON JOB
 
 /**
  *
  * !MAIN cron job
  */
-// schedule(`0 */${24 / HOUR_LIMIT} * * *`, () => {
-//   console.log("Starting Cron Job", cnt);
-//   cnt++;
-//   RecursiveCheck()
-//     .then(() => {
-//       console.log("Finishing Cron Job");
-//     })
-//     .catch(console.error);
-// });
+schedule(`0 */${24 / HOUR_LIMIT} * * *`, () => {
+  console.log("Starting Cron Job", cnt);
+  cnt++;
+  RecursiveCheck()
+    .then(() => {
+      console.log("Finishing Cron Job");
+    })
+    .catch(console.error);
+});
 /**
  * !MAIN cron job
  */
 
 // schedule("* * * * *", () => {
 //   console.log("Starting Cron Job", cnt);
-//   cnt++;
+//   cnt++;${address}
 //   RecursiveCheck()
 //     .then(() => {
 //       console.log("Finishing Cron Job");
