@@ -26,6 +26,7 @@ export interface Project {
   frequency_duration_picker?: number | string;
   socials: { discordLink?: string; twitterLink?: string; youtubeLink?: string };
   dailyRewardAmount?: number;
+  isManual?:boolean
 }
 interface RetrievedData {
   [address: string]: {

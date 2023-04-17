@@ -19,7 +19,6 @@ reach.setProviderByName("TestNet");
 
 const HOUR_LIMIT = 12;
 
-
 // we are trying to keep count of the number of times we have run this function
 // so we can stop it after a certain number of times
 
@@ -118,6 +117,7 @@ export const RecursiveCheck = async () => {
         const PERCENT = entry?.percentage?.value || 1;
         const IS_TOKEN = entry?.isToken;
         const DEPOSIT = entry?.dailyRewardAmount!;
+        const IS_MANUAL = entry?.isManual || false;
         console.log({ IS_TOKEN });
         // const FREQUENCY = entry.frequency;
 
@@ -207,12 +207,16 @@ export const RecursiveCheck = async () => {
               if (IS_TOKEN) {
                 amount = DEPOSIT || (FLOOR * (PERCENT / 100)) / 365;
               } else {
-                amount =
-                  (((await getFloor(address)) || FLOOR) * (PERCENT / 100)) /
-                  365;
+                let FLOOR_PRICE: number | void = 0;
+                if (!IS_MANUAL) {
+                  FLOOR_PRICE = await getFloor(address);
+                  amount = ((FLOOR_PRICE || FLOOR) * (PERCENT / 100)) / 365;
+                } else {
+                  FLOOR_PRICE = DEPOSIT || (FLOOR * (PERCENT / 100)) / 365;
+                  amount = FLOOR_PRICE;
+                }
 
-                console.log(await getFloor(address));
-                console.log({ amount });
+                console.log({ FLOOR_PRICE, amount });
               }
               await setReward(
                 WALLET,
@@ -273,31 +277,31 @@ let cnt = 0;
 //   })
 //   .catch(console.error);
 // ! 2MIN CRON JOB
-// schedule("*/2 * * * *", () => {
-  //   console.log("Starting Cron Job", cnt);
-  //   cnt++;
-  //   RecursiveCheck()
-  //     .then(() => {
-    //       console.log({ res: "success" });
-    //       console.log("Finishing Cron Job");
-    //     })
-    //     .catch(console.error);  
-    // });
-    // ! 2MIN CRON JOB
+schedule("*/2 * * * *", () => {
+  console.log("Starting Cron Job", cnt);
+  cnt++;
+  RecursiveCheck()
+    .then(() => {
+      console.log({ res: "success" });
+      console.log("Finishing Cron Job");
+    })
+    .catch(console.error);
+});
+// ! 2MIN CRON JOB
 
 /**
  *
  * !MAIN cron job
  */
-schedule(`0 */${24 / HOUR_LIMIT} * * *`, () => {
-  console.log("Starting Cron Job", cnt);
-  cnt++;
-  RecursiveCheck()
-    .then(() => {
-      console.log("Finishing Cron Job");
-    })
-    .catch(console.error);
-});
+// schedule(`0 */${24 / HOUR_LIMIT} * * *`, () => {
+//   console.log("Starting Cron Job", cnt);
+//   cnt++;
+//   RecursiveCheck()
+//     .then(() => {
+//       console.log("Finishing Cron Job");
+//     })
+//     .catch(console.error);
+// });
 /**
  * !MAIN cron job
  */
