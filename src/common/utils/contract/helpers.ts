@@ -249,12 +249,14 @@ export const setReward = async (
     isToken ? _v2_tokenBackend : _v2_backend,
     reach.bigNumberToNumber(ctcInfo)
   );
-  const hasOpted = await ctcAdmin.unsafeViews.Info.opted(acc);
-  if (!hasOpted) await ctcAdmin.a.User.optin();
+  // const hasOpted = await ctcAdmin.unsafeViews.Info.opted(acc);
+  // console.log({ hasOpted });
+  // if (!hasOpted) await ctcAdmin.a.User.optin();
   const result = await ctcAdmin.a.Admin.setReward(
     reach.formatAddress(address),
-    reach.parseCurrency(amt)
+    amt
   );
+  console.log({ result });
   return result;
 };
 export const editUserReward = async (

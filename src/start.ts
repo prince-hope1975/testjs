@@ -11,6 +11,7 @@ import { schedule } from "node-cron";
 import dotenv from "dotenv";
 import { BigNumber } from "@reach-sh/stdlib/shared_impl.js";
 import getFloor from "./common/utils/floor/index.js";
+import { wallet } from "./common/utils/airdrop/type.js";
 // TODO : Insert actual contract ASSET_INFO_REF
 
 dotenv.config();
@@ -30,7 +31,12 @@ const HOUR_LIMIT = 12;
 // The mmemonic handles the reward distribution for the user
 // Users will have to create their own contracts and have the mmemonic interact with the contract
 // Users will need to fund the contract and not the address
-
+let infos: Array<{
+  address: string;
+  amount: number;
+  isToken: boolean;
+  token?: number | string;
+}> = [];
 export const RecursiveCheck = async () => {
   // Todo : Get the floor price from the contract
   // const floor = await fetch(
@@ -81,9 +87,10 @@ export const RecursiveCheck = async () => {
 
   // console.log({ finalSnap: (filteredObject, null, 4) });
 
-  const WALLET = await reach.newAccountFromMnemonic(
+  const WALLET: wallet = await reach.newAccountFromMnemonic(
     process?.env?.MNEMONIC || ""
   );
+
 
   // console.log({ address: WALLET.networkAccount.addr });
   // let val: jsonSchema = {};
@@ -101,6 +108,7 @@ export const RecursiveCheck = async () => {
      */
 
     for (const [address, objectEntry] of entries) {
+      let FLOOR_PRICE = await getFloor(address);
       for (const [projectName, entry] of Object.entries(objectEntry)) {
         /**
          * WE RETRIEVE THE ASSET INFO SO FROM THE FIREBASE DATABASE SO WE CAN
@@ -118,7 +126,7 @@ export const RecursiveCheck = async () => {
         const IS_TOKEN = entry?.isToken;
         const DEPOSIT = entry?.dailyRewardAmount!;
         const IS_MANUAL = entry?.isManual || false;
-        console.log({ IS_TOKEN });
+        const TOKEN = entry?.token;
         // const FREQUENCY = entry.frequency;
 
         /**
@@ -160,17 +168,13 @@ export const RecursiveCheck = async () => {
           continue;
         }
 
-        for (let asset of RETRIEVED_ASSETS) {
+        const repeatMap = RETRIEVED_ASSETS.map(async (asset) => {
           const dataBaseAddress = RETRIEVED_ASSET_INFO[asset]["address"];
           const chainAddress = obj[asset]["address"];
 
           if (chainAddress === dataBaseAddress) {
-            console.log(
-              "Same Address.....",
-              new Date().toDateString(),
-              " ",
-              new Date().toTimeString()
-            );
+            // TODO: Add later
+            // console.log("Same Address.....", projectName);
             obj[asset] = {
               ...obj[asset],
               eligiblePoints:
@@ -195,11 +199,7 @@ export const RecursiveCheck = async () => {
               !!IS_TOKEN
             );
 
-            if (!optedIn) {
-              console.log(
-                `Wallet ${chainAddress}/${dataBaseAddress} with asset ${asset} has not opted into contract  Opted: ${optedIn}`
-              );
-            } else {
+            if (optedIn) {
               console.log(
                 `Wallet ${chainAddress}/${dataBaseAddress} with asset ${asset} has opted into contract OPted: ${optedIn}`
               );
@@ -207,41 +207,58 @@ export const RecursiveCheck = async () => {
               if (IS_TOKEN) {
                 amount = DEPOSIT || (FLOOR * (PERCENT / 100)) / 365;
               } else {
-                let FLOOR_PRICE: number | void = 0;
                 if (!IS_MANUAL) {
-                  FLOOR_PRICE = await getFloor(address);
+                  console.log({ FLOOR_PRICE });
                   amount = ((FLOOR_PRICE || FLOOR) * (PERCENT / 100)) / 365;
                 } else {
                   FLOOR_PRICE = DEPOSIT || (FLOOR * (PERCENT / 100)) / 365;
                   amount = FLOOR_PRICE;
                 }
-
-                console.log({ FLOOR_PRICE, amount });
               }
-              await setReward(
-                WALLET,
-                chainAddress || dataBaseAddress,
-                amount,
-                INFO as BigNumber,
-                !!IS_TOKEN
-              )
-                .then((_) => console.log("Finished setting the rewards"))
-                .catch(async () => {
-                  console.log("Error, trying again");
-
-                  await setReward(
-                    WALLET,
-                    dataBaseAddress,
-                    amount,
-                    INFO as BigNumber,
-                    !!IS_TOKEN
-                  ).catch(() => console.error("Failed to Set Rewards Sorry"));
-                });
+              infos = [
+                ...infos,
+                {
+                  address: chainAddress || dataBaseAddress,
+                  amount,
+                  isToken: !!IS_TOKEN,
+                  token: TOKEN?.value,
+                },
+              ];
             }
             obj[asset]["eligiblePoints"] = 0;
           }
 
           await ASSET_INFO_REF.child(`${asset}`).set(obj[asset]);
+        });
+
+        await Promise.allSettled(repeatMap);
+
+        for (let item of infos) {
+          const { address, amount, isToken, token } = item;
+          let amt = 0;
+          if (token) {
+            const tokemMetadata = await WALLET.tokenMetadata(token);
+            amt = reach.bigNumberToNumber(
+              reach.parseCurrency(
+                amount,
+                // @ts-ignore
+                +reach.bigNumberToNumber(tokemMetadata?.decimals)
+              )
+            );
+          } else {
+            amt = reach.bigNumberToNumber(reach.parseCurrency(amount));
+          }
+          await setReward(WALLET, address, amt, INFO, isToken)
+            .then((_) => console.log("Finished setting the rewards"))
+            .catch(async (err) => {
+              console.log("Error, trying again", err);
+              await setReward(WALLET, address, amt, INFO, isToken).catch(
+                (err) => {
+                  console.error("Failed to Set Rewards Sorry");
+                  console.error(err);
+                }
+              );
+            });
         }
       }
     }
@@ -276,32 +293,32 @@ let cnt = 0;
 //     console.log("Finishing Cron Job");
 //   })
 //   .catch(console.error);
-// ! 2MIN CRON JOB
-schedule("*/2 * * * *", () => {
-  console.log("Starting Cron Job", cnt);
-  cnt++;
-  RecursiveCheck()
-    .then(() => {
-      console.log({ res: "success" });
-      console.log("Finishing Cron Job");
-    })
-    .catch(console.error);
-});
-// ! 2MIN CRON JOB
+// ! 3MIN CRON JOB
+// schedule("*/3 * * * *", () => {
+//   console.log("Starting Cron Job", cnt);
+//   cnt++;
+//   RecursiveCheck()
+//     .then(() => {
+//       console.log({ res: "success" });
+//       console.log("Finishing Cron Job");
+//     })
+//     .catch(console.error);
+// });
+// ! 3MIN CRON JOB
 
 /**
  *
  * !MAIN cron job
  */
-// schedule(`0 */${24 / HOUR_LIMIT} * * *`, () => {
-//   console.log("Starting Cron Job", cnt);
-//   cnt++;
-//   RecursiveCheck()
-//     .then(() => {
-//       console.log("Finishing Cron Job");
-//     })
-//     .catch(console.error);
-// });
+schedule(`0 */${24 / HOUR_LIMIT} * * *`, () => {
+  console.log("Starting Cron Job", cnt);
+  cnt++;
+  RecursiveCheck()
+    .then(() => {
+      console.log("Finishing Cron Job");
+    })
+    .catch(console.error);
+});
 /**
  * !MAIN cron job
  */
