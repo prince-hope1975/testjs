@@ -154,6 +154,6 @@ export const hasOpted = async (acc, address, ctcInfo, isToken) => {
     }
     catch (error) {
         console.error("An error occured", error);
-        return error;
+        return false;
     }
 };

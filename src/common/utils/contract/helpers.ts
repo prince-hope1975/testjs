@@ -295,6 +295,6 @@ export const hasOpted = async (
     return hasOpted;
   } catch (error) {
     console.error("An error occured", error);
-    return error;
+    return false;
   }
 };

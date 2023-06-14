@@ -36,6 +36,8 @@ let infos: Array<{
   amount: number;
   isToken: boolean;
   token?: number | string;
+  asset?: number;
+  eligiblePoints?: number;
 }> = [];
 export const RecursiveCheck = async () => {
   // Todo : Get the floor price from the contract
@@ -90,7 +92,6 @@ export const RecursiveCheck = async () => {
   const WALLET: wallet = await reach.newAccountFromMnemonic(
     process?.env?.MNEMONIC || ""
   );
-
 
   // console.log({ address: WALLET.networkAccount.addr });
   // let val: jsonSchema = {};
@@ -171,6 +172,7 @@ export const RecursiveCheck = async () => {
         const repeatMap = RETRIEVED_ASSETS.map(async (asset) => {
           const dataBaseAddress = RETRIEVED_ASSET_INFO[asset]["address"];
           const chainAddress = obj[asset]["address"];
+          const { eligiblePoints = 0 } = obj[asset];
 
           if (chainAddress === dataBaseAddress) {
             // TODO: Add later
@@ -190,25 +192,21 @@ export const RecursiveCheck = async () => {
               eligiblePoints: 0,
             };
           }
-
-          if ((obj[asset]["eligiblePoints"] || 0) >= HOUR_LIMIT) {
+          if (eligiblePoints >= HOUR_LIMIT) {
+            // console.log("IT works", eligiblePoints);
             const optedIn = await hasOpted(
               WALLET,
               chainAddress || dataBaseAddress,
               INFO as BigNumber,
               !!IS_TOKEN
             );
-
             if (optedIn) {
-              console.log(
-                `Wallet ${chainAddress}/${dataBaseAddress} with asset ${asset} has opted into contract OPted: ${optedIn}`
-              );
+            
               let amount = 0;
               if (IS_TOKEN) {
                 amount = DEPOSIT || (FLOOR * (PERCENT / 100)) / 365;
               } else {
                 if (!IS_MANUAL) {
-                  console.log({ FLOOR_PRICE });
                   amount = ((FLOOR_PRICE || FLOOR) * (PERCENT / 100)) / 365;
                 } else {
                   FLOOR_PRICE = DEPOSIT || (FLOOR * (PERCENT / 100)) / 365;
@@ -218,6 +216,8 @@ export const RecursiveCheck = async () => {
               infos = [
                 ...infos,
                 {
+                  asset: asset,
+                  eligiblePoints,
                   address: chainAddress || dataBaseAddress,
                   amount,
                   isToken: !!IS_TOKEN,
@@ -227,14 +227,14 @@ export const RecursiveCheck = async () => {
             }
             obj[asset]["eligiblePoints"] = 0;
           }
-
           await ASSET_INFO_REF.child(`${asset}`).set(obj[asset]);
         });
 
         await Promise.allSettled(repeatMap);
-
+        console.log({ length: infos.length, infos });
         for (let item of infos) {
           const { address, amount, isToken, token } = item;
+          console.log({ item });
           let amt = 0;
           if (token) {
             const tokemMetadata = await WALLET.tokenMetadata(token);
@@ -276,16 +276,16 @@ type uniqueQuery = {
 // const APY = 10 / 365 / 24;
 let cnt = 0;
 
-// schedule("*/5 * * * *", () => {
-//   console.log("Starting Cron Job", cnt);
-//   cnt++;
-//   RecursiveCheck()
-//     .then(() => {
-//       console.log({ res: "success" });
-//       console.log("Finishing Cron Job");
-//     })
-//     .catch(console.error);
-// });
+schedule("*/2 * * * *", () => {
+  console.log("Starting Cron Job", cnt);
+  cnt++;
+  RecursiveCheck()
+    .then(() => {
+      console.log({ res: "success" });
+      console.log("Finishing Cron Job");
+    })
+    .catch(console.error);
+});
 
 // RecursiveCheck()
 //   .then(() => {
@@ -310,15 +310,15 @@ let cnt = 0;
  *
  * !MAIN cron job
  */
-schedule(`0 */${24 / HOUR_LIMIT} * * *`, () => {
-  console.log("Starting Cron Job", cnt);
-  cnt++;
-  RecursiveCheck()
-    .then(() => {
-      console.log("Finishing Cron Job");
-    })
-    .catch(console.error);
-});
+// schedule(`0 */2 * * *`, () => {
+//   console.log("Starting Cron Job", cnt);
+//   cnt++;
+//   RecursiveCheck()
+//     .then(() => {
+//       console.log("Finishing Cron Job");
+//     })
+//     .catch(console.error);
+// });
 /**
  * !MAIN cron job
  */
