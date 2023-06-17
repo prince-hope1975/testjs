@@ -23,18 +23,7 @@ const HOUR_LIMIT = 12;
 let infos = [];
 export const RecursiveCheck = async () => {
     // Todo : Get the floor price from the contract
-    // const floor = await fetch(
-    //   "https://www.randswap.com/v1/listings/creator/YYWVXM6ITE2QBD2IOUNMO5DIAILK43ABMBDCE6PHAX3U6GOYO4XPA6JGLQ"
-    // )
-    //   .then((res) => res.json())
-    //   .then((res: queryTypes[]) => {
-    //     res.sort((a, b) => {
-    //       return a.price - b.price;
-    //     });
-    //     return res[0].price;
-    //   })
-    //   .catch(() => console.error);
-    // console.log({ floor });
+
     const USERS_REF = db.ref("/admins");
     const ALL_COLLECTIONS_REF = db.ref("/allCollections");
     const RETRIEVED_COLLECTION = await readDataFromSnapShot(ALL_COLLECTIONS_REF);
@@ -148,32 +137,32 @@ export const RecursiveCheck = async () => {
                     if (eligiblePoints >= HOUR_LIMIT) {
                         // console.log("IT works", eligiblePoints);
                         const optedIn = await hasOpted(WALLET, chainAddress || dataBaseAddress, INFO, !!IS_TOKEN);
-                        if (optedIn) {
-                            let amount = 0;
-                            if (IS_TOKEN) {
-                                amount = DEPOSIT || (FLOOR * (PERCENT / 100)) / 365;
-                            }
-                            else {
-                                if (!IS_MANUAL) {
-                                    amount = ((FLOOR_PRICE || FLOOR) * (PERCENT / 100)) / 365;
-                                }
-                                else {
-                                    FLOOR_PRICE = DEPOSIT || (FLOOR * (PERCENT / 100)) / 365;
-                                    amount = FLOOR_PRICE;
-                                }
-                            }
-                            infos = [
-                                ...infos,
-                                {
-                                    asset: asset,
-                                    eligiblePoints,
-                                    address: chainAddress || dataBaseAddress,
-                                    amount,
-                                    isToken: !!IS_TOKEN,
-                                    token: TOKEN?.value,
-                                },
-                            ];
-                        }
+                        // if (optedIn) {
+                        //     let amount = 0;
+                        //     if (IS_TOKEN) {
+                        //         amount = DEPOSIT || (FLOOR * (PERCENT / 100)) / 365;
+                        //     }
+                        //     else {
+                        //         if (!IS_MANUAL) {
+                        //             amount = ((FLOOR_PRICE || FLOOR) * (PERCENT / 100)) / 365;
+                        //         }
+                        //         else {
+                        //             FLOOR_PRICE = DEPOSIT || (FLOOR * (PERCENT / 100)) / 365;
+                        //             amount = FLOOR_PRICE;
+                        //         }
+                        //     }
+                        //     infos = [
+                        //         ...infos,
+                        //         {
+                        //             asset: asset,
+                        //             eligiblePoints,
+                        //             address: chainAddress || dataBaseAddress,
+                        //             amount,
+                        //             isToken: !!IS_TOKEN,
+                        //             token: TOKEN?.value,
+                        //         },
+                        //     ];
+                        // }
                         obj[asset]["eligiblePoints"] = 0;
                     }
                     await ASSET_INFO_REF.child(`${asset}`).set(obj[asset]);
