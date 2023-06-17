@@ -232,34 +232,34 @@ export const RecursiveCheck = async () => {
 
         await Promise.allSettled(repeatMap);
         console.log({ length: infos.length, infos });
-        for (let item of infos) {
-          const { address, amount, isToken, token } = item;
-          console.log({ item });
-          let amt = 0;
-          if (token) {
-            const tokemMetadata = await WALLET.tokenMetadata(token);
-            amt = reach.bigNumberToNumber(
-              reach.parseCurrency(
-                amount,
-                // @ts-ignore
-                +reach.bigNumberToNumber(tokemMetadata?.decimals)
-              )
-            );
-          } else {
-            amt = reach.bigNumberToNumber(reach.parseCurrency(amount));
-          }
-          await setReward(WALLET, address, amt, INFO, isToken)
-            .then((_) => console.log("Finished setting the rewards"))
-            .catch(async (err) => {
-              console.log("Error, trying again", err);
-              await setReward(WALLET, address, amt, INFO, isToken).catch(
-                (err) => {
-                  console.error("Failed to Set Rewards Sorry");
-                  console.error(err);
-                }
-              );
-            });
-        }
+        // for (let item of infos) {
+        //   const { address, amount, isToken, token } = item;
+        //   console.log({ item });
+        //   let amt = 0;
+        //   if (token) {
+        //     const tokemMetadata = await WALLET.tokenMetadata(token);
+        //     amt = reach.bigNumberToNumber(
+        //       reach.parseCurrency(
+        //         amount,
+        //         // @ts-ignore
+        //         +reach.bigNumberToNumber(tokemMetadata?.decimals)
+        //       )
+        //     );
+        //   } else {
+        //     amt = reach.bigNumberToNumber(reach.parseCurrency(amount));
+        //   }
+        //   await setReward(WALLET, address, amt, INFO, isToken)
+        //     .then((_) => console.log("Finished setting the rewards"))
+        //     .catch(async (err) => {
+        //       console.log("Error, trying again", err);
+        //       await setReward(WALLET, address, amt, INFO, isToken).catch(
+        //         (err) => {
+        //           console.error("Failed to Set Rewards Sorry");
+        //           console.error(err);
+        //         }
+        //       );
+        //     });
+        // }
       }
     }
   }
