@@ -294,7 +294,6 @@ schedule("*/3 * * * *", async () => {
   await RecursiveCheck();
   console.log({ res: "success" });
   console.log("Finishing Cron Job");
-  process.exit(0);
 });
 // ! 3MIN CRON JOB
 
