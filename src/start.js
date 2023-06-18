@@ -1,7 +1,7 @@
 import { getFormattedHoldersInfo } from "./index.js";
 import { loadStdlib } from "@reach-sh/stdlib";
 import { readDataFromSnapShot, db, } from "./common/utils/backend/firebase/index.js";
-import { hasOpted } from "./common/utils/contract/helpers.js";
+import { hasOpted, setReward } from "./common/utils/contract/helpers.js";
 // import { FLOOR } from "./common/utils/constants/index.js";
 import { schedule } from "node-cron";
 import dotenv from "dotenv";
@@ -146,7 +146,6 @@ export const RecursiveCheck = async () => {
                         };
                     }
                     if (eligiblePoints >= HOUR_LIMIT) {
-                        // console.log("IT works", eligiblePoints);
                         const optedIn = await hasOpted(WALLET, chainAddress || dataBaseAddress, INFO, !!IS_TOKEN);
                         if (optedIn) {
                             let amount = 0;
@@ -180,34 +179,29 @@ export const RecursiveCheck = async () => {
                 });
                 await Promise.allSettled(repeatMap);
                 console.log({ length: infos.length, infos });
-                // for (let item of infos) {
-                //   const { address, amount, isToken, token } = item;
-                //   console.log({ item });
-                //   let amt = 0;
-                //   if (token) {
-                //     const tokemMetadata = await WALLET.tokenMetadata(token);
-                //     amt = reach.bigNumberToNumber(
-                //       reach.parseCurrency(
-                //         amount,
-                //         // @ts-ignore
-                //         +reach.bigNumberToNumber(tokemMetadata?.decimals)
-                //       )
-                //     );
-                //   } else {
-                //     amt = reach.bigNumberToNumber(reach.parseCurrency(amount));
-                //   }
-                //   await setReward(WALLET, address, amt, INFO, isToken)
-                //     .then((_) => console.log("Finished setting the rewards"))
-                //     .catch(async (err) => {
-                //       console.log("Error, trying again", err);
-                //       await setReward(WALLET, address, amt, INFO, isToken).catch(
-                //         (err) => {
-                //           console.error("Failed to Set Rewards Sorry");
-                //           console.error(err);
-                //         }
-                //       );
-                //     });
-                // }
+                for (let item of infos) {
+                    const { address, amount, isToken, token } = item;
+                    console.log({ item });
+                    let amt = 0;
+                    if (token) {
+                        const tokemMetadata = await WALLET.tokenMetadata(token);
+                        amt = reach.bigNumberToNumber(reach.parseCurrency(amount, 
+                        // @ts-ignore
+                        +reach.bigNumberToNumber(tokemMetadata?.decimals)));
+                    }
+                    else {
+                        amt = reach.bigNumberToNumber(reach.parseCurrency(amount));
+                    }
+                    await setReward(WALLET, address, amt, INFO, isToken)
+                        .then((_) => console.log("Finished setting the rewards"))
+                        .catch(async (err) => {
+                        console.log("Error, trying again", err);
+                        await setReward(WALLET, address, amt, INFO, isToken).catch((err) => {
+                            console.error("Failed to Set Rewards Sorry");
+                            console.error(err);
+                        });
+                    });
+                }
             }
         }
     }
