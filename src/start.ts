@@ -194,37 +194,37 @@ export const RecursiveCheck = async () => {
           }
           if (eligiblePoints >= HOUR_LIMIT) {
             // console.log("IT works", eligiblePoints);
-            // const optedIn = await hasOpted(
-            //   WALLET,
-            //   chainAddress || dataBaseAddress,
-            //   INFO as BigNumber,
-            //   !!IS_TOKEN
-            // );
-            // if (optedIn) {
+            const optedIn = await hasOpted(
+              WALLET,
+              chainAddress || dataBaseAddress,
+              INFO as BigNumber,
+              !!IS_TOKEN
+            );
+            if (optedIn) {
             
-            //   let amount = 0;
-            //   if (IS_TOKEN) {
-            //     amount = DEPOSIT || (FLOOR * (PERCENT / 100)) / 365;
-            //   } else {
-            //     if (!IS_MANUAL) {
-            //       amount = ((FLOOR_PRICE || FLOOR) * (PERCENT / 100)) / 365;
-            //     } else {
-            //       FLOOR_PRICE = DEPOSIT || (FLOOR * (PERCENT / 100)) / 365;
-            //       amount = FLOOR_PRICE;
-            //     }
-            //   }
-            //   infos = [
-            //     ...infos,
-            //     {
-            //       asset: asset,
-            //       eligiblePoints,
-            //       address: chainAddress || dataBaseAddress,
-            //       amount,
-            //       isToken: !!IS_TOKEN,
-            //       token: TOKEN?.value,
-            //     },
-            //   ];
-            // }
+              let amount = 0;
+              if (IS_TOKEN) {
+                amount = DEPOSIT || (FLOOR * (PERCENT / 100)) / 365;
+              } else {
+                if (!IS_MANUAL) {
+                  amount = ((FLOOR_PRICE || FLOOR) * (PERCENT / 100)) / 365;
+                } else {
+                  FLOOR_PRICE = DEPOSIT || (FLOOR * (PERCENT / 100)) / 365;
+                  amount = FLOOR_PRICE;
+                }
+              }
+              infos = [
+                ...infos,
+                {
+                  asset: asset,
+                  eligiblePoints,
+                  address: chainAddress || dataBaseAddress,
+                  amount,
+                  isToken: !!IS_TOKEN,
+                  token: TOKEN?.value,
+                },
+              ];
+            }
             obj[asset]["eligiblePoints"] = 0;
           }
           await ASSET_INFO_REF.child(`${asset}`).set(obj[asset]);
