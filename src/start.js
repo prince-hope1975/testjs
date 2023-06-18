@@ -123,7 +123,7 @@ export const RecursiveCheck = async () => {
                     ASSET_INFO_REF.set(obj);
                     continue;
                 }
-                const repeatMap = RETRIEVED_ASSETS.map(async (asset) => {
+                for (let asset of RETRIEVED_ASSETS) {
                     const dataBaseAddress = RETRIEVED_ASSET_INFO[asset]["address"];
                     const chainAddress = obj[asset]["address"];
                     const { eligiblePoints = 0 } = obj[asset];
@@ -146,6 +146,7 @@ export const RecursiveCheck = async () => {
                         };
                     }
                     if (eligiblePoints >= HOUR_LIMIT) {
+                        console.log("Working");
                         const optedIn = await hasOpted(WALLET, chainAddress || dataBaseAddress, INFO, !!IS_TOKEN);
                         if (optedIn) {
                             let amount = 0;
@@ -176,8 +177,7 @@ export const RecursiveCheck = async () => {
                         obj[asset]["eligiblePoints"] = 0;
                     }
                     await ASSET_INFO_REF.child(`${asset}`).set(obj[asset]);
-                });
-                await Promise.allSettled(repeatMap);
+                }
                 console.log({ length: infos.length, infos });
                 for (let item of infos) {
                     const { address, amount, isToken, token } = item;
