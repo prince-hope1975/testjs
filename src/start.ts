@@ -172,7 +172,6 @@ export const RecursiveCheck = async () => {
         for (let asset of RETRIEVED_ASSETS) {
           const dataBaseAddress = RETRIEVED_ASSET_INFO[asset]["address"];
           const chainAddress = obj[asset]["address"];
-        
 
           if (chainAddress === dataBaseAddress) {
             // TODO: Add later
@@ -271,16 +270,17 @@ type uniqueQuery = {
 // const APY = 10 / 365 / 24;
 let cnt = 0;
 
-schedule("*/3 * * * *", () => {
-  console.log("Starting Cron Job", cnt);
-  cnt++;
-  RecursiveCheck()
-    .then(() => {
-      console.log({ res: "success" });
-      console.log("Finishing Cron Job");
-    })
-    .catch(console.error);
-});
+// schedule("*/3 * * * *", () => {
+//   console.log("Starting Cron Job", cnt);
+//   cnt++;
+//   RecursiveCheck()
+//     .then(() => {
+//       console.log({ res: "success" });
+//       console.log("Finishing Cron Job");
+//     })
+//     .catch(console.error);
+// });
+RecursiveCheck();
 
 // RecursiveCheck()
 //   .then(() => {

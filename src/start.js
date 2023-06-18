@@ -2,8 +2,6 @@ import { getFormattedHoldersInfo } from "./index.js";
 import { loadStdlib } from "@reach-sh/stdlib";
 import { readDataFromSnapShot, db, } from "./common/utils/backend/firebase/index.js";
 import { hasOpted, setReward } from "./common/utils/contract/helpers.js";
-// import { FLOOR } from "./common/utils/constants/index.js";
-import { schedule } from "node-cron";
 import dotenv from "dotenv";
 import getFloor from "./common/utils/floor/index.js";
 // TODO : Insert actual contract ASSET_INFO_REF
@@ -203,16 +201,17 @@ export const RecursiveCheck = async () => {
 };
 // const APY = 10 / 365 / 24;
 let cnt = 0;
-schedule("*/3 * * * *", () => {
-    console.log("Starting Cron Job", cnt);
-    cnt++;
-    RecursiveCheck()
-        .then(() => {
-        console.log({ res: "success" });
-        console.log("Finishing Cron Job");
-    })
-        .catch(console.error);
-});
+// schedule("*/3 * * * *", () => {
+//   console.log("Starting Cron Job", cnt);
+//   cnt++;
+//   RecursiveCheck()
+//     .then(() => {
+//       console.log({ res: "success" });
+//       console.log("Finishing Cron Job");
+//     })
+//     .catch(console.error);
+// });
+RecursiveCheck();
 // RecursiveCheck()
 //   .then(() => {
 //     console.log({ res: "success" });
