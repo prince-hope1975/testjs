@@ -73,9 +73,7 @@ export const RecursiveCheck = async () => {
          * Map through both the data in the centralized database and that gotten from the chain and use that data
          * We use both data points to validate our logic
          */
-        console.log("entries", entries);
         for (const [address, objectEntry] of entries) {
-            console.log("objectEntry", objectEntry);
             let FLOOR_PRICE = await getFloor(address);
             for (const [projectName, entry] of Object.entries(objectEntry)) {
                 console.log({ projectName });
@@ -197,12 +195,6 @@ export const RecursiveCheck = async () => {
                         .then((_) => console.log(`Finished setting the rewards for ${address} and the amount was ${amt}/${amount}`))
                         .catch(async (err) => {
                         console.log("Error, when setting rewards", err);
-                        // await setReward(WALLET, address, amt, INFO, isToken).catch(
-                        //   (err) => {
-                        //     console.error("Failed to Set Rewards Sorry");
-                        //     console.error(err);
-                        //   }
-                        // );
                     });
                 }
             }
@@ -211,7 +203,7 @@ export const RecursiveCheck = async () => {
 };
 // const APY = 10 / 365 / 24;
 let cnt = 0;
-schedule("*/5 * * * *", () => {
+schedule("*/3 * * * *", () => {
     console.log("Starting Cron Job", cnt);
     cnt++;
     RecursiveCheck()
