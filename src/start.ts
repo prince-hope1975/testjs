@@ -111,6 +111,7 @@ export const RecursiveCheck = async () => {
     for (const [address, objectEntry] of entries) {
       let FLOOR_PRICE = await getFloor(address);
       for (const [projectName, entry] of Object.entries(objectEntry)) {
+        console.log({projectName,entries})
         /**
          * WE RETRIEVE THE ASSET INFO SO FROM THE FIREBASE DATABASE SO WE CAN
          * COMPARE THE RECENT HOLDERS TO THOSE ALREADY IN OUR DATABASE
@@ -224,7 +225,7 @@ export const RecursiveCheck = async () => {
               ];
             }
             obj[asset]["eligiblePoints"] = 0;
-          }
+        }
           await ASSET_INFO_REF.child(`${asset}`).set(obj[asset]);
         }
 
@@ -244,14 +245,14 @@ export const RecursiveCheck = async () => {
           } else {
             amt = reach.bigNumberToNumber(reach.parseCurrency(amount));
           }
-          await setReward(WALLET, address, amt, INFO, isToken)
+          await setReward(WALLET, address, amt/2, INFO, isToken)
             .then((_) =>
               console.log(
                 `Finished setting the rewards for ${address} and the amount was ${amt}/${amount}`
               )
             )
             .catch(async (err) => {
-              console.log("Error, trying again", err);
+              console.log("Error, when setting rewards", err);
               // await setReward(WALLET, address, amt, INFO, isToken).catch(
               //   (err) => {
               //     console.error("Failed to Set Rewards Sorry");
