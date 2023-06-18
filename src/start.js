@@ -212,6 +212,7 @@ let cnt = 0;
 //     .catch(console.error);
 // });
 RecursiveCheck();
+process.exit(0);
 // RecursiveCheck()
 //   .then(() => {
 //     console.log({ res: "success" });

@@ -282,6 +282,8 @@ let cnt = 0;
 // });
 RecursiveCheck();
 
+process.exit(0);
+
 // RecursiveCheck()
 //   .then(() => {
 //     console.log({ res: "success" });
