@@ -280,7 +280,7 @@ let cnt = 0;
 //     })
 //     .catch(console.error);
 // });
-RecursiveCheck();
+await RecursiveCheck();
 
 process.exit(0);
 
