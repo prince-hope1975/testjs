@@ -113,7 +113,7 @@ export const RecursiveCheck = async () => {
 
       let FLOOR_PRICE = await getFloor(address);
       for (const [projectName, entry] of Object.entries(objectEntry)) {
-        console.log({ projectName, entry });
+        console.log({ projectName });
         /**
          * WE RETRIEVE THE ASSET INFO SO FROM THE FIREBASE DATABASE SO WE CAN
          * COMPARE THE RECENT HOLDERS TO THOSE ALREADY IN OUR DATABASE
