@@ -170,7 +170,7 @@ export const RecursiveCheck = async () => {
           continue;
         }
 
-        const AWAITED_ASSETS = RETRIEVED_ASSETS.map(async (asset) => {
+        for (let asset of RETRIEVED_ASSETS) {
           const dataBaseAddress = RETRIEVED_ASSET_INFO[asset]["address"];
           const chainAddress = obj[asset]["address"];
 
@@ -227,8 +227,7 @@ export const RecursiveCheck = async () => {
             obj[asset]["eligiblePoints"] = 0;
           }
           await ASSET_INFO_REF.child(`${asset}`).set(obj[asset]);
-        });
-        await Promise.allSettled(AWAITED_ASSETS);
+        }
 
         console.log({ length: infos.length, infos });
         for (let item of infos) {
