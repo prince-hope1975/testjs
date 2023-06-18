@@ -73,10 +73,12 @@ export const RecursiveCheck = async () => {
          * Map through both the data in the centralized database and that gotten from the chain and use that data
          * We use both data points to validate our logic
          */
+        console.log("entries", entries);
         for (const [address, objectEntry] of entries) {
+            console.log("objectEntry", objectEntry);
             let FLOOR_PRICE = await getFloor(address);
             for (const [projectName, entry] of Object.entries(objectEntry)) {
-                console.log({ projectName, entries });
+                console.log({ projectName, entry });
                 /**
                  * WE RETRIEVE THE ASSET INFO SO FROM THE FIREBASE DATABASE SO WE CAN
                  * COMPARE THE RECENT HOLDERS TO THOSE ALREADY IN OUR DATABASE
