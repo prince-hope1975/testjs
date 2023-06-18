@@ -191,13 +191,15 @@ export const RecursiveCheck = async () => {
                         amt = reach.bigNumberToNumber(reach.parseCurrency(amount));
                     }
                     await setReward(WALLET, address, amt, INFO, isToken)
-                        .then((_) => console.log("Finished setting the rewards"))
+                        .then((_) => console.log(`Finished setting the rewards for ${address} and the amount was ${amt}/${amount}`))
                         .catch(async (err) => {
                         console.log("Error, trying again", err);
-                        await setReward(WALLET, address, amt, INFO, isToken).catch((err) => {
-                            console.error("Failed to Set Rewards Sorry");
-                            console.error(err);
-                        });
+                        // await setReward(WALLET, address, amt, INFO, isToken).catch(
+                        //   (err) => {
+                        //     console.error("Failed to Set Rewards Sorry");
+                        //     console.error(err);
+                        //   }
+                        // );
                     });
                 }
             }
