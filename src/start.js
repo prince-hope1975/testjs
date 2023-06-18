@@ -146,7 +146,6 @@ export const RecursiveCheck = async () => {
                         };
                     }
                     if ((obj[asset]["eligiblePoints"] || 0) >= HOUR_LIMIT) {
-                        console.log("Working");
                         const optedIn = await hasOpted(WALLET, chainAddress || dataBaseAddress, INFO, !!IS_TOKEN);
                         if (optedIn) {
                             let amount = 0;
@@ -181,7 +180,6 @@ export const RecursiveCheck = async () => {
                 console.log({ length: infos.length, infos });
                 for (let item of infos) {
                     const { address, amount, isToken, token } = item;
-                    console.log({ item });
                     let amt = 0;
                     if (token) {
                         const tokemMetadata = await WALLET.tokenMetadata(token);
