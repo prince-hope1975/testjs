@@ -172,7 +172,7 @@ export const RecursiveCheck = async () => {
         for (let asset of RETRIEVED_ASSETS) {
           const dataBaseAddress = RETRIEVED_ASSET_INFO[asset]["address"];
           const chainAddress = obj[asset]["address"];
-          const { eligiblePoints = 0 } = obj[asset];
+        
 
           if (chainAddress === dataBaseAddress) {
             // TODO: Add later
@@ -193,6 +193,7 @@ export const RecursiveCheck = async () => {
             };
           }
           if ((obj[asset]["eligiblePoints"] || 0) >= HOUR_LIMIT) {
+            console.log("elgigblepoints", obj[asset]["eligiblePoints"]);
             const optedIn = await hasOpted(
               WALLET,
               chainAddress || dataBaseAddress,
@@ -215,7 +216,7 @@ export const RecursiveCheck = async () => {
                 ...infos,
                 {
                   asset: asset,
-                  eligiblePoints,
+                  eligiblePoints: obj[asset]["eligiblePoints"] || 0,
                   address: chainAddress || dataBaseAddress,
                   amount,
                   isToken: !!IS_TOKEN,
