@@ -192,7 +192,7 @@ export const RecursiveCheck = async () => {
               eligiblePoints: 0,
             };
           }
-          if (eligiblePoints >= HOUR_LIMIT) {
+          if ((obj[asset]["eligiblePoints"] || 0) >= HOUR_LIMIT) {
             console.log("Working");
             const optedIn = await hasOpted(
               WALLET,
