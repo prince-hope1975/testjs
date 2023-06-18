@@ -130,7 +130,7 @@ async function RateLimitedRequest(Array, chunkSize) {
                     assetId: chunk[idx],
                 });
         });
-        console.log({ i });
+        // console.log({ i });
         data = [...result, ...data];
         // await setAsyncTimeout(500);
     }
