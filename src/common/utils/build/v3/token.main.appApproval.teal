@@ -24,42 +24,42 @@ errl:
 err
 Admin_addAdmin_aJA_q4KM4PooYe5_nsTCLYbtNXo_RdPWqFyKODNGgBnM_:
 txna ApplicationArgs 1
-store 11 // v9376
+store 11 // v9394
 _reacha_Admin_addAdmin:
 int 8
 bzero
 byte base64(AA==)
-load 11 // v9376
+load 11 // v9394
 concat
 int 16
 bzero
 concat
 concat
-store 11 // v9432
+store 11 // v9450
 _reachi_2:
 int 3
 load 1 // GV_currentStep :: UInt
 ==
 assert
 callsub l2_LF_svsLoad_3
-load 11 // v9432
+load 11 // v9450
 int 0
 extract_uint64
-store 12 // v9431
-load 11 // v9432
+store 12 // v9449
+load 11 // v9450
 extract 8 49
-store 13 // .fork177.msg/2355
+store 13 // .fork177.msg/2357
 byte base64(VQtlgw==)
-load 12 // v9431
+load 12 // v9449
 itob
 concat
-load 13 // .fork177.msg/2355
+load 13 // .fork177.msg/2357
 concat
 log // up to 61 bytes
-// ^ log: "_reach_e2" [v9431,.fork177.msg/2355] "_reach_e2(uint64,(byte,byte[48]))"
-load 12 // v9431
+// ^ log: "_reach_e2" [v9449,.fork177.msg/2357] "_reach_e2(uint64,(byte,byte[48]))"
+load 12 // v9449
 callsub l5_LF_timeCheck
-load 13 // .fork177.msg/2355
+load 13 // .fork177.msg/2357
 int 0
 getbyte
 switch l7_Admin_addAdmin0_177 l8_Admin_deposit0_177 l9_Admin_editUserReward0_177 l10_Admin_endContractAndTransfer0_177 l11_Admin_revokeAdmin0_177 l12_Admin_setReward0_177 l13_User_claim0_177 l14_User_optin0_177
@@ -67,32 +67,32 @@ b errl
 Admin_deposit_uiSkAp__3jDeqDlb0Iah80RVTPslE1VoL8cnd_zuYrZd0_:
 txna ApplicationArgs 1
 btoi
-store 11 // v9382
+store 11 // v9400
 _reacha_Admin_deposit:
 int 8
 bzero
 byte base64(AQ==)
-load 11 // v9382
+load 11 // v9400
 itob
 concat
 int 40
 bzero
 concat
 concat
-store 11 // v9432
+store 11 // v9450
 b _reachi_2
 Admin_editUserRe9OI3lm4g_nP_iEU4sKpCqxlrTvUcVAhRSN_JL0bHQg4_:
 txna ApplicationArgs 1
 txna ApplicationArgs 2
 btoi
-store 11 // v9389
-store 12 // v9388
+store 11 // v9407
+store 12 // v9406
 _reacha_Admin_editUserReward:
 int 8
 bzero
 byte base64(Ag==)
-load 12 // v9388
-load 11 // v9389
+load 12 // v9406
+load 11 // v9407
 itob
 concat
 concat
@@ -100,27 +100,27 @@ int 8
 bzero
 concat
 concat
-store 11 // v9432
+store 11 // v9450
 b _reachi_2
 Admin_endContracE7DLWCH8tMMv4VrS88Hnec_dgZoJp6sAfRHQUf4BT2s_:
 _reacha_Admin_endContractAndTransfer:
 byte base64(AAAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA)
-store 11 // v9432
+store 11 // v9450
 b _reachi_2
 Admin_revokeAdmiRjqcjTaVeWg58LlsiKwhrEIoffHOKMIwWvsLQ_IKx_w_:
 txna ApplicationArgs 1
-store 11 // v9400
+store 11 // v9418
 _reacha_Admin_revokeAdmin:
 int 8
 bzero
 byte base64(BA==)
-load 11 // v9400
+load 11 // v9418
 concat
 int 16
 bzero
 concat
 concat
-store 11 // v9432
+store 11 // v9450
 b _reachi_2
 Admin_setReward_PHCjanzSyGZtsijXVshoYvWiRg2pWEwShMTHIlrErys_:
 txna ApplicationArgs 1
@@ -128,27 +128,27 @@ txna ApplicationArgs 2
 btoi
 txna ApplicationArgs 3
 btoi
-store 11 // v9408
-store 12 // v9407
-store 13 // v9406
+store 11 // v9426
+store 12 // v9425
+store 13 // v9424
 _reacha_Admin_setReward:
 int 8
 bzero
 byte base64(BQ==)
-load 13 // v9406
-load 12 // v9407
+load 13 // v9424
+load 12 // v9425
 itob
 concat
-load 11 // v9408
+load 11 // v9426
 itob
 concat
 concat
 concat
-store 11 // v9432
+store 11 // v9450
 b _reachi_2
 Info_Admins_addr0DMX_X6CiwvrzEQOGnkmxdCO8TJN3oC9WXIduVQfFmc_:
 txna ApplicationArgs 1
-store 11 // v9342
+store 11 // v9360
 _reacha_Info_Admins:
 load 1 // GV_currentStep :: UInt
 int 3
@@ -161,7 +161,7 @@ callsub l2_LF_svsLoad_3
 byte base64()
 byte base64()
 byte base64(Ag==)
-load 11 // v9342
+load 11 // v9360
 concat
 callsub l3_LF_mapRef
 int 0
@@ -194,7 +194,7 @@ assert
 // ^ Claim: Incorrect state: not leaf
 // at ./token.rsh:47:12:property binding
 callsub l2_LF_svsLoad_3
-load 14 // v2080
+load 14 // v2082
 itob
 store 4 // GV_apiRet :: Null
 b apiReturn_check
@@ -202,8 +202,8 @@ Info_claimed_add7MO6HKJ9bJy4qy7woENXDxwhXNgYLtL3ao_EF0qEj6U_:
 txna ApplicationArgs 1
 txna ApplicationArgs 2
 btoi
-store 11 // v9349
-store 12 // v9348
+store 11 // v9367
+store 12 // v9366
 _reacha_Info_claimed:
 load 1 // GV_currentStep :: UInt
 int 3
@@ -219,8 +219,8 @@ byte base64()
 int 16
 bzero
 byte base64(AQ==)
-load 12 // v9348
-load 11 // v9349
+load 12 // v9366
+load 11 // v9367
 itob
 concat
 concat
@@ -231,7 +231,7 @@ store 4 // GV_apiRet :: Null
 b apiReturn_check
 Info_opted_addre0ExNsQ1F4ovmZnD_SASEmwURNs0YuTWn5SnO2OIv_ts_:
 txna ApplicationArgs 1
-store 11 // v9354
+store 11 // v9372
 _reacha_Info_opted:
 load 1 // GV_currentStep :: UInt
 int 3
@@ -244,7 +244,7 @@ callsub l2_LF_svsLoad_3
 byte base64()
 byte base64()
 byte base64(BA==)
-load 11 // v9354
+load 11 // v9372
 concat
 callsub l3_LF_mapRef
 int 0
@@ -264,7 +264,7 @@ assert
 // ^ Claim: Incorrect state: not leaf
 // at ./token.rsh:46:24:property binding
 callsub l2_LF_svsLoad_3
-load 16 // total_rewards_allcoated/2078
+load 16 // total_rewards_allcoated/2080
 itob
 store 4 // GV_apiRet :: Null
 b apiReturn_check
@@ -277,7 +277,7 @@ assert
 // ^ Claim: Incorrect state: not leaf
 // at ./token.rsh:45:23:property binding
 callsub l2_LF_svsLoad_3
-load 19 // total_amount_claimed/2075
+load 19 // total_amount_claimed/2077
 itob
 store 4 // GV_apiRet :: Null
 b apiReturn_check
@@ -290,7 +290,7 @@ assert
 // ^ Claim: Incorrect state: not leaf
 // at ./token.rsh:43:17:property binding
 callsub l2_LF_svsLoad_3
-load 20 // total_users_claim/2074
+load 20 // total_users_claim/2076
 itob
 store 4 // GV_apiRet :: Null
 b apiReturn_check
@@ -303,13 +303,13 @@ assert
 // ^ Claim: Incorrect state: not leaf
 // at ./token.rsh:44:17:property binding
 callsub l2_LF_svsLoad_3
-load 18 // usersNo/2076
+load 18 // usersNo/2078
 itob
 store 4 // GV_apiRet :: Null
 b apiReturn_check
 Info_totalReward_ukWfT_nIxKsnB0f__Sk3mUJbAyt9LingIzMLe19kp0_:
 txna ApplicationArgs 1
-store 11 // v9366
+store 11 // v9384
 _reacha_Info_totalRewards:
 load 1 // GV_currentStep :: UInt
 int 3
@@ -325,7 +325,7 @@ byte base64()
 int 8
 bzero
 byte base64(AA==)
-load 11 // v9366
+load 11 // v9384
 concat
 callsub l3_LF_mapRef
 callsub l4_LF_fromSome
@@ -335,8 +335,8 @@ Info_userReward_vNOekaBJSVVT9SsT1g5r8hPihhN_SUF0U7saJaJG79E_:
 txna ApplicationArgs 1
 txna ApplicationArgs 2
 btoi
-store 11 // v9371
-store 12 // v9370
+store 11 // v9389
+store 12 // v9388
 _reacha_Info_userReward:
 load 1 // GV_currentStep :: UInt
 int 3
@@ -352,8 +352,8 @@ byte base64()
 int 16
 bzero
 byte base64(AQ==)
-load 12 // v9370
-load 11 // v9371
+load 12 // v9388
+load 11 // v9389
 itob
 concat
 concat
@@ -367,31 +367,31 @@ txna ApplicationArgs 1
 btoi
 txna ApplicationArgs 2
 btoi
-store 11 // v9417
-store 12 // v9416
+store 11 // v9435
+store 12 // v9434
 _reacha_User_claim:
 int 8
 bzero
 byte base64(Bg==)
-load 12 // v9416
+load 12 // v9434
 itob
-load 11 // v9417
+load 11 // v9435
 itob
 concat
 concat
 global ZeroAddress
 concat
 concat
-store 11 // v9432
+store 11 // v9450
 b _reachi_2
 User_optin__voidlozpJcHjwgp4Se3UDX_jUs2IgQys2Ct8vq___hhb2Qw_:
 _reacha_User_optin:
 byte base64(AAAAAAAAAAAHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA)
-store 11 // v9432
+store 11 // v9450
 b _reachi_2
 _api_Admin_addAdmin2:
 txn Sender
-load 27 // Deployer/2011
+load 27 // Deployer/2013
 ==
 // resource: R_Box
 byte base64()
@@ -416,106 +416,106 @@ assert
 // resource: R_Box
 int 15700
 byte base64(Ag==)
-load 13 // .fork177.msg/2355
+load 13 // .fork177.msg/2357
 extract 1 32
 concat
 byte base64()
 callsub l15_LF_mapSet
 byte base64()
-store 11 // v2493
-byte base64(AAAAAAAACb0=)
-load 11 // v2493
+store 11 // v2495
+byte base64(AAAAAAAACb8=)
+load 11 // v2495
 concat
 log // up to 8 bytes
-load 11 // v2493
+load 11 // v2495
 store 4 // GV_apiRet :: Null
-load 17 // bal/2077
+load 17 // bal/2079
 itob
-load 24 // MAIN_OBJECT/2025
+load 24 // MAIN_OBJECT/2027
 extract 8 1
 concat
-load 24 // MAIN_OBJECT/2025
+load 24 // MAIN_OBJECT/2027
 extract 9 17
 concat
-load 19 // total_amount_claimed/2075
+load 19 // total_amount_claimed/2077
 itob
 concat
-load 16 // total_rewards_allcoated/2078
+load 16 // total_rewards_allcoated/2080
 itob
 concat
-load 20 // total_users_claim/2074
+load 20 // total_users_claim/2076
 itob
 concat
-load 18 // usersNo/2076
+load 18 // usersNo/2078
 itob
 concat
 global Round
-store 23 // thisConsensusTime/2026
-store 24 // MAIN_OBJECT/2025
+store 23 // thisConsensusTime/2028
+store 24 // MAIN_OBJECT/2027
 _reachl_1:
-load 24 // MAIN_OBJECT/2025
+load 24 // MAIN_OBJECT/2027
 extract 8 1
 btoi
 bz l21_ifF
-load 24 // MAIN_OBJECT/2025
+load 24 // MAIN_OBJECT/2027
 int 42
 extract_uint64
-store 20 // total_users_claim/2074
-load 24 // MAIN_OBJECT/2025
+store 20 // total_users_claim/2076
+load 24 // MAIN_OBJECT/2027
 int 26
 extract_uint64
-store 19 // total_amount_claimed/2075
-load 24 // MAIN_OBJECT/2025
+store 19 // total_amount_claimed/2077
+load 24 // MAIN_OBJECT/2027
 int 50
 extract_uint64
-store 18 // usersNo/2076
-load 24 // MAIN_OBJECT/2025
+store 18 // usersNo/2078
+load 24 // MAIN_OBJECT/2027
 int 0
 extract_uint64
-store 17 // bal/2077
-load 24 // MAIN_OBJECT/2025
+store 17 // bal/2079
+load 24 // MAIN_OBJECT/2027
 int 34
 extract_uint64
-store 16 // total_rewards_allcoated/2078
-load 22 // tokenInfos/2028
+store 16 // total_rewards_allcoated/2080
+load 22 // tokenInfos/2030
 extract 0 17
 dup
-store 15 // tokInfo/2079
+store 15 // tokInfo/2081
 int 0
 extract_uint64
-store 14 // v2080
+store 14 // v2082
 l22_LF_svsDump_3:
-load 27 // Deployer/2011
-load 26 // projectName/2012
+load 27 // Deployer/2013
+load 26 // projectName/2014
 concat
-load 25 // tok/2013
+load 25 // tok/2015
 itob
 concat
-load 24 // MAIN_OBJECT/2025
+load 24 // MAIN_OBJECT/2027
 concat
-load 22 // tokenInfos/2028
+load 22 // tokenInfos/2030
 concat
-load 21 // netBalance/2029
+load 21 // netBalance/2031
 itob
 concat
-load 20 // total_users_claim/2074
+load 20 // total_users_claim/2076
 itob
 concat
-load 19 // total_amount_claimed/2075
+load 19 // total_amount_claimed/2077
 itob
 concat
-load 18 // usersNo/2076
+load 18 // usersNo/2078
 itob
 concat
-load 17 // bal/2077
+load 17 // bal/2079
 itob
 concat
-load 16 // total_rewards_allcoated/2078
+load 16 // total_rewards_allcoated/2080
 itob
 concat
-load 15 // tokInfo/2079
+load 15 // tokInfo/2081
 concat
-load 14 // v2080
+load 14 // v2082
 itob
 concat
 int 3
@@ -549,12 +549,12 @@ load 3 // GV_wasntMeth :: Bool
 bnz done
 b apiReturn_noCheck
 _api_Admin_deposit2:
-load 13 // .fork177.msg/2355
+load 13 // .fork177.msg/2357
 int 1
 extract_uint64
-store 11 // val/2822
+store 11 // val/2826
 txn Sender
-load 27 // Deployer/2011
+load 27 // Deployer/2013
 ==
 // resource: R_Box
 byte base64()
@@ -576,61 +576,61 @@ assert
 // at ./token.rsh:81:37:application call to [unknown function] (defined at: ./token.rsh:121:32:function exp)
 // at ./token.rsh:81:37:application call to [unknown function] (defined at: ./token.rsh:81:37:function exp)
 // at ./token.rsh:92:14:application call to [unknown function] (defined at: ./token.rsh:92:14:function exp)
-load 11 // val/2822
-load 25 // tok/2013
+load 11 // val/2826
+load 25 // tok/2015
 callsub l16_LF_checkTxn_True
 // ^ CheckPay
 // at ./token.rsh:81:37:dot
 byte base64()
-store 12 // v2963
-byte base64(AAAAAAAAC5M=)
-load 12 // v2963
+store 12 // v2967
+byte base64(AAAAAAAAC5c=)
+load 12 // v2967
 concat
 log // up to 8 bytes
-load 12 // v2963
+load 12 // v2967
 store 4 // GV_apiRet :: Null
-load 17 // bal/2077
-load 11 // val/2822
+load 17 // bal/2079
+load 11 // val/2826
 +
 itob
-load 24 // MAIN_OBJECT/2025
+load 24 // MAIN_OBJECT/2027
 extract 8 1
 concat
-load 24 // MAIN_OBJECT/2025
+load 24 // MAIN_OBJECT/2027
 extract 9 17
 concat
-load 19 // total_amount_claimed/2075
+load 19 // total_amount_claimed/2077
 itob
 concat
-load 16 // total_rewards_allcoated/2078
+load 16 // total_rewards_allcoated/2080
 itob
 concat
-load 20 // total_users_claim/2074
+load 20 // total_users_claim/2076
 itob
 concat
-load 18 // usersNo/2076
+load 18 // usersNo/2078
 itob
 concat
 global Round
-load 22 // tokenInfos/2028
-load 15 // tokInfo/2079
-load 14 // v2080
-load 11 // val/2822
+load 22 // tokenInfos/2030
+load 15 // tokInfo/2081
+load 14 // v2082
+load 11 // val/2826
 +
 itob
 replace2 0
 replace2 0
-store 22 // tokenInfos/2028
-store 23 // thisConsensusTime/2026
-store 24 // MAIN_OBJECT/2025
+store 22 // tokenInfos/2030
+store 23 // thisConsensusTime/2028
+store 24 // MAIN_OBJECT/2027
 b _reachl_1
 _api_Admin_editUserReward2:
-load 11 // data_id/3248
+load 11 // data_id/3254
 int 32
 extract_uint64
-store 12 // Amt/3282
+store 12 // Amt/3288
 txn Sender
-load 27 // Deployer/2011
+load 27 // Deployer/2013
 ==
 // resource: R_Box
 byte base64()
@@ -652,8 +652,8 @@ assert
 // at ./token.rsh:81:37:application call to [unknown function] (defined at: ./token.rsh:180:45:function exp)
 // at ./token.rsh:81:37:application call to [unknown function] (defined at: ./token.rsh:81:37:function exp)
 // at ./token.rsh:92:14:application call to [unknown function] (defined at: ./token.rsh:92:14:function exp)
-load 12 // Amt/3282
-load 14 // v2080
+load 12 // Amt/3288
+load 14 // v2082
 <=
 assert
 // ^ Claim: Can only edit what is in the contract
@@ -666,90 +666,90 @@ assert
 // resource: R_Box
 int 18900
 byte base64(AA==)
-load 11 // data_id/3248
+load 11 // data_id/3254
 extract 0 32
 concat
-load 12 // Amt/3282
+load 12 // Amt/3288
 itob
 callsub l15_LF_mapSet
 byte base64()
-store 11 // v3440
-byte base64(AAAAAAAADXA=)
-load 11 // v3440
+store 11 // v3446
+byte base64(AAAAAAAADXY=)
+load 11 // v3446
 concat
 log // up to 8 bytes
-load 11 // v3440
+load 11 // v3446
 store 4 // GV_apiRet :: Null
-load 17 // bal/2077
+load 17 // bal/2079
 itob
-load 24 // MAIN_OBJECT/2025
+load 24 // MAIN_OBJECT/2027
 extract 8 1
 concat
-load 24 // MAIN_OBJECT/2025
+load 24 // MAIN_OBJECT/2027
 extract 9 17
 concat
-load 19 // total_amount_claimed/2075
+load 19 // total_amount_claimed/2077
 itob
 concat
-load 16 // total_rewards_allcoated/2078
+load 16 // total_rewards_allcoated/2080
 itob
 concat
-load 20 // total_users_claim/2074
+load 20 // total_users_claim/2076
 itob
 concat
-load 18 // usersNo/2076
+load 18 // usersNo/2078
 itob
 concat
 global Round
-store 23 // thisConsensusTime/2026
-store 24 // MAIN_OBJECT/2025
+store 23 // thisConsensusTime/2028
+store 24 // MAIN_OBJECT/2027
 b _reachl_1
 _api_Admin_endContractAndTransfer2:
-load 27 // Deployer/2011
+load 27 // Deployer/2013
 txn Sender
 ==
 assert
 // ^ Claim: Cannot end contract without being Deployer
 // at reach standard library:57:5:application
-// at ./token.rsh:318:12:application call to "check" (defined at: reach standard library:49:32:function exp)
-// at ./token.rsh:317:44:application call to [unknown function] (defined at: ./token.rsh:317:44:function exp)
-// at ./token.rsh:81:37:application call to [unknown function] (defined at: ./token.rsh:317:44:function exp)
+// at ./token.rsh:319:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./token.rsh:318:44:application call to [unknown function] (defined at: ./token.rsh:318:44:function exp)
+// at ./token.rsh:81:37:application call to [unknown function] (defined at: ./token.rsh:318:44:function exp)
 // at ./token.rsh:81:37:application call to [unknown function] (defined at: ./token.rsh:81:37:function exp)
 // at ./token.rsh:92:14:application call to [unknown function] (defined at: ./token.rsh:92:14:function exp)
 byte base64()
-store 11 // v3905
-byte base64(AAAAAAAAD0E=)
-load 11 // v3905
+store 11 // v3913
+byte base64(AAAAAAAAD0k=)
+load 11 // v3913
 concat
 log // up to 8 bytes
-load 11 // v3905
+load 11 // v3913
 store 4 // GV_apiRet :: Null
-load 17 // bal/2077
+load 17 // bal/2079
 itob
 byte base64(AA==)
 concat
-load 24 // MAIN_OBJECT/2025
+load 24 // MAIN_OBJECT/2027
 extract 9 17
 concat
-load 19 // total_amount_claimed/2075
+load 19 // total_amount_claimed/2077
 itob
 concat
-load 16 // total_rewards_allcoated/2078
+load 16 // total_rewards_allcoated/2080
 itob
 concat
-load 20 // total_users_claim/2074
+load 20 // total_users_claim/2076
 itob
 concat
-load 18 // usersNo/2076
+load 18 // usersNo/2078
 itob
 concat
 global Round
-store 23 // thisConsensusTime/2026
-store 24 // MAIN_OBJECT/2025
+store 23 // thisConsensusTime/2028
+store 24 // MAIN_OBJECT/2027
 b _reachl_1
 _api_Admin_revokeAdmin2:
 txn Sender
-load 27 // Deployer/2011
+load 27 // Deployer/2013
 ==
 assert
 // ^ Claim: Only the Deployer can revoke Admin Rights
@@ -762,59 +762,59 @@ assert
 // resource: R_Box
 int 15700
 byte base64(Ag==)
-load 13 // .fork177.msg/2355
+load 13 // .fork177.msg/2357
 extract 1 32
 concat
 callsub l17_LF_mapDel
 byte base64()
-store 11 // v4371
-byte base64(AAAAAAAAERM=)
-load 11 // v4371
+store 11 // v4381
+byte base64(AAAAAAAAER0=)
+load 11 // v4381
 concat
 log // up to 8 bytes
-load 11 // v4371
+load 11 // v4381
 store 4 // GV_apiRet :: Null
-load 17 // bal/2077
+load 17 // bal/2079
 itob
-load 24 // MAIN_OBJECT/2025
+load 24 // MAIN_OBJECT/2027
 extract 8 1
 concat
-load 24 // MAIN_OBJECT/2025
+load 24 // MAIN_OBJECT/2027
 extract 9 17
 concat
-load 19 // total_amount_claimed/2075
+load 19 // total_amount_claimed/2077
 itob
 concat
-load 16 // total_rewards_allcoated/2078
+load 16 // total_rewards_allcoated/2080
 itob
 concat
-load 20 // total_users_claim/2074
+load 20 // total_users_claim/2076
 itob
 concat
-load 18 // usersNo/2076
+load 18 // usersNo/2078
 itob
 concat
 global Round
-store 23 // thisConsensusTime/2026
-store 24 // MAIN_OBJECT/2025
+store 23 // thisConsensusTime/2028
+store 24 // MAIN_OBJECT/2027
 b _reachl_1
 _api_Admin_setReward2:
-load 11 // data_id/4583
+load 11 // data_id/4595
 extract 0 32
-store 30 // v/4654
-load 11 // data_id/4583
+store 30 // v/4666
+load 11 // data_id/4595
 int 40
 extract_uint64
 dup
-store 29 // Amt/4656
-load 17 // bal/2077
+store 29 // Amt/4668
+load 17 // bal/2079
 >
-store 28 // amtIsGreater/4657
+store 28 // amtIsGreater/4669
 // resource: R_Box
 byte base64()
 byte base64()
 byte base64(BA==)
-load 30 // v/4654
+load 30 // v/4666
 concat
 callsub l3_LF_mapRef
 int 0
@@ -830,20 +830,20 @@ assert
 // at ./token.rsh:81:37:application call to [unknown function] (defined at: ./token.rsh:81:37:function exp)
 // at ./token.rsh:92:14:application call to [unknown function] (defined at: ./token.rsh:92:14:function exp)
 int 0
-load 29 // Amt/4656
-load 28 // amtIsGreater/4657
+load 29 // Amt/4668
+load 28 // amtIsGreater/4669
 select
 dup
-store 13 // v4662
-load 25 // tok/2013
+store 13 // v4674
+load 25 // tok/2015
 callsub l16_LF_checkTxn_True
 // ^ CheckPay
 // at ./token.rsh:81:37:dot
-load 30 // v/4654
-load 11 // data_id/4583
+load 30 // v/4666
+load 11 // data_id/4595
 extract 32 8
 concat
-store 12 // v4844
+store 12 // v4856
 int 16
 bzero
 // resource: R_Box
@@ -851,21 +851,21 @@ byte base64()
 int 16
 bzero
 byte base64(AQ==)
-load 12 // v4844
+load 12 // v4856
 concat
 callsub l3_LF_mapRef
 callsub l4_LF_fromSome
-store 11 // returned/4847
+store 11 // returned/4859
 int 25300
 byte base64(AQ==)
-load 12 // v4844
+load 12 // v4856
 concat
-load 11 // returned/4847
+load 11 // returned/4859
 extract 0 8
-load 11 // returned/4847
+load 11 // returned/4859
 int 8
 extract_uint64
-load 29 // Amt/4656
+load 29 // Amt/4668
 +
 itob
 concat
@@ -873,7 +873,7 @@ callsub l15_LF_mapSet
 // resource: R_Box
 int 18900
 byte base64(AA==)
-load 30 // v/4654
+load 30 // v/4666
 concat
 int 8
 bzero
@@ -881,74 +881,74 @@ byte base64()
 int 8
 bzero
 byte base64(AA==)
-load 30 // v/4654
+load 30 // v/4666
 concat
 callsub l3_LF_mapRef
 callsub l4_LF_fromSome
 btoi
-load 29 // Amt/4656
+load 29 // Amt/4668
 +
 itob
 callsub l15_LF_mapSet
 int 1
-store 11 // v4860
-byte base64(AAAAAAAAEvw=)
-load 11 // v4860
+store 11 // v4872
+byte base64(AAAAAAAAEwg=)
+load 11 // v4872
 itob
 substring 7 8
 concat
 log // up to 9 bytes
-load 11 // v4860
+load 11 // v4872
 itob
 substring 7 8
 store 4 // GV_apiRet :: Null
-load 28 // amtIsGreater/4657
+load 28 // amtIsGreater/4669
 bz l18_localIfF
-load 17 // bal/2077
-load 29 // Amt/4656
+load 17 // bal/2079
+load 29 // Amt/4668
 +
-store 11 // v4876
+store 11 // v4888
 l19_localIfK:
-load 11 // v4876
+load 11 // v4888
 itob
-load 24 // MAIN_OBJECT/2025
+load 24 // MAIN_OBJECT/2027
 extract 8 1
 concat
-load 24 // MAIN_OBJECT/2025
+load 24 // MAIN_OBJECT/2027
 extract 9 17
 concat
-load 19 // total_amount_claimed/2075
+load 19 // total_amount_claimed/2077
 itob
 concat
-load 16 // total_rewards_allcoated/2078
+load 16 // total_rewards_allcoated/2080
 itob
 concat
-load 20 // total_users_claim/2074
+load 20 // total_users_claim/2076
 itob
 concat
-load 18 // usersNo/2076
+load 18 // usersNo/2078
 itob
 concat
 global Round
-load 22 // tokenInfos/2028
-load 15 // tokInfo/2079
-load 14 // v2080
-load 13 // v4662
+load 22 // tokenInfos/2030
+load 15 // tokInfo/2081
+load 14 // v2082
+load 13 // v4674
 +
 itob
 replace2 0
 replace2 0
-store 22 // tokenInfos/2028
-store 23 // thisConsensusTime/2026
-store 24 // MAIN_OBJECT/2025
+store 22 // tokenInfos/2030
+store 23 // thisConsensusTime/2028
+store 24 // MAIN_OBJECT/2027
 b _reachl_1
 _api_User_claim2:
-load 11 // data_id/5028
+load 11 // data_id/5042
 int 0
 extract_uint64
 dup
-store 13 // amt/5115
-load 14 // v2080
+store 13 // amt/5129
+load 14 // v2082
 <=
 assert
 // ^ Claim: Cannot withdraw less than balance
@@ -970,7 +970,7 @@ concat
 callsub l3_LF_mapRef
 callsub l4_LF_fromSome
 btoi
-load 13 // amt/5115
+load 13 // amt/5129
 >=
 assert
 // ^ Claim: Cannot withdraw less than allocated
@@ -981,10 +981,10 @@ assert
 // at ./token.rsh:81:37:application call to [unknown function] (defined at: ./token.rsh:81:37:function exp)
 // at ./token.rsh:92:14:application call to [unknown function] (defined at: ./token.rsh:92:14:function exp)
 txn Sender
-load 11 // data_id/5028
+load 11 // data_id/5042
 extract 8 8
 concat
-store 12 // v5387
+store 12 // v5401
 int 16
 bzero
 // resource: R_Box
@@ -992,49 +992,53 @@ byte base64()
 int 16
 bzero
 byte base64(AQ==)
-load 12 // v5387
+load 12 // v5401
 concat
 callsub l3_LF_mapRef
 callsub l4_LF_fromSome
-store 11 // returned/5390
+store 11 // returned/5404
 int 25300
 byte base64(AQ==)
-load 12 // v5387
+load 12 // v5401
 concat
-load 11 // returned/5390
+load 11 // returned/5404
 int 0
 extract_uint64
-load 13 // amt/5115
+load 13 // amt/5129
 +
 itob
-load 11 // returned/5390
-extract 8 8
+load 11 // returned/5404
+int 8
+extract_uint64
+load 13 // amt/5129
+-
+itob
 concat
 callsub l15_LF_mapSet
 int 1
-store 11 // v5397
-byte base64(AAAAAAAAFRU=)
-load 11 // v5397
+store 11 // v5413
+byte base64(AAAAAAAAFSU=)
+load 11 // v5413
 itob
 substring 7 8
 concat
 log // up to 9 bytes
-load 11 // v5397
+load 11 // v5413
 itob
 substring 7 8
 store 4 // GV_apiRet :: Null
 txn Sender
-load 13 // amt/5115
+load 13 // amt/5129
 itob
 concat
-load 26 // projectName/2012
+load 26 // projectName/2014
 concat
-store 11 // v5405
+store 11 // v5421
 byte base64(m8hUUA==)
-load 11 // v5405
+load 11 // v5421
 concat
 log // up to 74 bytes
-// ^ log: "claimed" [v5405] "claimed((address,uint64,byte[30]))"
+// ^ log: "claimed" [v5421] "claimed((address,uint64,byte[30]))"
 // resource: R_Box
 byte base64()
 byte base64()
@@ -1047,9 +1051,9 @@ getbyte
 int 1
 ==
 bz l20_ifF
-load 13 // amt/5115
+load 13 // amt/5129
 // resource: R_Asset
-load 25 // tok/2013
+load 25 // tok/2015
 txn Sender
 callsub l6_LF_makeTxn_False_False_True_True
 int 18900
@@ -1057,46 +1061,46 @@ byte base64(AA==)
 txn Sender
 concat
 callsub l17_LF_mapDel
-load 17 // bal/2077
-load 13 // amt/5115
+load 17 // bal/2079
+load 13 // amt/5129
 -
 itob
-load 24 // MAIN_OBJECT/2025
+load 24 // MAIN_OBJECT/2027
 extract 8 1
 concat
-load 24 // MAIN_OBJECT/2025
+load 24 // MAIN_OBJECT/2027
 extract 9 17
 concat
-load 19 // total_amount_claimed/2075
-load 13 // amt/5115
+load 19 // total_amount_claimed/2077
+load 13 // amt/5129
 +
 itob
 concat
-load 16 // total_rewards_allcoated/2078
+load 16 // total_rewards_allcoated/2080
 itob
 concat
-load 20 // total_users_claim/2074
+load 20 // total_users_claim/2076
 int 1
 +
 itob
 concat
-load 18 // usersNo/2076
+load 18 // usersNo/2078
 int 1
 +
 itob
 concat
 global Round
-load 22 // tokenInfos/2028
-load 15 // tokInfo/2079
-load 14 // v2080
-load 13 // amt/5115
+load 22 // tokenInfos/2030
+load 15 // tokInfo/2081
+load 14 // v2082
+load 13 // amt/5129
 -
 itob
 replace2 0
 replace2 0
-store 22 // tokenInfos/2028
-store 23 // thisConsensusTime/2026
-store 24 // MAIN_OBJECT/2025
+store 22 // tokenInfos/2030
+store 23 // thisConsensusTime/2028
+store 24 // MAIN_OBJECT/2027
 b _reachl_1
 _api_User_optin2:
 // resource: R_Box
@@ -1107,77 +1111,77 @@ concat
 byte base64()
 callsub l15_LF_mapSet
 byte base64()
-store 11 // v5903
-byte base64(AAAAAAAAFw8=)
-load 11 // v5903
+store 11 // v5921
+byte base64(AAAAAAAAFyE=)
+load 11 // v5921
 concat
 log // up to 8 bytes
-load 11 // v5903
+load 11 // v5921
 store 4 // GV_apiRet :: Null
-load 17 // bal/2077
+load 17 // bal/2079
 itob
-load 24 // MAIN_OBJECT/2025
+load 24 // MAIN_OBJECT/2027
 extract 8 1
 concat
-load 24 // MAIN_OBJECT/2025
+load 24 // MAIN_OBJECT/2027
 extract 9 17
 concat
-load 19 // total_amount_claimed/2075
+load 19 // total_amount_claimed/2077
 itob
 concat
-load 16 // total_rewards_allcoated/2078
+load 16 // total_rewards_allcoated/2080
 itob
 concat
-load 20 // total_users_claim/2074
+load 20 // total_users_claim/2076
 itob
 concat
-load 18 // usersNo/2076
+load 18 // usersNo/2078
 itob
 concat
 global Round
-store 23 // thisConsensusTime/2026
-store 24 // MAIN_OBJECT/2025
+store 23 // thisConsensusTime/2028
+store 24 // MAIN_OBJECT/2027
 b _reachl_1
 _reachi_0:
 txn Sender
-store 27 // Deployer/2011
-load 11 // v9429
+store 27 // Deployer/2013
+load 11 // v9447
 int 0
 extract_uint64
-store 12 // v9428
-load 11 // v9429
+store 12 // v9446
+load 11 // v9447
 extract 8 30
-store 26 // projectName/2012
-load 11 // v9429
+store 26 // projectName/2014
+load 11 // v9447
 int 38
 extract_uint64
-store 25 // tok/2013
+store 25 // tok/2015
 byte base64(KEvH8A==)
-load 12 // v9428
+load 12 // v9446
 itob
 concat
-load 26 // projectName/2012
+load 26 // projectName/2014
 concat
-load 25 // tok/2013
+load 25 // tok/2015
 itob
 concat
 log // up to 50 bytes
-// ^ log: "_reach_e0" [v9428,projectName/2012,tok/2013] "_reach_e0(uint64,byte[30],uint64)"
-load 12 // v9428
+// ^ log: "_reach_e0" [v9446,projectName/2014,tok/2015] "_reach_e0(uint64,byte[30],uint64)"
+load 12 // v9446
 callsub l5_LF_timeCheck
 int 17
 bzero
-store 11 // tokInfos/2003
+store 11 // tokInfos/2005
 int 100000
 callsub l1_LF_mbrAdd
 int 0
 // resource: R_Asset
-load 25 // tok/2013
+load 25 // tok/2015
 global CurrentApplicationAddress
 callsub l6_LF_makeTxn_False_False_True_True
 byte base64(AAAAAAAAAAABAAAAAAAAAAUAAAAAAAAAZAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==)
 global Round
-load 11 // tokInfos/2003
+load 11 // tokInfos/2005
 dup
 extract 0 17
 int 8
@@ -1185,22 +1189,22 @@ bzero
 replace2 0
 replace2 0
 int 0
-store 21 // netBalance/2029
-store 22 // tokenInfos/2028
-store 23 // thisConsensusTime/2026
-store 24 // MAIN_OBJECT/2025
+store 21 // netBalance/2031
+store 22 // tokenInfos/2030
+store 23 // thisConsensusTime/2028
+store 24 // MAIN_OBJECT/2027
 b _reachl_1
 _reachp_0:
 callsub l0_LF_wasntMeth
 int 100000
 callsub l1_LF_mbrAdd
 txna ApplicationArgs 1
-store 11 // v9429
+store 11 // v9447
 b _reachi_0
 _reachp_2:
 callsub l0_LF_wasntMeth
 txna ApplicationArgs 1
-store 11 // v9432
+store 11 // v9450
 b _reachi_2
 alloc:
 int 0
@@ -1230,20 +1234,20 @@ b _api_Admin_endContractAndTransfer2
 l11_Admin_revokeAdmin0_177:
 b _api_Admin_revokeAdmin2
 l12_Admin_setReward0_177:
-load 13 // .fork177.msg/2355
+load 13 // .fork177.msg/2357
 extract 1 48
-store 11 // data_id/4583
+store 11 // data_id/4595
 b _api_Admin_setReward2
 l13_User_claim0_177:
-load 13 // .fork177.msg/2355
+load 13 // .fork177.msg/2357
 extract 1 16
-store 11 // data_id/5028
+store 11 // data_id/5042
 b _api_User_claim2
 l14_User_optin0_177:
 b _api_User_optin2
 l18_localIfF:
-load 17 // bal/2077
-store 11 // v4876
+load 17 // bal/2079
+store 11 // v4888
 b l19_localIfK
 l20_ifF:
 int 15700
@@ -1252,9 +1256,9 @@ txn Sender
 concat
 byte base64()
 callsub l15_LF_mapSet
-load 13 // amt/5115
+load 13 // amt/5129
 // resource: R_Asset
-load 25 // tok/2013
+load 25 // tok/2015
 txn Sender
 callsub l6_LF_makeTxn_False_False_True_True
 int 18900
@@ -1262,61 +1266,61 @@ byte base64(AA==)
 txn Sender
 concat
 callsub l17_LF_mapDel
-load 17 // bal/2077
-load 13 // amt/5115
+load 17 // bal/2079
+load 13 // amt/5129
 -
 itob
-load 24 // MAIN_OBJECT/2025
+load 24 // MAIN_OBJECT/2027
 extract 8 1
 concat
-load 24 // MAIN_OBJECT/2025
+load 24 // MAIN_OBJECT/2027
 extract 9 17
 concat
-load 19 // total_amount_claimed/2075
-load 13 // amt/5115
+load 19 // total_amount_claimed/2077
+load 13 // amt/5129
 +
 itob
 concat
-load 16 // total_rewards_allcoated/2078
+load 16 // total_rewards_allcoated/2080
 itob
 concat
-load 20 // total_users_claim/2074
+load 20 // total_users_claim/2076
 int 1
 +
 itob
 concat
-load 18 // usersNo/2076
+load 18 // usersNo/2078
 itob
 concat
 global Round
-load 22 // tokenInfos/2028
-load 15 // tokInfo/2079
-load 14 // v2080
-load 13 // amt/5115
+load 22 // tokenInfos/2030
+load 15 // tokInfo/2081
+load 14 // v2082
+load 13 // amt/5129
 -
 itob
 replace2 0
 replace2 0
-store 22 // tokenInfos/2028
-store 23 // thisConsensusTime/2026
-store 24 // MAIN_OBJECT/2025
+store 22 // tokenInfos/2030
+store 23 // thisConsensusTime/2028
+store 24 // MAIN_OBJECT/2027
 b _reachl_1
 l21_ifF:
-load 21 // netBalance/2029
+load 21 // netBalance/2031
 // resource: R_Account
-load 27 // Deployer/2011
+load 27 // Deployer/2013
 callsub l23_LF_makeTxn_False_False_False_True
-load 22 // tokenInfos/2028
+load 22 // tokenInfos/2030
 extract 0 17
 int 0
 extract_uint64
 // resource: R_Asset
-load 25 // tok/2013
-load 27 // Deployer/2011
+load 25 // tok/2015
+load 27 // Deployer/2013
 callsub l6_LF_makeTxn_False_False_True_True
 // resource: R_Account
 int 0
-load 25 // tok/2013
+load 25 // tok/2015
 global CurrentApplicationAddress
 global CreatorAddress
 callsub l24_LF_makeTxn_False_True_True_True
@@ -1369,9 +1373,9 @@ b _api_Admin_addAdmin2
 l8_Admin_deposit0_177:
 b _api_Admin_deposit2
 l9_Admin_editUserReward0_177:
-load 13 // .fork177.msg/2355
+load 13 // .fork177.msg/2357
 extract 1 40
-store 11 // data_id/3248
+store 11 // data_id/3254
 b _api_Admin_editUserReward2
 updateMbr_eq:
 pop
@@ -1424,50 +1428,50 @@ retsub
 l2_LF_svsLoad_3:
 dup
 extract 0 32
-store 27 // Deployer/2011
+store 27 // Deployer/2013
 dup
 extract 32 30
-store 26 // projectName/2012
+store 26 // projectName/2014
 dup
 int 62
 extract_uint64
-store 25 // tok/2013
+store 25 // tok/2015
 dup
 extract 70 58
-store 24 // MAIN_OBJECT/2025
+store 24 // MAIN_OBJECT/2027
 dup
 extract 128 17
-store 22 // tokenInfos/2028
+store 22 // tokenInfos/2030
 dup
 int 145
 extract_uint64
-store 21 // netBalance/2029
+store 21 // netBalance/2031
 dup
 int 153
 extract_uint64
-store 20 // total_users_claim/2074
+store 20 // total_users_claim/2076
 dup
 int 161
 extract_uint64
-store 19 // total_amount_claimed/2075
+store 19 // total_amount_claimed/2077
 dup
 int 169
 extract_uint64
-store 18 // usersNo/2076
+store 18 // usersNo/2078
 dup
 int 177
 extract_uint64
-store 17 // bal/2077
+store 17 // bal/2079
 dup
 int 185
 extract_uint64
-store 16 // total_rewards_allcoated/2078
+store 16 // total_rewards_allcoated/2080
 dup
 extract 193 17
-store 15 // tokInfo/2079
+store 15 // tokInfo/2081
 int 210
 extract_uint64
-store 14 // v2080
+store 14 // v2082
 retsub
 l4_LF_fromSome:
 dup
