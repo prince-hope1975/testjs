@@ -180,7 +180,7 @@ export const RecursiveCheck = async () => {
                 }
                 console.log({ length: infos.length, infos });
                 for (let item of infos) {
-                    const { address, amount, isToken, token } = item;
+                    const { address, amount, isToken, token, asset } = item;
                     let amt = 0;
                     if (token) {
                         const tokemMetadata = await WALLET.tokenMetadata(token);
@@ -191,7 +191,7 @@ export const RecursiveCheck = async () => {
                     else {
                         amt = reach.bigNumberToNumber(reach.parseCurrency(amount));
                     }
-                    await setReward(WALLET, address, token, amt, INFO, isToken)
+                    await setReward(WALLET, address, asset, amt, INFO, isToken)
                         .then((_) => console.log(`Finished setting the rewards for ${address} and the amount was ${amt}/${amount}`))
                         .catch(async (err) => {
                         console.log("Error, when setting rewards", err);
@@ -203,16 +203,16 @@ export const RecursiveCheck = async () => {
 };
 // const APY = 10 / 365 / 24;
 let cnt = 0;
-schedule("*/3 * * * *", () => {
-    console.log("Starting Cron Job", cnt);
-    cnt++;
-    RecursiveCheck()
-        .then(() => {
-        console.log({ res: "success" });
-        console.log("Finishing Cron Job");
-    })
-        .catch(console.error);
-});
+// schedule("*/3 * * * *", () => {
+//   console.log("Starting Cron Job", cnt);
+//   cnt++;
+//   RecursiveCheck()
+//     .then(() => {
+//       console.log({ res: "success" });
+//       console.log("Finishing Cron Job");
+//     })
+//     .catch(console.error);
+// });
 // RecursiveCheck()
 //   .then(() => {
 //     console.log({ res: "success" });
@@ -232,15 +232,15 @@ schedule("*/3 * * * *", () => {
  *
  * !MAIN cron job
  */
-// schedule(`0 */2 * * *`, async () => {
-//   console.log("Starting Cron Job", cnt);
-//   cnt++;
-//   await RecursiveCheck()
-//     .then(() => {
-//       console.log("Finishing Cron Job");
-//     })
-//     .catch(console.error);
-// });
+schedule(`0 */2 * * *`, async () => {
+    console.log("Starting Cron Job", cnt);
+    cnt++;
+    await RecursiveCheck()
+        .then(() => {
+        console.log("Finishing Cron Job");
+    })
+        .catch(console.error);
+});
 /**
  * !MAIN cron job
  */
