@@ -195,7 +195,7 @@ export const RecursiveCheck = async () => {
                     await setReward(WALLET, address, asset, amt, INFO, isToken)
                         .then((_) => console.log(`Finished setting the rewards for ${address} and the amount was ${amt}/${amount}`))
                         .catch(async (err) => {
-                        console.log("Error, when setting rewards", err);
+                        console.log("Error, when setting rewards for", projectName, "\n", err);
                     });
                 }
             }

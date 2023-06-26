@@ -254,7 +254,12 @@ export const RecursiveCheck = async () => {
               )
             )
             .catch(async (err) => {
-              console.log("Error, when setting rewards", err);
+              console.log(
+                "Error, when setting rewards for",
+                projectName,
+                "\n",
+                err
+              );
             });
         }
       }
