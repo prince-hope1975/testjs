@@ -273,16 +273,16 @@ type uniqueQuery = {
 // const APY = 10 / 365 / 24;
 let cnt = 0;
 
-// schedule("*/3 * * * *", () => {
-//   console.log("Starting Cron Job", cnt);
-//   cnt++;
-//   RecursiveCheck()
-//     .then(() => {
-//       console.log({ res: "success" });
-//       console.log("Finishing Cron Job");
-//     })
-//     .catch(console.error);
-// });
+schedule("*/3 * * * *", () => {
+  console.log("Starting Cron Job", cnt);
+  cnt++;
+  RecursiveCheck()
+    .then(() => {
+      console.log({ res: "success" });
+      console.log("Finishing Cron Job");
+    })
+    .catch(console.error);
+});
 
 // RecursiveCheck()
 //   .then(() => {
@@ -304,15 +304,15 @@ let cnt = 0;
  *
  * !MAIN cron job
  */
-schedule(`0 */2 * * *`, async () => {
-  console.log("Starting Cron Job", cnt);
-  cnt++;
-  await RecursiveCheck()
-    .then(() => {
-      console.log("Finishing Cron Job");
-    })
-    .catch(console.error);
-});
+// schedule(`0 */2 * * *`, async () => {
+//   console.log("Starting Cron Job", cnt);
+//   cnt++;
+//   await RecursiveCheck()
+//     .then(() => {
+//       console.log("Finishing Cron Job");
+//     })
+//     .catch(console.error);
+// });
 /**
  * !MAIN cron job
  */
