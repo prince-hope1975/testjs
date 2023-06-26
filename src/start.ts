@@ -129,6 +129,8 @@ export const RecursiveCheck = async () => {
         const DEPOSIT = entry?.dailyRewardAmount!;
         const IS_MANUAL = entry?.isManual || false;
         const TOKEN = entry?.token;
+
+        console.log({ IS_TOKEN });
         // const FREQUENCY = entry.frequency;
 
         /**
@@ -231,7 +233,7 @@ export const RecursiveCheck = async () => {
 
         console.log({ length: infos.length, infos });
         for (let item of infos) {
-          const { address, amount, isToken, token ,asset} = item;
+          const { address, amount, isToken, token, asset } = item;
           let amt = 0;
           if (token) {
             const tokemMetadata = await WALLET.tokenMetadata(token);
@@ -271,16 +273,16 @@ type uniqueQuery = {
 // const APY = 10 / 365 / 24;
 let cnt = 0;
 
-schedule("*/3 * * * *", () => {
-  console.log("Starting Cron Job", cnt);
-  cnt++;
-  RecursiveCheck()
-    .then(() => {
-      console.log({ res: "success" });
-      console.log("Finishing Cron Job");
-    })
-    .catch(console.error);
-});
+// schedule("*/3 * * * *", () => {
+//   console.log("Starting Cron Job", cnt);
+//   cnt++;
+//   RecursiveCheck()
+//     .then(() => {
+//       console.log({ res: "success" });
+//       console.log("Finishing Cron Job");
+//     })
+//     .catch(console.error);
+// });
 
 // RecursiveCheck()
 //   .then(() => {
@@ -302,15 +304,15 @@ schedule("*/3 * * * *", () => {
  *
  * !MAIN cron job
  */
-// schedule(`0 */2 * * *`, async () => {
-//   console.log("Starting Cron Job", cnt);
-//   cnt++;
-//   await RecursiveCheck()
-//     .then(() => {
-//       console.log("Finishing Cron Job");
-//     })
-//     .catch(console.error);
-// });
+schedule(`0 */2 * * *`, async () => {
+  console.log("Starting Cron Job", cnt);
+  cnt++;
+  await RecursiveCheck()
+    .then(() => {
+      console.log("Finishing Cron Job");
+    })
+    .catch(console.error);
+});
 /**
  * !MAIN cron job
  */
