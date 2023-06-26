@@ -170,7 +170,7 @@ export const RecursiveCheck = async () => {
                                     eligiblePoints: obj[asset]["eligiblePoints"] || 0,
                                     address: chainAddress || dataBaseAddress,
                                     amount,
-                                    isToken: !!IS_TOKEN,
+                                    isToken: IS_TOKEN,
                                     token: TOKEN?.value,
                                 },
                             ];
