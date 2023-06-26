@@ -235,7 +235,7 @@ export const RecursiveCheck = async () => {
         for (let item of infos) {
           const { address, amount, isToken, token, asset } = item;
           let amt = 0;
-          if (token) {
+          if (isToken) {
             const tokemMetadata = await WALLET.tokenMetadata(token);
             amt = reach.bigNumberToNumber(
               reach.parseCurrency(
@@ -244,6 +244,7 @@ export const RecursiveCheck = async () => {
                 +reach.bigNumberToNumber(tokemMetadata?.decimals)
               )
             );
+            console.log({ amt, metadata: tokemMetadata });
           } else {
             amt = reach.bigNumberToNumber(reach.parseCurrency(amount));
           }
