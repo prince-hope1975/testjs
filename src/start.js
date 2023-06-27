@@ -21,7 +21,6 @@ const HOUR_LIMIT = 12;
 // Users will have to create their own contracts and have the mmemonic interact with the contract
 // Users will need to fund the contract and not the address
 export const RecursiveCheck = async () => {
-    let infos = [];
     // Todo : Get the floor price from the contract
     // const floor = await fetch(
     //   "https://www.randswap.com/v1/listings/creator/YYWVXM6ITE2QBD2IOUNMO5DIAILK43ABMBDCE6PHAX3U6GOYO4XPA6JGLQ"
@@ -65,6 +64,7 @@ export const RecursiveCheck = async () => {
     // let val: jsonSchema = {};
     for (const RETRIEVED_DATA of filteredObject) {
         const entries = Object.entries(RETRIEVED_DATA);
+        let infos = [];
         /**
          * We map through all the assets to be able to store the locally so we can use it in our server
          * We use it for authentication to confirm if our user has the asset in their wallet
@@ -196,7 +196,12 @@ export const RecursiveCheck = async () => {
                     await setReward(WALLET, address, asset, amt, INFO, isToken)
                         .then((_) => console.log(`Finished setting the rewards for ${address} and the amount was ${amt}/${amount}`))
                         .catch(async (err) => {
-                        console.log("Error, when setting rewards for", projectName, "\n", err);
+                        console.log("Error, when setting rewards for", projectName, "\n", "Trying again in 5 seconds", "\n", err);
+                        await setReward(WALLET, address, asset, amt, INFO, isToken)
+                            .then((_) => console.log(`Finished setting the rewards for ${address} and the amount was ${amt}/${amount}`))
+                            .catch(() => {
+                            console.log("Failed again");
+                        });
                     });
                 }
             }

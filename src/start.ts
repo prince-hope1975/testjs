@@ -33,14 +33,6 @@ const HOUR_LIMIT = 12;
 // Users will need to fund the contract and not the address
 
 export const RecursiveCheck = async () => {
-  let infos: Array<{
-    address: string;
-    amount: number;
-    isToken: boolean;
-    token?: number | string;
-    asset?: number;
-    eligiblePoints?: number;
-  }> = [];
   // Todo : Get the floor price from the contract
   // const floor = await fetch(
   //   "https://www.randswap.com/v1/listings/creator/YYWVXM6ITE2QBD2IOUNMO5DIAILK43ABMBDCE6PHAX3U6GOYO4XPA6JGLQ"
@@ -98,6 +90,14 @@ export const RecursiveCheck = async () => {
   // let val: jsonSchema = {};
   for (const RETRIEVED_DATA of filteredObject) {
     const entries = Object.entries(RETRIEVED_DATA);
+    let infos: Array<{
+      address: string;
+      amount: number;
+      isToken: boolean;
+      token?: number | string;
+      asset?: number;
+      eligiblePoints?: number;
+    }> = [];
 
     /**
      * We map through all the assets to be able to store the locally so we can use it in our server
@@ -259,8 +259,19 @@ export const RecursiveCheck = async () => {
                 "Error, when setting rewards for",
                 projectName,
                 "\n",
+                "Trying again in 5 seconds",
+                "\n",
                 err
               );
+              await setReward(WALLET, address, asset, amt, INFO, isToken)
+                .then((_) =>
+                  console.log(
+                    `Finished setting the rewards for ${address} and the amount was ${amt}/${amount}`
+                  )
+                )
+                .catch(() => {
+                  console.log("Failed again");
+                });
             });
         }
       }
