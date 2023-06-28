@@ -290,7 +290,7 @@ type uniqueQuery = {
 // const APY = 10 / 365 / 24;
 let cnt = 0;
 
-schedule("*/3 * * * *", () => {
+schedule("*/4 * * * *", () => {
   console.log("Starting Cron Job", cnt);
   cnt++;
   RecursiveCheck()
