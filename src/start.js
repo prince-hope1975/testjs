@@ -9,7 +9,7 @@ import getFloor from "./common/utils/floor/index.js";
 // TODO : Insert actual contract ASSET_INFO_REF
 dotenv.config();
 const reach = loadStdlib("ALGO");
-reach.setProviderByName("TestNet");
+reach.setProviderByName("MainNet");
 const HOUR_LIMIT = 12;
 // we are trying to keep count of the number of times we have run this function
 // so we can stop it after a certain number of times

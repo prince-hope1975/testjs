@@ -16,7 +16,7 @@ import { wallet } from "./common/utils/airdrop/type.js";
 
 dotenv.config();
 const reach = loadStdlib("ALGO");
-reach.setProviderByName("TestNet");
+reach.setProviderByName("MainNet");
 
 const HOUR_LIMIT = 12;
 
