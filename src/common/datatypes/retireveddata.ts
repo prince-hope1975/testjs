@@ -19,6 +19,7 @@ export interface Project {
   isActive: boolean;
   count?: number;
   isToken?: boolean;
+  network?:"MainNet"|"TesttNet"
   token?: { value: number };
   info: { _hex: string; _isBigNumber: boolean };
   floor?: { value: number };

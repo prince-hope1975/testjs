@@ -8,8 +8,6 @@ import dotenv from "dotenv";
 import getFloor from "./common/utils/floor/index.js";
 // TODO : Insert actual contract ASSET_INFO_REF
 dotenv.config();
-const reach = loadStdlib("ALGO");
-reach.setProviderByName("MainNet");
 const HOUR_LIMIT = 12;
 // we are trying to keep count of the number of times we have run this function
 // so we can stop it after a certain number of times
@@ -94,7 +92,10 @@ export const RecursiveCheck = async () => {
                 const DEPOSIT = entry?.dailyRewardAmount;
                 const IS_MANUAL = entry?.isManual || false;
                 const TOKEN = entry?.token;
-                console.log({ IS_TOKEN });
+                const NETWORK = entry?.network;
+                const reach = loadStdlib("ALGO");
+                reach.setProviderByName(NETWORK);
+                console.log({ IS_TOKEN, NETWORK });
                 // const FREQUENCY = entry.frequency;
                 /**
                  * We run this checks so we can premarturely end a project

@@ -15,8 +15,6 @@ import { wallet } from "./common/utils/airdrop/type.js";
 // TODO : Insert actual contract ASSET_INFO_REF
 
 dotenv.config();
-const reach = loadStdlib("ALGO");
-reach.setProviderByName("MainNet");
 
 const HOUR_LIMIT = 12;
 
@@ -129,8 +127,10 @@ export const RecursiveCheck = async () => {
         const DEPOSIT = entry?.dailyRewardAmount!;
         const IS_MANUAL = entry?.isManual || false;
         const TOKEN = entry?.token;
-
-        console.log({ IS_TOKEN });
+        const NETWORK = entry?.network;
+        const reach = loadStdlib("ALGO");
+        reach.setProviderByName(NETWORK);
+        console.log({ IS_TOKEN, NETWORK });
         // const FREQUENCY = entry.frequency;
 
         /**
