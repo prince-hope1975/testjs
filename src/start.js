@@ -57,7 +57,6 @@ export const RecursiveCheck = async () => {
     }) || [];
     const filteredObject = (await Promise.all(newSnap)).filter((p) => Object.keys(p).length !== 0);
     // console.log({ finalSnap: (filteredObject, null, 4) });
-    const WALLET = await reach.newAccountFromMnemonic(process?.env?.MNEMONIC || "");
     // console.log({ address: WALLET.networkAccount.addr });
     // let val: jsonSchema = {};
     for (const RETRIEVED_DATA of filteredObject) {
@@ -95,6 +94,7 @@ export const RecursiveCheck = async () => {
                 const NETWORK = entry?.network;
                 const reach = loadStdlib("ALGO");
                 reach.setProviderByName(NETWORK);
+                const WALLET = await reach.newAccountFromMnemonic(process?.env?.MNEMONIC || "");
                 console.log({ IS_TOKEN, NETWORK });
                 // const FREQUENCY = entry.frequency;
                 /**
