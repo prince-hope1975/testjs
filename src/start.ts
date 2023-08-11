@@ -141,11 +141,11 @@ export const RecursiveCheck = async () => {
           console.log("Project is not active");
           continue;
         }
-        if (END_TIME < new Date().getTime()) {
-          await PROJECT_REF.set({ ...entry, isActive: false });
-          console.log({ ended: "Rewards have ended" });
-          continue;
-        }
+        // if (END_TIME < new Date().getTime()) {
+        //   await PROJECT_REF.set({ ...entry, isActive: false });
+        //   console.log({ ended: "Rewards have ended" });
+        //   continue;
+        // }
 
         const assetInfosFromChain = await getFormattedHoldersInfo(
           RETRIEVED_ASSETS
