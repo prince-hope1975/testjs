@@ -5,8 +5,8 @@ import { hasOpted, setReward } from "./common/utils/contract/helpers.js";
 // import { FLOOR } from "./common/utils/constants/index.js";
 import { schedule } from "node-cron";
 import dotenv from "dotenv";
+// import { BigNumber } from "@reach-sh/stdlib/shared_impl.js";
 import getFloor from "./common/utils/floor/index.js";
-// TODO : Insert actual contract ASSET_INFO_REF
 dotenv.config();
 const HOUR_LIMIT = 12;
 // we are trying to keep count of the number of times we have run this function
@@ -71,9 +71,13 @@ export const RecursiveCheck = async () => {
          * We use both data points to validate our logic
          */
         for (const [address, objectEntry] of entries) {
-            let FLOOR_PRICE = await getFloor(address);
+            /*
+          !TODO: edit the contents of the floor price funciton  to reflect the latest iterations
+            */
+            /*
+          ! TODO: edit the contents of the floor price funciton  to reflect the latest iterations
+           */
             for (const [projectName, entry] of Object.entries(objectEntry)) {
-                console.log({ projectName });
                 /**
                  * WE RETRIEVE THE ASSET INFO SO FROM THE FIREBASE DATABASE SO WE CAN
                  * COMPARE THE RECENT HOLDERS TO THOSE ALREADY IN OUR DATABASE
@@ -83,7 +87,6 @@ export const RecursiveCheck = async () => {
                 const RETRIEVED_ASSET_INFO = entry.assetInfo;
                 const RETRIEVED_ASSETS = entry.assets;
                 const IS_ACTIVE = entry.isActive;
-                const END_TIME = entry.ending;
                 const INFO = entry.info;
                 const FLOOR = entry?.floor?.value || 1;
                 const PERCENT = entry?.percentage?.value || 1;
@@ -95,7 +98,6 @@ export const RecursiveCheck = async () => {
                 const reach = loadStdlib("ALGO");
                 reach.setProviderByName(NETWORK);
                 const WALLET = await reach.newAccountFromMnemonic(process?.env?.MNEMONIC || "");
-                console.log({ IS_TOKEN, NETWORK });
                 // const FREQUENCY = entry.frequency;
                 /**
                  * We run this checks so we can premarturely end a project
@@ -152,17 +154,15 @@ export const RecursiveCheck = async () => {
                         const optedIn = await hasOpted(WALLET, chainAddress || dataBaseAddress, INFO, !!IS_TOKEN);
                         if (optedIn) {
                             let amount = 0;
-                            if (IS_TOKEN) {
-                                amount = DEPOSIT || (FLOOR * (PERCENT / 100)) / 365;
+                            // ! Todo Remove check for token alone and incorporate all checks
+                            let FLOOR_PRICE = 0;
+                            if (!IS_MANUAL) {
+                                FLOOR_PRICE = (await getFloor(address)) || 0;
+                                amount = ((FLOOR_PRICE || FLOOR) * (PERCENT / 100)) / 365;
                             }
                             else {
-                                if (!IS_MANUAL) {
-                                    amount = ((FLOOR_PRICE || FLOOR) * (PERCENT / 100)) / 365;
-                                }
-                                else {
-                                    FLOOR_PRICE = DEPOSIT || (FLOOR * (PERCENT / 100)) / 365;
-                                    amount = FLOOR_PRICE;
-                                }
+                                FLOOR_PRICE = DEPOSIT || (FLOOR * (PERCENT / 100)) / 365;
+                                amount = FLOOR_PRICE;
                             }
                             infos = [
                                 ...infos,
