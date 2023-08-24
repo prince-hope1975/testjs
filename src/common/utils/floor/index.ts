@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const getFloor = async (collection: string) => {
   const floor = await axios.get<{ data: number }>(
     `https://3buxapi.com/floor-price/${collection}`
