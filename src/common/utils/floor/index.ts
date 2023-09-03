@@ -22,7 +22,6 @@ const getFloor = async (collection: string) => {
   //   return;
   // });
 
-  return floor;
 };
 
 export interface queryTypes {

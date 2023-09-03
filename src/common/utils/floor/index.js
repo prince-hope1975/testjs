@@ -16,6 +16,5 @@ const getFloor = async (collection) => {
     //   console.error(err);
     //   return;
     // });
-    return floor;
 };
 export default getFloor;
