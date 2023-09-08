@@ -17,9 +17,10 @@ export interface Project {
   ending: number;
   started?: number;
   isActive: boolean;
+  override?:boolean;
   count?: number;
   isToken?: boolean;
-  network?:"MainNet"|"TesttNet"
+  network?: "MainNet" | "TesttNet";
   token?: { value: number };
   info: { _hex: string; _isBigNumber: boolean };
   floor?: { value: number };
@@ -27,7 +28,7 @@ export interface Project {
   frequency_duration_picker?: number | string;
   socials: { discordLink?: string; twitterLink?: string; youtubeLink?: string };
   dailyRewardAmount?: number;
-  isManual?:boolean
+  isManual?: boolean;
 }
 interface RetrievedData {
   [address: string]: {

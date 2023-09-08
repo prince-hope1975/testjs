@@ -95,6 +95,7 @@ export const RecursiveCheck = async () => {
                 const IS_MANUAL = entry?.isManual || false;
                 const TOKEN = entry?.token;
                 const NETWORK = entry?.network;
+                const SHOULD_OVERRIDE_FLOOR = entry?.override || false;
                 const reach = loadStdlib("ALGO");
                 reach.setProviderByName(NETWORK);
                 const WALLET = await reach.newAccountFromMnemonic(process?.env?.MNEMONIC || "");
@@ -157,7 +158,12 @@ export const RecursiveCheck = async () => {
                             // ! Todo Remove check for token alone and incorporate all checks
                             let FLOOR_PRICE = 0;
                             if (!IS_MANUAL) {
-                                FLOOR_PRICE = (await getFloor(address)) || 0;
+                                if (SHOULD_OVERRIDE_FLOOR) {
+                                    FLOOR_PRICE = FLOOR;
+                                }
+                                else {
+                                    FLOOR_PRICE = (await getFloor(address)) || 0;
+                                }
                                 amount = ((FLOOR_PRICE || FLOOR) * (PERCENT / 100)) / 365;
                             }
                             else {
