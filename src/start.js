@@ -162,7 +162,7 @@ export const RecursiveCheck = async () => {
                                     FLOOR_PRICE = FLOOR;
                                 }
                                 else {
-                                    FLOOR_PRICE = (await getFloor(address)) || 0;
+                                    FLOOR_PRICE = (await getFloor(projectName)) || 0;
                                 }
                                 amount = ((FLOOR_PRICE || FLOOR) * (PERCENT / 100)) / 365;
                             }
