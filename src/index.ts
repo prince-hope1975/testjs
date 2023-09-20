@@ -134,7 +134,7 @@ export const getFormattedHoldersInfo = async (arr: number[] | string[]) => {
     // @ts-ignore
     throw new Error("Array Bounds Invalid", { cause: "Invalid Array Length" });
   }
-  const holders = await Promise.allSettled(await RateLimitedRequest(arr, 50))
+  const holders = await Promise.allSettled(await RateLimitedRequest(arr, 30))
     .then((result) =>
       result.map((res, idx) =>
         res.status === "fulfilled"
