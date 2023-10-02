@@ -119,7 +119,7 @@ export const RecursiveCheck = async () => {
         const RETRIEVED_ASSET_INFO = entry.assetInfo;
         const RETRIEVED_ASSETS = entry.assets;
         const IS_ACTIVE = entry.isActive;
-        const INFO = entry.info;
+        const INFO = entry.info as BigNumber;
         const FLOOR = entry?.floor?.value || 1;
         const PERCENT = entry?.percentage?.value || 1;
         const IS_TOKEN = entry?.isToken;
@@ -202,7 +202,7 @@ export const RecursiveCheck = async () => {
             const optedIn = await hasOpted(
               WALLET,
               chainAddress || dataBaseAddress,
-              INFO as BigNumber,
+              INFO as unknown as number,
               !!IS_TOKEN
             );
             if (optedIn) {
@@ -255,7 +255,14 @@ export const RecursiveCheck = async () => {
           } else {
             amt = reach.bigNumberToNumber(reach.parseCurrency(amount));
           }
-          await setReward(WALLET, address, asset, amt, INFO, isToken)
+          await setReward(
+            WALLET,
+            address,
+            asset!,
+            amt,
+            INFO as unknown as number,
+            isToken
+          )
             .then((_) =>
               console.log(
                 `Finished setting the rewards for ${address} and the amount was ${amt}/${amount}`
@@ -270,7 +277,14 @@ export const RecursiveCheck = async () => {
                 "\n",
                 err
               );
-              await setReward(WALLET, address, asset, amt, INFO, isToken)
+              await setReward(
+                WALLET,
+                address,
+                asset!,
+                amt,
+                INFO as unknown as number,
+                isToken
+              )
                 .then((_) =>
                   console.log(
                     `Finished setting the rewards for ${address} and the amount was ${amt}/${amount}`

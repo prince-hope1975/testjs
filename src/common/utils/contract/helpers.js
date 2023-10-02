@@ -15,14 +15,13 @@ export const reach = loadStdlib("ALGO");
 reach.setProviderByName("TestNet");
 const info = { _hex: "0x08adfb83", _isBigNumber: true };
 export const checkEligibility = async (acc, ctcInfo, isToken) => {
-    // @ts-ignore
-    const ctcUsers = acc.contract(isToken ? _v3_tokenBackend : _v3_backend, reach.bigNumberToNumber(ctcInfo));
+    const ctcUsers = acc.contract(isToken ? _v3_tokenBackend : _v3_backend, ctcInfo);
     const eligibility = await ctcUsers.unsafeViews.Info.totalRewards(acc);
     return parseInt(eligibility);
 };
 export const hasOptedIn = async (acc, ctcInfo, isToken) => {
     // @ts-ignore
-    const ctcUsers = acc.contract(isToken ? _v3_tokenBackend : _v3_backend, reach.bigNumberToNumber(ctcInfo));
+    const ctcUsers = acc.contract(isToken ? _v3_tokenBackend : _v3_backend, ctcInfo);
     const eligibility = await ctcUsers.unsafeViews.Info.opted(acc);
     return eligibility;
 };
@@ -30,10 +29,10 @@ export const contractBalance = async (acc, ctcInfo, isToken) => {
     try {
         let ctcUsers;
         if (isToken == null || isToken == undefined) {
-            ctcUsers = acc.contract(_v1_backend, reach.bigNumberToNumber(ctcInfo));
+            ctcUsers = acc.contract(_v1_backend, ctcInfo);
         }
         else {
-            ctcUsers = acc.contract(isToken ? _v3_tokenBackend : _v3_backend, reach.bigNumberToNumber(ctcInfo));
+            ctcUsers = acc.contract(isToken ? _v3_tokenBackend : _v3_backend, ctcInfo);
         }
         let total = await ctcUsers.unsafeViews.Info.balance();
         // @ts-ignore
@@ -46,29 +45,29 @@ export const contractBalance = async (acc, ctcInfo, isToken) => {
     }
 };
 export const totalOpted = async (acc, ctcInfo, isToken) => {
-    const ctcUsers = acc.contract(isToken ? _v3_tokenBackend : _v3_backend, reach.bigNumberToNumber(ctcInfo));
+    const ctcUsers = acc.contract(isToken ? _v3_tokenBackend : _v3_backend, ctcInfo);
     const total = await ctcUsers.unsafeViews.Info.totalOptedIn();
     console.log({ total });
     return total;
 };
 export const viewUserReward = async (acc, tok, ctcInfo, isToken) => {
-    const ctcUsers = acc.contract(isToken ? _v3_tokenBackend : _v3_backend, reach.bigNumberToNumber(ctcInfo));
+    const ctcUsers = acc.contract(isToken ? _v3_tokenBackend : _v3_backend, ctcInfo);
     const total = await ctcUsers.unsafeViews.Info.userReward(acc, reach.bigNumberify(tok));
     return parseInt(total);
 };
 export const totalUsersClaim = async (acc, ctcInfo, isToken) => {
-    const ctcUsers = acc.contract(isToken ? _v3_tokenBackend : _v3_backend, reach.bigNumberToNumber(ctcInfo));
+    const ctcUsers = acc.contract(isToken ? _v3_tokenBackend : _v3_backend, ctcInfo);
     const total = await ctcUsers.unsafeViews.Info.totalOptedIn();
     return total;
 };
 export const totalAmountClaimed = async (acc, ctcInfo, isToken) => {
-    const ctcUsers = acc.contract(isToken ? _v3_tokenBackend : _v3_backend, reach.bigNumberToNumber(ctcInfo || info));
+    const ctcUsers = acc.contract(isToken ? _v3_tokenBackend : _v3_backend, ctcInfo || info);
     const total = await ctcUsers.unsafeViews.Info.totalAmountClaimed();
     return total;
 };
 export const handleOptin = async (acc, ctcInfo, isToken) => {
     console.log("started optin");
-    const ctcUsers = acc.contract(isToken ? _v3_tokenBackend : _v3_backend, reach.bigNumberToNumber(ctcInfo || info));
+    const ctcUsers = acc.contract(isToken ? _v3_tokenBackend : _v3_backend, ctcInfo || info);
     const hasOpted = await ctcUsers.unsafeViews.Info.opted(acc);
     console.log("Viewing optin status", hasOpted);
     if (!hasOpted)
@@ -77,9 +76,7 @@ export const handleOptin = async (acc, ctcInfo, isToken) => {
     return;
 };
 export const handleClaimAll = async (acc, ctcInfo, isToken) => {
-    const ctcUsers = acc.contract(isToken ? _v3_tokenBackend : _v3_backend, 
-    // @ts-ignore
-    reach.bigNumberToNumber(ctcInfo || info));
+    const ctcUsers = acc.contract(isToken ? _v3_tokenBackend : _v3_backend, ctcInfo || info);
     const hasOpted = await ctcUsers.unsafeViews.Info.opted(acc);
     if (!hasOpted)
         await ctcUsers.a.User.optin();
@@ -89,7 +86,7 @@ export const handleClaimAll = async (acc, ctcInfo, isToken) => {
     return success;
 };
 export const handleClaim = async (acc, amount, ctcInfo, isToken) => {
-    const ctcUsers = acc.contract(isToken ? _v3_tokenBackend : _v3_backend, reach.bigNumberToNumber(ctcInfo || info));
+    const ctcUsers = acc.contract(isToken ? _v3_tokenBackend : _v3_backend, ctcInfo || info);
     const hasOpted = await ctcUsers.unsafeViews.Info.opted(acc);
     if (!hasOpted)
         await ctcUsers.a.User.optin();
@@ -97,12 +94,12 @@ export const handleClaim = async (acc, amount, ctcInfo, isToken) => {
     return success;
 };
 export const AddNewAdmin = async (acc, address, ctcInfo, isToken) => {
-    const ctcUsers = acc.contract(isToken ? _v3_tokenBackend : _v3_backend, reach.bigNumberToNumber(ctcInfo));
+    const ctcUsers = acc.contract(isToken ? _v3_tokenBackend : _v3_backend, ctcInfo);
     const success = await ctcUsers.a.Admin.addAdmin(address);
     return success;
 };
 export const deposit = async (acc, amt, contract, isToken) => {
-    const ctcUsers = acc.contract(isToken ? _v3_tokenBackend : _v3_backend, reach.bigNumberToNumber(contract));
+    const ctcUsers = acc.contract(isToken ? _v3_tokenBackend : _v3_backend, contract);
     const currency = reach.parseCurrency(amt);
     const success = await ctcUsers.a.Admin.deposit(currency);
     return success;
@@ -129,7 +126,7 @@ export const deploy = async (acc, name, token) => {
     return info;
 };
 export const setReward = async (acc, address, token, amt, ctcInfo, isToken) => {
-    const ctcAdmin = acc.contract(isToken ? _v3_tokenBackend : _v3_backend, reach.bigNumberToNumber(ctcInfo));
+    const ctcAdmin = acc.contract(isToken ? _v3_tokenBackend : _v3_backend, ctcInfo);
     // const hasOpted = await ctcAdmin.unsafeViews.Info.opted(acc);
     // console.log({ hasOpted });
     // if (!hasOpted) await ctcAdmin.a.User.optin();
@@ -138,7 +135,7 @@ export const setReward = async (acc, address, token, amt, ctcInfo, isToken) => {
     return result;
 };
 export const editUserReward = async (acc, address, amt, ctcInfo = info, isToken) => {
-    const ctcAdmin = acc.contract(isToken ? _v3_tokenBackend : _v3_backend, reach.bigNumberToNumber(ctcInfo));
+    const ctcAdmin = acc.contract(isToken ? _v3_tokenBackend : _v3_backend, ctcInfo);
     const hasOpted = await ctcAdmin.unsafeViews.Info.opted(acc);
     if (!hasOpted)
         await ctcAdmin.a.User.optin();
@@ -148,7 +145,7 @@ export const editUserReward = async (acc, address, amt, ctcInfo = info, isToken)
 export const hasOpted = async (acc, address, ctcInfo, isToken) => {
     try {
         // @ts-ignore
-        const ctcAdmin = acc.contract(isToken ? _v3_tokenBackend : _v3_backend, reach.bigNumberToNumber(ctcInfo));
+        const ctcAdmin = acc.contract(isToken ? _v3_tokenBackend : _v3_backend, ctcInfo);
         const hasOpted = await ctcAdmin.unsafeViews.Info.opted(address);
         return hasOpted;
     }

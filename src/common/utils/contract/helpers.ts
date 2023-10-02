@@ -20,20 +20,18 @@ import {
   // ALGO_PeraConnect as peraConnect,
 } from "@reach-sh/stdlib";
 
-import { BigNumber } from "@reach-sh/stdlib/shared_impl.js";
 export const reach = loadStdlib("ALGO");
 reach.setProviderByName("TestNet");
-
-const info = { _hex: "0x08adfb83", _isBigNumber: true };
+type BigNumber = ReturnType<typeof reach.bigNumberToNumber>;
+const info = { _hex: "0x08adfb83", _isBigNumber: true } as unknown as BigNumber;
 export const checkEligibility = async (
   acc: wallet,
   ctcInfo: BigNumber,
   isToken: boolean
 ) => {
-  // @ts-ignore
   const ctcUsers = acc.contract(
     isToken ? _v3_tokenBackend : _v3_backend,
-    reach.bigNumberToNumber(ctcInfo)
+    ctcInfo
   );
   const eligibility = await ctcUsers.unsafeViews.Info.totalRewards(acc);
   return parseInt(eligibility);
@@ -47,7 +45,7 @@ export const hasOptedIn = async (
   // @ts-ignore
   const ctcUsers = acc.contract(
     isToken ? _v3_tokenBackend : _v3_backend,
-    reach.bigNumberToNumber(ctcInfo)
+    ctcInfo
   );
   const eligibility = await ctcUsers.unsafeViews.Info.opted(acc);
   return eligibility;
@@ -61,11 +59,11 @@ export const contractBalance = async (
   try {
     let ctcUsers: any;
     if (isToken == null || isToken == undefined) {
-      ctcUsers = acc.contract(_v1_backend, reach.bigNumberToNumber(ctcInfo));
+      ctcUsers = acc.contract(_v1_backend, ctcInfo);
     } else {
       ctcUsers = acc.contract(
         isToken ? _v3_tokenBackend : _v3_backend,
-        reach.bigNumberToNumber(ctcInfo)
+        ctcInfo
       );
     }
     let total = await ctcUsers.unsafeViews.Info.balance();
@@ -84,7 +82,7 @@ export const totalOpted = async (
 ) => {
   const ctcUsers = acc.contract(
     isToken ? _v3_tokenBackend : _v3_backend,
-    reach.bigNumberToNumber(ctcInfo)
+    ctcInfo
   );
   const total = await ctcUsers.unsafeViews.Info.totalOptedIn();
   console.log({ total });
@@ -99,7 +97,7 @@ export const viewUserReward = async (
 ) => {
   const ctcUsers = acc.contract(
     isToken ? _v3_tokenBackend : _v3_backend,
-    reach.bigNumberToNumber(ctcInfo)
+    ctcInfo
   );
   const total: string = await ctcUsers.unsafeViews.Info.userReward(
     acc,
@@ -115,7 +113,7 @@ export const totalUsersClaim = async (
 ) => {
   const ctcUsers = acc.contract(
     isToken ? _v3_tokenBackend : _v3_backend,
-    reach.bigNumberToNumber(ctcInfo)
+    ctcInfo
   );
   const total = await ctcUsers.unsafeViews.Info.totalOptedIn();
   return total;
@@ -128,7 +126,7 @@ export const totalAmountClaimed = async (
 ) => {
   const ctcUsers = acc.contract(
     isToken ? _v3_tokenBackend : _v3_backend,
-    reach.bigNumberToNumber(ctcInfo || info)
+    ctcInfo || info
   );
   const total = await ctcUsers.unsafeViews.Info.totalAmountClaimed();
   return total;
@@ -142,7 +140,7 @@ export const handleOptin = async (
   console.log("started optin");
   const ctcUsers = acc.contract(
     isToken ? _v3_tokenBackend : _v3_backend,
-    reach.bigNumberToNumber(ctcInfo || info)
+    ctcInfo || info
   );
   const hasOpted = await ctcUsers.unsafeViews.Info.opted(acc);
   console.log("Viewing optin status", hasOpted);
@@ -158,8 +156,7 @@ export const handleClaimAll = async (
 ) => {
   const ctcUsers = acc.contract(
     isToken ? _v3_tokenBackend : _v3_backend,
-    // @ts-ignore
-    reach.bigNumberToNumber(ctcInfo || info)
+    ctcInfo || info
   );
   const hasOpted = await ctcUsers.unsafeViews.Info.opted(acc);
   if (!hasOpted) await ctcUsers.a.User.optin();
@@ -179,7 +176,7 @@ export const handleClaim = async (
   const ctcUsers = acc.contract(
     isToken ? _v3_tokenBackend : _v3_backend,
 
-    reach.bigNumberToNumber(ctcInfo || info)
+    ctcInfo || info
   );
   const hasOpted = await ctcUsers.unsafeViews.Info.opted(acc);
   if (!hasOpted) await ctcUsers.a.User.optin();
@@ -197,7 +194,7 @@ export const AddNewAdmin = async (
 ) => {
   const ctcUsers = acc.contract(
     isToken ? _v3_tokenBackend : _v3_backend,
-    reach.bigNumberToNumber(ctcInfo)
+    ctcInfo
   );
   const success = await ctcUsers.a.Admin.addAdmin(address);
   return success;
@@ -211,7 +208,7 @@ export const deposit = async (
 ) => {
   const ctcUsers = acc.contract(
     isToken ? _v3_tokenBackend : _v3_backend,
-    reach.bigNumberToNumber(contract)
+    contract
   );
 
   const currency = reach.parseCurrency(amt);
@@ -256,7 +253,7 @@ export const setReward = async (
 ) => {
   const ctcAdmin = acc.contract(
     isToken ? _v3_tokenBackend : _v3_backend,
-    reach.bigNumberToNumber(ctcInfo)
+    ctcInfo
   );
   // const hasOpted = await ctcAdmin.unsafeViews.Info.opted(acc);
   // console.log({ hasOpted });
@@ -278,7 +275,7 @@ export const editUserReward = async (
 ) => {
   const ctcAdmin = acc.contract(
     isToken ? _v3_tokenBackend : _v3_backend,
-    reach.bigNumberToNumber(ctcInfo)
+    ctcInfo
   );
   const hasOpted = await ctcAdmin.unsafeViews.Info.opted(acc);
   if (!hasOpted) await ctcAdmin.a.User.optin();
@@ -299,7 +296,7 @@ export const hasOpted = async (
     // @ts-ignore
     const ctcAdmin = acc.contract(
       isToken ? _v3_tokenBackend : _v3_backend,
-      reach.bigNumberToNumber(ctcInfo)
+      ctcInfo
     );
     const hasOpted = await ctcAdmin.unsafeViews.Info.opted(address);
     return hasOpted;
