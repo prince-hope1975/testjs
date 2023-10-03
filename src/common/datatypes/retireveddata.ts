@@ -17,7 +17,8 @@ export interface Project {
   ending: number;
   started?: number;
   isActive: boolean;
-  override?:boolean;
+  hide?: boolean;
+  override?: boolean;
   count?: number;
   isToken?: boolean;
   network?: "MainNet" | "TesttNet";

@@ -87,6 +87,7 @@ export const RecursiveCheck = async () => {
                 const RETRIEVED_ASSET_INFO = entry.assetInfo;
                 const RETRIEVED_ASSETS = entry.assets;
                 const IS_ACTIVE = entry.isActive;
+                const HIDE = entry?.hide;
                 const INFO = entry.info;
                 const FLOOR = entry?.floor?.value || 1;
                 const PERCENT = entry?.percentage?.value || 1;
@@ -104,7 +105,7 @@ export const RecursiveCheck = async () => {
                  * We run this checks so we can premarturely end a project
                  * IF specific conditions are met
                  */
-                if (!IS_ACTIVE) {
+                if (!IS_ACTIVE || HIDE) {
                     console.log("Project is not active");
                     continue;
                 }
