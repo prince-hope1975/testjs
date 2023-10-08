@@ -10,15 +10,18 @@ import * as _v3_backend from "../build/v3/index.main.mjs";
 import * as _v2_tokenBackend from "../build/v2/token.main.mjs";
 // @ts-ignore
 import * as _v3_tokenBackend from "../build/v3/token.main.mjs";
-import {
-  loadStdlib,
-  // ALGO_MyAlgoConnect as MyAlgoConnect,
-  // ALGO_MakePeraConnect as MakePeraConnect,
-  // ALGO_MakeAlgoSignerConnect as MakeAlgoSignerConnect,
-  // ALGO_WalletConnect as WalletConnect,
 
-  // ALGO_PeraConnect as peraConnect,
-} from "@reach-sh/stdlib";
+// @ts-ignore
+import * as _v4_tokenBackend from "../builds/v4/build/token_v2.main.mjs";
+// @ts-ignore
+import * as _v4_backend from "../builds/v4/build/index_v2.main.mjs";
+
+const versionManager = {
+  v3: { false: _v3_backend, true: _v3_tokenBackend },
+  v4: { false: _v4_backend, true: _v4_tokenBackend },
+};
+
+import { loadStdlib } from "@reach-sh/stdlib";
 
 export const reach = loadStdlib("ALGO");
 reach.setProviderByName("TestNet");
@@ -40,15 +43,34 @@ export const checkEligibility = async (
 export const hasOptedIn = async (
   acc: wallet,
   ctcInfo: BigNumber,
-  isToken: boolean
+  isToken: boolean,
+  version = "v3" as "v3" | "v4"
 ) => {
   // @ts-ignore
-  const ctcUsers = acc.contract(
-    isToken ? _v3_tokenBackend : _v3_backend,
-    ctcInfo
-  );
+  const ctcUsers = acc.contract(versionManager[version][`${isToken}`], ctcInfo);
   const eligibility = await ctcUsers.unsafeViews.Info.opted(acc);
   return eligibility;
+};
+export const setReward = async (
+  acc: wallet,
+  address: string,
+  token: BigNumber,
+  amt: number,
+  ctcInfo: BigNumber,
+  isToken: boolean,
+  version = "v3" as "v3" | "v4"
+) => {
+  const ctcAdmin = acc.contract(versionManager[version][`${isToken}`], ctcInfo);
+  // const hasOpted = await ctcAdmin.unsafeViews.Info.opted(acc);
+  // console.log({ hasOpted });
+  // if (!hasOpted) await ctcAdmin.a.User.optin();
+  const result = await ctcAdmin.a.Admin.setReward(
+    reach.formatAddress(address),
+    token,
+    amt
+  );
+  console.log({ result });
+  return result;
 };
 
 export const contractBalance = async (
@@ -243,29 +265,7 @@ export const deploy = async (acc: wallet, name: string, token?: BigNumber) => {
   return info;
 };
 
-export const setReward = async (
-  acc: wallet,
-  address: string,
-  token: BigNumber,
-  amt: number,
-  ctcInfo: BigNumber,
-  isToken: boolean
-) => {
-  const ctcAdmin = acc.contract(
-    isToken ? _v3_tokenBackend : _v3_backend,
-    ctcInfo
-  );
-  // const hasOpted = await ctcAdmin.unsafeViews.Info.opted(acc);
-  // console.log({ hasOpted });
-  // if (!hasOpted) await ctcAdmin.a.User.optin();
-  const result = await ctcAdmin.a.Admin.setReward(
-    reach.formatAddress(address),
-    token,
-    amt
-  );
-  console.log({ result });
-  return result;
-};
+
 export const editUserReward = async (
   acc: wallet,
   address: string,

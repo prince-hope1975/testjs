@@ -1,0 +1,1640 @@
+#pragma version 8
+// resource: R_Txn
+txn ApplicationID
+bz alloc
+byte base64()
+app_global_get
+dup
+int 0
+extract_uint64
+store 1 // GV_currentStep :: UInt
+int 8
+extract_uint64
+store 2 // GV_currentTime :: UInt
+byte base64(AA==)
+app_global_get
+byte base64(AQ==)
+app_global_get
+concat
+byte base64(Ag==)
+app_global_get
+concat
+preamble:
+pushbytess base64(E25XOw==) base64(E+/veA==) base64(F49Qhg==) base64(GVleKQ==) base64(KTen9g==) base64(KWGf5A==) base64(N0fKpQ==) base64(Pvlimg==) base64(eTkpUw==) base64(f5xxXw==) base64(gcvb9Q==) base64(jHK01g==) base64(o0HRwg==) base64(w2/+bg==) base64(1f8Mfg==) base64(39kjKA==) base64(53cfLg==) base64(6xdyZA==) base64(72DQNg==)
+txna ApplicationArgs 0
+match Info_opted_addre0ExNsQ1F4ovmZnD_SASEmwURNs0YuTWn5SnO2OIv_ts_ Info_currentTimeoXf_KWv5ao6VzrkN3rr5lBWiH5X_pz0_ll9VoyqQK9s_ User_claim__byteyRs8xcz_MhAYJZR4apRzOkbIv5yH4ApGaDtYrVf0Guo_ Info_myTicketsAmKYQBCagRXb7vRgGFPMeON1_DsuaWIWqp_zrQYiK0HAQ_ User_optin__voidlozpJcHjwgp4Se3UDX_jUs2IgQys2Ct8vq___hhb2Qw_ Info_hasDeadline6IGwLHk6iz7SZ9kFht9OjhFy3ns2TTljA1pMK_UsUOM_ _reachp_3 Info_balance__uivWc87iXmynsa6ppZhrutwHED7ui_erWZe1cwSzUO39o_ Info_token__uintPH1ITABhIfSWoUeU9ruFSYZgUdnZwIOfYrBA2dycYJ0_ Info_currentSec_QXlxxBFKMDXxzmCYxr9vajaWEIuCOnoI3s66RVzBLrw_ Info_ticketsLeftNeZlyf8HEj6bVocfDz9V7QxFCiTgwEj6t6V0uuYi664_ User_refund__bytRY4BF56jvWip8_eA7_pq7sXCVyONEZ80yRmF6Kz1d9U_ User_buyTicket_uiXdaXLxatfAw7fvSmjtvzmLRfby8FJbEEHjAqPUAfO8_ Info_ticketsBoug00UWUWJ1dAxep3UALujtleBVb8XD_Wc_bOYuRg9HrjI_ Info_props___uinL7_WExpRaxvEa6i_Cal6UMo3uYWP2oxJXaSexA_lwVQ_ _reachp_1 Info_winner___byJzaryaZQJ4ZJpJK7RsEQXZlcD9fu0eNdlRd8MtkXpjs_ User_end__byteVjhsBSPWoSXRFySXJY2GAR6ji6KyLiI4VdzkNXXxccQ_ _reachp_0
+errl:
+err
+Info_balance__uivWc87iXmynsa6ppZhrutwHED7ui_erWZe1cwSzUO39o_:
+_reacha_Info_balance:
+load 1 // GV_currentStep :: UInt
+int 4
+==
+assert
+// ^ Claim: Incorrect state: not leaf
+// at ./raffle_algo.rsh:45:12:property binding
+callsub l2_LF_svsLoad_4
+load 19 // netBalance/2199
+itob
+store 4 // GV_apiRet :: Null
+apiReturn_check:
+txn OnCompletion
+int NoOp
+==
+assert
+// checked on completion
+apiReturn_noCheck:
+byte base64(FR98dQ==)
+load 4 // GV_apiRet :: Null
+concat
+log // up to 115 bytes
+done:
+int 1
+return
+Info_currentSec_QXlxxBFKMDXxzmCYxr9vajaWEIuCOnoI3s66RVzBLrw_:
+_reacha_Info_currentSec:
+load 1 // GV_currentStep :: UInt
+int 4
+==
+assert
+// ^ Claim: Incorrect state: not leaf
+// at ./raffle_algo.rsh:42:15:property binding
+callsub l2_LF_svsLoad_4
+load 24 // cSecs/2183
+itob
+store 4 // GV_apiRet :: Null
+b apiReturn_check
+Info_currentTimeoXf_KWv5ao6VzrkN3rr5lBWiH5X_pz0_ll9VoyqQK9s_:
+_reacha_Info_currentTime:
+load 1 // GV_currentStep :: UInt
+int 4
+==
+assert
+// ^ Claim: Incorrect state: not leaf
+// at ./raffle_algo.rsh:41:16:property binding
+callsub l2_LF_svsLoad_4
+load 21 // thisConsensusSecs/2195
+itob
+store 4 // GV_apiRet :: Null
+b apiReturn_check
+Info_hasDeadline6IGwLHk6iz7SZ9kFht9OjhFy3ns2TTljA1pMK_UsUOM_:
+_reacha_Info_hasDeadlineReached:
+load 1 // GV_currentStep :: UInt
+int 4
+==
+assert
+// ^ Claim: Incorrect state: not leaf
+// at ./raffle_algo.rsh:43:23:property binding
+callsub l2_LF_svsLoad_4
+load 18 // deadlineReached/2235
+itob
+substring 7 8
+store 4 // GV_apiRet :: Null
+b apiReturn_check
+Info_myTicketsAmKYQBCagRXb7vRgGFPMeON1_DsuaWIWqp_zrQYiK0HAQ_:
+txna ApplicationArgs 1
+store 11 // v6362
+_reacha_Info_myTicketsAmount:
+load 1 // GV_currentStep :: UInt
+int 4
+==
+assert
+// ^ Claim: Incorrect state: not leaf
+// at ./raffle_algo.rsh:44:20:property binding
+callsub l2_LF_svsLoad_4
+int 8
+bzero
+// resource: R_Box
+byte base64()
+int 8
+bzero
+byte base64(AA==)
+load 11 // v6362
+concat
+callsub l3_LF_mapRef
+callsub l4_LF_fromSome
+store 4 // GV_apiRet :: Null
+b apiReturn_check
+Info_opted_addre0ExNsQ1F4ovmZnD_SASEmwURNs0YuTWn5SnO2OIv_ts_:
+txna ApplicationArgs 1
+store 11 // v6366
+_reacha_Info_opted:
+load 1 // GV_currentStep :: UInt
+int 4
+==
+assert
+// ^ Claim: Incorrect state: not leaf
+// at ./raffle_algo.rsh:40:10:property binding
+callsub l2_LF_svsLoad_4
+// resource: R_Box
+byte base64()
+byte base64()
+byte base64(AQ==)
+load 11 // v6366
+concat
+callsub l3_LF_mapRef
+int 0
+getbyte
+int 1
+==
+itob
+substring 7 8
+store 4 // GV_apiRet :: Null
+b apiReturn_check
+Info_props___uinL7_WExpRaxvEa6i_Cal6UMo3uYWP2oxJXaSexA_lwVQ_:
+_reacha_Info_props:
+load 1 // GV_currentStep :: UInt
+int 4
+==
+assert
+// ^ Claim: Incorrect state: not leaf
+// at ./raffle_algo.rsh:47:10:property binding
+callsub l2_LF_svsLoad_4
+load 27 // amountOfRaffleToken/2154
+itob
+load 30 // cost/2150
+itob
+concat
+load 26 // creator/2155
+concat
+load 32 // deadline/2148
+itob
+concat
+load 34 // isFeatured/2146
+itob
+substring 7 8
+concat
+load 29 // maxEntries/2151
+itob
+concat
+load 33 // numberOfTickets/2147
+itob
+concat
+load 35 // projectName/2145
+concat
+load 28 // raffleToken/2153
+itob
+concat
+store 4 // GV_apiRet :: Null
+b apiReturn_check
+Info_ticketsBoug00UWUWJ1dAxep3UALujtleBVb8XD_Wc_bOYuRg9HrjI_:
+_reacha_Info_ticketsBought:
+load 1 // GV_currentStep :: UInt
+int 4
+==
+assert
+// ^ Claim: Incorrect state: not leaf
+// at ./raffle_algo.rsh:38:18:property binding
+callsub l2_LF_svsLoad_4
+load 23 // MAIN_OBJECT/2191
+extract 8 8
+store 4 // GV_apiRet :: Null
+b apiReturn_check
+Info_ticketsLeftNeZlyf8HEj6bVocfDz9V7QxFCiTgwEj6t6V0uuYi664_:
+_reacha_Info_ticketsLeft:
+load 1 // GV_currentStep :: UInt
+int 4
+==
+assert
+// ^ Claim: Incorrect state: not leaf
+// at ./raffle_algo.rsh:37:16:property binding
+callsub l2_LF_svsLoad_4
+load 23 // MAIN_OBJECT/2191
+extract 33 8
+store 4 // GV_apiRet :: Null
+b apiReturn_check
+Info_token__uintPH1ITABhIfSWoUeU9ruFSYZgUdnZwIOfYrBA2dycYJ0_:
+_reacha_Info_token:
+load 1 // GV_currentStep :: UInt
+int 4
+==
+assert
+// ^ Claim: Incorrect state: not leaf
+// at ./raffle_algo.rsh:46:10:property binding
+callsub l2_LF_svsLoad_4
+load 28 // raffleToken/2153
+itob
+store 4 // GV_apiRet :: Null
+b apiReturn_check
+Info_winner___byJzaryaZQJ4ZJpJK7RsEQXZlcD9fu0eNdlRd8MtkXpjs_:
+_reacha_Info_winner:
+load 1 // GV_currentStep :: UInt
+int 4
+==
+assert
+// ^ Claim: Incorrect state: not leaf
+// at ./raffle_algo.rsh:39:11:property binding
+callsub l2_LF_svsLoad_4
+load 23 // MAIN_OBJECT/2191
+extract 41 33
+store 4 // GV_apiRet :: Null
+b apiReturn_check
+User_buyTicket_uiXdaXLxatfAw7fvSmjtvzmLRfby8FJbEEHjAqPUAfO8_:
+txna ApplicationArgs 1
+btoi
+store 11 // v6380
+_reacha_User_buyTicket:
+int 8
+bzero
+byte base64(AA==)
+load 11 // v6380
+itob
+concat
+concat
+store 11 // v6409
+_reachi_3:
+int 4
+load 1 // GV_currentStep :: UInt
+==
+assert
+callsub l2_LF_svsLoad_4
+load 11 // v6409
+int 0
+extract_uint64
+store 12 // v6408
+load 11 // v6409
+extract 8 9
+store 13 // .fork302.msg/2454
+byte base64(VOdirA==)
+load 12 // v6408
+itob
+concat
+load 13 // .fork302.msg/2454
+concat
+log // up to 21 bytes
+// ^ log: "_reach_e3" [v6408,.fork302.msg/2454] "_reach_e3(uint64,(byte,byte[8]))"
+load 12 // v6408
+callsub l5_LF_timeCheck
+load 13 // .fork302.msg/2454
+int 0
+getbyte
+switch l11_User_buyTicket0_302 l12_User_claim0_302 l13_User_end0_302 l14_User_optin0_302 l15_User_refund0_302
+b errl
+User_claim__byteyRs8xcz_MhAYJZR4apRzOkbIv5yH4ApGaDtYrVf0Guo_:
+_reacha_User_claim:
+byte base64(AAAAAAAAAAABAAAAAAAAAAA=)
+store 11 // v6409
+b _reachi_3
+User_end__byteVjhsBSPWoSXRFySXJY2GAR6ji6KyLiI4VdzkNXXxccQ_:
+_reacha_User_end:
+byte base64(AAAAAAAAAAACAAAAAAAAAAA=)
+store 11 // v6409
+b _reachi_3
+User_optin__voidlozpJcHjwgp4Se3UDX_jUs2IgQys2Ct8vq___hhb2Qw_:
+_reacha_User_optin:
+byte base64(AAAAAAAAAAADAAAAAAAAAAA=)
+store 11 // v6409
+b _reachi_3
+User_refund__bytRY4BF56jvWip8_eA7_pq7sXCVyONEZ80yRmF6Kz1d9U_:
+_reacha_User_refund:
+byte base64(AAAAAAAAAAAEAAAAAAAAAAA=)
+store 11 // v6409
+b _reachi_3
+_api_User_buyTicket3:
+load 13 // .fork302.msg/2454
+int 1
+extract_uint64
+store 12 // numberOfTicketsToBuy/2462
+int 8
+bzero
+// resource: R_Box
+byte base64()
+int 8
+bzero
+byte base64(AA==)
+txn Sender
+concat
+callsub l3_LF_mapRef
+callsub l4_LF_fromSome
+btoi
+store 13 // currentRewardAmount/2464
+load 21 // thisConsensusSecs/2195
+load 24 // cSecs/2183
+<
+assert
+// ^ Claim: Deadline reached cannot enter
+// at reach standard library:57:5:application
+// at ./raffle_algo.rsh:159:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./raffle_algo.rsh:157:50:application call to [unknown function] (defined at: ./raffle_algo.rsh:157:50:function exp)
+// at ./raffle_algo.rsh:126:37:application call to [unknown function] (defined at: ./raffle_algo.rsh:157:50:function exp)
+// at ./raffle_algo.rsh:126:37:application call to [unknown function] (defined at: ./raffle_algo.rsh:126:37:function exp)
+// at ./raffle_algo.rsh:140:14:application call to [unknown function] (defined at: ./raffle_algo.rsh:140:14:function exp)
+load 13 // currentRewardAmount/2464
+load 12 // numberOfTicketsToBuy/2462
++
+store 11 // v2467
+load 29 // maxEntries/2151
+load 11 // v2467
+>=
+assert
+// ^ Claim: Limit reached
+// at reach standard library:57:5:application
+// at ./raffle_algo.rsh:160:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./raffle_algo.rsh:157:50:application call to [unknown function] (defined at: ./raffle_algo.rsh:157:50:function exp)
+// at ./raffle_algo.rsh:126:37:application call to [unknown function] (defined at: ./raffle_algo.rsh:157:50:function exp)
+// at ./raffle_algo.rsh:126:37:application call to [unknown function] (defined at: ./raffle_algo.rsh:126:37:function exp)
+// at ./raffle_algo.rsh:140:14:application call to [unknown function] (defined at: ./raffle_algo.rsh:140:14:function exp)
+load 12 // numberOfTicketsToBuy/2462
+load 13 // currentRewardAmount/2464
++
+load 33 // numberOfTickets/2147
+<=
+assert
+// ^ Claim: Cannot buy more tickets than balance
+// at reach standard library:57:5:application
+// at ./raffle_algo.rsh:164:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./raffle_algo.rsh:157:50:application call to [unknown function] (defined at: ./raffle_algo.rsh:157:50:function exp)
+// at ./raffle_algo.rsh:126:37:application call to [unknown function] (defined at: ./raffle_algo.rsh:157:50:function exp)
+// at ./raffle_algo.rsh:126:37:application call to [unknown function] (defined at: ./raffle_algo.rsh:126:37:function exp)
+// at ./raffle_algo.rsh:140:14:application call to [unknown function] (defined at: ./raffle_algo.rsh:140:14:function exp)
+load 12 // numberOfTicketsToBuy/2462
+load 30 // cost/2150
+*
+store 38 // v2473
+load 19 // netBalance/2199
+load 38 // v2473
++
+store 37 // v2559
+load 38 // v2473
+callsub l9_LF_checkTxn_False
+// ^ CheckPay
+// at ./raffle_algo.rsh:126:37:dot
+int 18900
+byte base64(AA==)
+txn Sender
+concat
+load 11 // v2467
+itob
+callsub l16_LF_mapSet
+txn Sender
+load 12 // numberOfTicketsToBuy/2462
+itob
+concat
+store 11 // v2582
+byte base64(+FjIAA==)
+load 11 // v2582
+concat
+log // up to 44 bytes
+// ^ log: "bought" [v2582] "bought((address,uint64))"
+load 17 // currentUserNumber/2246
+int 1
++
+dup
+store 18 // v2583
+load 31 // randomNumber/2149
+==
+bz l17_localIfF
+int 1
+store 13 // v2585
+l18_localIfK:
+load 13 // v2585
+bz l21_ifF
+int 1
+store 11 // v2591
+byte base64(AAAAAAAACh8=)
+load 11 // v2591
+itob
+substring 7 8
+concat
+log // up to 9 bytes
+load 11 // v2591
+itob
+substring 7 8
+store 4 // GV_apiRet :: Null
+load 16 // bal/2247
+load 38 // v2473
++
+itob
+load 17 // currentUserNumber/2246
+load 12 // numberOfTicketsToBuy/2462
++
+itob
+concat
+load 23 // MAIN_OBJECT/2191
+extract 16 1
+concat
+load 23 // MAIN_OBJECT/2191
+extract 17 8
+concat
+load 14 // raffleBal/2249
+itob
+concat
+load 15 // ticketsLeft/2248
+load 12 // numberOfTicketsToBuy/2462
+-
+itob
+concat
+byte base64(AQ==)
+txn Sender
+concat
+concat
+global Round
+global LatestTimestamp
+load 37 // v2559
+store 19 // netBalance/2199
+store 21 // thisConsensusSecs/2195
+store 22 // thisConsensusTime/2192
+store 23 // MAIN_OBJECT/2191
+_reachl_2:
+load 23 // MAIN_OBJECT/2191
+extract 16 1
+btoi
+bz l23_ifF
+load 21 // thisConsensusSecs/2195
+load 24 // cSecs/2183
+>=
+store 18 // deadlineReached/2235
+load 23 // MAIN_OBJECT/2191
+int 8
+extract_uint64
+store 17 // currentUserNumber/2246
+load 23 // MAIN_OBJECT/2191
+int 0
+extract_uint64
+store 16 // bal/2247
+load 23 // MAIN_OBJECT/2191
+int 33
+extract_uint64
+store 15 // ticketsLeft/2248
+load 23 // MAIN_OBJECT/2191
+int 25
+extract_uint64
+store 14 // raffleBal/2249
+l24_LF_svsDump_4:
+load 36 // Deployer/2144
+load 35 // projectName/2145
+concat
+load 34 // isFeatured/2146
+itob
+substring 7 8
+concat
+load 33 // numberOfTickets/2147
+itob
+concat
+load 32 // deadline/2148
+itob
+concat
+load 31 // randomNumber/2149
+itob
+concat
+load 30 // cost/2150
+itob
+concat
+load 29 // maxEntries/2151
+itob
+concat
+load 28 // raffleToken/2153
+itob
+concat
+load 27 // amountOfRaffleToken/2154
+itob
+concat
+load 26 // creator/2155
+concat
+load 25 // ADMINISTRATOR_ADDERSS/2156
+concat
+load 24 // cSecs/2183
+itob
+concat
+load 23 // MAIN_OBJECT/2191
+concat
+load 21 // thisConsensusSecs/2195
+itob
+concat
+load 20 // tokenInfos/2198
+concat
+load 19 // netBalance/2199
+itob
+concat
+load 18 // deadlineReached/2235
+itob
+substring 7 8
+concat
+load 17 // currentUserNumber/2246
+itob
+concat
+load 16 // bal/2247
+itob
+concat
+load 15 // ticketsLeft/2248
+itob
+concat
+load 14 // raffleBal/2249
+itob
+concat
+int 4
+global Round
+updateStateNoOp:
+store 2 // GV_currentTime :: UInt
+store 1 // GV_currentStep :: UInt
+byte base64(AA==)
+dig 1
+extract 0 127
+app_global_put
+byte base64(AQ==)
+dig 1
+extract 127 127
+app_global_put
+byte base64(Ag==)
+swap
+extract 254 77
+app_global_put
+byte base64()
+load 1 // GV_currentStep :: UInt
+itob
+load 2 // GV_currentTime :: UInt
+itob
+concat
+app_global_put
+txn OnCompletion
+int NoOp
+==
+assert
+// checked on completion
+callsub l26_LF_updateMbr
+updateState:
+load 3 // GV_wasntMeth :: Bool
+bnz done
+b apiReturn_noCheck
+_api_User_claim3:
+load 23 // MAIN_OBJECT/2191
+extract 41 33
+dup
+store 12 // m/2800
+int 0
+getbyte
+int 1
+==
+assert
+// ^ Claim: Winner has not been determined
+// at reach standard library:57:5:application
+// at ./raffle_algo.rsh:260:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./raffle_algo.rsh:257:26:application call to [unknown function] (defined at: ./raffle_algo.rsh:257:26:function exp)
+// at ./raffle_algo.rsh:126:37:application call to [unknown function] (defined at: ./raffle_algo.rsh:257:26:function exp)
+// at ./raffle_algo.rsh:126:37:application call to [unknown function] (defined at: ./raffle_algo.rsh:126:37:function exp)
+// at ./raffle_algo.rsh:140:14:application call to [unknown function] (defined at: ./raffle_algo.rsh:140:14:function exp)
+load 15 // ticketsLeft/2248
+int 0
+==
+store 11 // v2806
+load 18 // deadlineReached/2235
+load 11 // v2806
+&&
+assert
+// ^ Claim: Cannot claim yet
+// at reach standard library:57:5:application
+// at ./raffle_algo.rsh:261:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./raffle_algo.rsh:257:26:application call to [unknown function] (defined at: ./raffle_algo.rsh:257:26:function exp)
+// at ./raffle_algo.rsh:126:37:application call to [unknown function] (defined at: ./raffle_algo.rsh:257:26:function exp)
+// at ./raffle_algo.rsh:126:37:application call to [unknown function] (defined at: ./raffle_algo.rsh:126:37:function exp)
+// at ./raffle_algo.rsh:140:14:application call to [unknown function] (defined at: ./raffle_algo.rsh:140:14:function exp)
+load 20 // tokenInfos/2198
+extract 0 17
+dup
+store 16 // tokInfo/2809
+int 0
+extract_uint64
+store 13 // v2810
+load 14 // raffleBal/2249
+load 13 // v2810
+<=
+assert
+// ^ Claim: Error transferring
+// at reach standard library:57:5:application
+// at ./raffle_algo.rsh:265:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./raffle_algo.rsh:257:26:application call to [unknown function] (defined at: ./raffle_algo.rsh:257:26:function exp)
+// at ./raffle_algo.rsh:126:37:application call to [unknown function] (defined at: ./raffle_algo.rsh:257:26:function exp)
+// at ./raffle_algo.rsh:126:37:application call to [unknown function] (defined at: ./raffle_algo.rsh:126:37:function exp)
+// at ./raffle_algo.rsh:140:14:application call to [unknown function] (defined at: ./raffle_algo.rsh:140:14:function exp)
+load 36 // Deployer/2144
+load 12 // m/2800
+callsub l4_LF_fromSome
+dup
+store 14 // winner/2814
+txn Sender
+==
+assert
+// ^ Claim: Not winner
+// at reach standard library:57:5:application
+// at ./raffle_algo.rsh:269:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./raffle_algo.rsh:257:26:application call to [unknown function] (defined at: ./raffle_algo.rsh:257:26:function exp)
+// at ./raffle_algo.rsh:126:37:application call to [unknown function] (defined at: ./raffle_algo.rsh:257:26:function exp)
+// at ./raffle_algo.rsh:126:37:application call to [unknown function] (defined at: ./raffle_algo.rsh:126:37:function exp)
+// at ./raffle_algo.rsh:140:14:application call to [unknown function] (defined at: ./raffle_algo.rsh:140:14:function exp)
+global LatestTimestamp
+load 24 // cSecs/2183
+>=
+load 11 // v2806
+&&
+assert
+// ^ Claim: Cannot claim yet
+// at reach standard library:57:5:application
+// at ./raffle_algo.rsh:261:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./raffle_algo.rsh:272:13:application call to [unknown function] (defined at: ./raffle_algo.rsh:272:13:function exp)
+load 13 // v2810
+// resource: R_Asset
+load 28 // raffleToken/2153
+// resource: R_Account
+load 14 // winner/2814
+callsub l6_LF_makeTxn_False_False_True_True
+load 19 // netBalance/2199
+dup
+int 5
+*
+int 100
+/
+-
+store 11 // v2988
+load 19 // netBalance/2199
+load 11 // v2988
+-
+store 14 // v2992
+load 11 // v2988
+// resource: R_Account
+load 36 // Deployer/2144
+callsub l22_LF_makeTxn_False_False_False_True
+int 1
+store 11 // v2993
+byte base64(AAAAAAAAC7E=)
+load 11 // v2993
+itob
+substring 7 8
+concat
+log // up to 9 bytes
+load 11 // v2993
+itob
+substring 7 8
+store 4 // GV_apiRet :: Null
+load 14 // v2992
+itob
+load 17 // currentUserNumber/2246
+itob
+concat
+byte base64(AA==)
+concat
+load 23 // MAIN_OBJECT/2191
+extract 17 8
+concat
+int 8
+bzero
+concat
+load 15 // ticketsLeft/2248
+itob
+concat
+load 12 // m/2800
+concat
+global Round
+global LatestTimestamp
+load 20 // tokenInfos/2198
+load 16 // tokInfo/2809
+load 13 // v2810
+dup
+-
+itob
+replace2 0
+replace2 0
+load 14 // v2992
+store 19 // netBalance/2199
+store 20 // tokenInfos/2198
+store 21 // thisConsensusSecs/2195
+store 22 // thisConsensusTime/2192
+store 23 // MAIN_OBJECT/2191
+b _reachl_2
+_api_User_end3:
+txn Sender
+load 36 // Deployer/2144
+==
+txn Sender
+load 25 // ADMINISTRATOR_ADDERSS/2156
+==
+||
+assert
+// ^ Claim: Don't have administrative rights to perform action
+// at reach standard library:57:5:application
+// at ./raffle_algo.rsh:291:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./raffle_algo.rsh:288:24:application call to [unknown function] (defined at: ./raffle_algo.rsh:288:24:function exp)
+// at ./raffle_algo.rsh:126:37:application call to [unknown function] (defined at: ./raffle_algo.rsh:288:24:function exp)
+// at ./raffle_algo.rsh:126:37:application call to [unknown function] (defined at: ./raffle_algo.rsh:126:37:function exp)
+// at ./raffle_algo.rsh:140:14:application call to [unknown function] (defined at: ./raffle_algo.rsh:140:14:function exp)
+load 15 // ticketsLeft/2248
+load 33 // numberOfTickets/2147
+==
+assert
+// ^ Claim: Cannot end contract
+// at reach standard library:57:5:application
+// at ./raffle_algo.rsh:295:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./raffle_algo.rsh:288:24:application call to [unknown function] (defined at: ./raffle_algo.rsh:288:24:function exp)
+// at ./raffle_algo.rsh:126:37:application call to [unknown function] (defined at: ./raffle_algo.rsh:288:24:function exp)
+// at ./raffle_algo.rsh:126:37:application call to [unknown function] (defined at: ./raffle_algo.rsh:126:37:function exp)
+// at ./raffle_algo.rsh:140:14:application call to [unknown function] (defined at: ./raffle_algo.rsh:140:14:function exp)
+load 20 // tokenInfos/2198
+extract 0 17
+dup
+store 13 // tokInfo/3196
+int 0
+extract_uint64
+store 12 // v3197
+int 1
+store 11 // v3335
+byte base64(AAAAAAAADQc=)
+load 11 // v3335
+itob
+substring 7 8
+concat
+log // up to 9 bytes
+load 11 // v3335
+itob
+substring 7 8
+store 4 // GV_apiRet :: Null
+load 12 // v3197
+// resource: R_Asset
+load 28 // raffleToken/2153
+txn Sender
+callsub l6_LF_makeTxn_False_False_True_True
+load 16 // bal/2247
+itob
+load 17 // currentUserNumber/2246
+itob
+concat
+byte base64(AA==)
+concat
+load 23 // MAIN_OBJECT/2191
+extract 17 8
+concat
+load 14 // raffleBal/2249
+itob
+concat
+load 15 // ticketsLeft/2248
+itob
+concat
+load 23 // MAIN_OBJECT/2191
+extract 41 33
+concat
+global Round
+global LatestTimestamp
+load 20 // tokenInfos/2198
+load 13 // tokInfo/3196
+load 12 // v3197
+dup
+-
+itob
+replace2 0
+replace2 0
+store 20 // tokenInfos/2198
+store 21 // thisConsensusSecs/2195
+store 22 // thisConsensusTime/2192
+store 23 // MAIN_OBJECT/2191
+b _reachl_2
+_api_User_optin3:
+byte base64()
+store 11 // v3680
+byte base64(AAAAAAAADmA=)
+load 11 // v3680
+concat
+log // up to 8 bytes
+load 11 // v3680
+store 4 // GV_apiRet :: Null
+global Round
+global LatestTimestamp
+store 21 // thisConsensusSecs/2195
+store 22 // thisConsensusTime/2192
+b _reachl_2
+_api_User_refund3:
+// resource: R_Box
+byte base64()
+int 8
+bzero
+byte base64(AA==)
+txn Sender
+concat
+callsub l3_LF_mapRef
+store 13 // v3800
+int 8
+bzero
+load 13 // v3800
+callsub l4_LF_fromSome
+btoi
+dup
+store 12 // currentRewardAmount/3801
+load 30 // cost/2150
+*
+store 11 // val/3802
+load 18 // deadlineReached/2235
+assert
+// ^ Claim: Deadline not reached cannot refund
+// at reach standard library:57:5:application
+// at ./raffle_algo.rsh:229:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./raffle_algo.rsh:223:27:application call to [unknown function] (defined at: ./raffle_algo.rsh:223:27:function exp)
+// at ./raffle_algo.rsh:126:37:application call to [unknown function] (defined at: ./raffle_algo.rsh:223:27:function exp)
+// at ./raffle_algo.rsh:126:37:application call to [unknown function] (defined at: ./raffle_algo.rsh:126:37:function exp)
+// at ./raffle_algo.rsh:140:14:application call to [unknown function] (defined at: ./raffle_algo.rsh:140:14:function exp)
+load 13 // v3800
+int 0
+getbyte
+int 1
+==
+assert
+// ^ Claim: You do not qualify for refund
+// at reach standard library:57:5:application
+// at ./raffle_algo.rsh:230:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./raffle_algo.rsh:223:27:application call to [unknown function] (defined at: ./raffle_algo.rsh:223:27:function exp)
+// at ./raffle_algo.rsh:126:37:application call to [unknown function] (defined at: ./raffle_algo.rsh:223:27:function exp)
+// at ./raffle_algo.rsh:126:37:application call to [unknown function] (defined at: ./raffle_algo.rsh:126:37:function exp)
+// at ./raffle_algo.rsh:140:14:application call to [unknown function] (defined at: ./raffle_algo.rsh:140:14:function exp)
+load 12 // currentRewardAmount/3801
+int 0
+>
+assert
+// ^ Claim: You cannot be refund cus your stake is 0
+// at reach standard library:57:5:application
+// at ./raffle_algo.rsh:231:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./raffle_algo.rsh:223:27:application call to [unknown function] (defined at: ./raffle_algo.rsh:223:27:function exp)
+// at ./raffle_algo.rsh:126:37:application call to [unknown function] (defined at: ./raffle_algo.rsh:223:27:function exp)
+// at ./raffle_algo.rsh:126:37:application call to [unknown function] (defined at: ./raffle_algo.rsh:126:37:function exp)
+// at ./raffle_algo.rsh:140:14:application call to [unknown function] (defined at: ./raffle_algo.rsh:140:14:function exp)
+load 11 // val/3802
+load 19 // netBalance/2199
+<=
+assert
+// ^ Claim: Contract balance insufficient
+// at reach standard library:57:5:application
+// at ./raffle_algo.rsh:235:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./raffle_algo.rsh:223:27:application call to [unknown function] (defined at: ./raffle_algo.rsh:223:27:function exp)
+// at ./raffle_algo.rsh:126:37:application call to [unknown function] (defined at: ./raffle_algo.rsh:223:27:function exp)
+// at ./raffle_algo.rsh:126:37:application call to [unknown function] (defined at: ./raffle_algo.rsh:126:37:function exp)
+// at ./raffle_algo.rsh:140:14:application call to [unknown function] (defined at: ./raffle_algo.rsh:140:14:function exp)
+load 17 // currentUserNumber/2246
+int 0
+>
+assert
+// ^ Claim: Can't get a refund because pool is empty
+// at reach standard library:57:5:application
+// at ./raffle_algo.rsh:236:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./raffle_algo.rsh:223:27:application call to [unknown function] (defined at: ./raffle_algo.rsh:223:27:function exp)
+// at ./raffle_algo.rsh:126:37:application call to [unknown function] (defined at: ./raffle_algo.rsh:223:27:function exp)
+// at ./raffle_algo.rsh:126:37:application call to [unknown function] (defined at: ./raffle_algo.rsh:126:37:function exp)
+// at ./raffle_algo.rsh:140:14:application call to [unknown function] (defined at: ./raffle_algo.rsh:140:14:function exp)
+global LatestTimestamp
+load 24 // cSecs/2183
+>=
+assert
+// ^ Claim: Deadline not reached cannot refund
+// at reach standard library:57:5:application
+// at ./raffle_algo.rsh:229:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./raffle_algo.rsh:242:15:application call to [unknown function] (defined at: ./raffle_algo.rsh:242:15:function exp)
+load 11 // val/3802
+txn Sender
+callsub l22_LF_makeTxn_False_False_False_True
+int 18900
+byte base64(AA==)
+txn Sender
+concat
+int 8
+bzero
+callsub l16_LF_mapSet
+int 1
+store 13 // v4027
+byte base64(AAAAAAAAD7s=)
+load 13 // v4027
+itob
+substring 7 8
+concat
+log // up to 9 bytes
+load 13 // v4027
+itob
+substring 7 8
+store 4 // GV_apiRet :: Null
+load 16 // bal/2247
+load 11 // val/3802
+-
+itob
+load 17 // currentUserNumber/2246
+load 12 // currentRewardAmount/3801
+-
+itob
+concat
+load 23 // MAIN_OBJECT/2191
+extract 16 1
+concat
+load 23 // MAIN_OBJECT/2191
+extract 17 8
+concat
+load 14 // raffleBal/2249
+itob
+concat
+load 15 // ticketsLeft/2248
+load 12 // currentRewardAmount/3801
++
+itob
+concat
+load 23 // MAIN_OBJECT/2191
+extract 41 33
+concat
+global Round
+global LatestTimestamp
+load 19 // netBalance/2199
+load 11 // val/3802
+-
+store 19 // netBalance/2199
+store 21 // thisConsensusSecs/2195
+store 22 // thisConsensusTime/2192
+store 23 // MAIN_OBJECT/2191
+b _reachl_2
+_reachi_0:
+txn Sender
+store 36 // Deployer/2144
+load 11 // v6403
+int 0
+extract_uint64
+store 13 // v6402
+load 11 // v6403
+extract 8 30
+store 35 // projectName/2145
+load 11 // v6403
+extract 38 1
+btoi
+store 34 // isFeatured/2146
+load 11 // v6403
+int 39
+extract_uint64
+store 33 // numberOfTickets/2147
+load 11 // v6403
+int 47
+extract_uint64
+store 32 // deadline/2148
+load 11 // v6403
+int 55
+extract_uint64
+store 31 // randomNumber/2149
+load 11 // v6403
+int 63
+extract_uint64
+store 30 // cost/2150
+load 11 // v6403
+int 71
+extract_uint64
+store 29 // maxEntries/2151
+load 11 // v6403
+int 79
+extract_uint64
+store 12 // featuredAmount/2152
+load 11 // v6403
+int 87
+extract_uint64
+store 28 // raffleToken/2153
+load 11 // v6403
+int 95
+extract_uint64
+store 27 // amountOfRaffleToken/2154
+load 11 // v6403
+extract 103 32
+store 26 // creator/2155
+load 11 // v6403
+extract 135 32
+store 25 // ADMINISTRATOR_ADDERSS/2156
+byte base64(gxZxpQ==)
+load 13 // v6402
+itob
+concat
+load 35 // projectName/2145
+concat
+load 34 // isFeatured/2146
+itob
+substring 7 8
+concat
+load 33 // numberOfTickets/2147
+itob
+concat
+load 32 // deadline/2148
+itob
+concat
+load 31 // randomNumber/2149
+itob
+concat
+load 30 // cost/2150
+itob
+concat
+load 29 // maxEntries/2151
+itob
+concat
+load 12 // featuredAmount/2152
+itob
+concat
+load 28 // raffleToken/2153
+itob
+concat
+load 27 // amountOfRaffleToken/2154
+itob
+concat
+load 26 // creator/2155
+concat
+load 25 // ADMINISTRATOR_ADDERSS/2156
+concat
+log // up to 171 bytes
+// ^ log: "_reach_e0" [v6402,projectName/2145,isFeatured/2146,numberOfTickets/2147,deadline/2148,randomNumber/2149,cost/2150,maxEntries/2151,featuredAmount/2152,raffleToken/2153,amountOfRaffleToken/2154,creator/2155,ADMINISTRATOR_ADDERSS/2156] "_reach_e0(uint64,byte[30],byte,uint64,uint64,uint64,uint64,uint64,uint64,uint64,uint64,address,address)"
+load 13 // v6402
+callsub l5_LF_timeCheck
+int 17
+bzero
+dup
+store 11 // tokInfos/2119
+dup
+extract 0 17
+int 8
+bzero
+replace2 0
+replace2 0
+store 14 // tokInfos'/2161
+load 31 // randomNumber/2149
+load 33 // numberOfTickets/2147
+<=
+assert
+// ^ Claim: Cannot be more that tickets
+// at reach standard library:57:5:application
+// at ./raffle_algo.rsh:90:10:application call to "check" (defined at: reach standard library:49:32:function exp)
+load 30 // cost/2150
+int 18446744073709551615
+<
+assert
+// ^ Claim: Cost too large
+// at reach standard library:57:5:application
+// at ./raffle_algo.rsh:91:10:application call to "check" (defined at: reach standard library:49:32:function exp)
+load 30 // cost/2150
+int 1
+>
+assert
+// ^ Claim: Cost too small
+// at reach standard library:57:5:application
+// at ./raffle_algo.rsh:92:10:application call to "check" (defined at: reach standard library:49:32:function exp)
+int 100000
+callsub l1_LF_mbrAdd
+int 0
+// resource: R_Asset
+load 28 // raffleToken/2153
+global CurrentApplicationAddress
+callsub l6_LF_makeTxn_False_False_True_True
+l7_LF_svsDump_1:
+load 36 // Deployer/2144
+load 35 // projectName/2145
+concat
+load 34 // isFeatured/2146
+itob
+substring 7 8
+concat
+load 33 // numberOfTickets/2147
+itob
+concat
+load 32 // deadline/2148
+itob
+concat
+load 31 // randomNumber/2149
+itob
+concat
+load 30 // cost/2150
+itob
+concat
+load 29 // maxEntries/2151
+itob
+concat
+load 12 // featuredAmount/2152
+itob
+concat
+load 28 // raffleToken/2153
+itob
+concat
+load 27 // amountOfRaffleToken/2154
+itob
+concat
+load 26 // creator/2155
+concat
+load 25 // ADMINISTRATOR_ADDERSS/2156
+concat
+load 14 // tokInfos'/2161
+concat
+int 123
+bzero
+concat
+int 1
+global Round
+b updateStateNoOp
+_reachi_1:
+int 1
+load 1 // GV_currentStep :: UInt
+==
+assert
+l8_LF_svsLoad_1:
+dup
+extract 0 32
+store 36 // Deployer/2144
+dup
+extract 32 30
+store 35 // projectName/2145
+dup
+extract 62 1
+btoi
+store 34 // isFeatured/2146
+dup
+int 63
+extract_uint64
+store 33 // numberOfTickets/2147
+dup
+int 71
+extract_uint64
+store 32 // deadline/2148
+dup
+int 79
+extract_uint64
+store 31 // randomNumber/2149
+dup
+int 87
+extract_uint64
+store 30 // cost/2150
+dup
+int 95
+extract_uint64
+store 29 // maxEntries/2151
+dup
+int 103
+extract_uint64
+store 12 // featuredAmount/2152
+dup
+int 111
+extract_uint64
+store 28 // raffleToken/2153
+dup
+int 119
+extract_uint64
+store 27 // amountOfRaffleToken/2154
+dup
+extract 127 32
+store 26 // creator/2155
+dup
+extract 159 32
+store 25 // ADMINISTRATOR_ADDERSS/2156
+extract 191 17
+store 14 // tokInfos'/2161
+load 11 // v6406
+btoi
+store 13 // v6405
+byte base64(1RUZFA==)
+load 13 // v6405
+itob
+concat
+log // up to 12 bytes
+// ^ log: "_reach_e1" [v6405] "_reach_e1(uint64)"
+load 13 // v6405
+callsub l5_LF_timeCheck
+load 12 // featuredAmount/2152
+callsub l9_LF_checkTxn_False
+// ^ CheckPay
+// at ./raffle_algo.rsh:96:12:dot
+load 14 // tokInfos'/2161
+extract 0 17
+store 13 // tokInfo/2174
+load 14 // tokInfos'/2161
+load 13 // tokInfo/2174
+dup
+int 0
+extract_uint64
+load 27 // amountOfRaffleToken/2154
++
+itob
+replace2 0
+replace2 0
+store 11 // tokInfos'/2179
+load 27 // amountOfRaffleToken/2154
+load 28 // raffleToken/2153
+l10_LF_checkTxn_True:
+// resource: R_Txn
+txn GroupIndex
+load 0 // GV_txnCounter :: UInt
+int 1
++
+dup
+store 0 // GV_txnCounter :: UInt
+-
+dupn 3
+gtxns AssetReceiver
+global CurrentApplicationAddress
+==
+assert
+gtxns TypeEnum
+int axfer
+==
+assert
+gtxns XferAsset
+uncover 2
+==
+assert
+gtxns AssetAmount
+==
+assert
+// ^ CheckPay
+// at ./raffle_algo.rsh:96:12:dot
+load 36 // Deployer/2144
+txn Sender
+==
+assert
+// ^ Claim: sender correct
+// at ./raffle_algo.rsh:96:12:dot
+global LatestTimestamp
+load 32 // deadline/2148
++
+store 24 // cSecs/2183
+load 12 // featuredAmount/2152
+itob
+int 8
+bzero
+concat
+byte base64(AQ==)
+concat
+byte base64(AAAAAAAAAAU=)
+concat
+load 11 // tokInfos'/2179
+extract 0 17
+extract 0 8
+concat
+load 33 // numberOfTickets/2147
+itob
+concat
+int 33
+bzero
+concat
+global Round
+global LatestTimestamp
+load 11 // tokInfos'/2179
+load 12 // featuredAmount/2152
+store 19 // netBalance/2199
+store 20 // tokenInfos/2198
+store 21 // thisConsensusSecs/2195
+store 22 // thisConsensusTime/2192
+store 23 // MAIN_OBJECT/2191
+b _reachl_2
+_reachp_0:
+callsub l0_LF_wasntMeth
+int 100000
+callsub l1_LF_mbrAdd
+txna ApplicationArgs 1
+store 11 // v6403
+b _reachi_0
+_reachp_1:
+callsub l0_LF_wasntMeth
+txna ApplicationArgs 1
+store 11 // v6406
+b _reachi_1
+_reachp_3:
+callsub l0_LF_wasntMeth
+txna ApplicationArgs 1
+store 11 // v6409
+b _reachi_3
+alloc:
+int 0
+txn GlobalNumUint
+==
+assert
+int 4
+txn GlobalNumByteSlice
+==
+assert
+int 0
+txn LocalNumUint
+==
+assert
+int 0
+txn LocalNumByteSlice
+==
+assert
+callsub l0_LF_wasntMeth
+int 331
+bzero
+int 0
+int 0
+b updateStateNoOp
+l11_User_buyTicket0_302:
+b _api_User_buyTicket3
+l12_User_claim0_302:
+b _api_User_claim3
+l13_User_end0_302:
+b _api_User_end3
+l14_User_optin0_302:
+b _api_User_optin3
+l15_User_refund0_302:
+b _api_User_refund3
+l17_localIfF:
+load 18 // v2583
+load 31 // randomNumber/2149
+<=
+bz l19_localIfF
+load 17 // currentUserNumber/2246
+load 12 // numberOfTicketsToBuy/2462
++
+load 31 // randomNumber/2149
+>=
+store 11 // v2588
+l20_localIfK:
+load 11 // v2588
+store 13 // v2585
+b l18_localIfK
+l19_localIfF:
+int 0
+store 11 // v2588
+b l20_localIfK
+l21_ifF:
+int 1
+store 11 // v2614
+byte base64(AAAAAAAACjY=)
+load 11 // v2614
+itob
+substring 7 8
+concat
+log // up to 9 bytes
+load 11 // v2614
+itob
+substring 7 8
+store 4 // GV_apiRet :: Null
+load 16 // bal/2247
+load 38 // v2473
++
+itob
+load 17 // currentUserNumber/2246
+load 12 // numberOfTicketsToBuy/2462
++
+itob
+concat
+load 23 // MAIN_OBJECT/2191
+extract 16 1
+concat
+load 23 // MAIN_OBJECT/2191
+extract 17 8
+concat
+load 14 // raffleBal/2249
+itob
+concat
+load 15 // ticketsLeft/2248
+load 12 // numberOfTicketsToBuy/2462
+-
+itob
+concat
+load 23 // MAIN_OBJECT/2191
+extract 41 33
+concat
+global Round
+global LatestTimestamp
+load 37 // v2559
+store 19 // netBalance/2199
+store 21 // thisConsensusSecs/2195
+store 22 // thisConsensusTime/2192
+store 23 // MAIN_OBJECT/2191
+b _reachl_2
+l23_ifF:
+load 19 // netBalance/2199
+// resource: R_Account
+load 25 // ADMINISTRATOR_ADDERSS/2156
+callsub l22_LF_makeTxn_False_False_False_True
+load 20 // tokenInfos/2198
+extract 0 17
+int 0
+extract_uint64
+// resource: R_Asset
+load 28 // raffleToken/2153
+load 25 // ADMINISTRATOR_ADDERSS/2156
+callsub l6_LF_makeTxn_False_False_True_True
+// resource: R_Account
+int 0
+load 28 // raffleToken/2153
+global CurrentApplicationAddress
+global CreatorAddress
+callsub l25_LF_makeTxn_False_True_True_True
+updateStateHalt:
+txn OnCompletion
+int DeleteApplication
+==
+assert
+// checked on completion
+callsub l26_LF_updateMbr
+// resource: R_Account
+global CurrentApplicationAddress
+balance
+global CurrentApplicationAddress
+min_balance
+-
+l27_getActualBalance:
+dup
+store 6 // GV_mbrAdd :: UInt
+global CurrentApplicationAddress
+callsub l22_LF_makeTxn_False_False_False_True
+b updateState
+l28_boxSet:
+pop
+swap
+box_put
+pop
+retsub
+l29_LF_makeTxnK_False_True:
+int 0
+itxn_field Fee
+int pay
+itxn_field TypeEnum
+itxn_field Receiver
+itxn_field Amount
+itxn_submit
+retsub
+l30_LF_makeTxnK_True_True:
+int 0
+itxn_field Fee
+int axfer
+itxn_field TypeEnum
+itxn_field AssetReceiver
+itxn_field XferAsset
+itxn_field AssetAmount
+itxn_submit
+retsub
+updateMbr_eq:
+pop
+retsub
+updateMbr_neg:
+swap
+-
+dup
+store 6 // GV_mbrAdd :: UInt
+global CreatorAddress
+callsub l22_LF_makeTxn_False_False_False_True
+retsub
+updateMbr_pos_eq:
+-
+dup
+bz updateMbr_eq
+dup
+store 6 // GV_mbrAdd :: UInt
+callsub l9_LF_checkTxn_False
+retsub
+l2_LF_svsLoad_4:
+dup
+extract 0 32
+store 36 // Deployer/2144
+dup
+extract 32 30
+store 35 // projectName/2145
+dup
+extract 62 1
+btoi
+store 34 // isFeatured/2146
+dup
+int 63
+extract_uint64
+store 33 // numberOfTickets/2147
+dup
+int 71
+extract_uint64
+store 32 // deadline/2148
+dup
+int 79
+extract_uint64
+store 31 // randomNumber/2149
+dup
+int 87
+extract_uint64
+store 30 // cost/2150
+dup
+int 95
+extract_uint64
+store 29 // maxEntries/2151
+dup
+int 103
+extract_uint64
+store 28 // raffleToken/2153
+dup
+int 111
+extract_uint64
+store 27 // amountOfRaffleToken/2154
+dup
+extract 119 32
+store 26 // creator/2155
+dup
+extract 151 32
+store 25 // ADMINISTRATOR_ADDERSS/2156
+dup
+int 183
+extract_uint64
+store 24 // cSecs/2183
+dup
+extract 191 74
+store 23 // MAIN_OBJECT/2191
+dup
+int 265
+extract_uint64
+store 21 // thisConsensusSecs/2195
+dup
+int 273
+int 17
+extract3
+store 20 // tokenInfos/2198
+dup
+int 290
+extract_uint64
+store 19 // netBalance/2199
+dup
+int 298
+int 1
+extract3
+btoi
+store 18 // deadlineReached/2235
+dup
+int 299
+extract_uint64
+store 17 // currentUserNumber/2246
+dup
+int 307
+extract_uint64
+store 16 // bal/2247
+dup
+int 315
+extract_uint64
+store 15 // ticketsLeft/2248
+int 323
+extract_uint64
+store 14 // raffleBal/2249
+retsub
+l22_LF_makeTxn_False_False_False_True:
+itxn_begin
+b l29_LF_makeTxnK_False_True
+l6_LF_makeTxn_False_False_True_True:
+itxn_begin
+b l30_LF_makeTxnK_True_True
+l4_LF_fromSome:
+dup
+extract 1 0
+swap
+int 0
+getbyte
+select
+retsub
+l3_LF_mapRef:
+box_get
+dup
+itob
+substring 7 8
+bury 4
+select
+concat
+retsub
+l0_LF_wasntMeth:
+int 1
+store 3 // GV_wasntMeth :: Bool
+retsub
+l9_LF_checkTxn_False:
+// resource: R_Txn
+txn GroupIndex
+load 0 // GV_txnCounter :: UInt
+int 1
++
+dup
+store 0 // GV_txnCounter :: UInt
+-
+dupn 2
+gtxns Receiver
+global CurrentApplicationAddress
+==
+assert
+gtxns TypeEnum
+int pay
+==
+assert
+gtxns Amount
+==
+assert
+retsub
+l5_LF_timeCheck:
+dup
+int 0
+==
+swap
+load 2 // GV_currentTime :: UInt
+==
+||
+assert
+retsub
+l1_LF_mbrAdd:
+load 6 // GV_mbrAdd :: UInt
++
+store 6 // GV_mbrAdd :: UInt
+retsub
+l26_LF_updateMbr:
+load 6 // GV_mbrAdd :: UInt
+load 7 // GV_mbrSub :: UInt
+dup2
+>=
+bz updateMbr_neg
+b updateMbr_pos_eq
+l16_LF_mapSet:
+swap
+dup
+box_len
+bnz l28_boxSet
+dig 3
+callsub l1_LF_mbrAdd
+b l28_boxSet
+l25_LF_makeTxn_False_True_True_True:
+itxn_begin
+itxn_field AssetCloseTo
+b l30_LF_makeTxnK_True_True

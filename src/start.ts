@@ -6,7 +6,6 @@ import {
 } from "./common/utils/backend/firebase/index.js";
 import RetrievedData, { Project } from "./common/datatypes/retireveddata.js";
 import { hasOpted, setReward } from "./common/utils/contract/helpers.js";
-// import { FLOOR } from "./common/utils/constants/index.js";
 import { schedule } from "node-cron";
 import dotenv from "dotenv";
 // import { BigNumber } from "@reach-sh/stdlib/shared_impl.js";

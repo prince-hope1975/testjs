@@ -2,7 +2,6 @@ import { getFormattedHoldersInfo } from "./index.js";
 import { loadStdlib } from "@reach-sh/stdlib";
 import { readDataFromSnapShot, db, } from "./common/utils/backend/firebase/index.js";
 import { hasOpted, setReward } from "./common/utils/contract/helpers.js";
-// import { FLOOR } from "./common/utils/constants/index.js";
 import { schedule } from "node-cron";
 import dotenv from "dotenv";
 // import { BigNumber } from "@reach-sh/stdlib/shared_impl.js";

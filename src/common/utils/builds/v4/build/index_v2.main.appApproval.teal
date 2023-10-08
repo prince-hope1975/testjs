@@ -1,0 +1,1731 @@
+#pragma version 8
+// resource: R_Txn
+txn ApplicationID
+bz alloc
+byte base64()
+app_global_get
+dup
+int 0
+extract_uint64
+store 1 // GV_currentStep :: UInt
+int 8
+extract_uint64
+store 2 // GV_currentTime :: UInt
+byte base64(AA==)
+app_global_get
+byte base64(AQ==)
+app_global_get
+concat
+preamble:
+pushbytess base64(Al90xw==) base64(DbOGvA==) base64(E25XOw==) base64(FviURQ==) base64(IoRMJg==) base64(KTen9g==) base64(KYtaEA==) base64(MxobPg==) base64(Pvlimg==) base64(Qmgn1Q==) base64(SCT5Ag==) base64(buR2FA==) base64(eErZNw==) base64(ev7IbQ==) base64(u/XNjg==) base64(x8Kc1Q==) base64(3lcEZA==) base64(7Ubbpg==) base64(8yd4BA==) base64(+W9s4A==) base64(+XMOCw==) base64(+q7IsA==)
+txna ApplicationArgs 0
+match Admin_deposit_uiSkAp__3jDeqDlb0Iah80RVTPslE1VoL8cnd_zuYrZd0_ User_claim_uint6EFYiHKImYuclUWdT_OqJXxi0EzoEL6HddbgecS2SktE_ Info_opted_addre0ExNsQ1F4ovmZnD_SASEmwURNs0YuTWn5SnO2OIv_ts_ Info_totalAllocaxFW1nrn29HmSHbiq_5FIdqUsYwqYrlCoXdoR5ueBgKM_ Info_Admins_addr0DMX_X6CiwvrzEQOGnkmxdCO8TJN3oC9WXIduVQfFmc_ User_optin__voidlozpJcHjwgp4Se3UDX_jUs2IgQys2Ct8vq___hhb2Qw_ Info_totalAlloca8pNHPNW4vyj_Ma4Q0kb_xQ9A1Kx_OOL8fhtRXc62UWo_ Info_userReward_vNOekaBJSVVT9SsT1g5r8hPihhN_SUF0U7saJaJG79E_ Info_balance__uivWc87iXmynsa6ppZhrutwHED7ui_erWZe1cwSzUO39o_ _reachp_0 Info_totalAmountZtqoKUO8GgAmNo3p4k7c_9fE5HNC73q9IrEhcfVzjpw_ Admin_endContracE7DLWCH8tMMv4VrS88Hnec_dgZoJp6sAfRHQUf4BT2s_ Info_totalOptedIL_NQZYqqj0CfMPdZptM5dxLFljQfVQPy8pQwDBBi7ew_ Info_totalClaime84VuZQ4BUNEY8JNt5r8nQoV6EdCsKQzs_R6G0oEysBU_ Info_totalFundsDHL3HAmh8RtdD3Pbcxg_rwK7BwssQ0cGNmgObzusy55w_ Info_claimed_add7MO6HKJ9bJy4qy7woENXDxwhXNgYLtL3ao_EF0qEj6U_ _reachp_2 Admin_setReward_PHCjanzSyGZtsijXVshoYvWiRg2pWEwShMTHIlrErys_ Admin_revokeAdmiRjqcjTaVeWg58LlsiKwhrEIoffHOKMIwWvsLQ_IKx_w_ Info_totalReward_ukWfT_nIxKsnB0f__Sk3mUJbAyt9LingIzMLe19kp0_ Admin_editUserRe9OI3lm4g_nP_iEU4sKpCqxlrTvUcVAhRSN_JL0bHQg4_ Admin_addAdmin_aJA_q4KM4PooYe5_nsTCLYbtNXo_RdPWqFyKODNGgBnM_
+errl:
+err
+Admin_addAdmin_aJA_q4KM4PooYe5_nsTCLYbtNXo_RdPWqFyKODNGgBnM_:
+txna ApplicationArgs 1
+store 11 // v13235
+_reacha_Admin_addAdmin:
+int 8
+bzero
+byte base64(AA==)
+load 11 // v13235
+concat
+int 16
+bzero
+concat
+concat
+store 11 // v13291
+_reachi_2:
+int 3
+load 1 // GV_currentStep :: UInt
+==
+assert
+callsub l2_LF_svsLoad_3
+load 11 // v13291
+int 0
+extract_uint64
+store 12 // v13290
+load 11 // v13291
+extract 8 49
+store 13 // .fork235.msg/4598
+byte base64(VQtlgw==)
+load 12 // v13290
+itob
+concat
+load 13 // .fork235.msg/4598
+concat
+log // up to 61 bytes
+// ^ log: "_reach_e2" [v13290,.fork235.msg/4598] "_reach_e2(uint64,(byte,byte[48]))"
+load 12 // v13290
+callsub l5_LF_timeCheck
+load 13 // .fork235.msg/4598
+int 0
+getbyte
+switch l6_Admin_addAdmin0_235 l7_Admin_deposit0_235 l8_Admin_editUserReward0_235 l9_Admin_endContractAndTransfer0_235 l10_Admin_revokeAdmin0_235 l11_Admin_setReward0_235 l12_User_claim0_235 l13_User_optin0_235
+b errl
+Admin_deposit_uiSkAp__3jDeqDlb0Iah80RVTPslE1VoL8cnd_zuYrZd0_:
+txna ApplicationArgs 1
+btoi
+store 11 // v13241
+_reacha_Admin_deposit:
+int 8
+bzero
+byte base64(AQ==)
+load 11 // v13241
+itob
+concat
+int 40
+bzero
+concat
+concat
+store 11 // v13291
+b _reachi_2
+Admin_editUserRe9OI3lm4g_nP_iEU4sKpCqxlrTvUcVAhRSN_JL0bHQg4_:
+txna ApplicationArgs 1
+txna ApplicationArgs 2
+btoi
+store 11 // v13248
+store 12 // v13247
+_reacha_Admin_editUserReward:
+int 8
+bzero
+byte base64(Ag==)
+load 12 // v13247
+load 11 // v13248
+itob
+concat
+concat
+int 8
+bzero
+concat
+concat
+store 11 // v13291
+b _reachi_2
+Admin_endContracE7DLWCH8tMMv4VrS88Hnec_dgZoJp6sAfRHQUf4BT2s_:
+_reacha_Admin_endContractAndTransfer:
+byte base64(AAAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA)
+store 11 // v13291
+b _reachi_2
+Admin_revokeAdmiRjqcjTaVeWg58LlsiKwhrEIoffHOKMIwWvsLQ_IKx_w_:
+txna ApplicationArgs 1
+store 11 // v13259
+_reacha_Admin_revokeAdmin:
+int 8
+bzero
+byte base64(BA==)
+load 11 // v13259
+concat
+int 16
+bzero
+concat
+concat
+store 11 // v13291
+b _reachi_2
+Admin_setReward_PHCjanzSyGZtsijXVshoYvWiRg2pWEwShMTHIlrErys_:
+txna ApplicationArgs 1
+txna ApplicationArgs 2
+btoi
+txna ApplicationArgs 3
+btoi
+store 11 // v13267
+store 12 // v13266
+store 13 // v13265
+_reacha_Admin_setReward:
+int 8
+bzero
+byte base64(BQ==)
+load 13 // v13265
+load 12 // v13266
+itob
+concat
+load 11 // v13267
+itob
+concat
+concat
+concat
+store 11 // v13291
+b _reachi_2
+Info_Admins_addr0DMX_X6CiwvrzEQOGnkmxdCO8TJN3oC9WXIduVQfFmc_:
+txna ApplicationArgs 1
+store 11 // v13197
+_reacha_Info_Admins:
+load 1 // GV_currentStep :: UInt
+int 3
+==
+assert
+// ^ Claim: Incorrect state: not leaf
+// at ./index_v2.rsh:44:11:property binding
+callsub l2_LF_svsLoad_3
+// resource: R_Box
+byte base64()
+byte base64()
+byte base64(Ag==)
+load 11 // v13197
+concat
+callsub l3_LF_mapRef
+int 0
+getbyte
+int 1
+==
+itob
+substring 7 8
+store 4 // GV_apiRet :: Null
+apiReturn_check:
+txn OnCompletion
+int NoOp
+==
+assert
+// checked on completion
+apiReturn_noCheck:
+byte base64(FR98dQ==)
+load 4 // GV_apiRet :: Null
+concat
+log // up to 12 bytes
+done:
+int 1
+return
+Info_balance__uivWc87iXmynsa6ppZhrutwHED7ui_erWZe1cwSzUO39o_:
+_reacha_Info_balance:
+load 1 // GV_currentStep :: UInt
+int 3
+==
+assert
+// ^ Claim: Incorrect state: not leaf
+// at ./index_v2.rsh:50:12:property binding
+callsub l2_LF_svsLoad_3
+load 23 // netBalance/4303
+itob
+store 4 // GV_apiRet :: Null
+b apiReturn_check
+Info_claimed_add7MO6HKJ9bJy4qy7woENXDxwhXNgYLtL3ao_EF0qEj6U_:
+txna ApplicationArgs 1
+txna ApplicationArgs 2
+btoi
+store 11 // v13204
+store 12 // v13203
+_reacha_Info_claimed:
+load 1 // GV_currentStep :: UInt
+int 3
+==
+assert
+// ^ Claim: Incorrect state: not leaf
+// at ./index_v2.rsh:42:12:property binding
+callsub l2_LF_svsLoad_3
+int 16
+bzero
+// resource: R_Box
+byte base64()
+int 16
+bzero
+byte base64(AQ==)
+load 12 // v13203
+load 11 // v13204
+itob
+concat
+concat
+callsub l3_LF_mapRef
+callsub l4_LF_fromSome
+extract 0 8
+store 4 // GV_apiRet :: Null
+b apiReturn_check
+Info_opted_addre0ExNsQ1F4ovmZnD_SASEmwURNs0YuTWn5SnO2OIv_ts_:
+txna ApplicationArgs 1
+store 11 // v13209
+_reacha_Info_opted:
+load 1 // GV_currentStep :: UInt
+int 3
+==
+assert
+// ^ Claim: Incorrect state: not leaf
+// at ./index_v2.rsh:45:10:property binding
+callsub l2_LF_svsLoad_3
+// resource: R_Box
+byte base64()
+byte base64()
+byte base64(BA==)
+load 11 // v13209
+concat
+callsub l3_LF_mapRef
+int 0
+getbyte
+int 1
+==
+itob
+substring 7 8
+store 4 // GV_apiRet :: Null
+b apiReturn_check
+Info_totalAlloca8pNHPNW4vyj_Ma4Q0kb_xQ9A1Kx_OOL8fhtRXc62UWo_:
+_reacha_Info_totalAllocatedFunds:
+load 1 // GV_currentStep :: UInt
+int 3
+==
+assert
+// ^ Claim: Incorrect state: not leaf
+// at ./index_v2.rsh:49:24:property binding
+callsub l2_LF_svsLoad_3
+load 16 // total_rewards_allcoated/4347
+itob
+store 4 // GV_apiRet :: Null
+b apiReturn_check
+Info_totalAllocaxFW1nrn29HmSHbiq_5FIdqUsYwqYrlCoXdoR5ueBgKM_:
+_reacha_Info_totalAllocatoinToAllUsers:
+load 1 // GV_currentStep :: UInt
+int 3
+==
+assert
+// ^ Claim: Incorrect state: not leaf
+// at ./index_v2.rsh:36:30:property binding
+callsub l2_LF_svsLoad_3
+load 19 // totalAllocatoinToAllUsers/4344
+itob
+store 4 // GV_apiRet :: Null
+b apiReturn_check
+Info_totalAmountZtqoKUO8GgAmNo3p4k7c_9fE5HNC73q9IrEhcfVzjpw_:
+_reacha_Info_totalAmountClaimed:
+load 1 // GV_currentStep :: UInt
+int 3
+==
+assert
+// ^ Claim: Incorrect state: not leaf
+// at ./index_v2.rsh:48:23:property binding
+callsub l2_LF_svsLoad_3
+load 17 // total_amount_claimed/4346
+itob
+store 4 // GV_apiRet :: Null
+b apiReturn_check
+Info_totalClaime84VuZQ4BUNEY8JNt5r8nQoV6EdCsKQzs_R6G0oEysBU_:
+_reacha_Info_totalClaimed:
+load 1 // GV_currentStep :: UInt
+int 3
+==
+assert
+// ^ Claim: Incorrect state: not leaf
+// at ./index_v2.rsh:46:17:property binding
+callsub l2_LF_svsLoad_3
+load 15 // total_users_claim/4348
+itob
+store 4 // GV_apiRet :: Null
+b apiReturn_check
+Info_totalFundsDHL3HAmh8RtdD3Pbcxg_rwK7BwssQ0cGNmgObzusy55w_:
+_reacha_Info_totalFundsDeposited:
+load 1 // GV_currentStep :: UInt
+int 3
+==
+assert
+// ^ Claim: Incorrect state: not leaf
+// at ./index_v2.rsh:37:24:property binding
+callsub l2_LF_svsLoad_3
+load 18 // totalFundsDeposited/4345
+itob
+store 4 // GV_apiRet :: Null
+b apiReturn_check
+Info_totalOptedIL_NQZYqqj0CfMPdZptM5dxLFljQfVQPy8pQwDBBi7ew_:
+_reacha_Info_totalOptedIn:
+load 1 // GV_currentStep :: UInt
+int 3
+==
+assert
+// ^ Claim: Incorrect state: not leaf
+// at ./index_v2.rsh:47:17:property binding
+callsub l2_LF_svsLoad_3
+load 14 // usersNo/4349
+itob
+store 4 // GV_apiRet :: Null
+b apiReturn_check
+Info_totalReward_ukWfT_nIxKsnB0f__Sk3mUJbAyt9LingIzMLe19kp0_:
+txna ApplicationArgs 1
+store 11 // v13225
+_reacha_Info_totalRewards:
+load 1 // GV_currentStep :: UInt
+int 3
+==
+assert
+// ^ Claim: Incorrect state: not leaf
+// at ./index_v2.rsh:40:17:property binding
+callsub l2_LF_svsLoad_3
+int 8
+bzero
+// resource: R_Box
+byte base64()
+int 8
+bzero
+byte base64(AA==)
+load 11 // v13225
+concat
+callsub l3_LF_mapRef
+callsub l4_LF_fromSome
+store 4 // GV_apiRet :: Null
+b apiReturn_check
+Info_userReward_vNOekaBJSVVT9SsT1g5r8hPihhN_SUF0U7saJaJG79E_:
+txna ApplicationArgs 1
+txna ApplicationArgs 2
+btoi
+store 11 // v13230
+store 12 // v13229
+_reacha_Info_userReward:
+load 1 // GV_currentStep :: UInt
+int 3
+==
+assert
+// ^ Claim: Incorrect state: not leaf
+// at ./index_v2.rsh:41:15:property binding
+callsub l2_LF_svsLoad_3
+int 16
+bzero
+// resource: R_Box
+byte base64()
+int 16
+bzero
+byte base64(AQ==)
+load 12 // v13229
+load 11 // v13230
+itob
+concat
+concat
+callsub l3_LF_mapRef
+callsub l4_LF_fromSome
+extract 8 8
+store 4 // GV_apiRet :: Null
+b apiReturn_check
+User_claim_uint6EFYiHKImYuclUWdT_OqJXxi0EzoEL6HddbgecS2SktE_:
+txna ApplicationArgs 1
+btoi
+txna ApplicationArgs 2
+btoi
+store 11 // v13276
+store 12 // v13275
+_reacha_User_claim:
+int 8
+bzero
+byte base64(Bg==)
+load 12 // v13275
+itob
+load 11 // v13276
+itob
+concat
+concat
+global ZeroAddress
+concat
+concat
+store 11 // v13291
+b _reachi_2
+User_optin__voidlozpJcHjwgp4Se3UDX_jUs2IgQys2Ct8vq___hhb2Qw_:
+_reacha_User_optin:
+byte base64(AAAAAAAAAAAHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA)
+store 11 // v13291
+b _reachi_2
+_api_Admin_addAdmin2:
+txn Sender
+load 27 // Deployer/4290
+==
+// resource: R_Box
+byte base64()
+byte base64()
+byte base64(Ag==)
+txn Sender
+concat
+callsub l3_LF_mapRef
+int 0
+getbyte
+int 1
+==
+||
+assert
+// ^ Claim: You Are unable to register another Admin
+// at reach standard library:57:5:application
+// at ./index_v2.rsh:208:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./index_v2.rsh:207:34:application call to [unknown function] (defined at: ./index_v2.rsh:207:34:function exp)
+// at ./index_v2.rsh:83:37:application call to [unknown function] (defined at: ./index_v2.rsh:207:34:function exp)
+// at ./index_v2.rsh:83:37:application call to [unknown function] (defined at: ./index_v2.rsh:83:37:function exp)
+// resource: R_Box
+int 15700
+byte base64(Ag==)
+load 13 // .fork235.msg/4598
+extract 1 32
+concat
+byte base64()
+callsub l14_LF_mapSet
+byte base64()
+store 11 // v4685
+byte base64(AAAAAAAAEk0=)
+load 11 // v4685
+concat
+log // up to 8 bytes
+load 11 // v4685
+store 4 // GV_apiRet :: Null
+load 22 // bal/4341
+itob
+load 21 // v4342
+itob
+substring 7 8
+concat
+load 20 // v4343
+concat
+load 19 // totalAllocatoinToAllUsers/4344
+itob
+concat
+load 18 // totalFundsDeposited/4345
+itob
+concat
+load 17 // total_amount_claimed/4346
+itob
+concat
+load 16 // total_rewards_allcoated/4347
+itob
+concat
+load 15 // total_users_claim/4348
+itob
+concat
+load 14 // usersNo/4349
+itob
+concat
+global Round
+store 24 // thisConsensusTime/4300
+store 25 // MAIN_OBJECT/4299
+_reachl_1:
+load 25 // MAIN_OBJECT/4299
+extract 8 1
+btoi
+bz l21_ifF
+load 25 // MAIN_OBJECT/4299
+int 0
+extract_uint64
+store 22 // bal/4341
+load 25 // MAIN_OBJECT/4299
+extract 8 1
+btoi
+store 21 // v4342
+load 25 // MAIN_OBJECT/4299
+extract 9 17
+store 20 // v4343
+load 25 // MAIN_OBJECT/4299
+int 26
+extract_uint64
+store 19 // totalAllocatoinToAllUsers/4344
+load 25 // MAIN_OBJECT/4299
+int 34
+extract_uint64
+store 18 // totalFundsDeposited/4345
+load 25 // MAIN_OBJECT/4299
+int 42
+extract_uint64
+store 17 // total_amount_claimed/4346
+load 25 // MAIN_OBJECT/4299
+int 50
+extract_uint64
+store 16 // total_rewards_allcoated/4347
+load 25 // MAIN_OBJECT/4299
+int 58
+extract_uint64
+store 15 // total_users_claim/4348
+load 25 // MAIN_OBJECT/4299
+int 66
+extract_uint64
+store 14 // usersNo/4349
+l22_LF_svsDump_3:
+load 27 // Deployer/4290
+load 26 // projectName/4291
+concat
+load 23 // netBalance/4303
+itob
+concat
+load 22 // bal/4341
+itob
+concat
+load 21 // v4342
+itob
+substring 7 8
+concat
+load 20 // v4343
+concat
+load 19 // totalAllocatoinToAllUsers/4344
+itob
+concat
+load 18 // totalFundsDeposited/4345
+itob
+concat
+load 17 // total_amount_claimed/4346
+itob
+concat
+load 16 // total_rewards_allcoated/4347
+itob
+concat
+load 15 // total_users_claim/4348
+itob
+concat
+load 14 // usersNo/4349
+itob
+concat
+int 3
+global Round
+updateStateNoOp:
+store 2 // GV_currentTime :: UInt
+store 1 // GV_currentStep :: UInt
+byte base64(AA==)
+dig 1
+extract 0 127
+app_global_put
+byte base64(AQ==)
+swap
+extract 127 17
+app_global_put
+byte base64()
+load 1 // GV_currentStep :: UInt
+itob
+load 2 // GV_currentTime :: UInt
+itob
+concat
+app_global_put
+txn OnCompletion
+int NoOp
+==
+assert
+// checked on completion
+callsub l24_LF_updateMbr
+updateState:
+load 3 // GV_wasntMeth :: Bool
+bnz done
+b apiReturn_noCheck
+_api_Admin_deposit2:
+load 13 // .fork235.msg/4598
+int 1
+extract_uint64
+store 11 // val/5033
+txn Sender
+load 27 // Deployer/4290
+==
+// resource: R_Box
+byte base64()
+byte base64()
+byte base64(Ag==)
+txn Sender
+concat
+callsub l3_LF_mapRef
+int 0
+getbyte
+int 1
+==
+||
+assert
+// ^ Claim: Only Admins can deposit
+// at reach standard library:57:5:application
+// at ./index_v2.rsh:140:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./index_v2.rsh:139:32:application call to [unknown function] (defined at: ./index_v2.rsh:139:32:function exp)
+// at ./index_v2.rsh:83:37:application call to [unknown function] (defined at: ./index_v2.rsh:139:32:function exp)
+// at ./index_v2.rsh:83:37:application call to [unknown function] (defined at: ./index_v2.rsh:83:37:function exp)
+load 11 // val/5033
+callsub l15_LF_checkTxn_False
+// ^ CheckPay
+// at ./index_v2.rsh:83:37:dot
+byte base64()
+store 12 // v5131
+byte base64(AAAAAAAAFAs=)
+load 12 // v5131
+concat
+log // up to 8 bytes
+load 12 // v5131
+store 4 // GV_apiRet :: Null
+load 22 // bal/4341
+load 11 // val/5033
++
+itob
+load 21 // v4342
+itob
+substring 7 8
+concat
+load 20 // v4343
+concat
+load 19 // totalAllocatoinToAllUsers/4344
+itob
+concat
+load 18 // totalFundsDeposited/4345
+load 11 // val/5033
++
+itob
+concat
+load 17 // total_amount_claimed/4346
+itob
+concat
+load 16 // total_rewards_allcoated/4347
+itob
+concat
+load 15 // total_users_claim/4348
+itob
+concat
+load 14 // usersNo/4349
+itob
+concat
+global Round
+load 23 // netBalance/4303
+load 11 // val/5033
++
+store 23 // netBalance/4303
+store 24 // thisConsensusTime/4300
+store 25 // MAIN_OBJECT/4299
+b _reachl_1
+_api_Admin_editUserReward2:
+load 11 // data_id/5439
+int 32
+extract_uint64
+store 12 // Amt/5461
+txn Sender
+load 27 // Deployer/4290
+==
+// resource: R_Box
+byte base64()
+byte base64()
+byte base64(Ag==)
+txn Sender
+concat
+callsub l3_LF_mapRef
+int 0
+getbyte
+int 1
+==
+||
+assert
+// ^ Claim: Only Admins can deposit
+// at reach standard library:57:5:application
+// at ./index_v2.rsh:196:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./index_v2.rsh:195:45:application call to [unknown function] (defined at: ./index_v2.rsh:195:45:function exp)
+// at ./index_v2.rsh:83:37:application call to [unknown function] (defined at: ./index_v2.rsh:195:45:function exp)
+// at ./index_v2.rsh:83:37:application call to [unknown function] (defined at: ./index_v2.rsh:83:37:function exp)
+load 12 // Amt/5461
+load 23 // netBalance/4303
+<=
+assert
+// ^ Claim: Can only edit what is in the contract
+// at reach standard library:57:5:application
+// at ./index_v2.rsh:197:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./index_v2.rsh:195:45:application call to [unknown function] (defined at: ./index_v2.rsh:195:45:function exp)
+// at ./index_v2.rsh:83:37:application call to [unknown function] (defined at: ./index_v2.rsh:195:45:function exp)
+// at ./index_v2.rsh:83:37:application call to [unknown function] (defined at: ./index_v2.rsh:83:37:function exp)
+// resource: R_Box
+int 18900
+byte base64(AA==)
+load 11 // data_id/5439
+extract 0 32
+concat
+load 12 // Amt/5461
+itob
+callsub l14_LF_mapSet
+byte base64()
+store 11 // v5584
+byte base64(AAAAAAAAFdA=)
+load 11 // v5584
+concat
+log // up to 8 bytes
+load 11 // v5584
+store 4 // GV_apiRet :: Null
+load 22 // bal/4341
+itob
+load 21 // v4342
+itob
+substring 7 8
+concat
+load 20 // v4343
+concat
+load 19 // totalAllocatoinToAllUsers/4344
+itob
+concat
+load 18 // totalFundsDeposited/4345
+itob
+concat
+load 17 // total_amount_claimed/4346
+itob
+concat
+load 16 // total_rewards_allcoated/4347
+itob
+concat
+load 15 // total_users_claim/4348
+itob
+concat
+load 14 // usersNo/4349
+itob
+concat
+global Round
+store 24 // thisConsensusTime/4300
+store 25 // MAIN_OBJECT/4299
+b _reachl_1
+_api_Admin_endContractAndTransfer2:
+load 27 // Deployer/4290
+txn Sender
+==
+assert
+// ^ Claim: Cannot end contract without being Deployer
+// at reach standard library:57:5:application
+// at ./index_v2.rsh:339:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./index_v2.rsh:338:44:application call to [unknown function] (defined at: ./index_v2.rsh:338:44:function exp)
+// at ./index_v2.rsh:83:37:application call to [unknown function] (defined at: ./index_v2.rsh:338:44:function exp)
+// at ./index_v2.rsh:83:37:application call to [unknown function] (defined at: ./index_v2.rsh:83:37:function exp)
+load 19 // totalAllocatoinToAllUsers/4344
+int 0
+==
+assert
+// ^ Claim: Users have unclaimed funds, thus you cannot end contract
+// at reach standard library:57:5:application
+// at ./index_v2.rsh:340:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./index_v2.rsh:338:44:application call to [unknown function] (defined at: ./index_v2.rsh:338:44:function exp)
+// at ./index_v2.rsh:83:37:application call to [unknown function] (defined at: ./index_v2.rsh:338:44:function exp)
+// at ./index_v2.rsh:83:37:application call to [unknown function] (defined at: ./index_v2.rsh:83:37:function exp)
+byte base64()
+store 11 // v6027
+byte base64(AAAAAAAAF4s=)
+load 11 // v6027
+concat
+log // up to 8 bytes
+load 11 // v6027
+store 4 // GV_apiRet :: Null
+load 22 // bal/4341
+itob
+byte base64(AA==)
+concat
+load 20 // v4343
+concat
+load 19 // totalAllocatoinToAllUsers/4344
+itob
+concat
+load 18 // totalFundsDeposited/4345
+itob
+concat
+load 17 // total_amount_claimed/4346
+itob
+concat
+load 16 // total_rewards_allcoated/4347
+itob
+concat
+load 15 // total_users_claim/4348
+itob
+concat
+load 14 // usersNo/4349
+itob
+concat
+global Round
+store 24 // thisConsensusTime/4300
+store 25 // MAIN_OBJECT/4299
+b _reachl_1
+_api_Admin_revokeAdmin2:
+txn Sender
+load 27 // Deployer/4290
+==
+assert
+// ^ Claim: Only the Deployer can revoke Admin Rights
+// at reach standard library:57:5:application
+// at ./index_v2.rsh:222:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./index_v2.rsh:221:37:application call to [unknown function] (defined at: ./index_v2.rsh:221:37:function exp)
+// at ./index_v2.rsh:83:37:application call to [unknown function] (defined at: ./index_v2.rsh:221:37:function exp)
+// at ./index_v2.rsh:83:37:application call to [unknown function] (defined at: ./index_v2.rsh:83:37:function exp)
+// resource: R_Box
+int 15700
+byte base64(Ag==)
+load 13 // .fork235.msg/4598
+extract 1 32
+concat
+callsub l16_LF_mapDel
+byte base64()
+store 11 // v6469
+byte base64(AAAAAAAAGUU=)
+load 11 // v6469
+concat
+log // up to 8 bytes
+load 11 // v6469
+store 4 // GV_apiRet :: Null
+load 22 // bal/4341
+itob
+load 21 // v4342
+itob
+substring 7 8
+concat
+load 20 // v4343
+concat
+load 19 // totalAllocatoinToAllUsers/4344
+itob
+concat
+load 18 // totalFundsDeposited/4345
+itob
+concat
+load 17 // total_amount_claimed/4346
+itob
+concat
+load 16 // total_rewards_allcoated/4347
+itob
+concat
+load 15 // total_users_claim/4348
+itob
+concat
+load 14 // usersNo/4349
+itob
+concat
+global Round
+store 24 // thisConsensusTime/4300
+store 25 // MAIN_OBJECT/4299
+b _reachl_1
+_api_Admin_setReward2:
+load 11 // data_id/6696
+extract 0 32
+store 30 // v/6738
+load 11 // data_id/6696
+int 40
+extract_uint64
+store 29 // Amt/6740
+load 23 // netBalance/4303
+load 29 // Amt/6740
+-
+int 0
+>=
+assert
+// ^ Claim: Cannot have an amout that would result to a negative balance
+// at reach standard library:57:5:application
+// at ./index_v2.rsh:155:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./index_v2.rsh:153:45:application call to [unknown function] (defined at: ./index_v2.rsh:153:45:function exp)
+// at ./index_v2.rsh:83:37:application call to [unknown function] (defined at: ./index_v2.rsh:153:45:function exp)
+// at ./index_v2.rsh:83:37:application call to [unknown function] (defined at: ./index_v2.rsh:83:37:function exp)
+load 29 // Amt/6740
+load 23 // netBalance/4303
+>
+assert
+// ^ Claim: Balance has to be greater than Amt
+// at reach standard library:57:5:application
+// at ./index_v2.rsh:159:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./index_v2.rsh:153:45:application call to [unknown function] (defined at: ./index_v2.rsh:153:45:function exp)
+// at ./index_v2.rsh:83:37:application call to [unknown function] (defined at: ./index_v2.rsh:153:45:function exp)
+// at ./index_v2.rsh:83:37:application call to [unknown function] (defined at: ./index_v2.rsh:83:37:function exp)
+load 19 // totalAllocatoinToAllUsers/4344
+load 29 // Amt/6740
++
+store 28 // v6749
+load 23 // netBalance/4303
+load 28 // v6749
+>=
+assert
+// ^ Claim: Balance has to be greater than total allocation 
+// at reach standard library:57:5:application
+// at ./index_v2.rsh:160:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./index_v2.rsh:153:45:application call to [unknown function] (defined at: ./index_v2.rsh:153:45:function exp)
+// at ./index_v2.rsh:83:37:application call to [unknown function] (defined at: ./index_v2.rsh:153:45:function exp)
+// at ./index_v2.rsh:83:37:application call to [unknown function] (defined at: ./index_v2.rsh:83:37:function exp)
+// resource: R_Box
+byte base64()
+byte base64()
+byte base64(BA==)
+load 30 // v/6738
+concat
+callsub l3_LF_mapRef
+int 0
+getbyte
+int 1
+==
+assert
+// ^ Claim: The user needs to opt in first
+// at reach standard library:57:5:application
+// at ./index_v2.rsh:164:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./index_v2.rsh:153:45:application call to [unknown function] (defined at: ./index_v2.rsh:153:45:function exp)
+// at ./index_v2.rsh:83:37:application call to [unknown function] (defined at: ./index_v2.rsh:153:45:function exp)
+// at ./index_v2.rsh:83:37:application call to [unknown function] (defined at: ./index_v2.rsh:83:37:function exp)
+load 23 // netBalance/4303
+load 29 // Amt/6740
++
+store 13 // v6769
+load 29 // Amt/6740
+callsub l15_LF_checkTxn_False
+// ^ CheckPay
+// at ./index_v2.rsh:83:37:dot
+load 13 // v6769
+load 29 // Amt/6740
+-
+dup
+store 12 // v6913
+int 0
+>=
+assert
+// ^ Claim: Cannot have an amout that would result to a negative balance
+// at reach standard library:57:5:application
+// at ./index_v2.rsh:155:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./index_v2.rsh:168:15:application call to [unknown function] (defined at: ./index_v2.rsh:168:15:function exp)
+load 29 // Amt/6740
+load 13 // v6769
+>
+assert
+// ^ Claim: Balance has to be greater than Amt
+// at reach standard library:57:5:application
+// at ./index_v2.rsh:159:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./index_v2.rsh:168:15:application call to [unknown function] (defined at: ./index_v2.rsh:168:15:function exp)
+load 13 // v6769
+load 28 // v6749
+>=
+assert
+// ^ Claim: Balance has to be greater than total allocation 
+// at reach standard library:57:5:application
+// at ./index_v2.rsh:160:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./index_v2.rsh:168:15:application call to [unknown function] (defined at: ./index_v2.rsh:168:15:function exp)
+load 12 // v6913
+load 19 // totalAllocatoinToAllUsers/4344
+>=
+assert
+// ^ Claim: Balance has to be greater than total allocation 
+// at reach standard library:57:5:application
+// at ./index_v2.rsh:169:16:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./index_v2.rsh:168:15:application call to [unknown function] (defined at: ./index_v2.rsh:168:15:function exp)
+load 30 // v/6738
+load 11 // data_id/6696
+extract 32 8
+concat
+store 12 // v6932
+int 16
+bzero
+// resource: R_Box
+byte base64()
+int 16
+bzero
+byte base64(AQ==)
+load 12 // v6932
+concat
+callsub l3_LF_mapRef
+callsub l4_LF_fromSome
+store 11 // returned/6935
+int 25300
+byte base64(AQ==)
+load 12 // v6932
+concat
+load 11 // returned/6935
+extract 0 8
+load 11 // returned/6935
+int 8
+extract_uint64
+load 29 // Amt/6740
++
+itob
+concat
+callsub l14_LF_mapSet
+// resource: R_Box
+int 18900
+byte base64(AA==)
+load 30 // v/6738
+concat
+int 8
+bzero
+byte base64()
+int 8
+bzero
+byte base64(AA==)
+load 30 // v/6738
+concat
+callsub l3_LF_mapRef
+callsub l4_LF_fromSome
+btoi
+load 29 // Amt/6740
++
+itob
+callsub l14_LF_mapSet
+int 1
+store 11 // v6945
+byte base64(AAAAAAAAGyE=)
+load 11 // v6945
+itob
+substring 7 8
+concat
+log // up to 9 bytes
+load 11 // v6945
+itob
+substring 7 8
+store 4 // GV_apiRet :: Null
+load 22 // bal/4341
+load 29 // Amt/6740
++
+itob
+load 21 // v4342
+itob
+substring 7 8
+concat
+load 20 // v4343
+concat
+load 28 // v6749
+itob
+concat
+load 18 // totalFundsDeposited/4345
+itob
+concat
+load 17 // total_amount_claimed/4346
+itob
+concat
+load 16 // total_rewards_allcoated/4347
+itob
+concat
+load 15 // total_users_claim/4348
+itob
+concat
+load 14 // usersNo/4349
+itob
+concat
+global Round
+load 13 // v6769
+store 23 // netBalance/4303
+store 24 // thisConsensusTime/4300
+store 25 // MAIN_OBJECT/4299
+b _reachl_1
+_api_User_claim2:
+load 11 // data_id/7115
+int 0
+extract_uint64
+store 28 // amt/7177
+int 8
+bzero
+// resource: R_Box
+byte base64()
+int 8
+bzero
+byte base64(AA==)
+txn Sender
+concat
+callsub l3_LF_mapRef
+callsub l4_LF_fromSome
+btoi
+store 13 // currentRewardAmount/7180
+load 28 // amt/7177
+load 23 // netBalance/4303
+<=
+assert
+// ^ Claim: Cannot withdraw less than balance
+// at reach standard library:57:5:application
+// at ./index_v2.rsh:282:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./index_v2.rsh:280:34:application call to [unknown function] (defined at: ./index_v2.rsh:280:34:function exp)
+// at ./index_v2.rsh:83:37:application call to [unknown function] (defined at: ./index_v2.rsh:280:34:function exp)
+// at ./index_v2.rsh:83:37:application call to [unknown function] (defined at: ./index_v2.rsh:83:37:function exp)
+load 13 // currentRewardAmount/7180
+load 28 // amt/7177
+>=
+assert
+// ^ Claim: Cannot withdraw less than allocated
+// at reach standard library:57:5:application
+// at ./index_v2.rsh:283:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./index_v2.rsh:280:34:application call to [unknown function] (defined at: ./index_v2.rsh:280:34:function exp)
+// at ./index_v2.rsh:83:37:application call to [unknown function] (defined at: ./index_v2.rsh:280:34:function exp)
+// at ./index_v2.rsh:83:37:application call to [unknown function] (defined at: ./index_v2.rsh:83:37:function exp)
+txn Sender
+load 11 // data_id/7115
+extract 8 8
+concat
+store 12 // v7404
+int 16
+bzero
+// resource: R_Box
+byte base64()
+int 16
+bzero
+byte base64(AQ==)
+load 12 // v7404
+concat
+callsub l3_LF_mapRef
+callsub l4_LF_fromSome
+store 11 // returned/7407
+int 25300
+byte base64(AQ==)
+load 12 // v7404
+concat
+load 11 // returned/7407
+int 0
+extract_uint64
+load 28 // amt/7177
++
+itob
+load 11 // returned/7407
+int 8
+extract_uint64
+load 28 // amt/7177
+-
+itob
+concat
+callsub l14_LF_mapSet
+int 1
+store 11 // v7416
+byte base64(AAAAAAAAHPg=)
+load 11 // v7416
+itob
+substring 7 8
+concat
+log // up to 9 bytes
+load 11 // v7416
+itob
+substring 7 8
+store 4 // GV_apiRet :: Null
+txn Sender
+load 28 // amt/7177
+itob
+concat
+load 26 // projectName/4291
+concat
+store 11 // v7424
+byte base64(m8hUUA==)
+load 11 // v7424
+concat
+log // up to 74 bytes
+// ^ log: "claimed" [v7424] "claimed((address,uint64,byte[30]))"
+// resource: R_Box
+byte base64()
+byte base64()
+byte base64(Aw==)
+txn Sender
+concat
+callsub l3_LF_mapRef
+int 0
+getbyte
+int 1
+==
+bz l17_ifF
+load 23 // netBalance/4303
+load 28 // amt/7177
+-
+store 11 // v7474
+load 28 // amt/7177
+txn Sender
+callsub l18_LF_makeTxn_False_False_False_True
+load 13 // currentRewardAmount/7180
+bnz l19_ifF
+int 18900
+byte base64(AA==)
+txn Sender
+concat
+callsub l16_LF_mapDel
+load 22 // bal/4341
+load 28 // amt/7177
+-
+itob
+load 21 // v4342
+itob
+substring 7 8
+concat
+load 20 // v4343
+concat
+load 19 // totalAllocatoinToAllUsers/4344
+load 28 // amt/7177
+-
+itob
+concat
+load 18 // totalFundsDeposited/4345
+itob
+concat
+load 17 // total_amount_claimed/4346
+load 28 // amt/7177
++
+itob
+concat
+load 16 // total_rewards_allcoated/4347
+itob
+concat
+load 15 // total_users_claim/4348
+int 1
++
+itob
+concat
+load 14 // usersNo/4349
+int 1
++
+itob
+concat
+global Round
+load 11 // v7474
+store 23 // netBalance/4303
+store 24 // thisConsensusTime/4300
+store 25 // MAIN_OBJECT/4299
+b _reachl_1
+_api_User_optin2:
+// resource: R_Box
+int 15700
+byte base64(BA==)
+txn Sender
+concat
+byte base64()
+callsub l14_LF_mapSet
+byte base64()
+store 11 // v7936
+byte base64(AAAAAAAAHwA=)
+load 11 // v7936
+concat
+log // up to 8 bytes
+load 11 // v7936
+store 4 // GV_apiRet :: Null
+load 22 // bal/4341
+itob
+load 21 // v4342
+itob
+substring 7 8
+concat
+load 20 // v4343
+concat
+load 19 // totalAllocatoinToAllUsers/4344
+itob
+concat
+load 18 // totalFundsDeposited/4345
+itob
+concat
+load 17 // total_amount_claimed/4346
+itob
+concat
+load 16 // total_rewards_allcoated/4347
+itob
+concat
+load 15 // total_users_claim/4348
+itob
+concat
+load 14 // usersNo/4349
+itob
+concat
+global Round
+store 24 // thisConsensusTime/4300
+store 25 // MAIN_OBJECT/4299
+b _reachl_1
+_reachi_0:
+txn Sender
+store 27 // Deployer/4290
+load 11 // v13288
+int 0
+extract_uint64
+store 12 // v13287
+load 11 // v13288
+extract 8 30
+store 26 // projectName/4291
+byte base64(0SoGjQ==)
+load 12 // v13287
+itob
+concat
+load 26 // projectName/4291
+concat
+log // up to 42 bytes
+// ^ log: "_reach_e0" [v13287,projectName/4291] "_reach_e0(uint64,byte[30])"
+load 12 // v13287
+callsub l5_LF_timeCheck
+byte base64(AAAAAAAAAAABAAAAAAAAAAUAAAAAAAAAZAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=)
+global Round
+int 0
+store 23 // netBalance/4303
+store 24 // thisConsensusTime/4300
+store 25 // MAIN_OBJECT/4299
+b _reachl_1
+_reachp_0:
+callsub l0_LF_wasntMeth
+int 100000
+callsub l1_LF_mbrAdd
+txna ApplicationArgs 1
+store 11 // v13288
+b _reachi_0
+_reachp_2:
+callsub l0_LF_wasntMeth
+txna ApplicationArgs 1
+store 11 // v13291
+b _reachi_2
+alloc:
+int 0
+txn GlobalNumUint
+==
+assert
+int 3
+txn GlobalNumByteSlice
+==
+assert
+int 0
+txn LocalNumUint
+==
+assert
+int 0
+txn LocalNumByteSlice
+==
+assert
+callsub l0_LF_wasntMeth
+int 144
+bzero
+int 0
+int 0
+b updateStateNoOp
+l10_Admin_revokeAdmin0_235:
+b _api_Admin_revokeAdmin2
+l11_Admin_setReward0_235:
+load 13 // .fork235.msg/4598
+extract 1 48
+store 11 // data_id/6696
+b _api_Admin_setReward2
+l12_User_claim0_235:
+load 13 // .fork235.msg/4598
+extract 1 16
+store 11 // data_id/7115
+b _api_User_claim2
+l13_User_optin0_235:
+b _api_User_optin2
+l17_ifF:
+int 15700
+byte base64(Aw==)
+txn Sender
+concat
+byte base64()
+callsub l14_LF_mapSet
+load 23 // netBalance/4303
+load 28 // amt/7177
+-
+store 11 // v7430
+load 28 // amt/7177
+txn Sender
+callsub l18_LF_makeTxn_False_False_False_True
+load 13 // currentRewardAmount/7180
+bnz l20_ifF
+int 18900
+byte base64(AA==)
+txn Sender
+concat
+callsub l16_LF_mapDel
+load 22 // bal/4341
+load 28 // amt/7177
+-
+itob
+load 21 // v4342
+itob
+substring 7 8
+concat
+load 20 // v4343
+concat
+load 19 // totalAllocatoinToAllUsers/4344
+load 28 // amt/7177
+-
+itob
+concat
+load 18 // totalFundsDeposited/4345
+itob
+concat
+load 17 // total_amount_claimed/4346
+load 28 // amt/7177
++
+itob
+concat
+load 16 // total_rewards_allcoated/4347
+itob
+concat
+load 15 // total_users_claim/4348
+int 1
++
+itob
+concat
+load 14 // usersNo/4349
+itob
+concat
+global Round
+load 11 // v7430
+store 23 // netBalance/4303
+store 24 // thisConsensusTime/4300
+store 25 // MAIN_OBJECT/4299
+b _reachl_1
+l19_ifF:
+int 18900
+byte base64(AA==)
+txn Sender
+concat
+load 13 // currentRewardAmount/7180
+load 28 // amt/7177
+-
+itob
+callsub l14_LF_mapSet
+load 22 // bal/4341
+load 28 // amt/7177
+-
+itob
+load 21 // v4342
+itob
+substring 7 8
+concat
+load 20 // v4343
+concat
+load 19 // totalAllocatoinToAllUsers/4344
+load 28 // amt/7177
+-
+itob
+concat
+load 18 // totalFundsDeposited/4345
+itob
+concat
+load 17 // total_amount_claimed/4346
+load 28 // amt/7177
++
+itob
+concat
+load 16 // total_rewards_allcoated/4347
+itob
+concat
+load 15 // total_users_claim/4348
+int 1
++
+itob
+concat
+load 14 // usersNo/4349
+int 1
++
+itob
+concat
+global Round
+load 11 // v7474
+store 23 // netBalance/4303
+store 24 // thisConsensusTime/4300
+store 25 // MAIN_OBJECT/4299
+b _reachl_1
+l20_ifF:
+int 18900
+byte base64(AA==)
+txn Sender
+concat
+load 13 // currentRewardAmount/7180
+load 28 // amt/7177
+-
+itob
+callsub l14_LF_mapSet
+load 22 // bal/4341
+load 28 // amt/7177
+-
+itob
+load 21 // v4342
+itob
+substring 7 8
+concat
+load 20 // v4343
+concat
+load 19 // totalAllocatoinToAllUsers/4344
+load 28 // amt/7177
+-
+itob
+concat
+load 18 // totalFundsDeposited/4345
+itob
+concat
+load 17 // total_amount_claimed/4346
+load 28 // amt/7177
++
+itob
+concat
+load 16 // total_rewards_allcoated/4347
+itob
+concat
+load 15 // total_users_claim/4348
+int 1
++
+itob
+concat
+load 14 // usersNo/4349
+itob
+concat
+global Round
+load 11 // v7430
+store 23 // netBalance/4303
+store 24 // thisConsensusTime/4300
+store 25 // MAIN_OBJECT/4299
+b _reachl_1
+l21_ifF:
+load 23 // netBalance/4303
+// resource: R_Account
+load 27 // Deployer/4290
+callsub l18_LF_makeTxn_False_False_False_True
+global CurrentApplicationAddress
+balance
+global CurrentApplicationAddress
+min_balance
+-
+load 23 // netBalance/4303
+dup
+-
+-
+l23_getActualBalance:
+dup
+store 11 // v7994
+load 27 // Deployer/4290
+callsub l18_LF_makeTxn_False_False_False_True
+updateStateHalt:
+txn OnCompletion
+int DeleteApplication
+==
+assert
+// checked on completion
+callsub l24_LF_updateMbr
+// resource: R_Account
+global CurrentApplicationAddress
+balance
+global CurrentApplicationAddress
+min_balance
+-
+l25_getActualBalance:
+dup
+store 6 // GV_mbrAdd :: UInt
+global CurrentApplicationAddress
+callsub l18_LF_makeTxn_False_False_False_True
+b updateState
+l27_boxSet:
+pop
+swap
+box_put
+pop
+retsub
+l28_LF_makeTxnK_False_True:
+int 0
+itxn_field Fee
+int pay
+itxn_field TypeEnum
+itxn_field Receiver
+itxn_field Amount
+itxn_submit
+retsub
+l6_Admin_addAdmin0_235:
+b _api_Admin_addAdmin2
+l7_Admin_deposit0_235:
+b _api_Admin_deposit2
+l8_Admin_editUserReward0_235:
+load 13 // .fork235.msg/4598
+extract 1 40
+store 11 // data_id/5439
+b _api_Admin_editUserReward2
+l9_Admin_endContractAndTransfer0_235:
+b _api_Admin_endContractAndTransfer2
+updateMbr_eq:
+pop
+retsub
+updateMbr_neg:
+swap
+-
+dup
+store 6 // GV_mbrAdd :: UInt
+global CreatorAddress
+callsub l18_LF_makeTxn_False_False_False_True
+retsub
+updateMbr_pos_eq:
+-
+dup
+bz updateMbr_eq
+dup
+store 6 // GV_mbrAdd :: UInt
+callsub l15_LF_checkTxn_False
+retsub
+l3_LF_mapRef:
+box_get
+dup
+itob
+substring 7 8
+bury 4
+select
+concat
+retsub
+l2_LF_svsLoad_3:
+dup
+extract 0 32
+store 27 // Deployer/4290
+dup
+extract 32 30
+store 26 // projectName/4291
+dup
+int 62
+extract_uint64
+store 23 // netBalance/4303
+dup
+int 70
+extract_uint64
+store 22 // bal/4341
+dup
+extract 78 1
+btoi
+store 21 // v4342
+dup
+extract 79 17
+store 20 // v4343
+dup
+int 96
+extract_uint64
+store 19 // totalAllocatoinToAllUsers/4344
+dup
+int 104
+extract_uint64
+store 18 // totalFundsDeposited/4345
+dup
+int 112
+extract_uint64
+store 17 // total_amount_claimed/4346
+dup
+int 120
+extract_uint64
+store 16 // total_rewards_allcoated/4347
+dup
+int 128
+extract_uint64
+store 15 // total_users_claim/4348
+int 136
+extract_uint64
+store 14 // usersNo/4349
+retsub
+l14_LF_mapSet:
+swap
+dup
+box_len
+bnz l27_boxSet
+dig 3
+callsub l1_LF_mbrAdd
+b l27_boxSet
+l4_LF_fromSome:
+dup
+extract 1 0
+swap
+int 0
+getbyte
+select
+retsub
+l18_LF_makeTxn_False_False_False_True:
+itxn_begin
+b l28_LF_makeTxnK_False_True
+l16_LF_mapDel:
+box_del
+int 0
+cover 2
+select
+l26_LF_mbrSub:
+load 7 // GV_mbrSub :: UInt
++
+store 7 // GV_mbrSub :: UInt
+retsub
+l15_LF_checkTxn_False:
+// resource: R_Txn
+txn GroupIndex
+load 0 // GV_txnCounter :: UInt
+int 1
++
+dup
+store 0 // GV_txnCounter :: UInt
+-
+dupn 2
+gtxns Receiver
+global CurrentApplicationAddress
+==
+assert
+gtxns TypeEnum
+int pay
+==
+assert
+gtxns Amount
+==
+assert
+retsub
+l0_LF_wasntMeth:
+int 1
+store 3 // GV_wasntMeth :: Bool
+retsub
+l5_LF_timeCheck:
+dup
+int 0
+==
+swap
+load 2 // GV_currentTime :: UInt
+==
+||
+assert
+retsub
+l24_LF_updateMbr:
+load 6 // GV_mbrAdd :: UInt
+load 7 // GV_mbrSub :: UInt
+dup2
+>=
+bz updateMbr_neg
+b updateMbr_pos_eq
+l1_LF_mbrAdd:
+load 6 // GV_mbrAdd :: UInt
++
+store 6 // GV_mbrAdd :: UInt
+retsub
