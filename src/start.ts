@@ -224,14 +224,13 @@ export const RecursiveCheck = async () => {
                 FLOOR_PRICE = DEPOSIT || (FLOOR * (PERCENT / 100)) / 365;
                 amount = FLOOR_PRICE;
               }
-              const canSet = await canSetReward(
-                WALLET,
-                amount,
-                INFO as unknown as number,
-                !!IS_TOKEN,
-                VERSION
-              );
-              if (canSet) {
+              // const canSet = await canSetReward(
+              //   WALLET,
+              //   amount,
+              //   INFO as unknown as number,
+              //   !!IS_TOKEN,
+              //   VERSION
+              // );
                 infos = [
                   ...infos,
                   {
@@ -243,7 +242,6 @@ export const RecursiveCheck = async () => {
                     token: TOKEN?.value,
                   },
                 ];
-              }
             }
             obj[asset]["eligiblePoints"] = 0;
           }

@@ -1,7 +1,7 @@
 import { getFormattedHoldersInfo } from "./index.js";
 import { loadStdlib } from "@reach-sh/stdlib";
 import { readDataFromSnapShot, db, } from "./common/utils/backend/firebase/index.js";
-import { canSetReward, hasOpted, setReward, } from "./common/utils/contract/helpers.js";
+import { hasOpted, setReward, } from "./common/utils/contract/helpers.js";
 import { schedule } from "node-cron";
 import dotenv from "dotenv";
 // import { BigNumber } from "@reach-sh/stdlib/shared_impl.js";
@@ -167,20 +167,24 @@ export const RecursiveCheck = async () => {
                                 FLOOR_PRICE = DEPOSIT || (FLOOR * (PERCENT / 100)) / 365;
                                 amount = FLOOR_PRICE;
                             }
-                            const canSet = await canSetReward(WALLET, amount, INFO, !!IS_TOKEN, VERSION);
-                            if (canSet) {
-                                infos = [
-                                    ...infos,
-                                    {
-                                        asset: asset,
-                                        eligiblePoints: obj[asset]["eligiblePoints"] || 0,
-                                        address: chainAddress || dataBaseAddress,
-                                        amount,
-                                        isToken: IS_TOKEN,
-                                        token: TOKEN?.value,
-                                    },
-                                ];
-                            }
+                            // const canSet = await canSetReward(
+                            //   WALLET,
+                            //   amount,
+                            //   INFO as unknown as number,
+                            //   !!IS_TOKEN,
+                            //   VERSION
+                            // );
+                            infos = [
+                                ...infos,
+                                {
+                                    asset: asset,
+                                    eligiblePoints: obj[asset]["eligiblePoints"] || 0,
+                                    address: chainAddress || dataBaseAddress,
+                                    amount,
+                                    isToken: IS_TOKEN,
+                                    token: TOKEN?.value,
+                                },
+                            ];
                         }
                         obj[asset]["eligiblePoints"] = 0;
                     }
