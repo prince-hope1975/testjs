@@ -30,7 +30,6 @@ export const RecursiveCheck = async () => {
     //     return res[0].price;
     //   })
     //   .catch(() => console.error);
-    // console.log({ floor });
     const USERS_REF = db.ref("/admins");
     const ALL_COLLECTIONS_REF = db.ref("/allCollections");
     const RETRIEVED_COLLECTION = await readDataFromSnapShot(ALL_COLLECTIONS_REF);
@@ -55,9 +54,6 @@ export const RecursiveCheck = async () => {
         }
     }) || [];
     const filteredObject = (await Promise.all(newSnap)).filter((p) => Object.keys(p).length !== 0);
-    // console.log({ finalSnap: (filteredObject, null, 4) });
-    // console.log({ address: WALLET.networkAccount.addr });
-    // let val: jsonSchema = {};
     for (const RETRIEVED_DATA of filteredObject) {
         const entries = Object.entries(RETRIEVED_DATA);
         let infos = [];
@@ -95,6 +91,7 @@ export const RecursiveCheck = async () => {
                 const IS_MANUAL = entry?.isManual || false;
                 const TOKEN = entry?.token;
                 const NETWORK = entry?.network;
+                const VERSION = entry?.version || "v3";
                 const SHOULD_OVERRIDE_FLOOR = entry?.override || false;
                 const reach = loadStdlib("ALGO");
                 reach.setProviderByName(NETWORK);
@@ -152,7 +149,7 @@ export const RecursiveCheck = async () => {
                     }
                     if ((obj[asset]["eligiblePoints"] || 0) >= HOUR_LIMIT) {
                         // console.log("elgigblepoints", obj[asset]["eligiblePoints"]);
-                        const optedIn = await hasOpted(WALLET, chainAddress || dataBaseAddress, INFO, !!IS_TOKEN);
+                        const optedIn = await hasOpted(WALLET, chainAddress || dataBaseAddress, INFO, !!IS_TOKEN, VERSION);
                         if (optedIn) {
                             let amount = 0;
                             // ! Todo Remove check for token alone and incorporate all checks
@@ -200,7 +197,7 @@ export const RecursiveCheck = async () => {
                     else {
                         amt = reach.bigNumberToNumber(reach.parseCurrency(amount));
                     }
-                    await setReward(WALLET, address, asset, amt, INFO, isToken)
+                    await setReward(WALLET, address, asset, amt, INFO, isToken, VERSION)
                         .then((_) => console.log(`Finished setting the rewards for ${address} and the amount was ${amt}/${amount}`))
                         .catch(async (err) => {
                         console.log("Error, when setting rewards for", projectName, "\n", "Trying again in 5 seconds", "\n", err);

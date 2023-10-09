@@ -920,90 +920,90 @@ contract ReachContract is Stdlib {
     bool _reachr_User_claim;
     bool _reachr_User_optin;
     }
-  struct _F12852 {
-    T4 v12796;
-    T10 v12797;
+  struct _F12764 {
+    T4 v12708;
+    T10 v12709;
     }
   function _reacha_Admin_addAdmin(address payable _a, Memory memory _Memory) internal  {
-    _F12852 memory _f;
-    _f.v12796.elem0 = _a;
-    _f.v12797.which = _enum_T10.Admin_addAdmin0_233;
-    _f.v12797._Admin_addAdmin0_233 = _f.v12796;
+    _F12764 memory _f;
+    _f.v12708.elem0 = _a;
+    _f.v12709.which = _enum_T10.Admin_addAdmin0_233;
+    _f.v12709._Admin_addAdmin0_233 = _f.v12708;
     T11  memory _ja;
     _ja.elem0 = (uint256(0));
-    _ja.elem1 = _f.v12797;
+    _ja.elem1 = _f.v12709;
     _reachi_2(_ja, _Memory);
     }
-  struct _F12853 {
-    T5 v12802;
-    T10 v12803;
+  struct _F12765 {
+    T5 v12714;
+    T10 v12715;
     }
   function _reacha_Admin_deposit(uint256 _a, Memory memory _Memory) internal  {
-    _F12853 memory _f;
-    _f.v12802.elem0 = _a;
-    _f.v12803.which = _enum_T10.Admin_deposit0_233;
-    _f.v12803._Admin_deposit0_233 = _f.v12802;
+    _F12765 memory _f;
+    _f.v12714.elem0 = _a;
+    _f.v12715.which = _enum_T10.Admin_deposit0_233;
+    _f.v12715._Admin_deposit0_233 = _f.v12714;
     T11  memory _ja;
     _ja.elem0 = (uint256(0));
-    _ja.elem1 = _f.v12803;
+    _ja.elem1 = _f.v12715;
     _reachi_2(_ja, _Memory);
     }
-  struct _F12854 {
-    T6 v12809;
-    T10 v12810;
+  struct _F12766 {
+    T6 v12721;
+    T10 v12722;
     }
   function _reacha_Admin_editUserReward(T6 memory _a, Memory memory _Memory) internal  {
-    _F12854 memory _f;
-    _f.v12809.elem0 = _a.elem0;
-    _f.v12809.elem1 = _a.elem1;
-    _f.v12810.which = _enum_T10.Admin_editUserReward0_233;
-    _f.v12810._Admin_editUserReward0_233 = _f.v12809;
+    _F12766 memory _f;
+    _f.v12721.elem0 = _a.elem0;
+    _f.v12721.elem1 = _a.elem1;
+    _f.v12722.which = _enum_T10.Admin_editUserReward0_233;
+    _f.v12722._Admin_editUserReward0_233 = _f.v12721;
     T11  memory _ja;
     _ja.elem0 = (uint256(0));
-    _ja.elem1 = _f.v12810;
+    _ja.elem1 = _f.v12722;
     _reachi_2(_ja, _Memory);
     }
-  struct _F12855 {
-    bool v12815;
-    T10 v12816;
+  struct _F12767 {
+    bool v12727;
+    T10 v12728;
     }
   function _reacha_Admin_endContractAndTransfer(bool _a, Memory memory _Memory) internal  {
-    _F12855 memory _f;
-    _f.v12816.which = _enum_T10.Admin_endContractAndTransfer0_233;
-    _f.v12816._Admin_endContractAndTransfer0_233 = _f.v12815;
+    _F12767 memory _f;
+    _f.v12728.which = _enum_T10.Admin_endContractAndTransfer0_233;
+    _f.v12728._Admin_endContractAndTransfer0_233 = _f.v12727;
     T11  memory _ja;
     _ja.elem0 = (uint256(0));
-    _ja.elem1 = _f.v12816;
+    _ja.elem1 = _f.v12728;
     _reachi_2(_ja, _Memory);
     }
-  struct _F12856 {
-    T4 v12820;
-    T10 v12821;
+  struct _F12768 {
+    T4 v12732;
+    T10 v12733;
     }
   function _reacha_Admin_revokeAdmin(address payable _a, Memory memory _Memory) internal  {
-    _F12856 memory _f;
-    _f.v12820.elem0 = _a;
-    _f.v12821.which = _enum_T10.Admin_revokeAdmin0_233;
-    _f.v12821._Admin_revokeAdmin0_233 = _f.v12820;
+    _F12768 memory _f;
+    _f.v12732.elem0 = _a;
+    _f.v12733.which = _enum_T10.Admin_revokeAdmin0_233;
+    _f.v12733._Admin_revokeAdmin0_233 = _f.v12732;
     T11  memory _ja;
     _ja.elem0 = (uint256(0));
-    _ja.elem1 = _f.v12821;
+    _ja.elem1 = _f.v12733;
     _reachi_2(_ja, _Memory);
     }
-  struct _F12857 {
-    T8 v12828;
-    T10 v12829;
+  struct _F12769 {
+    T8 v12740;
+    T10 v12741;
     }
   function _reacha_Admin_setReward(T8 memory _a, Memory memory _Memory) internal  {
-    _F12857 memory _f;
-    _f.v12828.elem0 = _a.elem0;
-    _f.v12828.elem1 = _a.elem1;
-    _f.v12828.elem2 = _a.elem2;
-    _f.v12829.which = _enum_T10.Admin_setReward0_233;
-    _f.v12829._Admin_setReward0_233 = _f.v12828;
+    _F12769 memory _f;
+    _f.v12740.elem0 = _a.elem0;
+    _f.v12740.elem1 = _a.elem1;
+    _f.v12740.elem2 = _a.elem2;
+    _f.v12741.which = _enum_T10.Admin_setReward0_233;
+    _f.v12741._Admin_setReward0_233 = _f.v12740;
     T11  memory _ja;
     _ja.elem0 = (uint256(0));
-    _ja.elem1 = _f.v12829;
+    _ja.elem1 = _f.v12741;
     _reachi_2(_ja, _Memory);
     }
   function _reacha_Info_Admins(address payable _a, Memory memory _Memory) internal view {
@@ -1016,12 +1016,12 @@ contract ReachContract is Stdlib {
     (T17 memory _svs) = abi.decode(current_svbs, (T17));
     _Memory._reachr_Info_balance = _svs.v2457;
     }
-  struct _F12860 {
+  struct _F12772 {
     T18 v2444;
     T1 v2446;
     }
   function _reacha_Info_claimed(T18 memory _a, Memory memory _Memory) internal view {
-    _F12860 memory _f;
+    _F12772 memory _f;
     reachRequire(((current_step == uint256(3))), uint256(9) /*'(./token_v2.rsh:43:12:property binding,[],Just "Incorrect state: not leaf")'*/);
     (T17 memory _svs) = abi.decode(current_svbs, (T17));
     _f.v2444.elem0 = (_a.elem0);
@@ -1038,7 +1038,7 @@ contract ReachContract is Stdlib {
   function _reacha_Info_totalAllocatedFunds(bool _a, Memory memory _Memory) internal view {
     reachRequire(((current_step == uint256(3))), uint256(11) /*'(./token_v2.rsh:50:24:property binding,[],Just "Incorrect state: not leaf")'*/);
     (T17 memory _svs) = abi.decode(current_svbs, (T17));
-    _Memory._reachr_Info_totalAllocatedFunds = _svs.v2453;
+    _Memory._reachr_Info_totalAllocatedFunds = _svs.v2434;
     }
   function _reacha_Info_totalAmountClaimed(bool _a, Memory memory _Memory) internal view {
     reachRequire(((current_step == uint256(3))), uint256(12) /*'(./token_v2.rsh:49:23:property binding,[],Just "Incorrect state: not leaf")'*/);
@@ -1070,12 +1070,12 @@ contract ReachContract is Stdlib {
     (T17 memory _svs) = abi.decode(current_svbs, (T17));
     _Memory._reachr_Info_totalRewards = (((__reachm_0Ref((_a))).which == _enum_T0.Some ? (__reachm_0Ref((_a)))._Some : uint256(0)));
     }
-  struct _F12869 {
+  struct _F12781 {
     T18 v2437;
     T1 v2439;
     }
   function _reacha_Info_userReward(T18 memory _a, Memory memory _Memory) internal view {
-    _F12869 memory _f;
+    _F12781 memory _f;
     reachRequire(((current_step == uint256(3))), uint256(18) /*'(./token_v2.rsh:42:15:property binding,[],Just "Incorrect state: not leaf")'*/);
     (T17 memory _svs) = abi.decode(current_svbs, (T17));
     _f.v2437.elem0 = (_a.elem0);
@@ -1084,35 +1084,35 @@ contract ReachContract is Stdlib {
     _f.v2439._rewards = uint256(0);
     _Memory._reachr_Info_userReward = ((((__reachm_1Ref(uint256(keccak256(abi.encode(_f.v2437))))).which == _enum_T2.Some ? (__reachm_1Ref(uint256(keccak256(abi.encode(_f.v2437)))))._Some : _f.v2439))._rewards);
     }
-  struct _F12870 {
-    T9 v12837;
-    T10 v12838;
+  struct _F12782 {
+    T9 v12749;
+    T10 v12750;
     }
   function _reacha_User_claim(T9 memory _a, Memory memory _Memory) internal  {
-    _F12870 memory _f;
-    _f.v12837.elem0 = _a.elem0;
-    _f.v12837.elem1 = _a.elem1;
-    _f.v12838.which = _enum_T10.User_claim0_233;
-    _f.v12838._User_claim0_233 = _f.v12837;
+    _F12782 memory _f;
+    _f.v12749.elem0 = _a.elem0;
+    _f.v12749.elem1 = _a.elem1;
+    _f.v12750.which = _enum_T10.User_claim0_233;
+    _f.v12750._User_claim0_233 = _f.v12749;
     T11  memory _ja;
     _ja.elem0 = (uint256(0));
-    _ja.elem1 = _f.v12838;
+    _ja.elem1 = _f.v12750;
     _reachi_2(_ja, _Memory);
     }
-  struct _F12871 {
-    bool v12843;
-    T10 v12844;
+  struct _F12783 {
+    bool v12755;
+    T10 v12756;
     }
   function _reacha_User_optin(bool _a, Memory memory _Memory) internal  {
-    _F12871 memory _f;
-    _f.v12844.which = _enum_T10.User_optin0_233;
-    _f.v12844._User_optin0_233 = _f.v12843;
+    _F12783 memory _f;
+    _f.v12756.which = _enum_T10.User_optin0_233;
+    _f.v12756._User_optin0_233 = _f.v12755;
     T11  memory _ja;
     _ja.elem0 = (uint256(0));
-    _ja.elem1 = _f.v12844;
+    _ja.elem1 = _f.v12756;
     _reachi_2(_ja, _Memory);
     }
-  struct _F12872 {
+  struct _F12784 {
     T15 v2356;
     T15[1] v2357;
     T12 v2376;
@@ -1120,7 +1120,7 @@ contract ReachContract is Stdlib {
     T14 v2378;
     }
   function _reachi_0(T19 memory _a, Memory memory _Memory) internal  {
-    _F12872 memory _f;
+    _F12784 memory _f;
     reachRequire((! locked), uint256(19) /*'locked'*/);
     emit _reach_e0(msg.sender, _a);
     reachRequire((((_a.elem0) == uint256(0)) || (current_time == (_a.elem0))), uint256(20) /*'time check at ./token_v2.rsh:65:12:dot'*/);
@@ -1153,7 +1153,7 @@ contract ReachContract is Stdlib {
     _ja.elem6 = uint256(0);
     _reachl_1(_ja, _Memory);
     }
-  struct _F12873 {
+  struct _F12785 {
     T4 v2761;
     T14 v2925;
     T5 v3255;
@@ -1187,7 +1187,7 @@ contract ReachContract is Stdlib {
     T14 v6711;
     }
   function _reachi_2(T11 memory _a, Memory memory _Memory) internal  {
-    _F12873 memory _f;
+    _F12785 memory _f;
     reachRequire((current_step == uint256(3)), uint256(22) /*'state check at ./token_v2.rsh:85:37:dot'*/);
     (T17 memory _svs) = abi.decode(current_svbs, (T17));
     reachRequire((! locked), uint256(23) /*'locked'*/);
@@ -1551,21 +1551,21 @@ contract ReachContract is Stdlib {
       delete current_svbs;
       }
     }
-  function Admin_addAdmin(address payable v12799) external payable returns (bool) {
+  function Admin_addAdmin(address payable v12711) external payable returns (bool) {
     Memory memory _Memory;
-    _reacha_Admin_addAdmin(v12799, _Memory);
+    _reacha_Admin_addAdmin(v12711, _Memory);
     return _Memory._reachr_Admin_addAdmin;
     }
-  function Admin_deposit(uint256 v12805) external payable returns (bool) {
+  function Admin_deposit(uint256 v12717) external payable returns (bool) {
     Memory memory _Memory;
-    _reacha_Admin_deposit(v12805, _Memory);
+    _reacha_Admin_deposit(v12717, _Memory);
     return _Memory._reachr_Admin_deposit;
     }
-  function Admin_editUserReward(address payable v12812, uint256 v12813) external payable returns (bool) {
+  function Admin_editUserReward(address payable v12724, uint256 v12725) external payable returns (bool) {
     Memory memory _Memory;
     T6  memory _ja;
-    _ja.elem0 = v12812;
-    _ja.elem1 = v12813;
+    _ja.elem0 = v12724;
+    _ja.elem1 = v12725;
     _reacha_Admin_editUserReward(_ja, _Memory);
     return _Memory._reachr_Admin_editUserReward;
     }
@@ -1575,23 +1575,23 @@ contract ReachContract is Stdlib {
     _reacha_Admin_endContractAndTransfer(_ja, _Memory);
     return _Memory._reachr_Admin_endContractAndTransfer;
     }
-  function Admin_revokeAdmin(address payable v12823) external payable returns (bool) {
+  function Admin_revokeAdmin(address payable v12735) external payable returns (bool) {
     Memory memory _Memory;
-    _reacha_Admin_revokeAdmin(v12823, _Memory);
+    _reacha_Admin_revokeAdmin(v12735, _Memory);
     return _Memory._reachr_Admin_revokeAdmin;
     }
-  function Admin_setReward(address payable v12831, address payable v12832, uint256 v12833) external payable returns (bool) {
+  function Admin_setReward(address payable v12743, address payable v12744, uint256 v12745) external payable returns (bool) {
     Memory memory _Memory;
     T8  memory _ja;
-    _ja.elem0 = v12831;
-    _ja.elem1 = v12832;
-    _ja.elem2 = v12833;
+    _ja.elem0 = v12743;
+    _ja.elem1 = v12744;
+    _ja.elem2 = v12745;
     _reacha_Admin_setReward(_ja, _Memory);
     return _Memory._reachr_Admin_setReward;
     }
-  function Info_Admins(address payable v12759) external view returns (bool) {
+  function Info_Admins(address payable v12671) external view returns (bool) {
     Memory memory _Memory;
-    _reacha_Info_Admins(v12759, _Memory);
+    _reacha_Info_Admins(v12671, _Memory);
     return _Memory._reachr_Info_Admins;
     }
   function Info_balance() external view returns (uint256) {
@@ -1600,17 +1600,17 @@ contract ReachContract is Stdlib {
     _reacha_Info_balance(_ja, _Memory);
     return _Memory._reachr_Info_balance;
     }
-  function Info_claimed(address payable v12766, address payable v12767) external view returns (uint256) {
+  function Info_claimed(address payable v12678, address payable v12679) external view returns (uint256) {
     Memory memory _Memory;
     T18  memory _ja;
-    _ja.elem0 = v12766;
-    _ja.elem1 = v12767;
+    _ja.elem0 = v12678;
+    _ja.elem1 = v12679;
     _reacha_Info_claimed(_ja, _Memory);
     return _Memory._reachr_Info_claimed;
     }
-  function Info_opted(address payable v12771) external view returns (bool) {
+  function Info_opted(address payable v12683) external view returns (bool) {
     Memory memory _Memory;
-    _reacha_Info_opted(v12771, _Memory);
+    _reacha_Info_opted(v12683, _Memory);
     return _Memory._reachr_Info_opted;
     }
   function Info_totalAllocatedFunds() external view returns (uint256) {
@@ -1649,24 +1649,24 @@ contract ReachContract is Stdlib {
     _reacha_Info_totalOptedIn(_ja, _Memory);
     return _Memory._reachr_Info_totalOptedIn;
     }
-  function Info_totalRewards(address payable v12787) external view returns (uint256) {
+  function Info_totalRewards(address payable v12699) external view returns (uint256) {
     Memory memory _Memory;
-    _reacha_Info_totalRewards(v12787, _Memory);
+    _reacha_Info_totalRewards(v12699, _Memory);
     return _Memory._reachr_Info_totalRewards;
     }
-  function Info_userReward(address payable v12792, address payable v12793) external view returns (uint256) {
+  function Info_userReward(address payable v12704, address payable v12705) external view returns (uint256) {
     Memory memory _Memory;
     T18  memory _ja;
-    _ja.elem0 = v12792;
-    _ja.elem1 = v12793;
+    _ja.elem0 = v12704;
+    _ja.elem1 = v12705;
     _reacha_Info_userReward(_ja, _Memory);
     return _Memory._reachr_Info_userReward;
     }
-  function User_claim(uint256 v12840, address payable v12841) external payable returns (bool) {
+  function User_claim(uint256 v12752, address payable v12753) external payable returns (bool) {
     Memory memory _Memory;
     T9  memory _ja;
-    _ja.elem0 = v12840;
-    _ja.elem1 = v12841;
+    _ja.elem0 = v12752;
+    _ja.elem1 = v12753;
     _reacha_User_claim(_ja, _Memory);
     return _Memory._reachr_User_claim;
     }
@@ -1676,14 +1676,14 @@ contract ReachContract is Stdlib {
     _reacha_User_optin(_ja, _Memory);
     return _Memory._reachr_User_optin;
     }
-  constructor(T19 memory v12848) payable {
+  constructor(T19 memory v12760) payable {
     current_step = 0x0;
     creation_time = uint256(block.number);
     Memory memory _Memory;
-    _reachi_0(v12848, _Memory);
+    _reachi_0(v12760, _Memory);
     }
-  function _reachp_2(T11 calldata v12851) external payable returns (bool) {
+  function _reachp_2(T11 calldata v12763) external payable returns (bool) {
     Memory memory _Memory;
-    _reachi_2(v12851, _Memory);
+    _reachi_2(v12763, _Memory);
     }
   }

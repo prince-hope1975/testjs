@@ -10,7 +10,6 @@ import * as _v3_backend from "../build/v3/index.main.mjs";
 import * as _v2_tokenBackend from "../build/v2/token.main.mjs";
 // @ts-ignore
 import * as _v3_tokenBackend from "../build/v3/token.main.mjs";
-
 // @ts-ignore
 import * as _v4_tokenBackend from "../builds/v4/build/token_v2.main.mjs";
 // @ts-ignore
@@ -50,6 +49,26 @@ export const hasOptedIn = async (
   const ctcUsers = acc.contract(versionManager[version][`${isToken}`], ctcInfo);
   const eligibility = await ctcUsers.unsafeViews.Info.opted(acc);
   return eligibility;
+};
+export const hasOpted = async (
+  acc: any,
+  address: string,
+  ctcInfo: BigNumber,
+  isToken: boolean,
+  version = "v3" as "v3" | "v4"
+) => {
+  try {
+    const ctcAdmin = acc.contract(
+      versionManager[version][`${isToken}`],
+      ctcInfo
+    );
+
+    const hasOpted = await ctcAdmin.unsafeViews.Info.opted(address);
+    return hasOpted;
+  } catch (error) {
+    console.error("An error occured", error);
+    return false;
+  }
 };
 export const setReward = async (
   acc: wallet,
@@ -265,7 +284,6 @@ export const deploy = async (acc: wallet, name: string, token?: BigNumber) => {
   return info;
 };
 
-
 export const editUserReward = async (
   acc: wallet,
   address: string,
@@ -284,24 +302,4 @@ export const editUserReward = async (
     reach.parseCurrency(amt)
   );
   return result;
-};
-
-export const hasOpted = async (
-  acc: any,
-  address: string,
-  ctcInfo: BigNumber,
-  isToken: boolean
-) => {
-  try {
-    // @ts-ignore
-    const ctcAdmin = acc.contract(
-      isToken ? _v3_tokenBackend : _v3_backend,
-      ctcInfo
-    );
-    const hasOpted = await ctcAdmin.unsafeViews.Info.opted(address);
-    return hasOpted;
-  } catch (error) {
-    console.error("An error occured", error);
-    return false;
-  }
 };

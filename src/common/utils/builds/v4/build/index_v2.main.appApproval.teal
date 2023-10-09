@@ -17,9 +17,9 @@ byte base64(AQ==)
 app_global_get
 concat
 preamble:
-pushbytess base64(Al90xw==) base64(DbOGvA==) base64(E25XOw==) base64(FviURQ==) base64(IoRMJg==) base64(KTen9g==) base64(KYtaEA==) base64(MxobPg==) base64(Pvlimg==) base64(Qmgn1Q==) base64(SCT5Ag==) base64(buR2FA==) base64(eErZNw==) base64(ev7IbQ==) base64(u/XNjg==) base64(x8Kc1Q==) base64(3lcEZA==) base64(7Ubbpg==) base64(8yd4BA==) base64(+W9s4A==) base64(+XMOCw==) base64(+q7IsA==)
+pushbytess base64(Al90xw==) base64(DbOGvA==) base64(E25XOw==) base64(IoRMJg==) base64(KTen9g==) base64(KYtaEA==) base64(MxobPg==) base64(Pvlimg==) base64(Qmgn1Q==) base64(SCT5Ag==) base64(buR2FA==) base64(eErZNw==) base64(ev7IbQ==) base64(is1nCA==) base64(u/XNjg==) base64(x8Kc1Q==) base64(3lcEZA==) base64(7Ubbpg==) base64(8yd4BA==) base64(+W9s4A==) base64(+XMOCw==) base64(+q7IsA==)
 txna ApplicationArgs 0
-match Admin_deposit_uiSkAp__3jDeqDlb0Iah80RVTPslE1VoL8cnd_zuYrZd0_ User_claim_uint6EFYiHKImYuclUWdT_OqJXxi0EzoEL6HddbgecS2SktE_ Info_opted_addre0ExNsQ1F4ovmZnD_SASEmwURNs0YuTWn5SnO2OIv_ts_ Info_totalAllocaxFW1nrn29HmSHbiq_5FIdqUsYwqYrlCoXdoR5ueBgKM_ Info_Admins_addr0DMX_X6CiwvrzEQOGnkmxdCO8TJN3oC9WXIduVQfFmc_ User_optin__voidlozpJcHjwgp4Se3UDX_jUs2IgQys2Ct8vq___hhb2Qw_ Info_totalAlloca8pNHPNW4vyj_Ma4Q0kb_xQ9A1Kx_OOL8fhtRXc62UWo_ Info_userReward_vNOekaBJSVVT9SsT1g5r8hPihhN_SUF0U7saJaJG79E_ Info_balance__uivWc87iXmynsa6ppZhrutwHED7ui_erWZe1cwSzUO39o_ _reachp_0 Info_totalAmountZtqoKUO8GgAmNo3p4k7c_9fE5HNC73q9IrEhcfVzjpw_ Admin_endContracE7DLWCH8tMMv4VrS88Hnec_dgZoJp6sAfRHQUf4BT2s_ Info_totalOptedIL_NQZYqqj0CfMPdZptM5dxLFljQfVQPy8pQwDBBi7ew_ Info_totalClaime84VuZQ4BUNEY8JNt5r8nQoV6EdCsKQzs_R6G0oEysBU_ Info_totalFundsDHL3HAmh8RtdD3Pbcxg_rwK7BwssQ0cGNmgObzusy55w_ Info_claimed_add7MO6HKJ9bJy4qy7woENXDxwhXNgYLtL3ao_EF0qEj6U_ _reachp_2 Admin_setReward_PHCjanzSyGZtsijXVshoYvWiRg2pWEwShMTHIlrErys_ Admin_revokeAdmiRjqcjTaVeWg58LlsiKwhrEIoffHOKMIwWvsLQ_IKx_w_ Info_totalReward_ukWfT_nIxKsnB0f__Sk3mUJbAyt9LingIzMLe19kp0_ Admin_editUserRe9OI3lm4g_nP_iEU4sKpCqxlrTvUcVAhRSN_JL0bHQg4_ Admin_addAdmin_aJA_q4KM4PooYe5_nsTCLYbtNXo_RdPWqFyKODNGgBnM_
+match Admin_deposit_uiSkAp__3jDeqDlb0Iah80RVTPslE1VoL8cnd_zuYrZd0_ User_claim_uint6EFYiHKImYuclUWdT_OqJXxi0EzoEL6HddbgecS2SktE_ Info_opted_addre0ExNsQ1F4ovmZnD_SASEmwURNs0YuTWn5SnO2OIv_ts_ Info_Admins_addr0DMX_X6CiwvrzEQOGnkmxdCO8TJN3oC9WXIduVQfFmc_ User_optin__voidlozpJcHjwgp4Se3UDX_jUs2IgQys2Ct8vq___hhb2Qw_ Info_totalAlloca8pNHPNW4vyj_Ma4Q0kb_xQ9A1Kx_OOL8fhtRXc62UWo_ Info_userReward_vNOekaBJSVVT9SsT1g5r8hPihhN_SUF0U7saJaJG79E_ Info_balance__uivWc87iXmynsa6ppZhrutwHED7ui_erWZe1cwSzUO39o_ _reachp_0 Info_totalAmountZtqoKUO8GgAmNo3p4k7c_9fE5HNC73q9IrEhcfVzjpw_ Admin_endContracE7DLWCH8tMMv4VrS88Hnec_dgZoJp6sAfRHQUf4BT2s_ Info_totalOptedIL_NQZYqqj0CfMPdZptM5dxLFljQfVQPy8pQwDBBi7ew_ Info_totalClaime84VuZQ4BUNEY8JNt5r8nQoV6EdCsKQzs_R6G0oEysBU_ Info_totalCurrenM671bRMz90CqlMnX82LUTK_Zj8sfkRmK1K9w3c38UkI_ Info_totalFundsDHL3HAmh8RtdD3Pbcxg_rwK7BwssQ0cGNmgObzusy55w_ Info_claimed_add7MO6HKJ9bJy4qy7woENXDxwhXNgYLtL3ao_EF0qEj6U_ _reachp_2 Admin_setReward_PHCjanzSyGZtsijXVshoYvWiRg2pWEwShMTHIlrErys_ Admin_revokeAdmiRjqcjTaVeWg58LlsiKwhrEIoffHOKMIwWvsLQ_IKx_w_ Info_totalReward_ukWfT_nIxKsnB0f__Sk3mUJbAyt9LingIzMLe19kp0_ Admin_editUserRe9OI3lm4g_nP_iEU4sKpCqxlrTvUcVAhRSN_JL0bHQg4_ Admin_addAdmin_aJA_q4KM4PooYe5_nsTCLYbtNXo_RdPWqFyKODNGgBnM_
 errl:
 err
 Admin_addAdmin_aJA_q4KM4PooYe5_nsTCLYbtNXo_RdPWqFyKODNGgBnM_:
@@ -268,19 +268,6 @@ load 16 // total_rewards_allcoated/4347
 itob
 store 4 // GV_apiRet :: Null
 b apiReturn_check
-Info_totalAllocaxFW1nrn29HmSHbiq_5FIdqUsYwqYrlCoXdoR5ueBgKM_:
-_reacha_Info_totalAllocatoinToAllUsers:
-load 1 // GV_currentStep :: UInt
-int 3
-==
-assert
-// ^ Claim: Incorrect state: not leaf
-// at ./index_v2.rsh:36:30:property binding
-callsub l2_LF_svsLoad_3
-load 19 // totalAllocatoinToAllUsers/4344
-itob
-store 4 // GV_apiRet :: Null
-b apiReturn_check
 Info_totalAmountZtqoKUO8GgAmNo3p4k7c_9fE5HNC73q9IrEhcfVzjpw_:
 _reacha_Info_totalAmountClaimed:
 load 1 // GV_currentStep :: UInt
@@ -304,6 +291,19 @@ assert
 // at ./index_v2.rsh:46:17:property binding
 callsub l2_LF_svsLoad_3
 load 15 // total_users_claim/4348
+itob
+store 4 // GV_apiRet :: Null
+b apiReturn_check
+Info_totalCurrenM671bRMz90CqlMnX82LUTK_Zj8sfkRmK1K9w3c38UkI_:
+_reacha_Info_totalCurrentAllocatoinToAllUsers:
+load 1 // GV_currentStep :: UInt
+int 3
+==
+assert
+// ^ Claim: Incorrect state: not leaf
+// at ./index_v2.rsh:36:37:property binding
+callsub l2_LF_svsLoad_3
+load 19 // totalCurrentAllocatoinToAllUsers/4344
 itob
 store 4 // GV_apiRet :: Null
 b apiReturn_check
@@ -462,7 +462,7 @@ substring 7 8
 concat
 load 20 // v4343
 concat
-load 19 // totalAllocatoinToAllUsers/4344
+load 19 // totalCurrentAllocatoinToAllUsers/4344
 itob
 concat
 load 18 // totalFundsDeposited/4345
@@ -502,7 +502,7 @@ store 20 // v4343
 load 25 // MAIN_OBJECT/4299
 int 26
 extract_uint64
-store 19 // totalAllocatoinToAllUsers/4344
+store 19 // totalCurrentAllocatoinToAllUsers/4344
 load 25 // MAIN_OBJECT/4299
 int 34
 extract_uint64
@@ -539,7 +539,7 @@ substring 7 8
 concat
 load 20 // v4343
 concat
-load 19 // totalAllocatoinToAllUsers/4344
+load 19 // totalCurrentAllocatoinToAllUsers/4344
 itob
 concat
 load 18 // totalFundsDeposited/4345
@@ -636,7 +636,7 @@ substring 7 8
 concat
 load 20 // v4343
 concat
-load 19 // totalAllocatoinToAllUsers/4344
+load 19 // totalCurrentAllocatoinToAllUsers/4344
 itob
 concat
 load 18 // totalFundsDeposited/4345
@@ -726,7 +726,7 @@ substring 7 8
 concat
 load 20 // v4343
 concat
-load 19 // totalAllocatoinToAllUsers/4344
+load 19 // totalCurrentAllocatoinToAllUsers/4344
 itob
 concat
 load 18 // totalFundsDeposited/4345
@@ -759,7 +759,7 @@ assert
 // at ./index_v2.rsh:338:44:application call to [unknown function] (defined at: ./index_v2.rsh:338:44:function exp)
 // at ./index_v2.rsh:83:37:application call to [unknown function] (defined at: ./index_v2.rsh:338:44:function exp)
 // at ./index_v2.rsh:83:37:application call to [unknown function] (defined at: ./index_v2.rsh:83:37:function exp)
-load 19 // totalAllocatoinToAllUsers/4344
+load 19 // totalCurrentAllocatoinToAllUsers/4344
 int 0
 ==
 assert
@@ -783,7 +783,7 @@ byte base64(AA==)
 concat
 load 20 // v4343
 concat
-load 19 // totalAllocatoinToAllUsers/4344
+load 19 // totalCurrentAllocatoinToAllUsers/4344
 itob
 concat
 load 18 // totalFundsDeposited/4345
@@ -839,7 +839,7 @@ substring 7 8
 concat
 load 20 // v4343
 concat
-load 19 // totalAllocatoinToAllUsers/4344
+load 19 // totalCurrentAllocatoinToAllUsers/4344
 itob
 concat
 load 18 // totalFundsDeposited/4345
@@ -891,7 +891,7 @@ assert
 // at ./index_v2.rsh:153:45:application call to [unknown function] (defined at: ./index_v2.rsh:153:45:function exp)
 // at ./index_v2.rsh:83:37:application call to [unknown function] (defined at: ./index_v2.rsh:153:45:function exp)
 // at ./index_v2.rsh:83:37:application call to [unknown function] (defined at: ./index_v2.rsh:83:37:function exp)
-load 19 // totalAllocatoinToAllUsers/4344
+load 19 // totalCurrentAllocatoinToAllUsers/4344
 load 29 // Amt/6740
 +
 store 28 // v6749
@@ -960,7 +960,7 @@ assert
 // at ./index_v2.rsh:160:12:application call to "check" (defined at: reach standard library:49:32:function exp)
 // at ./index_v2.rsh:168:15:application call to [unknown function] (defined at: ./index_v2.rsh:168:15:function exp)
 load 12 // v6913
-load 19 // totalAllocatoinToAllUsers/4344
+load 19 // totalCurrentAllocatoinToAllUsers/4344
 >=
 assert
 // ^ Claim: Balance has to be greater than total allocation 
@@ -1197,7 +1197,7 @@ substring 7 8
 concat
 load 20 // v4343
 concat
-load 19 // totalAllocatoinToAllUsers/4344
+load 19 // totalCurrentAllocatoinToAllUsers/4344
 load 28 // amt/7177
 -
 itob
@@ -1253,7 +1253,7 @@ substring 7 8
 concat
 load 20 // v4343
 concat
-load 19 // totalAllocatoinToAllUsers/4344
+load 19 // totalCurrentAllocatoinToAllUsers/4344
 itob
 concat
 load 18 // totalFundsDeposited/4345
@@ -1382,7 +1382,7 @@ substring 7 8
 concat
 load 20 // v4343
 concat
-load 19 // totalAllocatoinToAllUsers/4344
+load 19 // totalCurrentAllocatoinToAllUsers/4344
 load 28 // amt/7177
 -
 itob
@@ -1432,7 +1432,7 @@ substring 7 8
 concat
 load 20 // v4343
 concat
-load 19 // totalAllocatoinToAllUsers/4344
+load 19 // totalCurrentAllocatoinToAllUsers/4344
 load 28 // amt/7177
 -
 itob
@@ -1484,7 +1484,7 @@ substring 7 8
 concat
 load 20 // v4343
 concat
-load 19 // totalAllocatoinToAllUsers/4344
+load 19 // totalCurrentAllocatoinToAllUsers/4344
 load 28 // amt/7177
 -
 itob
@@ -1631,7 +1631,7 @@ store 20 // v4343
 dup
 int 96
 extract_uint64
-store 19 // totalAllocatoinToAllUsers/4344
+store 19 // totalCurrentAllocatoinToAllUsers/4344
 dup
 int 104
 extract_uint64

@@ -27,6 +27,17 @@ export const hasOptedIn = async (acc, ctcInfo, isToken, version = "v3") => {
     const eligibility = await ctcUsers.unsafeViews.Info.opted(acc);
     return eligibility;
 };
+export const hasOpted = async (acc, address, ctcInfo, isToken, version = "v3") => {
+    try {
+        const ctcAdmin = acc.contract(versionManager[version][`${isToken}`], ctcInfo);
+        const hasOpted = await ctcAdmin.unsafeViews.Info.opted(address);
+        return hasOpted;
+    }
+    catch (error) {
+        console.error("An error occured", error);
+        return false;
+    }
+};
 export const setReward = async (acc, address, token, amt, ctcInfo, isToken, version = "v3") => {
     const ctcAdmin = acc.contract(versionManager[version][`${isToken}`], ctcInfo);
     // const hasOpted = await ctcAdmin.unsafeViews.Info.opted(acc);
@@ -143,16 +154,4 @@ export const editUserReward = async (acc, address, amt, ctcInfo = info, isToken)
         await ctcAdmin.a.User.optin();
     const result = await ctcAdmin.a.Admin.editUserReward(reach.formatAddress(address), reach.parseCurrency(amt));
     return result;
-};
-export const hasOpted = async (acc, address, ctcInfo, isToken) => {
-    try {
-        // @ts-ignore
-        const ctcAdmin = acc.contract(isToken ? _v3_tokenBackend : _v3_backend, ctcInfo);
-        const hasOpted = await ctcAdmin.unsafeViews.Info.opted(address);
-        return hasOpted;
-    }
-    catch (error) {
-        console.error("An error occured", error);
-        return false;
-    }
 };

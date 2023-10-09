@@ -774,7 +774,7 @@ struct T17 {
   uint256 _bal;
   bool _keepGoing;
   T13 _percent;
-  uint256 _totalAllocatoinToAllUsers;
+  uint256 _totalCurrentAllocatoinToAllUsers;
   uint256 _totalFundsDeposited;
   uint256 _total_amount_claimed;
   uint256 _total_rewards_allcoated;
@@ -893,9 +893,9 @@ contract ReachContract is Stdlib {
     uint256 _reachr_Info_claimed;
     bool _reachr_Info_opted;
     uint256 _reachr_Info_totalAllocatedFunds;
-    uint256 _reachr_Info_totalAllocatoinToAllUsers;
     uint256 _reachr_Info_totalAmountClaimed;
     uint256 _reachr_Info_totalClaimed;
+    uint256 _reachr_Info_totalCurrentAllocatoinToAllUsers;
     uint256 _reachr_Info_totalFundsDeposited;
     uint256 _reachr_Info_totalOptedIn;
     uint256 _reachr_Info_totalRewards;
@@ -1023,20 +1023,20 @@ contract ReachContract is Stdlib {
     (T14 memory _svs) = abi.decode(current_svbs, (T14));
     _Memory._reachr_Info_totalAllocatedFunds = _svs.v4347;
     }
-  function _reacha_Info_totalAllocatoinToAllUsers(bool _a, Memory memory _Memory) internal view {
-    reachRequire(((current_step == uint256(3))), uint256(12) /*'(./index_v2.rsh:36:30:property binding,[],Just "Incorrect state: not leaf")'*/);
-    (T14 memory _svs) = abi.decode(current_svbs, (T14));
-    _Memory._reachr_Info_totalAllocatoinToAllUsers = _svs.v4344;
-    }
   function _reacha_Info_totalAmountClaimed(bool _a, Memory memory _Memory) internal view {
-    reachRequire(((current_step == uint256(3))), uint256(13) /*'(./index_v2.rsh:48:23:property binding,[],Just "Incorrect state: not leaf")'*/);
+    reachRequire(((current_step == uint256(3))), uint256(12) /*'(./index_v2.rsh:48:23:property binding,[],Just "Incorrect state: not leaf")'*/);
     (T14 memory _svs) = abi.decode(current_svbs, (T14));
     _Memory._reachr_Info_totalAmountClaimed = _svs.v4346;
     }
   function _reacha_Info_totalClaimed(bool _a, Memory memory _Memory) internal view {
-    reachRequire(((current_step == uint256(3))), uint256(14) /*'(./index_v2.rsh:46:17:property binding,[],Just "Incorrect state: not leaf")'*/);
+    reachRequire(((current_step == uint256(3))), uint256(13) /*'(./index_v2.rsh:46:17:property binding,[],Just "Incorrect state: not leaf")'*/);
     (T14 memory _svs) = abi.decode(current_svbs, (T14));
     _Memory._reachr_Info_totalClaimed = _svs.v4348;
+    }
+  function _reacha_Info_totalCurrentAllocatoinToAllUsers(bool _a, Memory memory _Memory) internal view {
+    reachRequire(((current_step == uint256(3))), uint256(14) /*'(./index_v2.rsh:36:37:property binding,[],Just "Incorrect state: not leaf")'*/);
+    (T14 memory _svs) = abi.decode(current_svbs, (T14));
+    _Memory._reachr_Info_totalCurrentAllocatoinToAllUsers = _svs.v4344;
     }
   function _reacha_Info_totalFundsDeposited(bool _a, Memory memory _Memory) internal view {
     reachRequire(((current_step == uint256(3))), uint256(15) /*'(./index_v2.rsh:37:24:property binding,[],Just "Incorrect state: not leaf")'*/);
@@ -1113,7 +1113,7 @@ contract ReachContract is Stdlib {
     _f.v4298._bal = uint256(0);
     _f.v4298._keepGoing = true;
     _f.v4298._percent = _f.v4297;
-    _f.v4298._totalAllocatoinToAllUsers = uint256(0);
+    _f.v4298._totalCurrentAllocatoinToAllUsers = uint256(0);
     _f.v4298._totalFundsDeposited = uint256(0);
     _f.v4298._total_amount_claimed = uint256(0);
     _f.v4298._total_rewards_allcoated = uint256(0);
@@ -1180,7 +1180,7 @@ contract ReachContract is Stdlib {
     _f.v4701._bal = _svs.v4341;
     _f.v4701._keepGoing = _svs.v4342;
     _f.v4701._percent = _svs.v4343;
-    _f.v4701._totalAllocatoinToAllUsers = _svs.v4344;
+    _f.v4701._totalCurrentAllocatoinToAllUsers = _svs.v4344;
     _f.v4701._totalFundsDeposited = _svs.v4345;
     _f.v4701._total_amount_claimed = _svs.v4346;
     _f.v4701._total_rewards_allcoated = _svs.v4347;
@@ -1202,7 +1202,7 @@ contract ReachContract is Stdlib {
     _f.v5149._bal = (safeAdd(_svs.v4341, (_f.v5020.elem0)));
     _f.v5149._keepGoing = _svs.v4342;
     _f.v5149._percent = _svs.v4343;
-    _f.v5149._totalAllocatoinToAllUsers = _svs.v4344;
+    _f.v5149._totalCurrentAllocatoinToAllUsers = _svs.v4344;
     _f.v5149._totalFundsDeposited = (safeAdd(_svs.v4345, (_f.v5020.elem0)));
     _f.v5149._total_amount_claimed = _svs.v4346;
     _f.v5149._total_rewards_allcoated = _svs.v4347;
@@ -1228,7 +1228,7 @@ contract ReachContract is Stdlib {
     _f.v5601._bal = _svs.v4341;
     _f.v5601._keepGoing = _svs.v4342;
     _f.v5601._percent = _svs.v4343;
-    _f.v5601._totalAllocatoinToAllUsers = _svs.v4344;
+    _f.v5601._totalCurrentAllocatoinToAllUsers = _svs.v4344;
     _f.v5601._totalFundsDeposited = _svs.v4345;
     _f.v5601._total_amount_claimed = _svs.v4346;
     _f.v5601._total_rewards_allcoated = _svs.v4347;
@@ -1250,7 +1250,7 @@ contract ReachContract is Stdlib {
     _f.v6042._bal = _svs.v4341;
     _f.v6042._keepGoing = false;
     _f.v6042._percent = _svs.v4343;
-    _f.v6042._totalAllocatoinToAllUsers = _svs.v4344;
+    _f.v6042._totalCurrentAllocatoinToAllUsers = _svs.v4344;
     _f.v6042._totalFundsDeposited = _svs.v4345;
     _f.v6042._total_amount_claimed = _svs.v4346;
     _f.v6042._total_rewards_allcoated = _svs.v4347;
@@ -1273,7 +1273,7 @@ contract ReachContract is Stdlib {
     _f.v6485._bal = _svs.v4341;
     _f.v6485._keepGoing = _svs.v4342;
     _f.v6485._percent = _svs.v4343;
-    _f.v6485._totalAllocatoinToAllUsers = _svs.v4344;
+    _f.v6485._totalCurrentAllocatoinToAllUsers = _svs.v4344;
     _f.v6485._totalFundsDeposited = _svs.v4345;
     _f.v6485._total_amount_claimed = _svs.v4346;
     _f.v6485._total_rewards_allcoated = _svs.v4347;
@@ -1318,7 +1318,7 @@ contract ReachContract is Stdlib {
     _f.v6965._bal = (safeAdd(_svs.v4341, (_f.v6696.elem2)));
     _f.v6965._keepGoing = _svs.v4342;
     _f.v6965._percent = _svs.v4343;
-    _f.v6965._totalAllocatoinToAllUsers = _f.v6749;
+    _f.v6965._totalCurrentAllocatoinToAllUsers = _f.v6749;
     _f.v6965._totalFundsDeposited = _svs.v4345;
     _f.v6965._total_amount_claimed = _svs.v4346;
     _f.v6965._total_rewards_allcoated = _svs.v4347;
@@ -1361,7 +1361,7 @@ contract ReachContract is Stdlib {
         _f.v7494._bal = (safeSub(_svs.v4341, (_f.v7115.elem0)));
         _f.v7494._keepGoing = _svs.v4342;
         _f.v7494._percent = _svs.v4343;
-        _f.v7494._totalAllocatoinToAllUsers = (safeSub(_svs.v4344, (_f.v7115.elem0)));
+        _f.v7494._totalCurrentAllocatoinToAllUsers = (safeSub(_svs.v4344, (_f.v7115.elem0)));
         _f.v7494._totalFundsDeposited = _svs.v4345;
         _f.v7494._total_amount_claimed = (safeAdd(_svs.v4346, (_f.v7115.elem0)));
         _f.v7494._total_rewards_allcoated = _svs.v4347;
@@ -1382,7 +1382,7 @@ contract ReachContract is Stdlib {
         _f.v7513._bal = (safeSub(_svs.v4341, (_f.v7115.elem0)));
         _f.v7513._keepGoing = _svs.v4342;
         _f.v7513._percent = _svs.v4343;
-        _f.v7513._totalAllocatoinToAllUsers = (safeSub(_svs.v4344, (_f.v7115.elem0)));
+        _f.v7513._totalCurrentAllocatoinToAllUsers = (safeSub(_svs.v4344, (_f.v7115.elem0)));
         _f.v7513._totalFundsDeposited = _svs.v4345;
         _f.v7513._total_amount_claimed = (safeAdd(_svs.v4346, (_f.v7115.elem0)));
         _f.v7513._total_rewards_allcoated = _svs.v4347;
@@ -1408,7 +1408,7 @@ contract ReachContract is Stdlib {
         _f.v7450._bal = (safeSub(_svs.v4341, (_f.v7115.elem0)));
         _f.v7450._keepGoing = _svs.v4342;
         _f.v7450._percent = _svs.v4343;
-        _f.v7450._totalAllocatoinToAllUsers = (safeSub(_svs.v4344, (_f.v7115.elem0)));
+        _f.v7450._totalCurrentAllocatoinToAllUsers = (safeSub(_svs.v4344, (_f.v7115.elem0)));
         _f.v7450._totalFundsDeposited = _svs.v4345;
         _f.v7450._total_amount_claimed = (safeAdd(_svs.v4346, (_f.v7115.elem0)));
         _f.v7450._total_rewards_allcoated = _svs.v4347;
@@ -1429,7 +1429,7 @@ contract ReachContract is Stdlib {
         _f.v7469._bal = (safeSub(_svs.v4341, (_f.v7115.elem0)));
         _f.v7469._keepGoing = _svs.v4342;
         _f.v7469._percent = _svs.v4343;
-        _f.v7469._totalAllocatoinToAllUsers = (safeSub(_svs.v4344, (_f.v7115.elem0)));
+        _f.v7469._totalCurrentAllocatoinToAllUsers = (safeSub(_svs.v4344, (_f.v7115.elem0)));
         _f.v7469._totalFundsDeposited = _svs.v4345;
         _f.v7469._total_amount_claimed = (safeAdd(_svs.v4346, (_f.v7115.elem0)));
         _f.v7469._total_rewards_allcoated = _svs.v4347;
@@ -1454,7 +1454,7 @@ contract ReachContract is Stdlib {
     _f.v7951._bal = _svs.v4341;
     _f.v7951._keepGoing = _svs.v4342;
     _f.v7951._percent = _svs.v4343;
-    _f.v7951._totalAllocatoinToAllUsers = _svs.v4344;
+    _f.v7951._totalCurrentAllocatoinToAllUsers = _svs.v4344;
     _f.v7951._totalFundsDeposited = _svs.v4345;
     _f.v7951._total_amount_claimed = _svs.v4346;
     _f.v7951._total_rewards_allcoated = _svs.v4347;
@@ -1482,7 +1482,7 @@ contract ReachContract is Stdlib {
       nsvs.v4341 = (_a.elem2._bal);
       nsvs.v4342 = (_a.elem2._keepGoing);
       nsvs.v4343 = (_a.elem2._percent);
-      nsvs.v4344 = (_a.elem2._totalAllocatoinToAllUsers);
+      nsvs.v4344 = (_a.elem2._totalCurrentAllocatoinToAllUsers);
       nsvs.v4345 = (_a.elem2._totalFundsDeposited);
       nsvs.v4346 = (_a.elem2._total_amount_claimed);
       nsvs.v4347 = (_a.elem2._total_rewards_allcoated);
@@ -1572,12 +1572,6 @@ contract ReachContract is Stdlib {
     _reacha_Info_totalAllocatedFunds(_ja, _Memory);
     return _Memory._reachr_Info_totalAllocatedFunds;
     }
-  function Info_totalAllocatoinToAllUsers() external view returns (uint256) {
-    Memory memory _Memory;
-    bool  _ja;
-    _reacha_Info_totalAllocatoinToAllUsers(_ja, _Memory);
-    return _Memory._reachr_Info_totalAllocatoinToAllUsers;
-    }
   function Info_totalAmountClaimed() external view returns (uint256) {
     Memory memory _Memory;
     bool  _ja;
@@ -1589,6 +1583,12 @@ contract ReachContract is Stdlib {
     bool  _ja;
     _reacha_Info_totalClaimed(_ja, _Memory);
     return _Memory._reachr_Info_totalClaimed;
+    }
+  function Info_totalCurrentAllocatoinToAllUsers() external view returns (uint256) {
+    Memory memory _Memory;
+    bool  _ja;
+    _reacha_Info_totalCurrentAllocatoinToAllUsers(_ja, _Memory);
+    return _Memory._reachr_Info_totalCurrentAllocatoinToAllUsers;
     }
   function Info_totalFundsDeposited() external view returns (uint256) {
     Memory memory _Memory;

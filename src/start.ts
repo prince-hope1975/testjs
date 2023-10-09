@@ -43,7 +43,6 @@ export const RecursiveCheck = async () => {
   //     return res[0].price;
   //   })
   //   .catch(() => console.error);
-  // console.log({ floor });
 
   const USERS_REF = db.ref("/admins");
   const ALL_COLLECTIONS_REF = db.ref("/allCollections");
@@ -77,10 +76,6 @@ export const RecursiveCheck = async () => {
     (p) => Object.keys(p).length !== 0
   );
 
-  // console.log({ finalSnap: (filteredObject, null, 4) });
-
-  // console.log({ address: WALLET.networkAccount.addr });
-  // let val: jsonSchema = {};
   for (const RETRIEVED_DATA of filteredObject) {
     const entries = Object.entries(RETRIEVED_DATA);
     let infos: Array<{
@@ -127,6 +122,7 @@ export const RecursiveCheck = async () => {
         const IS_MANUAL = entry?.isManual || false;
         const TOKEN = entry?.token;
         const NETWORK = entry?.network;
+        const VERSION = entry?.version || "v3";
         const SHOULD_OVERRIDE_FLOOR = entry?.override || false;
         const reach = loadStdlib("ALGO");
         reach.setProviderByName(NETWORK);
@@ -203,7 +199,8 @@ export const RecursiveCheck = async () => {
               WALLET,
               chainAddress || dataBaseAddress,
               INFO as unknown as number,
-              !!IS_TOKEN
+              !!IS_TOKEN,
+              VERSION
             );
             if (optedIn) {
               let amount = 0;
@@ -261,7 +258,8 @@ export const RecursiveCheck = async () => {
             asset!,
             amt,
             INFO as unknown as number,
-            isToken
+            isToken,
+            VERSION
           )
             .then((_) =>
               console.log(
