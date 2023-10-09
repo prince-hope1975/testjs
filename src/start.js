@@ -83,7 +83,7 @@ export const RecursiveCheck = async () => {
                 const RETRIEVED_ASSETS = entry.assets;
                 const IS_ACTIVE = entry.isActive;
                 const HIDE = entry?.hide;
-                const INFO = entry.info;
+                let INFO = entry.info;
                 const FLOOR = entry?.floor?.value || 1;
                 const PERCENT = entry?.percentage?.value || 1;
                 const IS_TOKEN = entry?.isToken;
@@ -101,6 +101,11 @@ export const RecursiveCheck = async () => {
                  * We run this checks so we can premarturely end a project
                  * IF specific conditions are met
                  */
+                if (!(typeof INFO == "undefined" || typeof INFO == undefined)) {
+                    if (typeof INFO == "object") {
+                        INFO = reach.bigNumberToNumber(INFO);
+                    }
+                }
                 if (!IS_ACTIVE || HIDE) {
                     console.log("Project is not active");
                     continue;
@@ -144,7 +149,7 @@ export const RecursiveCheck = async () => {
                     }
                     if ((obj[asset]["eligiblePoints"] || 0) >= HOUR_LIMIT) {
                         // console.log("elgigblepoints", obj[asset]["eligiblePoints"]);
-                        const optedIn = await hasOpted(WALLET, chainAddress || dataBaseAddress, reach.bigNumberToNumber(INFO), !!IS_TOKEN, VERSION);
+                        const optedIn = await hasOpted(WALLET, chainAddress || dataBaseAddress, INFO, !!IS_TOKEN, VERSION);
                         if (optedIn) {
                             let amount = 0;
                             // ! Todo Remove check for token alone and incorporate all checks
