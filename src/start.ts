@@ -193,13 +193,7 @@ export const RecursiveCheck = async () => {
           }
           if ((obj[asset]["eligiblePoints"] || 0) >= HOUR_LIMIT) {
             // console.log("elgigblepoints", obj[asset]["eligiblePoints"]);
-            console.log("checking opted", {
-              WALLET,
-              addr: chainAddress || dataBaseAddress,
-              INFO,
-              IS_TOKEN,
-              VERSION,
-            });
+            
             const optedIn = await hasOpted(
               WALLET,
               chainAddress || dataBaseAddress,
@@ -224,7 +218,6 @@ export const RecursiveCheck = async () => {
                 FLOOR_PRICE = DEPOSIT || (FLOOR * (PERCENT / 100)) / 365;
                 amount = FLOOR_PRICE;
               }
-              console.log("Figuring if can set", amount);
               const canSet = await canSetReward(
                 WALLET,
                 amount,
