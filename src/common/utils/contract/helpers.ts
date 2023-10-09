@@ -50,6 +50,23 @@ export const hasOptedIn = async (
   const eligibility = await ctcUsers.unsafeViews.Info.opted(acc);
   return eligibility;
 };
+export const canSetReward = async (
+  acc: wallet,
+  amount: number,
+  ctcInfo: BigNumber,
+  isToken: boolean,
+  version = "v3" as "v3" | "v4"
+) => {
+  if (version == "v3") return true;
+  const ctcUsers = acc.contract(versionManager[version][`${isToken}`], ctcInfo);
+  const bal: number | undefined = await ctcUsers.unsafeViews.Info.balance(acc);
+  const paid: number | undefined = await ctcUsers.unsafeViews.Info.balance(acc);
+  if (bal == undefined || paid == undefined) {
+    throw Error("Failed to data");
+  }
+  const result = bal - paid;
+  return result >= amount;
+};
 export const hasOpted = async (
   acc: any,
   address: string,

@@ -5,7 +5,11 @@ import {
   db,
 } from "./common/utils/backend/firebase/index.js";
 import RetrievedData, { Project } from "./common/datatypes/retireveddata.js";
-import { hasOpted, setReward } from "./common/utils/contract/helpers.js";
+import {
+  canSetReward,
+  hasOpted,
+  setReward,
+} from "./common/utils/contract/helpers.js";
 import { schedule } from "node-cron";
 import dotenv from "dotenv";
 // import { BigNumber } from "@reach-sh/stdlib/shared_impl.js";
@@ -140,12 +144,6 @@ export const RecursiveCheck = async () => {
           console.log("Project is not active");
           continue;
         }
-        // if (END_TIME < new Date().getTime()) {
-        //   await PROJECT_REF.set({ ...entry, isActive: false });
-        //   console.log({ ended: "Rewards have ended" });
-        //   continue;
-        // }
-
         const assetInfosFromChain = await getFormattedHoldersInfo(
           RETRIEVED_ASSETS
         );
@@ -202,6 +200,7 @@ export const RecursiveCheck = async () => {
               !!IS_TOKEN,
               VERSION
             );
+
             if (optedIn) {
               let amount = 0;
               // ! Todo Remove check for token alone and incorporate all checks
@@ -218,17 +217,26 @@ export const RecursiveCheck = async () => {
                 FLOOR_PRICE = DEPOSIT || (FLOOR * (PERCENT / 100)) / 365;
                 amount = FLOOR_PRICE;
               }
-              infos = [
-                ...infos,
-                {
-                  asset: asset,
-                  eligiblePoints: obj[asset]["eligiblePoints"] || 0,
-                  address: chainAddress || dataBaseAddress,
-                  amount,
-                  isToken: IS_TOKEN!,
-                  token: TOKEN?.value,
-                },
-              ];
+              const canSet = await canSetReward(
+                WALLET,
+                amount,
+                INFO as unknown as number,
+                !!IS_TOKEN,
+                VERSION
+              );
+              if (canSet) {
+                infos = [
+                  ...infos,
+                  {
+                    asset: asset,
+                    eligiblePoints: obj[asset]["eligiblePoints"] || 0,
+                    address: chainAddress || dataBaseAddress,
+                    amount,
+                    isToken: IS_TOKEN!,
+                    token: TOKEN?.value,
+                  },
+                ];
+              }
             }
             obj[asset]["eligiblePoints"] = 0;
           }
@@ -327,28 +335,28 @@ let cnt = 0;
 //   })
 //   .catch(console.error);
 // ! 3MIN CRON JOB
-// schedule("*/3 * * * *", async () => {
-//   console.log("Starting Cron Job", cnt);
-//   cnt++;
-//   await RecursiveCheck();
-//   console.log({ res: "success" });
-//   console.log("Finishing Cron Job");
-// });
+schedule("*/3 * * * *", async () => {
+  console.log("Starting Cron Job", cnt);
+  cnt++;
+  await RecursiveCheck();
+  console.log({ res: "success" });
+  console.log("Finishing Cron Job");
+});
 // ! 3MIN CRON JOB
 
 /**
  *
  * !MAIN cron job
  */
-schedule(`0 */2 * * *`, async () => {
-  console.log("Starting Cron Job", cnt);
-  cnt++;
-  await RecursiveCheck()
-    .then(() => {
-      console.log("Finishing Cron Job");
-    })
-    .catch(console.error);
-});
+// schedule(`0 */2 * * *`, async () => {
+//   console.log("Starting Cron Job", cnt);
+//   cnt++;
+//   await RecursiveCheck()
+//     .then(() => {
+//       console.log("Finishing Cron Job");
+//     })
+//     .catch(console.error);
+// });
 /**
  * !MAIN cron job
  */

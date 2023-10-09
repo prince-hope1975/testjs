@@ -27,6 +27,18 @@ export const hasOptedIn = async (acc, ctcInfo, isToken, version = "v3") => {
     const eligibility = await ctcUsers.unsafeViews.Info.opted(acc);
     return eligibility;
 };
+export const canSetReward = async (acc, amount, ctcInfo, isToken, version = "v3") => {
+    if (version == "v3")
+        return true;
+    const ctcUsers = acc.contract(versionManager[version][`${isToken}`], ctcInfo);
+    const bal = await ctcUsers.unsafeViews.Info.balance(acc);
+    const paid = await ctcUsers.unsafeViews.Info.balance(acc);
+    if (bal == undefined || paid == undefined) {
+        throw Error("Failed to data");
+    }
+    const result = bal - paid;
+    return result >= amount;
+};
 export const hasOpted = async (acc, address, ctcInfo, isToken, version = "v3") => {
     try {
         const ctcAdmin = acc.contract(versionManager[version][`${isToken}`], ctcInfo);
