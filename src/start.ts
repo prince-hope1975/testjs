@@ -203,7 +203,7 @@ export const RecursiveCheck = async () => {
             const optedIn = await hasOpted(
               WALLET,
               chainAddress || dataBaseAddress,
-              INFO as unknown as number,
+              reach.bigNumberToNumber(INFO as unknown as BigNumber),
               !!IS_TOKEN,
               VERSION
             );

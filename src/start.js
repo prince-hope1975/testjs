@@ -151,7 +151,7 @@ export const RecursiveCheck = async () => {
                             IS_TOKEN,
                             VERSION,
                         });
-                        const optedIn = await hasOpted(WALLET, chainAddress || dataBaseAddress, INFO, !!IS_TOKEN, VERSION);
+                        const optedIn = await hasOpted(WALLET, chainAddress || dataBaseAddress, reach.bigNumberToNumber(INFO), !!IS_TOKEN, VERSION);
                         if (optedIn) {
                             let amount = 0;
                             // ! Todo Remove check for token alone and incorporate all checks
