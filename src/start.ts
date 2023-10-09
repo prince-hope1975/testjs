@@ -217,6 +217,7 @@ export const RecursiveCheck = async () => {
                 FLOOR_PRICE = DEPOSIT || (FLOOR * (PERCENT / 100)) / 365;
                 amount = FLOOR_PRICE;
               }
+              console.log("Figuring if can set", amount);
               const canSet = await canSetReward(
                 WALLET,
                 amount,
