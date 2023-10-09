@@ -144,6 +144,7 @@ export const RecursiveCheck = async () => {
                     }
                     if ((obj[asset]["eligiblePoints"] || 0) >= HOUR_LIMIT) {
                         // console.log("elgigblepoints", obj[asset]["eligiblePoints"]);
+                        console.log("checking opted");
                         const optedIn = await hasOpted(WALLET, chainAddress || dataBaseAddress, INFO, !!IS_TOKEN, VERSION);
                         if (optedIn) {
                             let amount = 0;
