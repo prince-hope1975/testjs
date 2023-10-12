@@ -765,21 +765,21 @@ struct T15 {
   bool elem2;
   }
 struct T17 {
-  address payable v2365;
-  bytes30 v2366;
-  address payable v2367;
-  T14 v2379;
-  T15[1] v2382;
-  uint256 v2383;
-  uint256 v2434;
-  uint256 v2449;
-  uint256 v2450;
-  uint256 v2451;
-  uint256 v2452;
-  uint256 v2453;
-  uint256 v2455;
-  T15 v2456;
-  uint256 v2457;
+  address payable v2445;
+  bytes30 v2446;
+  address payable v2447;
+  T14 v2459;
+  T15[1] v2462;
+  uint256 v2463;
+  uint256 v2514;
+  uint256 v2529;
+  uint256 v2530;
+  uint256 v2531;
+  uint256 v2532;
+  uint256 v2533;
+  uint256 v2535;
+  T15 v2536;
+  uint256 v2537;
   }
 struct T18 {
   address payable elem0;
@@ -821,14 +821,14 @@ contract ReachContract is Stdlib {
     }
   event _reach_e0(address _who, T19 _a);
   event _reach_e2(address _who, T11 _a);
-  event _reach_oe_v2909(bool v0);
-  event _reach_oe_v3430(bool v0);
-  event _reach_oe_v3959(bool v0);
-  event _reach_oe_v4475(bool v0);
-  event _reach_oe_v4992(bool v0);
-  event _reach_oe_v5542(bool v0);
-  event _reach_oe_v6091(bool v0);
-  event _reach_oe_v6696(bool v0);
+  event _reach_oe_v2995(bool v0);
+  event _reach_oe_v3520(bool v0);
+  event _reach_oe_v4053(bool v0);
+  event _reach_oe_v4575(bool v0);
+  event _reach_oe_v5096(bool v0);
+  event _reach_oe_v5650(bool v0);
+  event _reach_oe_v6203(bool v0);
+  event _reach_oe_v6812(bool v0);
   event claimed(T21 v0);
   receive () external payable {}
   fallback () external payable {}
@@ -920,90 +920,90 @@ contract ReachContract is Stdlib {
     bool _reachr_User_claim;
     bool _reachr_User_optin;
     }
-  struct _F12764 {
-    T4 v12708;
-    T10 v12709;
+  struct _F12880 {
+    T4 v12824;
+    T10 v12825;
     }
   function _reacha_Admin_addAdmin(address payable _a, Memory memory _Memory) internal  {
-    _F12764 memory _f;
-    _f.v12708.elem0 = _a;
-    _f.v12709.which = _enum_T10.Admin_addAdmin0_233;
-    _f.v12709._Admin_addAdmin0_233 = _f.v12708;
+    _F12880 memory _f;
+    _f.v12824.elem0 = _a;
+    _f.v12825.which = _enum_T10.Admin_addAdmin0_233;
+    _f.v12825._Admin_addAdmin0_233 = _f.v12824;
     T11  memory _ja;
     _ja.elem0 = (uint256(0));
-    _ja.elem1 = _f.v12709;
+    _ja.elem1 = _f.v12825;
     _reachi_2(_ja, _Memory);
     }
-  struct _F12765 {
-    T5 v12714;
-    T10 v12715;
+  struct _F12881 {
+    T5 v12830;
+    T10 v12831;
     }
   function _reacha_Admin_deposit(uint256 _a, Memory memory _Memory) internal  {
-    _F12765 memory _f;
-    _f.v12714.elem0 = _a;
-    _f.v12715.which = _enum_T10.Admin_deposit0_233;
-    _f.v12715._Admin_deposit0_233 = _f.v12714;
+    _F12881 memory _f;
+    _f.v12830.elem0 = _a;
+    _f.v12831.which = _enum_T10.Admin_deposit0_233;
+    _f.v12831._Admin_deposit0_233 = _f.v12830;
     T11  memory _ja;
     _ja.elem0 = (uint256(0));
-    _ja.elem1 = _f.v12715;
+    _ja.elem1 = _f.v12831;
     _reachi_2(_ja, _Memory);
     }
-  struct _F12766 {
-    T6 v12721;
-    T10 v12722;
+  struct _F12882 {
+    T6 v12837;
+    T10 v12838;
     }
   function _reacha_Admin_editUserReward(T6 memory _a, Memory memory _Memory) internal  {
-    _F12766 memory _f;
-    _f.v12721.elem0 = _a.elem0;
-    _f.v12721.elem1 = _a.elem1;
-    _f.v12722.which = _enum_T10.Admin_editUserReward0_233;
-    _f.v12722._Admin_editUserReward0_233 = _f.v12721;
+    _F12882 memory _f;
+    _f.v12837.elem0 = _a.elem0;
+    _f.v12837.elem1 = _a.elem1;
+    _f.v12838.which = _enum_T10.Admin_editUserReward0_233;
+    _f.v12838._Admin_editUserReward0_233 = _f.v12837;
     T11  memory _ja;
     _ja.elem0 = (uint256(0));
-    _ja.elem1 = _f.v12722;
+    _ja.elem1 = _f.v12838;
     _reachi_2(_ja, _Memory);
     }
-  struct _F12767 {
-    bool v12727;
-    T10 v12728;
+  struct _F12883 {
+    bool v12843;
+    T10 v12844;
     }
   function _reacha_Admin_endContractAndTransfer(bool _a, Memory memory _Memory) internal  {
-    _F12767 memory _f;
-    _f.v12728.which = _enum_T10.Admin_endContractAndTransfer0_233;
-    _f.v12728._Admin_endContractAndTransfer0_233 = _f.v12727;
+    _F12883 memory _f;
+    _f.v12844.which = _enum_T10.Admin_endContractAndTransfer0_233;
+    _f.v12844._Admin_endContractAndTransfer0_233 = _f.v12843;
     T11  memory _ja;
     _ja.elem0 = (uint256(0));
-    _ja.elem1 = _f.v12728;
+    _ja.elem1 = _f.v12844;
     _reachi_2(_ja, _Memory);
     }
-  struct _F12768 {
-    T4 v12732;
-    T10 v12733;
+  struct _F12884 {
+    T4 v12848;
+    T10 v12849;
     }
   function _reacha_Admin_revokeAdmin(address payable _a, Memory memory _Memory) internal  {
-    _F12768 memory _f;
-    _f.v12732.elem0 = _a;
-    _f.v12733.which = _enum_T10.Admin_revokeAdmin0_233;
-    _f.v12733._Admin_revokeAdmin0_233 = _f.v12732;
+    _F12884 memory _f;
+    _f.v12848.elem0 = _a;
+    _f.v12849.which = _enum_T10.Admin_revokeAdmin0_233;
+    _f.v12849._Admin_revokeAdmin0_233 = _f.v12848;
     T11  memory _ja;
     _ja.elem0 = (uint256(0));
-    _ja.elem1 = _f.v12733;
+    _ja.elem1 = _f.v12849;
     _reachi_2(_ja, _Memory);
     }
-  struct _F12769 {
-    T8 v12740;
-    T10 v12741;
+  struct _F12885 {
+    T8 v12856;
+    T10 v12857;
     }
   function _reacha_Admin_setReward(T8 memory _a, Memory memory _Memory) internal  {
-    _F12769 memory _f;
-    _f.v12740.elem0 = _a.elem0;
-    _f.v12740.elem1 = _a.elem1;
-    _f.v12740.elem2 = _a.elem2;
-    _f.v12741.which = _enum_T10.Admin_setReward0_233;
-    _f.v12741._Admin_setReward0_233 = _f.v12740;
+    _F12885 memory _f;
+    _f.v12856.elem0 = _a.elem0;
+    _f.v12856.elem1 = _a.elem1;
+    _f.v12856.elem2 = _a.elem2;
+    _f.v12857.which = _enum_T10.Admin_setReward0_233;
+    _f.v12857._Admin_setReward0_233 = _f.v12856;
     T11  memory _ja;
     _ja.elem0 = (uint256(0));
-    _ja.elem1 = _f.v12741;
+    _ja.elem1 = _f.v12857;
     _reachi_2(_ja, _Memory);
     }
   function _reacha_Info_Admins(address payable _a, Memory memory _Memory) internal view {
@@ -1014,21 +1014,21 @@ contract ReachContract is Stdlib {
   function _reacha_Info_balance(bool _a, Memory memory _Memory) internal view {
     reachRequire(((current_step == uint256(3))), uint256(8) /*'(./token_v2.rsh:51:12:property binding,[],Just "Incorrect state: not leaf")'*/);
     (T17 memory _svs) = abi.decode(current_svbs, (T17));
-    _Memory._reachr_Info_balance = _svs.v2457;
+    _Memory._reachr_Info_balance = _svs.v2537;
     }
-  struct _F12772 {
-    T18 v2444;
-    T1 v2446;
+  struct _F12888 {
+    T18 v2524;
+    T1 v2526;
     }
   function _reacha_Info_claimed(T18 memory _a, Memory memory _Memory) internal view {
-    _F12772 memory _f;
+    _F12888 memory _f;
     reachRequire(((current_step == uint256(3))), uint256(9) /*'(./token_v2.rsh:43:12:property binding,[],Just "Incorrect state: not leaf")'*/);
     (T17 memory _svs) = abi.decode(current_svbs, (T17));
-    _f.v2444.elem0 = (_a.elem0);
-    _f.v2444.elem1 = (_a.elem1);
-    _f.v2446._claimed = uint256(0);
-    _f.v2446._rewards = uint256(0);
-    _Memory._reachr_Info_claimed = ((((__reachm_1Ref(uint256(keccak256(abi.encode(_f.v2444))))).which == _enum_T2.Some ? (__reachm_1Ref(uint256(keccak256(abi.encode(_f.v2444)))))._Some : _f.v2446))._claimed);
+    _f.v2524.elem0 = (_a.elem0);
+    _f.v2524.elem1 = (_a.elem1);
+    _f.v2526._claimed = uint256(0);
+    _f.v2526._rewards = uint256(0);
+    _Memory._reachr_Info_claimed = ((((__reachm_1Ref(uint256(keccak256(abi.encode(_f.v2524))))).which == _enum_T2.Some ? (__reachm_1Ref(uint256(keccak256(abi.encode(_f.v2524)))))._Some : _f.v2526))._claimed);
     }
   function _reacha_Info_opted(address payable _a, Memory memory _Memory) internal view {
     reachRequire(((current_step == uint256(3))), uint256(10) /*'(./token_v2.rsh:46:10:property binding,[],Just "Incorrect state: not leaf")'*/);
@@ -1038,407 +1038,408 @@ contract ReachContract is Stdlib {
   function _reacha_Info_totalAllocatedFunds(bool _a, Memory memory _Memory) internal view {
     reachRequire(((current_step == uint256(3))), uint256(11) /*'(./token_v2.rsh:50:24:property binding,[],Just "Incorrect state: not leaf")'*/);
     (T17 memory _svs) = abi.decode(current_svbs, (T17));
-    _Memory._reachr_Info_totalAllocatedFunds = _svs.v2434;
+    _Memory._reachr_Info_totalAllocatedFunds = _svs.v2514;
     }
   function _reacha_Info_totalAmountClaimed(bool _a, Memory memory _Memory) internal view {
     reachRequire(((current_step == uint256(3))), uint256(12) /*'(./token_v2.rsh:49:23:property binding,[],Just "Incorrect state: not leaf")'*/);
     (T17 memory _svs) = abi.decode(current_svbs, (T17));
-    _Memory._reachr_Info_totalAmountClaimed = _svs.v2450;
+    _Memory._reachr_Info_totalAmountClaimed = _svs.v2530;
     }
   function _reacha_Info_totalClaimed(bool _a, Memory memory _Memory) internal view {
     reachRequire(((current_step == uint256(3))), uint256(13) /*'(./token_v2.rsh:47:17:property binding,[],Just "Incorrect state: not leaf")'*/);
     (T17 memory _svs) = abi.decode(current_svbs, (T17));
-    _Memory._reachr_Info_totalClaimed = _svs.v2449;
+    _Memory._reachr_Info_totalClaimed = _svs.v2529;
     }
   function _reacha_Info_totalCurrentAllocatoinToAllUsers(bool _a, Memory memory _Memory) internal view {
     reachRequire(((current_step == uint256(3))), uint256(14) /*'(./token_v2.rsh:37:37:property binding,[],Just "Incorrect state: not leaf")'*/);
     (T17 memory _svs) = abi.decode(current_svbs, (T17));
-    _Memory._reachr_Info_totalCurrentAllocatoinToAllUsers = _svs.v2434;
+    _Memory._reachr_Info_totalCurrentAllocatoinToAllUsers = _svs.v2514;
     }
   function _reacha_Info_totalFundsDeposited(bool _a, Memory memory _Memory) internal view {
     reachRequire(((current_step == uint256(3))), uint256(15) /*'(./token_v2.rsh:38:24:property binding,[],Just "Incorrect state: not leaf")'*/);
     (T17 memory _svs) = abi.decode(current_svbs, (T17));
-    _Memory._reachr_Info_totalFundsDeposited = _svs.v2455;
+    _Memory._reachr_Info_totalFundsDeposited = _svs.v2535;
     }
   function _reacha_Info_totalOptedIn(bool _a, Memory memory _Memory) internal view {
     reachRequire(((current_step == uint256(3))), uint256(16) /*'(./token_v2.rsh:48:17:property binding,[],Just "Incorrect state: not leaf")'*/);
     (T17 memory _svs) = abi.decode(current_svbs, (T17));
-    _Memory._reachr_Info_totalOptedIn = _svs.v2451;
+    _Memory._reachr_Info_totalOptedIn = _svs.v2531;
     }
   function _reacha_Info_totalRewards(address payable _a, Memory memory _Memory) internal view {
     reachRequire(((current_step == uint256(3))), uint256(17) /*'(./token_v2.rsh:41:17:property binding,[],Just "Incorrect state: not leaf")'*/);
     (T17 memory _svs) = abi.decode(current_svbs, (T17));
     _Memory._reachr_Info_totalRewards = (((__reachm_0Ref((_a))).which == _enum_T0.Some ? (__reachm_0Ref((_a)))._Some : uint256(0)));
     }
-  struct _F12781 {
-    T18 v2437;
-    T1 v2439;
+  struct _F12897 {
+    T18 v2517;
+    T1 v2519;
     }
   function _reacha_Info_userReward(T18 memory _a, Memory memory _Memory) internal view {
-    _F12781 memory _f;
+    _F12897 memory _f;
     reachRequire(((current_step == uint256(3))), uint256(18) /*'(./token_v2.rsh:42:15:property binding,[],Just "Incorrect state: not leaf")'*/);
     (T17 memory _svs) = abi.decode(current_svbs, (T17));
-    _f.v2437.elem0 = (_a.elem0);
-    _f.v2437.elem1 = (_a.elem1);
-    _f.v2439._claimed = uint256(0);
-    _f.v2439._rewards = uint256(0);
-    _Memory._reachr_Info_userReward = ((((__reachm_1Ref(uint256(keccak256(abi.encode(_f.v2437))))).which == _enum_T2.Some ? (__reachm_1Ref(uint256(keccak256(abi.encode(_f.v2437)))))._Some : _f.v2439))._rewards);
+    _f.v2517.elem0 = (_a.elem0);
+    _f.v2517.elem1 = (_a.elem1);
+    _f.v2519._claimed = uint256(0);
+    _f.v2519._rewards = uint256(0);
+    _Memory._reachr_Info_userReward = ((((__reachm_1Ref(uint256(keccak256(abi.encode(_f.v2517))))).which == _enum_T2.Some ? (__reachm_1Ref(uint256(keccak256(abi.encode(_f.v2517)))))._Some : _f.v2519))._rewards);
     }
-  struct _F12782 {
-    T9 v12749;
-    T10 v12750;
+  struct _F12898 {
+    T9 v12865;
+    T10 v12866;
     }
   function _reacha_User_claim(T9 memory _a, Memory memory _Memory) internal  {
-    _F12782 memory _f;
-    _f.v12749.elem0 = _a.elem0;
-    _f.v12749.elem1 = _a.elem1;
-    _f.v12750.which = _enum_T10.User_claim0_233;
-    _f.v12750._User_claim0_233 = _f.v12749;
+    _F12898 memory _f;
+    _f.v12865.elem0 = _a.elem0;
+    _f.v12865.elem1 = _a.elem1;
+    _f.v12866.which = _enum_T10.User_claim0_233;
+    _f.v12866._User_claim0_233 = _f.v12865;
     T11  memory _ja;
     _ja.elem0 = (uint256(0));
-    _ja.elem1 = _f.v12750;
+    _ja.elem1 = _f.v12866;
     _reachi_2(_ja, _Memory);
     }
-  struct _F12783 {
-    bool v12755;
-    T10 v12756;
+  struct _F12899 {
+    bool v12871;
+    T10 v12872;
     }
   function _reacha_User_optin(bool _a, Memory memory _Memory) internal  {
-    _F12783 memory _f;
-    _f.v12756.which = _enum_T10.User_optin0_233;
-    _f.v12756._User_optin0_233 = _f.v12755;
+    _F12899 memory _f;
+    _f.v12872.which = _enum_T10.User_optin0_233;
+    _f.v12872._User_optin0_233 = _f.v12871;
     T11  memory _ja;
     _ja.elem0 = (uint256(0));
-    _ja.elem1 = _f.v12756;
+    _ja.elem1 = _f.v12872;
     _reachi_2(_ja, _Memory);
     }
-  struct _F12784 {
-    T15 v2356;
-    T15[1] v2357;
-    T12 v2376;
-    T13 v2377;
-    T14 v2378;
+  struct _F12900 {
+    T15 v2436;
+    T15[1] v2437;
+    T12 v2456;
+    T13 v2457;
+    T14 v2458;
     }
   function _reachi_0(T19 memory _a, Memory memory _Memory) internal  {
-    _F12784 memory _f;
+    _F12900 memory _f;
     reachRequire((! locked), uint256(19) /*'locked'*/);
     emit _reach_e0(msg.sender, _a);
     reachRequire((((_a.elem0) == uint256(0)) || (current_time == (_a.elem0))), uint256(20) /*'time check at ./token_v2.rsh:65:12:dot'*/);
-    _f.v2356.elem0 = uint256(0);
-    _f.v2356.elem1 = uint256(0);
-    _f.v2356.elem2 = false;
-    _f.v2357[0] = _f.v2356;
+    _f.v2436.elem0 = uint256(0);
+    _f.v2436.elem1 = uint256(0);
+    _f.v2436.elem2 = false;
+    _f.v2437[0] = _f.v2436;
     
     reachRequire((msg.value == uint256(0)), uint256(21) /*'(./token_v2.rsh:65:12:dot,[],"verify network token pay amount")'*/);
-    _f.v2376._i = uint256(5);
-    _f.v2376._scale = uint256(100);
-    _f.v2377._i = _f.v2376;
-    _f.v2377._sign = true;
-    _f.v2378._bal = uint256(0);
-    _f.v2378._keepGoing = true;
-    _f.v2378._percent = _f.v2377;
-    _f.v2378._totalCurrentAllocatoinToAllUsers = uint256(0);
-    _f.v2378._totalFundsDeposited = uint256(0);
-    _f.v2378._total_amount_claimed = uint256(0);
-    _f.v2378._total_rewards_allcoated = uint256(0);
-    _f.v2378._total_users_claim = uint256(0);
-    _f.v2378._usersNo = uint256(0);
+    _f.v2456._i = uint256(5);
+    _f.v2456._scale = uint256(100);
+    _f.v2457._i = _f.v2456;
+    _f.v2457._sign = true;
+    _f.v2458._bal = uint256(0);
+    _f.v2458._keepGoing = true;
+    _f.v2458._percent = _f.v2457;
+    _f.v2458._totalCurrentAllocatoinToAllUsers = uint256(0);
+    _f.v2458._totalFundsDeposited = uint256(0);
+    _f.v2458._total_amount_claimed = uint256(0);
+    _f.v2458._total_rewards_allcoated = uint256(0);
+    _f.v2458._total_users_claim = uint256(0);
+    _f.v2458._usersNo = uint256(0);
     T20  memory _ja;
     _ja.elem0 = payable(msg.sender);
     _ja.elem1 = (_a.elem1);
     _ja.elem2 = (_a.elem2);
-    _ja.elem3 = _f.v2378;
+    _ja.elem3 = _f.v2458;
     _ja.elem4 = uint256(block.number);
-    _ja.elem5 = (array_set16(_f.v2357, uint256(0), (T15({elem0: uint256(0), elem1: (_f.v2357[uint256(0)]).elem1, elem2: (_f.v2357[uint256(0)]).elem2}))));
+    _ja.elem5 = (array_set16(_f.v2437, uint256(0), (T15({elem0: uint256(0), elem1: (_f.v2437[uint256(0)]).elem1, elem2: (_f.v2437[uint256(0)]).elem2}))));
     _ja.elem6 = uint256(0);
     _reachl_1(_ja, _Memory);
     }
-  struct _F12785 {
-    T4 v2761;
-    T14 v2925;
-    T5 v3255;
-    T14 v3448;
-    T6 v3749;
-    T14 v3976;
-    T14 v4490;
-    T4 v4737;
-    T14 v5008;
-    T8 v5231;
-    uint256 v5316;
-    T15[1] v5368;
-    T18 v5529;
-    T1 v5531;
-    T1 v5532;
-    T1 v5538;
-    T14 v5563;
-    T9 v5725;
-    uint256 v5828;
-    T18 v6079;
-    T1 v6081;
-    T1 v6082;
-    T1 v6090;
-    T21 v6099;
-    T15[1] v6110;
-    T14 v6130;
-    T14 v6149;
-    T15[1] v6159;
-    T14 v6179;
-    T14 v6198;
-    T14 v6711;
+  struct _F12901 {
+    T4 v2845;
+    T14 v3011;
+    T5 v3343;
+    T14 v3538;
+    T6 v3841;
+    T14 v4070;
+    T14 v4590;
+    T4 v4837;
+    T14 v5112;
+    T8 v5335;
+    uint256 v5422;
+    T15[1] v5474;
+    T18 v5637;
+    T1 v5639;
+    T1 v5640;
+    T1 v5646;
+    T14 v5671;
+    T9 v5833;
+    uint256 v5938;
+    T18 v6191;
+    T1 v6193;
+    T1 v6194;
+    T1 v6202;
+    T21 v6211;
+    T15[1] v6222;
+    T14 v6242;
+    T14 v6261;
+    T15[1] v6271;
+    T14 v6291;
+    T14 v6310;
+    T14 v6827;
     }
   function _reachi_2(T11 memory _a, Memory memory _Memory) internal  {
-    _F12785 memory _f;
+    _F12901 memory _f;
     reachRequire((current_step == uint256(3)), uint256(22) /*'state check at ./token_v2.rsh:85:37:dot'*/);
     (T17 memory _svs) = abi.decode(current_svbs, (T17));
     reachRequire((! locked), uint256(23) /*'locked'*/);
     emit _reach_e2(msg.sender, _a);
     reachRequire((((_a.elem0) == uint256(0)) || (current_time == (_a.elem0))), uint256(24) /*'time check at ./token_v2.rsh:85:37:dot'*/);
     if ((_a.elem1).which == _enum_T10.Admin_addAdmin0_233) {
-    _f.v2761 = (_a.elem1)._Admin_addAdmin0_233;
-    reachRequire((((payable(msg.sender) == _svs.v2365) ? true : ((uint256((__reachm_2Ref(payable(msg.sender))).which)) == uint256(1)))), uint256(25) /*'(reach standard library:57:5:application,[at ./token_v2.rsh:204:12:application call to "check" (defined at: reach standard library:49:32:function exp),at ./token_v2.rsh:203:34:application call to [unknown function] (defined at: ./token_v2.rsh:203:34:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:203:34:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:85:37:function exp),at ./token_v2.rsh:102:14:application call to [unknown function] (defined at: ./token_v2.rsh:102:14:function exp)],Just "You Are unable to register another Admin")'*/);
+    _f.v2845 = (_a.elem1)._Admin_addAdmin0_233;
+    reachRequire((((payable(msg.sender) == _svs.v2445) ? true : ((uint256((__reachm_2Ref(payable(msg.sender))).which)) == uint256(1)))), uint256(25) /*'(reach standard library:57:5:application,[at ./token_v2.rsh:204:12:application call to "check" (defined at: reach standard library:49:32:function exp),at ./token_v2.rsh:203:34:application call to [unknown function] (defined at: ./token_v2.rsh:203:34:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:203:34:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:85:37:function exp),at ./token_v2.rsh:102:14:application call to [unknown function] (defined at: ./token_v2.rsh:102:14:function exp)],Just "You Are unable to register another Admin")'*/);
     reachRequire((msg.value == uint256(0)), uint256(26) /*'(./token_v2.rsh:85:37:dot,[],"verify network token pay amount")'*/);
-    reachRequire((checkPayAmt(msg.sender, _svs.v2367, uint256(0))), uint256(27) /*'(./token_v2.rsh:85:37:dot,[],"verify non-network token pay amount")'*/);
-    _reachm_2[(_f.v2761.elem0)].which = _enum_T3.Some;
-    _reachm_2[(_f.v2761.elem0)]._Some = false;
+    reachRequire((checkPayAmt(msg.sender, _svs.v2447, uint256(0))), uint256(27) /*'(./token_v2.rsh:85:37:dot,[],"verify non-network token pay amount")'*/);
+    _reachm_2[(_f.v2845.elem0)].which = _enum_T3.Some;
+    _reachm_2[(_f.v2845.elem0)]._Some = false;
     
-    emit _reach_oe_v2909( (false));
+    emit _reach_oe_v2995( (false));
     _Memory._reachr_Admin_addAdmin = (false);
-    _f.v2925._bal = _svs.v2452;
-    _f.v2925._keepGoing = (_svs.v2379._keepGoing);
-    _f.v2925._percent = (_svs.v2379._percent);
-    _f.v2925._totalCurrentAllocatoinToAllUsers = _svs.v2434;
-    _f.v2925._totalFundsDeposited = _svs.v2455;
-    _f.v2925._total_amount_claimed = _svs.v2450;
-    _f.v2925._total_rewards_allcoated = _svs.v2453;
-    _f.v2925._total_users_claim = _svs.v2449;
-    _f.v2925._usersNo = _svs.v2451;
+    _f.v3011._bal = _svs.v2532;
+    _f.v3011._keepGoing = (_svs.v2459._keepGoing);
+    _f.v3011._percent = (_svs.v2459._percent);
+    _f.v3011._totalCurrentAllocatoinToAllUsers = _svs.v2514;
+    _f.v3011._totalFundsDeposited = _svs.v2535;
+    _f.v3011._total_amount_claimed = _svs.v2530;
+    _f.v3011._total_rewards_allcoated = _svs.v2533;
+    _f.v3011._total_users_claim = _svs.v2529;
+    _f.v3011._usersNo = _svs.v2531;
     T20  memory _ja;
-    _ja.elem0 = _svs.v2365;
-    _ja.elem1 = _svs.v2366;
-    _ja.elem2 = _svs.v2367;
-    _ja.elem3 = _f.v2925;
+    _ja.elem0 = _svs.v2445;
+    _ja.elem1 = _svs.v2446;
+    _ja.elem2 = _svs.v2447;
+    _ja.elem3 = _f.v3011;
     _ja.elem4 = uint256(block.number);
-    _ja.elem5 = _svs.v2382;
-    _ja.elem6 = _svs.v2383;
+    _ja.elem5 = _svs.v2462;
+    _ja.elem6 = _svs.v2463;
     _reachl_1(_ja, _Memory);
     } else if ((_a.elem1).which == _enum_T10.Admin_deposit0_233) {
-    _f.v3255 = (_a.elem1)._Admin_deposit0_233;
-    reachRequire((((payable(msg.sender) == _svs.v2365) ? true : ((uint256((__reachm_2Ref(payable(msg.sender))).which)) == uint256(1)))), uint256(28) /*'(reach standard library:57:5:application,[at ./token_v2.rsh:139:12:application call to "check" (defined at: reach standard library:49:32:function exp),at ./token_v2.rsh:138:32:application call to [unknown function] (defined at: ./token_v2.rsh:138:32:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:138:32:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:85:37:function exp),at ./token_v2.rsh:102:14:application call to [unknown function] (defined at: ./token_v2.rsh:102:14:function exp)],Just "Only Admins can deposit")'*/);
+    _f.v3343 = (_a.elem1)._Admin_deposit0_233;
+    reachRequire((((payable(msg.sender) == _svs.v2445) ? true : ((uint256((__reachm_2Ref(payable(msg.sender))).which)) == uint256(1)))), uint256(28) /*'(reach standard library:57:5:application,[at ./token_v2.rsh:139:12:application call to "check" (defined at: reach standard library:49:32:function exp),at ./token_v2.rsh:138:32:application call to [unknown function] (defined at: ./token_v2.rsh:138:32:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:138:32:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:85:37:function exp),at ./token_v2.rsh:102:14:application call to [unknown function] (defined at: ./token_v2.rsh:102:14:function exp)],Just "Only Admins can deposit")'*/);
     reachRequire((msg.value == uint256(0)), uint256(29) /*'(./token_v2.rsh:85:37:dot,[],"verify network token pay amount")'*/);
-    reachRequire((checkPayAmt(msg.sender, _svs.v2367, (_f.v3255.elem0))), uint256(30) /*'(./token_v2.rsh:85:37:dot,[],"verify non-network token pay amount")'*/);
-    emit _reach_oe_v3430( (false));
+    reachRequire((checkPayAmt(msg.sender, _svs.v2447, (_f.v3343.elem0))), uint256(30) /*'(./token_v2.rsh:85:37:dot,[],"verify non-network token pay amount")'*/);
+    emit _reach_oe_v3520( (false));
     _Memory._reachr_Admin_deposit = (false);
-    _f.v3448._bal = (safeAdd(_svs.v2452, (_f.v3255.elem0)));
-    _f.v3448._keepGoing = (_svs.v2379._keepGoing);
-    _f.v3448._percent = (_svs.v2379._percent);
-    _f.v3448._totalCurrentAllocatoinToAllUsers = _svs.v2434;
-    _f.v3448._totalFundsDeposited = (safeAdd(_svs.v2455, (_f.v3255.elem0)));
-    _f.v3448._total_amount_claimed = _svs.v2450;
-    _f.v3448._total_rewards_allcoated = _svs.v2453;
-    _f.v3448._total_users_claim = _svs.v2449;
-    _f.v3448._usersNo = _svs.v2451;
+    _f.v3538._bal = (safeAdd(_svs.v2532, (_f.v3343.elem0)));
+    _f.v3538._keepGoing = (_svs.v2459._keepGoing);
+    _f.v3538._percent = (_svs.v2459._percent);
+    _f.v3538._totalCurrentAllocatoinToAllUsers = _svs.v2514;
+    _f.v3538._totalFundsDeposited = (safeAdd(_svs.v2535, (_f.v3343.elem0)));
+    _f.v3538._total_amount_claimed = _svs.v2530;
+    _f.v3538._total_rewards_allcoated = _svs.v2533;
+    _f.v3538._total_users_claim = _svs.v2529;
+    _f.v3538._usersNo = _svs.v2531;
     T20  memory _ja;
-    _ja.elem0 = _svs.v2365;
-    _ja.elem1 = _svs.v2366;
-    _ja.elem2 = _svs.v2367;
-    _ja.elem3 = _f.v3448;
+    _ja.elem0 = _svs.v2445;
+    _ja.elem1 = _svs.v2446;
+    _ja.elem2 = _svs.v2447;
+    _ja.elem3 = _f.v3538;
     _ja.elem4 = uint256(block.number);
-    _ja.elem5 = (array_set16(_svs.v2382, uint256(0), (T15({elem0: (unsafeAdd(_svs.v2457, (_f.v3255.elem0))), elem1: _svs.v2456.elem1, elem2: _svs.v2456.elem2}))));
-    _ja.elem6 = _svs.v2383;
+    _ja.elem5 = (array_set16(_svs.v2462, uint256(0), (T15({elem0: (unsafeAdd(_svs.v2537, (_f.v3343.elem0))), elem1: _svs.v2536.elem1, elem2: _svs.v2536.elem2}))));
+    _ja.elem6 = _svs.v2463;
     _reachl_1(_ja, _Memory);
     } else if ((_a.elem1).which == _enum_T10.Admin_editUserReward0_233) {
-    _f.v3749 = (_a.elem1)._Admin_editUserReward0_233;
-    reachRequire((((payable(msg.sender) == _svs.v2365) ? true : ((uint256((__reachm_2Ref(payable(msg.sender))).which)) == uint256(1)))), uint256(31) /*'(reach standard library:57:5:application,[at ./token_v2.rsh:191:12:application call to "check" (defined at: reach standard library:49:32:function exp),at ./token_v2.rsh:190:45:application call to [unknown function] (defined at: ./token_v2.rsh:190:45:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:190:45:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:85:37:function exp),at ./token_v2.rsh:102:14:application call to [unknown function] (defined at: ./token_v2.rsh:102:14:function exp)],Just "Only Admins can deposit")'*/);
-    reachRequire((((_f.v3749.elem1) <= _svs.v2457)), uint256(32) /*'(reach standard library:57:5:application,[at ./token_v2.rsh:192:12:application call to "check" (defined at: reach standard library:49:32:function exp),at ./token_v2.rsh:190:45:application call to [unknown function] (defined at: ./token_v2.rsh:190:45:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:190:45:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:85:37:function exp),at ./token_v2.rsh:102:14:application call to [unknown function] (defined at: ./token_v2.rsh:102:14:function exp)],Just "Can only edit what is in the contract")'*/);
+    _f.v3841 = (_a.elem1)._Admin_editUserReward0_233;
+    reachRequire((((payable(msg.sender) == _svs.v2445) ? true : ((uint256((__reachm_2Ref(payable(msg.sender))).which)) == uint256(1)))), uint256(31) /*'(reach standard library:57:5:application,[at ./token_v2.rsh:191:12:application call to "check" (defined at: reach standard library:49:32:function exp),at ./token_v2.rsh:190:45:application call to [unknown function] (defined at: ./token_v2.rsh:190:45:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:190:45:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:85:37:function exp),at ./token_v2.rsh:102:14:application call to [unknown function] (defined at: ./token_v2.rsh:102:14:function exp)],Just "Only Admins can deposit")'*/);
+    reachRequire((((_f.v3841.elem1) <= _svs.v2537)), uint256(32) /*'(reach standard library:57:5:application,[at ./token_v2.rsh:192:12:application call to "check" (defined at: reach standard library:49:32:function exp),at ./token_v2.rsh:190:45:application call to [unknown function] (defined at: ./token_v2.rsh:190:45:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:190:45:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:85:37:function exp),at ./token_v2.rsh:102:14:application call to [unknown function] (defined at: ./token_v2.rsh:102:14:function exp)],Just "Can only edit what is in the contract")'*/);
     reachRequire((msg.value == uint256(0)), uint256(33) /*'(./token_v2.rsh:85:37:dot,[],"verify network token pay amount")'*/);
-    reachRequire((checkPayAmt(msg.sender, _svs.v2367, uint256(0))), uint256(34) /*'(./token_v2.rsh:85:37:dot,[],"verify non-network token pay amount")'*/);
-    _reachm_0[(_f.v3749.elem0)].which = _enum_T0.Some;
-    _reachm_0[(_f.v3749.elem0)]._Some = (_f.v3749.elem1);
+    reachRequire((checkPayAmt(msg.sender, _svs.v2447, uint256(0))), uint256(34) /*'(./token_v2.rsh:85:37:dot,[],"verify non-network token pay amount")'*/);
+    _reachm_0[(_f.v3841.elem0)].which = _enum_T0.Some;
+    _reachm_0[(_f.v3841.elem0)]._Some = (_f.v3841.elem1);
     
-    emit _reach_oe_v3959( (false));
+    emit _reach_oe_v4053( (false));
     _Memory._reachr_Admin_editUserReward = (false);
-    _f.v3976._bal = _svs.v2452;
-    _f.v3976._keepGoing = (_svs.v2379._keepGoing);
-    _f.v3976._percent = (_svs.v2379._percent);
-    _f.v3976._totalCurrentAllocatoinToAllUsers = _svs.v2434;
-    _f.v3976._totalFundsDeposited = _svs.v2455;
-    _f.v3976._total_amount_claimed = _svs.v2450;
-    _f.v3976._total_rewards_allcoated = _svs.v2453;
-    _f.v3976._total_users_claim = _svs.v2449;
-    _f.v3976._usersNo = _svs.v2451;
+    _f.v4070._bal = _svs.v2532;
+    _f.v4070._keepGoing = (_svs.v2459._keepGoing);
+    _f.v4070._percent = (_svs.v2459._percent);
+    _f.v4070._totalCurrentAllocatoinToAllUsers = _svs.v2514;
+    _f.v4070._totalFundsDeposited = _svs.v2535;
+    _f.v4070._total_amount_claimed = _svs.v2530;
+    _f.v4070._total_rewards_allcoated = _svs.v2533;
+    _f.v4070._total_users_claim = _svs.v2529;
+    _f.v4070._usersNo = _svs.v2531;
     T20  memory _ja;
-    _ja.elem0 = _svs.v2365;
-    _ja.elem1 = _svs.v2366;
-    _ja.elem2 = _svs.v2367;
-    _ja.elem3 = _f.v3976;
+    _ja.elem0 = _svs.v2445;
+    _ja.elem1 = _svs.v2446;
+    _ja.elem2 = _svs.v2447;
+    _ja.elem3 = _f.v4070;
     _ja.elem4 = uint256(block.number);
-    _ja.elem5 = _svs.v2382;
-    _ja.elem6 = _svs.v2383;
+    _ja.elem5 = _svs.v2462;
+    _ja.elem6 = _svs.v2463;
     _reachl_1(_ja, _Memory);
     } else if ((_a.elem1).which == _enum_T10.Admin_endContractAndTransfer0_233) {
-    reachRequire(((_svs.v2365 == payable(msg.sender))), uint256(35) /*'(reach standard library:57:5:application,[at ./token_v2.rsh:336:12:application call to "check" (defined at: reach standard library:49:32:function exp),at ./token_v2.rsh:335:44:application call to [unknown function] (defined at: ./token_v2.rsh:335:44:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:335:44:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:85:37:function exp),at ./token_v2.rsh:102:14:application call to [unknown function] (defined at: ./token_v2.rsh:102:14:function exp)],Just "Cannot end contract without being Deployer")'*/);
-    reachRequire((msg.value == uint256(0)), uint256(36) /*'(./token_v2.rsh:85:37:dot,[],"verify network token pay amount")'*/);
-    reachRequire((checkPayAmt(msg.sender, _svs.v2367, uint256(0))), uint256(37) /*'(./token_v2.rsh:85:37:dot,[],"verify non-network token pay amount")'*/);
-    emit _reach_oe_v4475( (false));
+    reachRequire(((_svs.v2445 == payable(msg.sender))), uint256(35) /*'(reach standard library:57:5:application,[at ./token_v2.rsh:336:12:application call to "check" (defined at: reach standard library:49:32:function exp),at ./token_v2.rsh:335:44:application call to [unknown function] (defined at: ./token_v2.rsh:335:44:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:335:44:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:85:37:function exp),at ./token_v2.rsh:102:14:application call to [unknown function] (defined at: ./token_v2.rsh:102:14:function exp)],Just "Cannot end contract without being Deployer")'*/);
+    reachRequire(((_svs.v2514 == uint256(0))), uint256(36) /*'(reach standard library:57:5:application,[at ./token_v2.rsh:337:12:application call to "check" (defined at: reach standard library:49:32:function exp),at ./token_v2.rsh:335:44:application call to [unknown function] (defined at: ./token_v2.rsh:335:44:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:335:44:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:85:37:function exp),at ./token_v2.rsh:102:14:application call to [unknown function] (defined at: ./token_v2.rsh:102:14:function exp)],Just "Cannot end contract When total allocations greater than 0")'*/);
+    reachRequire((msg.value == uint256(0)), uint256(37) /*'(./token_v2.rsh:85:37:dot,[],"verify network token pay amount")'*/);
+    reachRequire((checkPayAmt(msg.sender, _svs.v2447, uint256(0))), uint256(38) /*'(./token_v2.rsh:85:37:dot,[],"verify non-network token pay amount")'*/);
+    emit _reach_oe_v4575( (false));
     _Memory._reachr_Admin_endContractAndTransfer = (false);
-    _f.v4490._bal = _svs.v2452;
-    _f.v4490._keepGoing = false;
-    _f.v4490._percent = (_svs.v2379._percent);
-    _f.v4490._totalCurrentAllocatoinToAllUsers = _svs.v2434;
-    _f.v4490._totalFundsDeposited = _svs.v2455;
-    _f.v4490._total_amount_claimed = _svs.v2450;
-    _f.v4490._total_rewards_allcoated = _svs.v2453;
-    _f.v4490._total_users_claim = _svs.v2449;
-    _f.v4490._usersNo = _svs.v2451;
+    _f.v4590._bal = _svs.v2532;
+    _f.v4590._keepGoing = false;
+    _f.v4590._percent = (_svs.v2459._percent);
+    _f.v4590._totalCurrentAllocatoinToAllUsers = _svs.v2514;
+    _f.v4590._totalFundsDeposited = _svs.v2535;
+    _f.v4590._total_amount_claimed = _svs.v2530;
+    _f.v4590._total_rewards_allcoated = _svs.v2533;
+    _f.v4590._total_users_claim = _svs.v2529;
+    _f.v4590._usersNo = _svs.v2531;
     T20  memory _ja;
-    _ja.elem0 = _svs.v2365;
-    _ja.elem1 = _svs.v2366;
-    _ja.elem2 = _svs.v2367;
-    _ja.elem3 = _f.v4490;
+    _ja.elem0 = _svs.v2445;
+    _ja.elem1 = _svs.v2446;
+    _ja.elem2 = _svs.v2447;
+    _ja.elem3 = _f.v4590;
     _ja.elem4 = uint256(block.number);
-    _ja.elem5 = _svs.v2382;
-    _ja.elem6 = _svs.v2383;
+    _ja.elem5 = _svs.v2462;
+    _ja.elem6 = _svs.v2463;
     _reachl_1(_ja, _Memory);
     } else if ((_a.elem1).which == _enum_T10.Admin_revokeAdmin0_233) {
-    _f.v4737 = (_a.elem1)._Admin_revokeAdmin0_233;
-    reachRequire(((payable(msg.sender) == _svs.v2365)), uint256(38) /*'(reach standard library:57:5:application,[at ./token_v2.rsh:218:12:application call to "check" (defined at: reach standard library:49:32:function exp),at ./token_v2.rsh:217:37:application call to [unknown function] (defined at: ./token_v2.rsh:217:37:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:217:37:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:85:37:function exp),at ./token_v2.rsh:102:14:application call to [unknown function] (defined at: ./token_v2.rsh:102:14:function exp)],Just "Only the Deployer can revoke Admin Rights")'*/);
-    reachRequire((msg.value == uint256(0)), uint256(39) /*'(./token_v2.rsh:85:37:dot,[],"verify network token pay amount")'*/);
-    reachRequire((checkPayAmt(msg.sender, _svs.v2367, uint256(0))), uint256(40) /*'(./token_v2.rsh:85:37:dot,[],"verify non-network token pay amount")'*/);
-    delete _reachm_2[(_f.v4737.elem0)];
-    emit _reach_oe_v4992( (false));
+    _f.v4837 = (_a.elem1)._Admin_revokeAdmin0_233;
+    reachRequire(((payable(msg.sender) == _svs.v2445)), uint256(39) /*'(reach standard library:57:5:application,[at ./token_v2.rsh:218:12:application call to "check" (defined at: reach standard library:49:32:function exp),at ./token_v2.rsh:217:37:application call to [unknown function] (defined at: ./token_v2.rsh:217:37:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:217:37:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:85:37:function exp),at ./token_v2.rsh:102:14:application call to [unknown function] (defined at: ./token_v2.rsh:102:14:function exp)],Just "Only the Deployer can revoke Admin Rights")'*/);
+    reachRequire((msg.value == uint256(0)), uint256(40) /*'(./token_v2.rsh:85:37:dot,[],"verify network token pay amount")'*/);
+    reachRequire((checkPayAmt(msg.sender, _svs.v2447, uint256(0))), uint256(41) /*'(./token_v2.rsh:85:37:dot,[],"verify non-network token pay amount")'*/);
+    delete _reachm_2[(_f.v4837.elem0)];
+    emit _reach_oe_v5096( (false));
     _Memory._reachr_Admin_revokeAdmin = (false);
-    _f.v5008._bal = _svs.v2452;
-    _f.v5008._keepGoing = (_svs.v2379._keepGoing);
-    _f.v5008._percent = (_svs.v2379._percent);
-    _f.v5008._totalCurrentAllocatoinToAllUsers = _svs.v2434;
-    _f.v5008._totalFundsDeposited = _svs.v2455;
-    _f.v5008._total_amount_claimed = _svs.v2450;
-    _f.v5008._total_rewards_allcoated = _svs.v2453;
-    _f.v5008._total_users_claim = _svs.v2449;
-    _f.v5008._usersNo = _svs.v2451;
+    _f.v5112._bal = _svs.v2532;
+    _f.v5112._keepGoing = (_svs.v2459._keepGoing);
+    _f.v5112._percent = (_svs.v2459._percent);
+    _f.v5112._totalCurrentAllocatoinToAllUsers = _svs.v2514;
+    _f.v5112._totalFundsDeposited = _svs.v2535;
+    _f.v5112._total_amount_claimed = _svs.v2530;
+    _f.v5112._total_rewards_allcoated = _svs.v2533;
+    _f.v5112._total_users_claim = _svs.v2529;
+    _f.v5112._usersNo = _svs.v2531;
     T20  memory _ja;
-    _ja.elem0 = _svs.v2365;
-    _ja.elem1 = _svs.v2366;
-    _ja.elem2 = _svs.v2367;
-    _ja.elem3 = _f.v5008;
+    _ja.elem0 = _svs.v2445;
+    _ja.elem1 = _svs.v2446;
+    _ja.elem2 = _svs.v2447;
+    _ja.elem3 = _f.v5112;
     _ja.elem4 = uint256(block.number);
-    _ja.elem5 = _svs.v2382;
-    _ja.elem6 = _svs.v2383;
+    _ja.elem5 = _svs.v2462;
+    _ja.elem6 = _svs.v2463;
     _reachl_1(_ja, _Memory);
     } else if ((_a.elem1).which == _enum_T10.Admin_setReward0_233) {
-    _f.v5231 = (_a.elem1)._Admin_setReward0_233;
-    reachRequire((((safeSub(_svs.v2457, (_f.v5231.elem2))) >= uint256(0))), uint256(41) /*'(reach standard library:57:5:application,[at ./token_v2.rsh:154:12:application call to "check" (defined at: reach standard library:49:32:function exp),at ./token_v2.rsh:152:49:application call to [unknown function] (defined at: ./token_v2.rsh:152:49:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:152:49:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:85:37:function exp),at ./token_v2.rsh:102:14:application call to [unknown function] (defined at: ./token_v2.rsh:102:14:function exp)],Just "Cannot have an amout that would result to a negative balance")'*/);
-    reachRequire((((_f.v5231.elem2) > _svs.v2457)), uint256(42) /*'(reach standard library:57:5:application,[at ./token_v2.rsh:158:12:application call to "check" (defined at: reach standard library:49:32:function exp),at ./token_v2.rsh:152:49:application call to [unknown function] (defined at: ./token_v2.rsh:152:49:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:152:49:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:85:37:function exp),at ./token_v2.rsh:102:14:application call to [unknown function] (defined at: ./token_v2.rsh:102:14:function exp)],Just "Balance has to be greater than Amt")'*/);
-    _f.v5316 = safeAdd(_svs.v2434, (_f.v5231.elem2));
-    reachRequire(((_svs.v2457 >= _f.v5316)), uint256(43) /*'(reach standard library:57:5:application,[at ./token_v2.rsh:159:12:application call to "check" (defined at: reach standard library:49:32:function exp),at ./token_v2.rsh:152:49:application call to [unknown function] (defined at: ./token_v2.rsh:152:49:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:152:49:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:85:37:function exp),at ./token_v2.rsh:102:14:application call to [unknown function] (defined at: ./token_v2.rsh:102:14:function exp)],Just "Balance has to be greater than total allocation ")'*/);
-    reachRequire((((uint256((__reachm_4Ref((_f.v5231.elem0))).which)) == uint256(1))), uint256(44) /*'(reach standard library:57:5:application,[at ./token_v2.rsh:163:12:application call to "check" (defined at: reach standard library:49:32:function exp),at ./token_v2.rsh:152:49:application call to [unknown function] (defined at: ./token_v2.rsh:152:49:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:152:49:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:85:37:function exp),at ./token_v2.rsh:102:14:application call to [unknown function] (defined at: ./token_v2.rsh:102:14:function exp)],Just "The user needs to opt in first")'*/);
-    reachRequire((msg.value == uint256(0)), uint256(45) /*'(./token_v2.rsh:85:37:dot,[],"verify network token pay amount")'*/);
-    _f.v5368 = array_set16(_svs.v2382, uint256(0), (T15({elem0: (unsafeAdd(_svs.v2457, (_f.v5231.elem2))), elem1: _svs.v2456.elem1, elem2: _svs.v2456.elem2})));
-    reachRequire((checkPayAmt(msg.sender, _svs.v2367, (_f.v5231.elem2))), uint256(46) /*'(./token_v2.rsh:85:37:dot,[],"verify non-network token pay amount")'*/);
-    reachRequire((((safeSub(((_f.v5368[uint256(0)]).elem0), (_f.v5231.elem2))) >= uint256(0))), uint256(47) /*'(reach standard library:57:5:application,[at ./token_v2.rsh:154:12:application call to "check" (defined at: reach standard library:49:32:function exp),at ./token_v2.rsh:166:15:application call to [unknown function] (defined at: ./token_v2.rsh:166:15:function exp)],Just "Cannot have an amout that would result to a negative balance")'*/);
-    reachRequire((((_f.v5231.elem2) > ((_f.v5368[uint256(0)]).elem0))), uint256(48) /*'(reach standard library:57:5:application,[at ./token_v2.rsh:158:12:application call to "check" (defined at: reach standard library:49:32:function exp),at ./token_v2.rsh:166:15:application call to [unknown function] (defined at: ./token_v2.rsh:166:15:function exp)],Just "Balance has to be greater than Amt")'*/);
-    reachRequire(((((_f.v5368[uint256(0)]).elem0) >= _f.v5316)), uint256(49) /*'(reach standard library:57:5:application,[at ./token_v2.rsh:159:12:application call to "check" (defined at: reach standard library:49:32:function exp),at ./token_v2.rsh:166:15:application call to [unknown function] (defined at: ./token_v2.rsh:166:15:function exp)],Just "Balance has to be greater than total allocation ")'*/);
-    _f.v5529.elem0 = (_f.v5231.elem0);
-    _f.v5529.elem1 = (_f.v5231.elem1);
-    _f.v5531._claimed = uint256(0);
-    _f.v5531._rewards = uint256(0);
-    _f.v5532 = ((__reachm_1Ref(uint256(keccak256(abi.encode(_f.v5529))))).which == _enum_T2.Some ? (__reachm_1Ref(uint256(keccak256(abi.encode(_f.v5529)))))._Some : _f.v5531);
-    _f.v5538._claimed = (_f.v5532._claimed);
-    _f.v5538._rewards = (safeAdd((_f.v5532._rewards), (_f.v5231.elem2)));
-    _reachm_1[uint256(keccak256(abi.encode(_f.v5529)))].which = _enum_T2.Some;
-    _reachm_1[uint256(keccak256(abi.encode(_f.v5529)))]._Some = _f.v5538;
+    _f.v5335 = (_a.elem1)._Admin_setReward0_233;
+    reachRequire((((safeSub(_svs.v2537, (_f.v5335.elem2))) >= uint256(0))), uint256(42) /*'(reach standard library:57:5:application,[at ./token_v2.rsh:154:12:application call to "check" (defined at: reach standard library:49:32:function exp),at ./token_v2.rsh:152:49:application call to [unknown function] (defined at: ./token_v2.rsh:152:49:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:152:49:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:85:37:function exp),at ./token_v2.rsh:102:14:application call to [unknown function] (defined at: ./token_v2.rsh:102:14:function exp)],Just "Cannot have an amout that would result to a negative balance")'*/);
+    reachRequire((((_f.v5335.elem2) > _svs.v2537)), uint256(43) /*'(reach standard library:57:5:application,[at ./token_v2.rsh:158:12:application call to "check" (defined at: reach standard library:49:32:function exp),at ./token_v2.rsh:152:49:application call to [unknown function] (defined at: ./token_v2.rsh:152:49:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:152:49:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:85:37:function exp),at ./token_v2.rsh:102:14:application call to [unknown function] (defined at: ./token_v2.rsh:102:14:function exp)],Just "Balance has to be greater than Amt")'*/);
+    _f.v5422 = safeAdd(_svs.v2514, (_f.v5335.elem2));
+    reachRequire(((_svs.v2537 >= _f.v5422)), uint256(44) /*'(reach standard library:57:5:application,[at ./token_v2.rsh:159:12:application call to "check" (defined at: reach standard library:49:32:function exp),at ./token_v2.rsh:152:49:application call to [unknown function] (defined at: ./token_v2.rsh:152:49:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:152:49:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:85:37:function exp),at ./token_v2.rsh:102:14:application call to [unknown function] (defined at: ./token_v2.rsh:102:14:function exp)],Just "Balance has to be greater than total allocation ")'*/);
+    reachRequire((((uint256((__reachm_4Ref((_f.v5335.elem0))).which)) == uint256(1))), uint256(45) /*'(reach standard library:57:5:application,[at ./token_v2.rsh:163:12:application call to "check" (defined at: reach standard library:49:32:function exp),at ./token_v2.rsh:152:49:application call to [unknown function] (defined at: ./token_v2.rsh:152:49:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:152:49:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:85:37:function exp),at ./token_v2.rsh:102:14:application call to [unknown function] (defined at: ./token_v2.rsh:102:14:function exp)],Just "The user needs to opt in first")'*/);
+    reachRequire((msg.value == uint256(0)), uint256(46) /*'(./token_v2.rsh:85:37:dot,[],"verify network token pay amount")'*/);
+    _f.v5474 = array_set16(_svs.v2462, uint256(0), (T15({elem0: (unsafeAdd(_svs.v2537, (_f.v5335.elem2))), elem1: _svs.v2536.elem1, elem2: _svs.v2536.elem2})));
+    reachRequire((checkPayAmt(msg.sender, _svs.v2447, (_f.v5335.elem2))), uint256(47) /*'(./token_v2.rsh:85:37:dot,[],"verify non-network token pay amount")'*/);
+    reachRequire((((safeSub(((_f.v5474[uint256(0)]).elem0), (_f.v5335.elem2))) >= uint256(0))), uint256(48) /*'(reach standard library:57:5:application,[at ./token_v2.rsh:154:12:application call to "check" (defined at: reach standard library:49:32:function exp),at ./token_v2.rsh:166:15:application call to [unknown function] (defined at: ./token_v2.rsh:166:15:function exp)],Just "Cannot have an amout that would result to a negative balance")'*/);
+    reachRequire((((_f.v5335.elem2) > ((_f.v5474[uint256(0)]).elem0))), uint256(49) /*'(reach standard library:57:5:application,[at ./token_v2.rsh:158:12:application call to "check" (defined at: reach standard library:49:32:function exp),at ./token_v2.rsh:166:15:application call to [unknown function] (defined at: ./token_v2.rsh:166:15:function exp)],Just "Balance has to be greater than Amt")'*/);
+    reachRequire(((((_f.v5474[uint256(0)]).elem0) >= _f.v5422)), uint256(50) /*'(reach standard library:57:5:application,[at ./token_v2.rsh:159:12:application call to "check" (defined at: reach standard library:49:32:function exp),at ./token_v2.rsh:166:15:application call to [unknown function] (defined at: ./token_v2.rsh:166:15:function exp)],Just "Balance has to be greater than total allocation ")'*/);
+    _f.v5637.elem0 = (_f.v5335.elem0);
+    _f.v5637.elem1 = (_f.v5335.elem1);
+    _f.v5639._claimed = uint256(0);
+    _f.v5639._rewards = uint256(0);
+    _f.v5640 = ((__reachm_1Ref(uint256(keccak256(abi.encode(_f.v5637))))).which == _enum_T2.Some ? (__reachm_1Ref(uint256(keccak256(abi.encode(_f.v5637)))))._Some : _f.v5639);
+    _f.v5646._claimed = (_f.v5640._claimed);
+    _f.v5646._rewards = (safeAdd((_f.v5640._rewards), (_f.v5335.elem2)));
+    _reachm_1[uint256(keccak256(abi.encode(_f.v5637)))].which = _enum_T2.Some;
+    _reachm_1[uint256(keccak256(abi.encode(_f.v5637)))]._Some = _f.v5646;
     
-    _reachm_0[(_f.v5231.elem0)].which = _enum_T0.Some;
-    _reachm_0[(_f.v5231.elem0)]._Some = (safeAdd((((__reachm_0Ref((_f.v5231.elem0))).which == _enum_T0.Some ? (__reachm_0Ref((_f.v5231.elem0)))._Some : uint256(0))), (_f.v5231.elem2)));
+    _reachm_0[(_f.v5335.elem0)].which = _enum_T0.Some;
+    _reachm_0[(_f.v5335.elem0)]._Some = (safeAdd((((__reachm_0Ref((_f.v5335.elem0))).which == _enum_T0.Some ? (__reachm_0Ref((_f.v5335.elem0)))._Some : uint256(0))), (_f.v5335.elem2)));
     
-    emit _reach_oe_v5542( (true));
+    emit _reach_oe_v5650( (true));
     _Memory._reachr_Admin_setReward = (true);
-    _f.v5563._bal = (safeAdd(_svs.v2452, (_f.v5231.elem2)));
-    _f.v5563._keepGoing = (_svs.v2379._keepGoing);
-    _f.v5563._percent = (_svs.v2379._percent);
-    _f.v5563._totalCurrentAllocatoinToAllUsers = _f.v5316;
-    _f.v5563._totalFundsDeposited = _svs.v2455;
-    _f.v5563._total_amount_claimed = _svs.v2450;
-    _f.v5563._total_rewards_allcoated = _svs.v2453;
-    _f.v5563._total_users_claim = _svs.v2449;
-    _f.v5563._usersNo = _svs.v2451;
+    _f.v5671._bal = (safeAdd(_svs.v2532, (_f.v5335.elem2)));
+    _f.v5671._keepGoing = (_svs.v2459._keepGoing);
+    _f.v5671._percent = (_svs.v2459._percent);
+    _f.v5671._totalCurrentAllocatoinToAllUsers = _f.v5422;
+    _f.v5671._totalFundsDeposited = _svs.v2535;
+    _f.v5671._total_amount_claimed = _svs.v2530;
+    _f.v5671._total_rewards_allcoated = _svs.v2533;
+    _f.v5671._total_users_claim = _svs.v2529;
+    _f.v5671._usersNo = _svs.v2531;
     T20  memory _ja;
-    _ja.elem0 = _svs.v2365;
-    _ja.elem1 = _svs.v2366;
-    _ja.elem2 = _svs.v2367;
-    _ja.elem3 = _f.v5563;
+    _ja.elem0 = _svs.v2445;
+    _ja.elem1 = _svs.v2446;
+    _ja.elem2 = _svs.v2447;
+    _ja.elem3 = _f.v5671;
     _ja.elem4 = uint256(block.number);
-    _ja.elem5 = _f.v5368;
-    _ja.elem6 = _svs.v2383;
+    _ja.elem5 = _f.v5474;
+    _ja.elem6 = _svs.v2463;
     _reachl_1(_ja, _Memory);
     } else if ((_a.elem1).which == _enum_T10.User_claim0_233) {
-    _f.v5725 = (_a.elem1)._User_claim0_233;
-    _f.v5828 = ((__reachm_0Ref(payable(msg.sender))).which == _enum_T0.Some ? (__reachm_0Ref(payable(msg.sender)))._Some : uint256(0));
-    reachRequire((((_f.v5725.elem0) <= _svs.v2457)), uint256(50) /*'(reach standard library:57:5:application,[at ./token_v2.rsh:278:12:application call to "check" (defined at: reach standard library:49:32:function exp),at ./token_v2.rsh:276:38:application call to [unknown function] (defined at: ./token_v2.rsh:276:38:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:276:38:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:85:37:function exp),at ./token_v2.rsh:102:14:application call to [unknown function] (defined at: ./token_v2.rsh:102:14:function exp)],Just "Cannot withdraw less than balance")'*/);
-    reachRequire(((_f.v5828 >= (_f.v5725.elem0))), uint256(51) /*'(reach standard library:57:5:application,[at ./token_v2.rsh:279:12:application call to "check" (defined at: reach standard library:49:32:function exp),at ./token_v2.rsh:276:38:application call to [unknown function] (defined at: ./token_v2.rsh:276:38:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:276:38:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:85:37:function exp),at ./token_v2.rsh:102:14:application call to [unknown function] (defined at: ./token_v2.rsh:102:14:function exp)],Just "Cannot withdraw less than allocated")'*/);
-    reachRequire((msg.value == uint256(0)), uint256(52) /*'(./token_v2.rsh:85:37:dot,[],"verify network token pay amount")'*/);
-    reachRequire((checkPayAmt(msg.sender, _svs.v2367, uint256(0))), uint256(53) /*'(./token_v2.rsh:85:37:dot,[],"verify non-network token pay amount")'*/);
-    _f.v6079.elem0 = payable(msg.sender);
-    _f.v6079.elem1 = (_f.v5725.elem1);
-    _f.v6081._claimed = uint256(0);
-    _f.v6081._rewards = uint256(0);
-    _f.v6082 = ((__reachm_1Ref(uint256(keccak256(abi.encode(_f.v6079))))).which == _enum_T2.Some ? (__reachm_1Ref(uint256(keccak256(abi.encode(_f.v6079)))))._Some : _f.v6081);
-    _f.v6090._claimed = (safeAdd((_f.v6082._claimed), (_f.v5725.elem0)));
-    _f.v6090._rewards = (safeSub((_f.v6082._rewards), (_f.v5725.elem0)));
-    _reachm_1[uint256(keccak256(abi.encode(_f.v6079)))].which = _enum_T2.Some;
-    _reachm_1[uint256(keccak256(abi.encode(_f.v6079)))]._Some = _f.v6090;
+    _f.v5833 = (_a.elem1)._User_claim0_233;
+    _f.v5938 = ((__reachm_0Ref(payable(msg.sender))).which == _enum_T0.Some ? (__reachm_0Ref(payable(msg.sender)))._Some : uint256(0));
+    reachRequire((((_f.v5833.elem0) <= _svs.v2537)), uint256(51) /*'(reach standard library:57:5:application,[at ./token_v2.rsh:278:12:application call to "check" (defined at: reach standard library:49:32:function exp),at ./token_v2.rsh:276:38:application call to [unknown function] (defined at: ./token_v2.rsh:276:38:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:276:38:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:85:37:function exp),at ./token_v2.rsh:102:14:application call to [unknown function] (defined at: ./token_v2.rsh:102:14:function exp)],Just "Cannot withdraw less than balance")'*/);
+    reachRequire(((_f.v5938 >= (_f.v5833.elem0))), uint256(52) /*'(reach standard library:57:5:application,[at ./token_v2.rsh:279:12:application call to "check" (defined at: reach standard library:49:32:function exp),at ./token_v2.rsh:276:38:application call to [unknown function] (defined at: ./token_v2.rsh:276:38:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:276:38:function exp),at ./token_v2.rsh:85:37:application call to [unknown function] (defined at: ./token_v2.rsh:85:37:function exp),at ./token_v2.rsh:102:14:application call to [unknown function] (defined at: ./token_v2.rsh:102:14:function exp)],Just "Cannot withdraw less than allocated")'*/);
+    reachRequire((msg.value == uint256(0)), uint256(53) /*'(./token_v2.rsh:85:37:dot,[],"verify network token pay amount")'*/);
+    reachRequire((checkPayAmt(msg.sender, _svs.v2447, uint256(0))), uint256(54) /*'(./token_v2.rsh:85:37:dot,[],"verify non-network token pay amount")'*/);
+    _f.v6191.elem0 = payable(msg.sender);
+    _f.v6191.elem1 = (_f.v5833.elem1);
+    _f.v6193._claimed = uint256(0);
+    _f.v6193._rewards = uint256(0);
+    _f.v6194 = ((__reachm_1Ref(uint256(keccak256(abi.encode(_f.v6191))))).which == _enum_T2.Some ? (__reachm_1Ref(uint256(keccak256(abi.encode(_f.v6191)))))._Some : _f.v6193);
+    _f.v6202._claimed = (safeAdd((_f.v6194._claimed), (_f.v5833.elem0)));
+    _f.v6202._rewards = (safeSub((_f.v6194._rewards), (_f.v5833.elem0)));
+    _reachm_1[uint256(keccak256(abi.encode(_f.v6191)))].which = _enum_T2.Some;
+    _reachm_1[uint256(keccak256(abi.encode(_f.v6191)))]._Some = _f.v6202;
     
-    emit _reach_oe_v6091( (true));
+    emit _reach_oe_v6203( (true));
     _Memory._reachr_User_claim = (true);
-    _f.v6099.addr = payable(msg.sender);
-    _f.v6099.amount = (_f.v5725.elem0);
-    _f.v6099.projectName = _svs.v2366;
-    emit claimed( _f.v6099);
+    _f.v6211.addr = payable(msg.sender);
+    _f.v6211.amount = (_f.v5833.elem0);
+    _f.v6211.projectName = _svs.v2446;
+    emit claimed( _f.v6211);
     if (((uint256((__reachm_3Ref(payable(msg.sender))).which)) == uint256(1))) {
-      _f.v6159 = array_set16(_svs.v2382, uint256(0), (T15({elem0: (unsafeSub(_svs.v2457, (_f.v5725.elem0))), elem1: _svs.v2456.elem1, elem2: _svs.v2456.elem2})));
-      safeTokenTransfer(_svs.v2367, payable(msg.sender), (_f.v5725.elem0));
-      if ((_f.v5828 == uint256(0))) {
+      _f.v6271 = array_set16(_svs.v2462, uint256(0), (T15({elem0: (unsafeSub(_svs.v2537, (_f.v5833.elem0))), elem1: _svs.v2536.elem1, elem2: _svs.v2536.elem2})));
+      safeTokenTransfer(_svs.v2447, payable(msg.sender), (_f.v5833.elem0));
+      if ((_f.v5938 == uint256(0))) {
         delete _reachm_0[payable(msg.sender)];
-        _f.v6179._bal = (safeSub(_svs.v2452, (_f.v5725.elem0)));
-        _f.v6179._keepGoing = (_svs.v2379._keepGoing);
-        _f.v6179._percent = (_svs.v2379._percent);
-        _f.v6179._totalCurrentAllocatoinToAllUsers = (safeSub(_svs.v2434, (_f.v5725.elem0)));
-        _f.v6179._totalFundsDeposited = _svs.v2455;
-        _f.v6179._total_amount_claimed = (safeAdd(_svs.v2450, (_f.v5725.elem0)));
-        _f.v6179._total_rewards_allcoated = _svs.v2453;
-        _f.v6179._total_users_claim = (safeAdd(_svs.v2449, uint256(1)));
-        _f.v6179._usersNo = (safeAdd(_svs.v2451, uint256(1)));
+        _f.v6291._bal = (safeSub(_svs.v2532, (_f.v5833.elem0)));
+        _f.v6291._keepGoing = (_svs.v2459._keepGoing);
+        _f.v6291._percent = (_svs.v2459._percent);
+        _f.v6291._totalCurrentAllocatoinToAllUsers = (safeSub(_svs.v2514, (_f.v5833.elem0)));
+        _f.v6291._totalFundsDeposited = _svs.v2535;
+        _f.v6291._total_amount_claimed = (safeAdd(_svs.v2530, (_f.v5833.elem0)));
+        _f.v6291._total_rewards_allcoated = _svs.v2533;
+        _f.v6291._total_users_claim = (safeAdd(_svs.v2529, uint256(1)));
+        _f.v6291._usersNo = (safeAdd(_svs.v2531, uint256(1)));
         T20  memory _ja;
-        _ja.elem0 = _svs.v2365;
-        _ja.elem1 = _svs.v2366;
-        _ja.elem2 = _svs.v2367;
-        _ja.elem3 = _f.v6179;
+        _ja.elem0 = _svs.v2445;
+        _ja.elem1 = _svs.v2446;
+        _ja.elem2 = _svs.v2447;
+        _ja.elem3 = _f.v6291;
         _ja.elem4 = uint256(block.number);
-        _ja.elem5 = _f.v6159;
-        _ja.elem6 = _svs.v2383;
+        _ja.elem5 = _f.v6271;
+        _ja.elem6 = _svs.v2463;
         _reachl_1(_ja, _Memory);
         }
       else {
         _reachm_0[payable(msg.sender)].which = _enum_T0.Some;
-        _reachm_0[payable(msg.sender)]._Some = (safeSub(_f.v5828, (_f.v5725.elem0)));
+        _reachm_0[payable(msg.sender)]._Some = (safeSub(_f.v5938, (_f.v5833.elem0)));
         
-        _f.v6198._bal = (safeSub(_svs.v2452, (_f.v5725.elem0)));
-        _f.v6198._keepGoing = (_svs.v2379._keepGoing);
-        _f.v6198._percent = (_svs.v2379._percent);
-        _f.v6198._totalCurrentAllocatoinToAllUsers = (safeSub(_svs.v2434, (_f.v5725.elem0)));
-        _f.v6198._totalFundsDeposited = _svs.v2455;
-        _f.v6198._total_amount_claimed = (safeAdd(_svs.v2450, (_f.v5725.elem0)));
-        _f.v6198._total_rewards_allcoated = _svs.v2453;
-        _f.v6198._total_users_claim = (safeAdd(_svs.v2449, uint256(1)));
-        _f.v6198._usersNo = (safeAdd(_svs.v2451, uint256(1)));
+        _f.v6310._bal = (safeSub(_svs.v2532, (_f.v5833.elem0)));
+        _f.v6310._keepGoing = (_svs.v2459._keepGoing);
+        _f.v6310._percent = (_svs.v2459._percent);
+        _f.v6310._totalCurrentAllocatoinToAllUsers = (safeSub(_svs.v2514, (_f.v5833.elem0)));
+        _f.v6310._totalFundsDeposited = _svs.v2535;
+        _f.v6310._total_amount_claimed = (safeAdd(_svs.v2530, (_f.v5833.elem0)));
+        _f.v6310._total_rewards_allcoated = _svs.v2533;
+        _f.v6310._total_users_claim = (safeAdd(_svs.v2529, uint256(1)));
+        _f.v6310._usersNo = (safeAdd(_svs.v2531, uint256(1)));
         T20  memory _ja;
-        _ja.elem0 = _svs.v2365;
-        _ja.elem1 = _svs.v2366;
-        _ja.elem2 = _svs.v2367;
-        _ja.elem3 = _f.v6198;
+        _ja.elem0 = _svs.v2445;
+        _ja.elem1 = _svs.v2446;
+        _ja.elem2 = _svs.v2447;
+        _ja.elem3 = _f.v6310;
         _ja.elem4 = uint256(block.number);
-        _ja.elem5 = _f.v6159;
-        _ja.elem6 = _svs.v2383;
+        _ja.elem5 = _f.v6271;
+        _ja.elem6 = _svs.v2463;
         _reachl_1(_ja, _Memory);
         }
       }
@@ -1446,99 +1447,99 @@ contract ReachContract is Stdlib {
       _reachm_3[payable(msg.sender)].which = _enum_T3.Some;
       _reachm_3[payable(msg.sender)]._Some = false;
       
-      _f.v6110 = array_set16(_svs.v2382, uint256(0), (T15({elem0: (unsafeSub(_svs.v2457, (_f.v5725.elem0))), elem1: _svs.v2456.elem1, elem2: _svs.v2456.elem2})));
-      safeTokenTransfer(_svs.v2367, payable(msg.sender), (_f.v5725.elem0));
-      if ((_f.v5828 == uint256(0))) {
+      _f.v6222 = array_set16(_svs.v2462, uint256(0), (T15({elem0: (unsafeSub(_svs.v2537, (_f.v5833.elem0))), elem1: _svs.v2536.elem1, elem2: _svs.v2536.elem2})));
+      safeTokenTransfer(_svs.v2447, payable(msg.sender), (_f.v5833.elem0));
+      if ((_f.v5938 == uint256(0))) {
         delete _reachm_0[payable(msg.sender)];
-        _f.v6130._bal = (safeSub(_svs.v2452, (_f.v5725.elem0)));
-        _f.v6130._keepGoing = (_svs.v2379._keepGoing);
-        _f.v6130._percent = (_svs.v2379._percent);
-        _f.v6130._totalCurrentAllocatoinToAllUsers = (safeSub(_svs.v2434, (_f.v5725.elem0)));
-        _f.v6130._totalFundsDeposited = _svs.v2455;
-        _f.v6130._total_amount_claimed = (safeAdd(_svs.v2450, (_f.v5725.elem0)));
-        _f.v6130._total_rewards_allcoated = _svs.v2453;
-        _f.v6130._total_users_claim = (safeAdd(_svs.v2449, uint256(1)));
-        _f.v6130._usersNo = _svs.v2451;
+        _f.v6242._bal = (safeSub(_svs.v2532, (_f.v5833.elem0)));
+        _f.v6242._keepGoing = (_svs.v2459._keepGoing);
+        _f.v6242._percent = (_svs.v2459._percent);
+        _f.v6242._totalCurrentAllocatoinToAllUsers = (safeSub(_svs.v2514, (_f.v5833.elem0)));
+        _f.v6242._totalFundsDeposited = _svs.v2535;
+        _f.v6242._total_amount_claimed = (safeAdd(_svs.v2530, (_f.v5833.elem0)));
+        _f.v6242._total_rewards_allcoated = _svs.v2533;
+        _f.v6242._total_users_claim = (safeAdd(_svs.v2529, uint256(1)));
+        _f.v6242._usersNo = _svs.v2531;
         T20  memory _ja;
-        _ja.elem0 = _svs.v2365;
-        _ja.elem1 = _svs.v2366;
-        _ja.elem2 = _svs.v2367;
-        _ja.elem3 = _f.v6130;
+        _ja.elem0 = _svs.v2445;
+        _ja.elem1 = _svs.v2446;
+        _ja.elem2 = _svs.v2447;
+        _ja.elem3 = _f.v6242;
         _ja.elem4 = uint256(block.number);
-        _ja.elem5 = _f.v6110;
-        _ja.elem6 = _svs.v2383;
+        _ja.elem5 = _f.v6222;
+        _ja.elem6 = _svs.v2463;
         _reachl_1(_ja, _Memory);
         }
       else {
         _reachm_0[payable(msg.sender)].which = _enum_T0.Some;
-        _reachm_0[payable(msg.sender)]._Some = (safeSub(_f.v5828, (_f.v5725.elem0)));
+        _reachm_0[payable(msg.sender)]._Some = (safeSub(_f.v5938, (_f.v5833.elem0)));
         
-        _f.v6149._bal = (safeSub(_svs.v2452, (_f.v5725.elem0)));
-        _f.v6149._keepGoing = (_svs.v2379._keepGoing);
-        _f.v6149._percent = (_svs.v2379._percent);
-        _f.v6149._totalCurrentAllocatoinToAllUsers = (safeSub(_svs.v2434, (_f.v5725.elem0)));
-        _f.v6149._totalFundsDeposited = _svs.v2455;
-        _f.v6149._total_amount_claimed = (safeAdd(_svs.v2450, (_f.v5725.elem0)));
-        _f.v6149._total_rewards_allcoated = _svs.v2453;
-        _f.v6149._total_users_claim = (safeAdd(_svs.v2449, uint256(1)));
-        _f.v6149._usersNo = _svs.v2451;
+        _f.v6261._bal = (safeSub(_svs.v2532, (_f.v5833.elem0)));
+        _f.v6261._keepGoing = (_svs.v2459._keepGoing);
+        _f.v6261._percent = (_svs.v2459._percent);
+        _f.v6261._totalCurrentAllocatoinToAllUsers = (safeSub(_svs.v2514, (_f.v5833.elem0)));
+        _f.v6261._totalFundsDeposited = _svs.v2535;
+        _f.v6261._total_amount_claimed = (safeAdd(_svs.v2530, (_f.v5833.elem0)));
+        _f.v6261._total_rewards_allcoated = _svs.v2533;
+        _f.v6261._total_users_claim = (safeAdd(_svs.v2529, uint256(1)));
+        _f.v6261._usersNo = _svs.v2531;
         T20  memory _ja;
-        _ja.elem0 = _svs.v2365;
-        _ja.elem1 = _svs.v2366;
-        _ja.elem2 = _svs.v2367;
-        _ja.elem3 = _f.v6149;
+        _ja.elem0 = _svs.v2445;
+        _ja.elem1 = _svs.v2446;
+        _ja.elem2 = _svs.v2447;
+        _ja.elem3 = _f.v6261;
         _ja.elem4 = uint256(block.number);
-        _ja.elem5 = _f.v6110;
-        _ja.elem6 = _svs.v2383;
+        _ja.elem5 = _f.v6222;
+        _ja.elem6 = _svs.v2463;
         _reachl_1(_ja, _Memory);
         }
       }
     } else if ((_a.elem1).which == _enum_T10.User_optin0_233) {
-    reachRequire((msg.value == uint256(0)), uint256(54) /*'(./token_v2.rsh:85:37:dot,[],"verify network token pay amount")'*/);
-    reachRequire((checkPayAmt(msg.sender, _svs.v2367, uint256(0))), uint256(55) /*'(./token_v2.rsh:85:37:dot,[],"verify non-network token pay amount")'*/);
+    reachRequire((msg.value == uint256(0)), uint256(55) /*'(./token_v2.rsh:85:37:dot,[],"verify network token pay amount")'*/);
+    reachRequire((checkPayAmt(msg.sender, _svs.v2447, uint256(0))), uint256(56) /*'(./token_v2.rsh:85:37:dot,[],"verify non-network token pay amount")'*/);
     _reachm_4[payable(msg.sender)].which = _enum_T3.Some;
     _reachm_4[payable(msg.sender)]._Some = false;
     
-    emit _reach_oe_v6696( (false));
+    emit _reach_oe_v6812( (false));
     _Memory._reachr_User_optin = (false);
-    _f.v6711._bal = _svs.v2452;
-    _f.v6711._keepGoing = (_svs.v2379._keepGoing);
-    _f.v6711._percent = (_svs.v2379._percent);
-    _f.v6711._totalCurrentAllocatoinToAllUsers = _svs.v2434;
-    _f.v6711._totalFundsDeposited = _svs.v2455;
-    _f.v6711._total_amount_claimed = _svs.v2450;
-    _f.v6711._total_rewards_allcoated = _svs.v2453;
-    _f.v6711._total_users_claim = _svs.v2449;
-    _f.v6711._usersNo = _svs.v2451;
+    _f.v6827._bal = _svs.v2532;
+    _f.v6827._keepGoing = (_svs.v2459._keepGoing);
+    _f.v6827._percent = (_svs.v2459._percent);
+    _f.v6827._totalCurrentAllocatoinToAllUsers = _svs.v2514;
+    _f.v6827._totalFundsDeposited = _svs.v2535;
+    _f.v6827._total_amount_claimed = _svs.v2530;
+    _f.v6827._total_rewards_allcoated = _svs.v2533;
+    _f.v6827._total_users_claim = _svs.v2529;
+    _f.v6827._usersNo = _svs.v2531;
     T20  memory _ja;
-    _ja.elem0 = _svs.v2365;
-    _ja.elem1 = _svs.v2366;
-    _ja.elem2 = _svs.v2367;
-    _ja.elem3 = _f.v6711;
+    _ja.elem0 = _svs.v2445;
+    _ja.elem1 = _svs.v2446;
+    _ja.elem2 = _svs.v2447;
+    _ja.elem3 = _f.v6827;
     _ja.elem4 = uint256(block.number);
-    _ja.elem5 = _svs.v2382;
-    _ja.elem6 = _svs.v2383;
+    _ja.elem5 = _svs.v2462;
+    _ja.elem6 = _svs.v2463;
     _reachl_1(_ja, _Memory);
     }
     }
   function _reachl_1(T20 memory _a, Memory memory _Memory) internal  {
     if ((_a.elem3._keepGoing)) {
       T17 memory nsvs;
-      nsvs.v2365 = _a.elem0;
-      nsvs.v2366 = _a.elem1;
-      nsvs.v2367 = _a.elem2;
-      nsvs.v2379 = _a.elem3;
-      nsvs.v2382 = _a.elem5;
-      nsvs.v2383 = _a.elem6;
-      nsvs.v2434 = (_a.elem3._totalCurrentAllocatoinToAllUsers);
-      nsvs.v2449 = (_a.elem3._total_users_claim);
-      nsvs.v2450 = (_a.elem3._total_amount_claimed);
-      nsvs.v2451 = (_a.elem3._usersNo);
-      nsvs.v2452 = (_a.elem3._bal);
-      nsvs.v2453 = (_a.elem3._total_rewards_allcoated);
-      nsvs.v2455 = (_a.elem3._totalFundsDeposited);
-      nsvs.v2456 = (_a.elem5[uint256(0)]);
-      nsvs.v2457 = ((_a.elem5[uint256(0)]).elem0);
+      nsvs.v2445 = _a.elem0;
+      nsvs.v2446 = _a.elem1;
+      nsvs.v2447 = _a.elem2;
+      nsvs.v2459 = _a.elem3;
+      nsvs.v2462 = _a.elem5;
+      nsvs.v2463 = _a.elem6;
+      nsvs.v2514 = (_a.elem3._totalCurrentAllocatoinToAllUsers);
+      nsvs.v2529 = (_a.elem3._total_users_claim);
+      nsvs.v2530 = (_a.elem3._total_amount_claimed);
+      nsvs.v2531 = (_a.elem3._usersNo);
+      nsvs.v2532 = (_a.elem3._bal);
+      nsvs.v2533 = (_a.elem3._total_rewards_allcoated);
+      nsvs.v2535 = (_a.elem3._totalFundsDeposited);
+      nsvs.v2536 = (_a.elem5[uint256(0)]);
+      nsvs.v2537 = ((_a.elem5[uint256(0)]).elem0);
       current_step = uint256(3);
       current_time = uint256(block.number);
       current_svbs = abi.encode(nsvs);
@@ -1551,21 +1552,21 @@ contract ReachContract is Stdlib {
       delete current_svbs;
       }
     }
-  function Admin_addAdmin(address payable v12711) external payable returns (bool) {
+  function Admin_addAdmin(address payable v12827) external payable returns (bool) {
     Memory memory _Memory;
-    _reacha_Admin_addAdmin(v12711, _Memory);
+    _reacha_Admin_addAdmin(v12827, _Memory);
     return _Memory._reachr_Admin_addAdmin;
     }
-  function Admin_deposit(uint256 v12717) external payable returns (bool) {
+  function Admin_deposit(uint256 v12833) external payable returns (bool) {
     Memory memory _Memory;
-    _reacha_Admin_deposit(v12717, _Memory);
+    _reacha_Admin_deposit(v12833, _Memory);
     return _Memory._reachr_Admin_deposit;
     }
-  function Admin_editUserReward(address payable v12724, uint256 v12725) external payable returns (bool) {
+  function Admin_editUserReward(address payable v12840, uint256 v12841) external payable returns (bool) {
     Memory memory _Memory;
     T6  memory _ja;
-    _ja.elem0 = v12724;
-    _ja.elem1 = v12725;
+    _ja.elem0 = v12840;
+    _ja.elem1 = v12841;
     _reacha_Admin_editUserReward(_ja, _Memory);
     return _Memory._reachr_Admin_editUserReward;
     }
@@ -1575,23 +1576,23 @@ contract ReachContract is Stdlib {
     _reacha_Admin_endContractAndTransfer(_ja, _Memory);
     return _Memory._reachr_Admin_endContractAndTransfer;
     }
-  function Admin_revokeAdmin(address payable v12735) external payable returns (bool) {
+  function Admin_revokeAdmin(address payable v12851) external payable returns (bool) {
     Memory memory _Memory;
-    _reacha_Admin_revokeAdmin(v12735, _Memory);
+    _reacha_Admin_revokeAdmin(v12851, _Memory);
     return _Memory._reachr_Admin_revokeAdmin;
     }
-  function Admin_setReward(address payable v12743, address payable v12744, uint256 v12745) external payable returns (bool) {
+  function Admin_setReward(address payable v12859, address payable v12860, uint256 v12861) external payable returns (bool) {
     Memory memory _Memory;
     T8  memory _ja;
-    _ja.elem0 = v12743;
-    _ja.elem1 = v12744;
-    _ja.elem2 = v12745;
+    _ja.elem0 = v12859;
+    _ja.elem1 = v12860;
+    _ja.elem2 = v12861;
     _reacha_Admin_setReward(_ja, _Memory);
     return _Memory._reachr_Admin_setReward;
     }
-  function Info_Admins(address payable v12671) external view returns (bool) {
+  function Info_Admins(address payable v12787) external view returns (bool) {
     Memory memory _Memory;
-    _reacha_Info_Admins(v12671, _Memory);
+    _reacha_Info_Admins(v12787, _Memory);
     return _Memory._reachr_Info_Admins;
     }
   function Info_balance() external view returns (uint256) {
@@ -1600,17 +1601,17 @@ contract ReachContract is Stdlib {
     _reacha_Info_balance(_ja, _Memory);
     return _Memory._reachr_Info_balance;
     }
-  function Info_claimed(address payable v12678, address payable v12679) external view returns (uint256) {
+  function Info_claimed(address payable v12794, address payable v12795) external view returns (uint256) {
     Memory memory _Memory;
     T18  memory _ja;
-    _ja.elem0 = v12678;
-    _ja.elem1 = v12679;
+    _ja.elem0 = v12794;
+    _ja.elem1 = v12795;
     _reacha_Info_claimed(_ja, _Memory);
     return _Memory._reachr_Info_claimed;
     }
-  function Info_opted(address payable v12683) external view returns (bool) {
+  function Info_opted(address payable v12799) external view returns (bool) {
     Memory memory _Memory;
-    _reacha_Info_opted(v12683, _Memory);
+    _reacha_Info_opted(v12799, _Memory);
     return _Memory._reachr_Info_opted;
     }
   function Info_totalAllocatedFunds() external view returns (uint256) {
@@ -1649,24 +1650,24 @@ contract ReachContract is Stdlib {
     _reacha_Info_totalOptedIn(_ja, _Memory);
     return _Memory._reachr_Info_totalOptedIn;
     }
-  function Info_totalRewards(address payable v12699) external view returns (uint256) {
+  function Info_totalRewards(address payable v12815) external view returns (uint256) {
     Memory memory _Memory;
-    _reacha_Info_totalRewards(v12699, _Memory);
+    _reacha_Info_totalRewards(v12815, _Memory);
     return _Memory._reachr_Info_totalRewards;
     }
-  function Info_userReward(address payable v12704, address payable v12705) external view returns (uint256) {
+  function Info_userReward(address payable v12820, address payable v12821) external view returns (uint256) {
     Memory memory _Memory;
     T18  memory _ja;
-    _ja.elem0 = v12704;
-    _ja.elem1 = v12705;
+    _ja.elem0 = v12820;
+    _ja.elem1 = v12821;
     _reacha_Info_userReward(_ja, _Memory);
     return _Memory._reachr_Info_userReward;
     }
-  function User_claim(uint256 v12752, address payable v12753) external payable returns (bool) {
+  function User_claim(uint256 v12868, address payable v12869) external payable returns (bool) {
     Memory memory _Memory;
     T9  memory _ja;
-    _ja.elem0 = v12752;
-    _ja.elem1 = v12753;
+    _ja.elem0 = v12868;
+    _ja.elem1 = v12869;
     _reacha_User_claim(_ja, _Memory);
     return _Memory._reachr_User_claim;
     }
@@ -1676,14 +1677,14 @@ contract ReachContract is Stdlib {
     _reacha_User_optin(_ja, _Memory);
     return _Memory._reachr_User_optin;
     }
-  constructor(T19 memory v12760) payable {
+  constructor(T19 memory v12876) payable {
     current_step = 0x0;
     creation_time = uint256(block.number);
     Memory memory _Memory;
-    _reachi_0(v12760, _Memory);
+    _reachi_0(v12876, _Memory);
     }
-  function _reachp_2(T11 calldata v12763) external payable returns (bool) {
+  function _reachp_2(T11 calldata v12879) external payable returns (bool) {
     Memory memory _Memory;
-    _reachi_2(v12763, _Memory);
+    _reachi_2(v12879, _Memory);
     }
   }
