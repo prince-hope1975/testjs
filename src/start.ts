@@ -66,7 +66,11 @@ export const RecursiveCheck = async () => {
   const ALL_COLLECTIONS_REF = db.ref("/allCollections");
   const RETRIEVED_COLLECTION: { collection_name: string; wallet: string }[] =
     await readDataFromSnapShot(ALL_COLLECTIONS_REF);
-  backupDatabase(JSON.stringify(RETRIEVED_COLLECTION));
+  try {
+    backupDatabase(JSON.stringify(RETRIEVED_COLLECTION));
+  } catch (error) {
+    console.error(error);
+  }
   const newMap = RETRIEVED_COLLECTION.map(({ wallet, collection_name }) => {
     return {
       ref: USERS_REF.child(`/${wallet}/${collection_name}/isActive`),

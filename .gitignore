@@ -25,3 +25,4 @@ staking-f1d33-firebase-adminsdk-hnz9e-f2e618a564.json
 *.njsproj
 *.sln
 *.sw?
+db.json
