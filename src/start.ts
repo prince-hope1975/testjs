@@ -12,7 +12,7 @@ import dotenv from "dotenv";
 import getFloor from "./common/utils/floor/index.js";
 import { wallet } from "./common/utils/airdrop/type.js";
 // import { writeFile } from "fs";
-import {writeFile  } from "fs/promises";
+import { writeFile } from "fs/promises";
 // TODO : Insert actual contract ASSET_INFO_REF
 type BigNumber = ReturnType<typeof reach.bigNumberify>;
 dotenv.config();
@@ -24,7 +24,7 @@ const backupDatabase = (data: string) => {
   try {
     writeFile(filePath, data);
   } catch (error) {
-    console.error(error)
+    console.error(error);
   }
 };
 
@@ -115,6 +115,7 @@ export const RecursiveCheck = async () => {
     ! TODO: edit the contents of the floor price funciton  to reflect the latest iterations
      */
       for (const [projectName, entry] of Object.entries(objectEntry)) {
+        console.log({ projectName });
         /**
          * WE RETRIEVE THE ASSET INFO SO FROM THE FIREBASE DATABASE SO WE CAN
          * COMPARE THE RECENT HOLDERS TO THOSE ALREADY IN OUR DATABASE

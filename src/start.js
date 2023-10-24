@@ -84,6 +84,7 @@ export const RecursiveCheck = async () => {
           ! TODO: edit the contents of the floor price funciton  to reflect the latest iterations
            */
             for (const [projectName, entry] of Object.entries(objectEntry)) {
+                console.log({ projectName });
                 /**
                  * WE RETRIEVE THE ASSET INFO SO FROM THE FIREBASE DATABASE SO WE CAN
                  * COMPARE THE RECENT HOLDERS TO THOSE ALREADY IN OUR DATABASE
