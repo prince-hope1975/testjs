@@ -6,23 +6,18 @@ import { schedule } from "node-cron";
 import dotenv from "dotenv";
 // import { BigNumber } from "@reach-sh/stdlib/shared_impl.js";
 import getFloor from "./common/utils/floor/index.js";
-import { closeSync, openSync, writeSync } from "fs";
+// import { writeFile } from "fs";
+import { writeFile } from "fs/promises";
 dotenv.config();
 const HOUR_LIMIT = 12;
 const backupDatabase = (data) => {
     const filePath = "db.json";
-    // Open the file for writing (create it if it doesn't exist)
-    const fileDescriptor = openSync(filePath, "w");
     try {
-        // Write the data to the file
-        writeSync(fileDescriptor, data);
-        // Close the file
-        closeSync(fileDescriptor);
+        writeFile(filePath, data);
     }
     catch (error) {
         console.error(error);
     }
-    closeSync(fileDescriptor);
 };
 // we are trying to keep count of the number of times we have run this function
 // so we can stop it after a certain number of times

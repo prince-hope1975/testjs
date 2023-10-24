@@ -11,7 +11,8 @@ import dotenv from "dotenv";
 // import { BigNumber } from "@reach-sh/stdlib/shared_impl.js";
 import getFloor from "./common/utils/floor/index.js";
 import { wallet } from "./common/utils/airdrop/type.js";
-import { closeSync, openSync, writeSync } from "fs";
+// import { writeFile } from "fs";
+import {writeFile  } from "fs/promises";
 // TODO : Insert actual contract ASSET_INFO_REF
 type BigNumber = ReturnType<typeof reach.bigNumberify>;
 dotenv.config();
@@ -20,19 +21,11 @@ const HOUR_LIMIT = 12;
 
 const backupDatabase = (data: string) => {
   const filePath = "db.json";
-
-  // Open the file for writing (create it if it doesn't exist)
-  const fileDescriptor = openSync(filePath, "w");
   try {
-    // Write the data to the file
-    writeSync(fileDescriptor, data);
-
-    // Close the file
-    closeSync(fileDescriptor);
+    writeFile(filePath, data);
   } catch (error) {
-    console.error(error);
+    console.error(error)
   }
-  closeSync(fileDescriptor);
 };
 
 // we are trying to keep count of the number of times we have run this function
@@ -66,7 +59,7 @@ export const RecursiveCheck = async () => {
   const ALL_COLLECTIONS_REF = db.ref("/allCollections");
   const RETRIEVED_COLLECTION: { collection_name: string; wallet: string }[] =
     await readDataFromSnapShot(ALL_COLLECTIONS_REF);
-  
+
   const newMap = RETRIEVED_COLLECTION.map(({ wallet, collection_name }) => {
     return {
       ref: USERS_REF.child(`/${wallet}/${collection_name}/isActive`),

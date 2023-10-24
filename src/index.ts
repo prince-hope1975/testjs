@@ -138,7 +138,7 @@ export const getFormattedHoldersInfo = async (arr: number[] | string[]) => {
     .then((result) =>
       result.map((res, idx) =>
         res.status === "fulfilled"
-          ? res.value
+          ? res.value 
           : {
               address: "error",
               assetId: arr[idx],
