@@ -38,7 +38,8 @@ const d = db.val();
 for (let [key, values] of Object.entries(d)) {
   for (let [_key, _values] of Object.entries(values as object)) {
     const dbVal = await database.child(`${key}/${_key}`).get();
-    console.log({ dbVal:dbVal.val().version });
+    // console.log({ dbVal:dbVal.val() });
+    console.log({ key, _key });
     // const dbVal = await database.child(`${key}/${_key}`).update({
     //   version:"v3"
     // });
