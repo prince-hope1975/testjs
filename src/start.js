@@ -51,10 +51,10 @@ export const RecursiveCheck = async () => {
             collection_name,
         };
     }).reverse();
-    console.log({ newMap });
+    // console.log({ newMap });
     const newSnap = newMap.map(async ({ ref, wallet, collection_name }) => {
         const isActive = await readDataFromSnapShot(ref);
-        console.log({ isActive, collection_name });
+        // console.log({ isActive, collection_name });
         if (isActive) {
             return {
                 [wallet]: {
@@ -86,7 +86,7 @@ export const RecursiveCheck = async () => {
           ! TODO: edit the contents of the floor price funciton  to reflect the latest iterations
            */
             for (const [projectName, entry] of Object.entries(objectEntry)) {
-                console.log({ projectName });
+                // console.log({ projectName });
                 /**
                  * WE RETRIEVE THE ASSET INFO SO FROM THE FIREBASE DATABASE SO WE CAN
                  * COMPARE THE RECENT HOLDERS TO THOSE ALREADY IN OUR DATABASE
@@ -120,7 +120,7 @@ export const RecursiveCheck = async () => {
                         INFO = reach.bigNumberToNumber(INFO);
                     }
                 }
-                console.log({ IS_ACTIVE, HIDE });
+                // console.log({ IS_ACTIVE, HIDE });
                 if (IS_ACTIVE == false || HIDE) {
                     console.log("Project is not active");
                     continue;
