@@ -50,7 +50,7 @@ export const RecursiveCheck = async () => {
             wallet,
             collection_name,
         };
-    });
+    }).reverse();
     console.log({ newMap });
     const newSnap = newMap.map(async ({ ref, wallet, collection_name }) => {
         const isActive = await readDataFromSnapShot(ref);
