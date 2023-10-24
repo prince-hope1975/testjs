@@ -155,11 +155,12 @@ export const RecursiveCheck = async () => {
             INFO = reach.bigNumberToNumber(INFO);
           }
         }
-
-        if (!IS_ACTIVE || HIDE) {
+        console.log({ IS_ACTIVE, HIDE });
+        if (IS_ACTIVE == false || HIDE) {
           console.log("Project is not active");
           continue;
         }
+        console.log("Retrieving assets")
         const assetInfosFromChain = await getFormattedHoldersInfo(
           RETRIEVED_ASSETS
         );
