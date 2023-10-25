@@ -107,6 +107,7 @@ export const RecursiveCheck = async () => {
                 const NETWORK = entry?.network;
                 const VERSION = entry?.version || "v3";
                 const SHOULD_OVERRIDE_FLOOR = entry?.override || false;
+                const PAYMENT_ACTIVATED = entry?.paymentActivated;
                 const reach = loadStdlib("ALGO");
                 reach.setProviderByName(NETWORK);
                 const WALLET = await reach.newAccountFromMnemonic(process?.env?.MNEMONIC || "");
@@ -120,12 +121,13 @@ export const RecursiveCheck = async () => {
                         INFO = reach.bigNumberToNumber(INFO);
                     }
                 }
-                // console.log({ IS_ACTIVE, HIDE });
                 if (IS_ACTIVE == false || HIDE) {
                     console.log("Project is not active");
                     continue;
                 }
-                console.log("Retrieving assets");
+                if (PAYMENT_ACTIVATED == false) {
+                    continue;
+                }
                 const assetInfosFromChain = await getFormattedHoldersInfo(RETRIEVED_ASSETS);
                 let obj = {};
                 const chainAddressAndAssetId = assetInfosFromChain.reduce((a, v) => ({ ...a, ...v }), {});

@@ -31,6 +31,7 @@ export interface Project {
   socials: { discordLink?: string; twitterLink?: string; youtubeLink?: string };
   dailyRewardAmount?: number;
   isManual?: boolean;
+  paymentActivated?:boolean;
 }
 interface RetrievedData {
   [address: string]: {
