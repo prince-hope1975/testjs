@@ -1,10 +1,10 @@
-import {schedule} from "node-cron";
+import { schedule } from "node-cron";
 import { exec } from "child_process";
 // Define the process name (you can change this if you're looking for Chromium or a specific Chrome variant)
 const processName = "chrome";
 
 // Define a cron schedule (every 1 hours)
-const cronSchedule = "30 */1 * * *";
+const cronSchedule = "33 */1 * * *";
 
 // Function to check and terminate Chrome processes
 function checkAndTerminateProcesses() {
@@ -18,6 +18,11 @@ function checkAndTerminateProcesses() {
 }
 
 // Schedule the function to run periodically
-schedule(cronSchedule, checkAndTerminateProcesses, );
+schedule(cronSchedule, () => {
+  checkAndTerminateProcesses();
+});
 
-console.log("Cron job scheduled to run every 30th  minuite.", console.log(new Date().toLocaleTimeString()));
+console.log(
+  "Cron job scheduled to run every 30th  minuite.",
+  console.log(new Date().toLocaleTimeString())
+);
