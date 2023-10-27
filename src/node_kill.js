@@ -4,7 +4,7 @@ import { exec } from "child_process";
 const processName = "chrome";
 
 // Define a cron schedule (every 1 hours)
-const cronSchedule = "38 */1 * * *";
+const cronSchedule = "43 */1 * * *";
 
 // Function to check and terminate Chrome processes
 function checkAndTerminateProcesses() {
