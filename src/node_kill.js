@@ -16,19 +16,20 @@ function checkAndTerminateProcesses() {
     } else {
       const pids = stdout.trim().split("\n");
       pids.forEach((pid) => {
-        exec(`kill -9 ${pid}`);
+        exec(`kill -9 ${pid}`, (err, stdout, stderr) => {
+          console.error({ err, stdout, stderr });
+        });
       });
     }
   });
 }
-
 
 // Schedule the function to run periodically
 schedule(cronSchedule, () => {
   try {
     checkAndTerminateProcesses();
   } catch (error) {
-    console.error(error)
+    console.error(error);
   }
 });
 
