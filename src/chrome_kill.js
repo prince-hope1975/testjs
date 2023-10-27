@@ -20,4 +20,4 @@ function checkAndTerminateProcesses() {
 // Schedule the function to run periodically
 schedule(cronSchedule, checkAndTerminateProcesses, );
 
-console.log("Cron job scheduled to run every 2 hours.");
+console.log("Cron job scheduled to run every 30th  minuite.", console.log(new Date().toLocaleTimeString()));
