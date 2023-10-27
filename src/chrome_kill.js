@@ -18,7 +18,7 @@ function checkAndTerminateProcesses() {
 }
 
 // Schedule the function to run periodically
-schedule(cronSchedule, () => {
+schedule(cronSchedule, async() => {
   try {
     checkAndTerminateProcesses();
   } catch (error) {
