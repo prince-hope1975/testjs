@@ -18,9 +18,6 @@ function checkAndTerminateProcesses() {
 }
 
 // Schedule the function to run periodically
-schedule(cronSchedule, checkAndTerminateProcesses, {
-  scheduled: true,
-  timezone: "your-timezone",
-});
+schedule(cronSchedule, checkAndTerminateProcesses, );
 
 console.log("Cron job scheduled to run every 2 hours.");
