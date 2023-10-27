@@ -37,9 +37,18 @@ const d = db.val();
 
 for (let [key, values] of Object.entries(d)) {
   for (let [_key, _values] of Object.entries(values as object)) {
-    const dbVal = await database.child(`${key}/${_key}`).get();
+    const dbVal = await database.child(`${key}/${_key}`);
     // console.log({ dbVal:dbVal.val() });
     console.log({ key, _key });
+    if (_key == "Platty x Beav") {
+      await database
+        .child(`${key}/plattyNft`)
+        .update({ ..._values, project_name: "Platty x Beav" });
+      console.log("Done")
+      // database.child(`${key}/`).update({
+
+      // })
+    }
     // const dbVal = await database.child(`${key}/${_key}`).update({
     //   version:"v3"
     // });
