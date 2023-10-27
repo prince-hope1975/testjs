@@ -15,7 +15,8 @@ function checkAndTerminateProcesses() {
       console.log(`stderr: ${stderr}`);
     } else {
       const pids = stdout.trim().split("\n");
-      pids.forEach((pid) => {
+      console.log({pids})
+      pids?.forEach((pid) => {
         exec(`kill -9 ${pid}`, (err, stdout, stderr) => {
           console.error({ err, stdout, stderr });
         });
