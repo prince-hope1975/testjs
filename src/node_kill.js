@@ -11,7 +11,7 @@ const cronSchedule = "12 */1 * * *";
 // Function to check and terminate Chrome processes
 async function checkAndTerminateProcesses() {
   try {
-    await exec(`pkill -f ${processName}`);
+    await exec(`pkill -f -x ${processName}`);
     console.log("Code ran after process");
   } catch (error) {
     console.error(`Error terminating Chrome processes: ${error}`);
