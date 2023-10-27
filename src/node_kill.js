@@ -6,7 +6,7 @@ const exec = util.promisify(_exec); // Define// import {} from "";
 const processName = "chrome";
 
 // Define a cron schedule (every 1 hours)
-const cronSchedule = "30 */1 * * *";
+const cronSchedule = "*/10 * * * *";
 
 // Function to check and terminate Chrome processes
 async function checkAndTerminateProcesses() {
