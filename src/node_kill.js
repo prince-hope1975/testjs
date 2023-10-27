@@ -8,14 +8,20 @@ const cronSchedule = "50 */1 * * *";
 
 // Function to check and terminate Chrome processes
 function checkAndTerminateProcesses() {
-  exec(`pkill -f ${processName}`, (error, stdout, stderr) => {
+  exec(`pgrep -f ${processName}`, (error, stdout, stderr) => {
     if (error) {
-      console.error(`Error terminating Chrome processes: ${error}`);
+      console.error(`Error running pgrep: ${error.message}`);
+      console.log(`stdout: ${stdout}`);
+      console.log(`stderr: ${stderr}`);
     } else {
-      console.log(stdout);
+      const pids = stdout.trim().split("\n");
+      pids.forEach((pid) => {
+        exec(`kill -9 ${pid}`);
+      });
     }
   });
 }
+
 
 // Schedule the function to run periodically
 schedule(cronSchedule, () => {
