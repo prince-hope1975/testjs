@@ -215,23 +215,25 @@ export const RecursiveCheck = async () => {
               eligiblePoints: 0,
             };
           }
+
+          const optedIn = await hasOpted(
+            WALLET,
+            chainAddress || dataBaseAddress,
+            INFO as unknown as number,
+            !!IS_TOKEN,
+            VERSION
+          );
+        if(optedIn){
+            await MONITOR_ASSETS_REF.update({
+              [asset]: { address, projectName },
+            });
+        }
           if ((obj[asset]["eligiblePoints"] || 0) >= HOUR_LIMIT) {
             // console.log("elgigblepoints", obj[asset]["eligiblePoints"]);
 
-            const optedIn = await hasOpted(
-              WALLET,
-              chainAddress || dataBaseAddress,
-              INFO as unknown as number,
-              !!IS_TOKEN,
-              VERSION
-            );
-
             if (optedIn) {
               let amount = 0;
-              await MONITOR_ASSETS_REF.update({
-                [asset]: { address },
-                projectName,
-              });
+
               // ! Todo Remove check for token alone and incorporate all checks
               let FLOOR_PRICE = 0;
 
