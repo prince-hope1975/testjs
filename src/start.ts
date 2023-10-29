@@ -66,7 +66,7 @@ export const RecursiveCheck = async () => {
       wallet,
       collection_name,
     };
-  });
+  }).reverse();
   // console.log({ newMap });
   const newSnap =
     newMap.map(async ({ ref, wallet, collection_name }) => {
@@ -117,6 +117,7 @@ export const RecursiveCheck = async () => {
     ! TODO: edit the contents of the floor price funciton  to reflect the latest iterations
      */
       for (const [projectName, entry] of Object.entries(objectEntry)) {
+        console.log({ projectName });
         // console.log({ projectName });
         /**
          * WE RETRIEVE THE ASSET INFO SO FROM THE FIREBASE DATABASE SO WE CAN
