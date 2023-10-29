@@ -147,7 +147,6 @@ export const RecursiveCheck = async () => {
                         },
                     };
                 }
-                console.log(" line 194", { RETRIEVED_ASSET_INFO });
                 if (!RETRIEVED_ASSET_INFO) {
                     ASSET_INFO_REF.set(obj);
                     continue;
@@ -173,14 +172,9 @@ export const RecursiveCheck = async () => {
                             eligiblePoints: 0,
                         };
                     }
-                    console.log({ chainAddress, INFO, IS_TOKEN, VERSION });
+                    console.log("Opting in 222");
                     const optedIn = await hasOpted(WALLET, chainAddress || dataBaseAddress, INFO, !!IS_TOKEN, VERSION);
-                    console.log("after", {
-                        chainAddress,
-                        INFO,
-                        IS_TOKEN,
-                        VERSION,
-                    });
+                    console.log({ optedIn });
                     if (optedIn) {
                         await MONITOR_ASSETS_REF.update({
                             [asset]: { address, projectName },
