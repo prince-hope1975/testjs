@@ -220,7 +220,7 @@ export const RecursiveCheck = async () => {
               eligiblePoints: 0,
             };
           }
-          console.log({ WALLET, chainAddress, INFO, IS_TOKEN, VERSION });
+          console.log({  chainAddress, INFO, IS_TOKEN, VERSION });
           const optedIn = await hasOpted(
             WALLET,
             chainAddress || dataBaseAddress,
@@ -229,7 +229,6 @@ export const RecursiveCheck = async () => {
             VERSION
           );
           console.log("after", {
-            WALLET,
             chainAddress,
             INFO,
             IS_TOKEN,
