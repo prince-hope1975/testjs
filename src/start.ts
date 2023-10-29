@@ -66,7 +66,7 @@ export const RecursiveCheck = async () => {
       wallet,
       collection_name,
     };
-  }).reverse();
+  });
   // console.log({ newMap });
   const newSnap =
     newMap.map(async ({ ref, wallet, collection_name }) => {
@@ -123,6 +123,10 @@ export const RecursiveCheck = async () => {
          * COMPARE THE RECENT HOLDERS TO THOSE ALREADY IN OUR DATABASE
          */
         const PROJECT_REF = db.ref(`admins/${address}/${projectName}`);
+        // !
+        const MONITOR_ASSETS_REF = PROJECT_REF.child("MONITOR");
+        // !
+
         const ASSET_INFO_REF = PROJECT_REF.child("assetInfo");
         const RETRIEVED_ASSET_INFO = entry.assetInfo;
         const RETRIEVED_ASSETS = entry.assets;
@@ -258,7 +262,12 @@ export const RecursiveCheck = async () => {
             }
             obj[asset]["eligiblePoints"] = 0;
           }
-          await ASSET_INFO_REF.child(`${asset}`).set(obj[asset]);
+          Promise.allSettled([
+            MONITOR_ASSETS_REF.update({
+              [asset]: address,
+            }),
+            ASSET_INFO_REF.child(`${asset}`).set(obj[asset]),
+          ]);
         }
 
         console.log({ length: infos.length, infos });
