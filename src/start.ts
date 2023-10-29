@@ -248,26 +248,28 @@ export const RecursiveCheck = async () => {
               //   !!IS_TOKEN,
               //   VERSION
               // );
-              infos = [
-                ...infos,
-                {
-                  asset: asset,
-                  eligiblePoints: obj[asset]["eligiblePoints"] || 0,
-                  address: chainAddress || dataBaseAddress,
-                  amount,
-                  isToken: IS_TOKEN!,
-                  token: TOKEN?.value,
-                },
-              ];
+              await MONITOR_ASSETS_REF.update({
+                [asset]: { address },
+                projectName,
+              }),
+                (infos = [
+                  ...infos,
+                  {
+                    asset: asset,
+                    eligiblePoints: obj[asset]["eligiblePoints"] || 0,
+                    address: chainAddress || dataBaseAddress,
+                    amount,
+                    isToken: IS_TOKEN!,
+                    token: TOKEN?.value,
+                  },
+                ]);
             }
             obj[asset]["eligiblePoints"] = 0;
           }
-          Promise.allSettled([
-            MONITOR_ASSETS_REF.update({
-              [asset]: address,
-            }),
-            ASSET_INFO_REF.child(`${asset}`).set(obj[asset]),
-          ]);
+          // Promise.allSettled(
+
+          await ASSET_INFO_REF.child(`${asset}`).set(obj[asset]);
+          // ]);
         }
 
         console.log({ length: infos.length, infos });
