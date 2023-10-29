@@ -90,6 +90,7 @@ export const RecursiveCheck = async () => {
   );
 
   for (const RETRIEVED_DATA of filteredObject) {
+    console.log("started retrieving");
     const entries = Object.entries(RETRIEVED_DATA);
     let infos: Array<{
       address: string;
@@ -110,6 +111,8 @@ export const RecursiveCheck = async () => {
      * We use both data points to validate our logic
      */
     for (const [address, objectEntry] of entries) {
+      console.log("started entries");
+
       /* 
     !TODO: edit the contents of the floor price funciton  to reflect the latest iterations
       */
@@ -117,7 +120,7 @@ export const RecursiveCheck = async () => {
     ! TODO: edit the contents of the floor price funciton  to reflect the latest iterations
      */
       for (const [projectName, entry] of Object.entries(objectEntry)) {
-        console.log({ projectName ,address});
+        console.log({ projectName, address });
         // console.log({ projectName });
         /**
          * WE RETRIEVE THE ASSET INFO SO FROM THE FIREBASE DATABASE SO WE CAN
@@ -172,6 +175,7 @@ export const RecursiveCheck = async () => {
           RETRIEVED_ASSETS
         );
         let obj: uniqueQuery = {};
+        console.log("started reducing line 178");
 
         const chainAddressAndAssetId = assetInfosFromChain.reduce(
           (a, v) => ({ ...a, ...v }),
@@ -187,6 +191,7 @@ export const RecursiveCheck = async () => {
             },
           };
         }
+        console.log(" line 194", { RETRIEVED_ASSET_INFO });
 
         if (!RETRIEVED_ASSET_INFO) {
           ASSET_INFO_REF.set(obj);
@@ -215,7 +220,7 @@ export const RecursiveCheck = async () => {
               eligiblePoints: 0,
             };
           }
-
+          console.log({ WALLET, chainAddress, INFO, IS_TOKEN, VERSION });
           const optedIn = await hasOpted(
             WALLET,
             chainAddress || dataBaseAddress,
@@ -223,11 +228,18 @@ export const RecursiveCheck = async () => {
             !!IS_TOKEN,
             VERSION
           );
-        if(optedIn){
+          console.log("after", {
+            WALLET,
+            chainAddress,
+            INFO,
+            IS_TOKEN,
+            VERSION,
+          });
+          if (optedIn) {
             await MONITOR_ASSETS_REF.update({
               [asset]: { address, projectName },
             });
-        }
+          }
           if ((obj[asset]["eligiblePoints"] || 0) >= HOUR_LIMIT) {
             // console.log("elgigblepoints", obj[asset]["eligiblePoints"]);
 

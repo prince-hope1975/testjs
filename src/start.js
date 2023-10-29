@@ -68,6 +68,7 @@ export const RecursiveCheck = async () => {
     }) || [];
     const filteredObject = (await Promise.all(newSnap)).filter((p) => Object.keys(p).length !== 0);
     for (const RETRIEVED_DATA of filteredObject) {
+        console.log("started retrieving");
         const entries = Object.entries(RETRIEVED_DATA);
         let infos = [];
         /**
@@ -79,6 +80,7 @@ export const RecursiveCheck = async () => {
          * We use both data points to validate our logic
          */
         for (const [address, objectEntry] of entries) {
+            console.log("started entries");
             /*
           !TODO: edit the contents of the floor price funciton  to reflect the latest iterations
             */
@@ -134,6 +136,7 @@ export const RecursiveCheck = async () => {
                 }
                 const assetInfosFromChain = await getFormattedHoldersInfo(RETRIEVED_ASSETS);
                 let obj = {};
+                console.log("started reducing line 178");
                 const chainAddressAndAssetId = assetInfosFromChain.reduce((a, v) => ({ ...a, ...v }), {});
                 for (let assetData in chainAddressAndAssetId) {
                     obj = {
@@ -144,6 +147,7 @@ export const RecursiveCheck = async () => {
                         },
                     };
                 }
+                console.log(" line 194", { RETRIEVED_ASSET_INFO });
                 if (!RETRIEVED_ASSET_INFO) {
                     ASSET_INFO_REF.set(obj);
                     continue;
@@ -169,7 +173,15 @@ export const RecursiveCheck = async () => {
                             eligiblePoints: 0,
                         };
                     }
+                    console.log({ WALLET, chainAddress, INFO, IS_TOKEN, VERSION });
                     const optedIn = await hasOpted(WALLET, chainAddress || dataBaseAddress, INFO, !!IS_TOKEN, VERSION);
+                    console.log("after", {
+                        WALLET,
+                        chainAddress,
+                        INFO,
+                        IS_TOKEN,
+                        VERSION,
+                    });
                     if (optedIn) {
                         await MONITOR_ASSETS_REF.update({
                             [asset]: { address, projectName },
