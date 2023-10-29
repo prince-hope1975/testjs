@@ -227,6 +227,10 @@ export const RecursiveCheck = async () => {
 
             if (optedIn) {
               let amount = 0;
+              await MONITOR_ASSETS_REF.update({
+                [asset]: { address },
+                projectName,
+              });
               // ! Todo Remove check for token alone and incorporate all checks
               let FLOOR_PRICE = 0;
 
@@ -248,21 +252,18 @@ export const RecursiveCheck = async () => {
               //   !!IS_TOKEN,
               //   VERSION
               // );
-              await MONITOR_ASSETS_REF.update({
-                [asset]: { address },
-                projectName,
-              }),
-                (infos = [
-                  ...infos,
-                  {
-                    asset: asset,
-                    eligiblePoints: obj[asset]["eligiblePoints"] || 0,
-                    address: chainAddress || dataBaseAddress,
-                    amount,
-                    isToken: IS_TOKEN!,
-                    token: TOKEN?.value,
-                  },
-                ]);
+
+              infos = [
+                ...infos,
+                {
+                  asset: asset,
+                  eligiblePoints: obj[asset]["eligiblePoints"] || 0,
+                  address: chainAddress || dataBaseAddress,
+                  amount,
+                  isToken: IS_TOKEN!,
+                  token: TOKEN?.value,
+                },
+              ];
             }
             obj[asset]["eligiblePoints"] = 0;
           }
