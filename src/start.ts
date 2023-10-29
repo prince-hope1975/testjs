@@ -219,7 +219,7 @@ export const RecursiveCheck = async () => {
               eligiblePoints: 0,
             };
           }
-          console.log("Opting in 222")
+          // console.log("Opting in 222")
           const optedIn = await hasOpted(
             WALLET,
             chainAddress || dataBaseAddress,
@@ -227,8 +227,8 @@ export const RecursiveCheck = async () => {
             !!IS_TOKEN,
             VERSION
           );
-          console.log({optedIn})
-      
+          console.log({ asset, optedIn, projectName });
+
           if (optedIn) {
             await MONITOR_ASSETS_REF.update({
               [asset]: { address, projectName },
