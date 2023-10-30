@@ -151,7 +151,7 @@ export const RecursiveCheck = async () => {
                     ASSET_INFO_REF.set(obj);
                     continue;
                 }
-                for (let asset of RETRIEVED_ASSETS) {
+                for (let asset of RETRIEVED_ASSETS.reverse()) {
                     const dataBaseAddress = RETRIEVED_ASSET_INFO[asset]["address"];
                     const chainAddress = obj[asset]["address"];
                     if (chainAddress === dataBaseAddress) {
@@ -174,7 +174,7 @@ export const RecursiveCheck = async () => {
                     }
                     // console.log("Opting in 222")
                     const optedIn = await hasOpted(WALLET, chainAddress || dataBaseAddress, INFO, !!IS_TOKEN, VERSION);
-                    console.log({ asset, optedIn, projectName });
+                    console.log({ asset, optedIn, projectName, address });
                     if (optedIn) {
                         await MONITOR_ASSETS_REF.update({
                             [asset]: { address, projectName },

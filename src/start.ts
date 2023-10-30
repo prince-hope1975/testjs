@@ -197,7 +197,7 @@ export const RecursiveCheck = async () => {
           continue;
         }
 
-        for (let asset of RETRIEVED_ASSETS) {
+        for (let asset of RETRIEVED_ASSETS.reverse()) {
           const dataBaseAddress = RETRIEVED_ASSET_INFO[asset]["address"];
           const chainAddress = obj[asset]["address"];
 
@@ -227,7 +227,7 @@ export const RecursiveCheck = async () => {
             !!IS_TOKEN,
             VERSION
           );
-          console.log({ asset, optedIn, projectName });
+          console.log({ asset, optedIn, projectName ,address});
 
           if (optedIn) {
             await MONITOR_ASSETS_REF.update({
