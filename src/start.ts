@@ -119,7 +119,7 @@ export const RecursiveCheck = async () => {
       /* 
     ! TODO: edit the contents of the floor price funciton  to reflect the latest iterations
      */
-      for (const [projectName, entry] of Object.entries(objectEntry)) {
+      for (const [projectName, entry] of Object.entries(objectEntry).reverse()) {
         console.log({ projectName, address });
         // console.log({ projectName });
         /**
@@ -197,7 +197,7 @@ export const RecursiveCheck = async () => {
           continue;
         }
 
-        for (let asset of RETRIEVED_ASSETS.reverse()) {
+        for (let asset of RETRIEVED_ASSETS) {
           const dataBaseAddress = RETRIEVED_ASSET_INFO[asset]["address"];
           const chainAddress = obj[asset]["address"];
 
