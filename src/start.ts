@@ -229,7 +229,7 @@ export const RecursiveCheck = async () => {
             !!IS_TOKEN,
             VERSION
           );
-          console.log({ asset, optedIn, projectName, address });
+          // console.log({ asset, optedIn, projectName, address });
 
           if (optedIn) {
             await Promise.all([
@@ -302,7 +302,7 @@ export const RecursiveCheck = async () => {
                 +reach.bigNumberToNumber(tokemMetadata?.decimals)
               )
             );
-            console.log({ amt, metadata: tokemMetadata });
+            // console.log({ amt, metadata: tokemMetadata });
           } else {
             amt = reach.bigNumberToNumber(reach.parseCurrency(amount));
           }

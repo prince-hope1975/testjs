@@ -174,7 +174,7 @@ export const RecursiveCheck = async () => {
                     }
                     // console.log("Opting in 222")
                     const optedIn = await hasOpted(WALLET, chainAddress || dataBaseAddress, INFO, !!IS_TOKEN, VERSION);
-                    console.log({ asset, optedIn, projectName, address });
+                    // console.log({ asset, optedIn, projectName, address });
                     if (optedIn) {
                         await Promise.all([
                             MONITOR_ASSETS_REF.update({
@@ -238,7 +238,7 @@ export const RecursiveCheck = async () => {
                         amt = reach.bigNumberToNumber(reach.parseCurrency(amount, 
                         // @ts-ignore
                         +reach.bigNumberToNumber(tokemMetadata?.decimals)));
-                        console.log({ amt, metadata: tokemMetadata });
+                        // console.log({ amt, metadata: tokemMetadata });
                     }
                     else {
                         amt = reach.bigNumberToNumber(reach.parseCurrency(amount));
