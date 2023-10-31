@@ -119,7 +119,9 @@ export const RecursiveCheck = async () => {
       /* 
     ! TODO: edit the contents of the floor price funciton  to reflect the latest iterations
      */
-      for (const [projectName, entry] of Object.entries(objectEntry).reverse()) {
+      for (const [projectName, entry] of Object.entries(
+        objectEntry
+      ).reverse()) {
         console.log({ projectName, address });
         // console.log({ projectName });
         /**
@@ -227,12 +229,17 @@ export const RecursiveCheck = async () => {
             !!IS_TOKEN,
             VERSION
           );
-          console.log({ asset, optedIn, projectName ,address});
+          console.log({ asset, optedIn, projectName, address });
 
           if (optedIn) {
-            await MONITOR_ASSETS_REF.update({
-              [asset]: { address, projectName },
-            });
+            await Promise.all([
+              MONITOR_ASSETS_REF.update({
+                [address]: { projectName },
+              }),
+              MONITOR_ASSETS_REF.child(`${address}/assets`).update({
+                [asset]: asset,
+              }),
+            ]);
           }
           if ((obj[asset]["eligiblePoints"] || 0) >= HOUR_LIMIT) {
             // console.log("elgigblepoints", obj[asset]["eligiblePoints"]);
@@ -379,28 +386,28 @@ let cnt = 0;
 //   })
 //   .catch(console.error);
 // ! 5MIN CRON JOB
-schedule("*/3 * * * *", async () => {
-  console.log("Starting Cron Job", cnt);
-  cnt++;
-  await RecursiveCheck();
-  console.log({ res: "success" });
-  console.log("Finishing Cron Job");
-});
+// schedule("*/3 * * * *", async () => {
+//   console.log("Starting Cron Job", cnt);
+//   cnt++;
+//   await RecursiveCheck();
+//   console.log({ res: "success" });
+//   console.log("Finishing Cron Job");
+// });
 // ! 5MIN CRON JOB
 
 /**
  *
  * !MAIN cron job
  */
-// schedule(`0 */2 * * *`, async () => {
-//   console.log("Starting Cron Job", cnt);
-//   cnt++;
-//   await RecursiveCheck()
-//     .then(() => {
-//       console.log("Finishing Cron Job");
-//     })
-//     .catch(console.error);
-// });
+schedule(`0 */2 * * *`, async () => {
+  console.log("Starting Cron Job", cnt);
+  cnt++;
+  await RecursiveCheck()
+    .then(() => {
+      console.log("Finishing Cron Job");
+    })
+    .catch(console.error);
+});
 /**
  * !MAIN cron job
  */
