@@ -19,15 +19,15 @@ const indexerServer = IS_MAINNET
 //   ? "https://mainnet-algorand.api.purestake.io/ps2"
 //   : "https://testnet-algorand.api.purestake.io/ps2";
 
-const Provider = await reach.getProvider()
-const Indexer:indexer = Provider.indexer
+const Provider = await reach.getProvider();
+const Indexer: indexer = Provider.indexer;
 // const token = { "X-API-Key": `${process.env.API_KEY}` };
 const token = { "X-API-Key": `${process.env.API_KEY}` };
 const port = ` `;
 // const port = `${process.env.API_KEY}`;
 // const indexerClient = new algosdk.Indexer(token, indexerServer, port);
 // = new algosdk.Indexer(token, indexerServer, port);
-const indexerClient  = Indexer
+const indexerClient = Indexer;
 
 // This fun
 export const getAssetData = async (assetId: string | number) => {
@@ -77,7 +77,10 @@ const getAssetInformation = async (
   return assetInfo;
 };
 
-export const getHolderAddressOfNFT = async (assetId: number | string) => {
+export const getHolderAddressOfNFT = async (
+  assetId: number | string,
+  currentCall = 0
+) => {
   try {
     // console.log({ assetId });
     const assetData = await getAssetData(assetId);
@@ -86,13 +89,18 @@ export const getHolderAddressOfNFT = async (assetId: number | string) => {
       ({ amount }: data) => amount === 1
     );
     if (!filteredData[0]?.address) {
-      throw new RangeError(
-        "Address key does not exist @ getHolderAddressOfNFT"
-      );
+      if (currentCall > 4) {
+        throw new RangeError(
+          "Address key does not exist @ getHolderAddressOfNFT"
+        );
+      }
+      console.log("trying again")
+      return getHolderAddressOfNFT(assetId, currentCall + 1);
     }
     const [{ address }] = filteredData;
     return { address, assetId };
   } catch (error) {
+    // return await getHolderAddressOfNFT(assetId, currentCall + 1);
     throw new Error("Error trying to get nft data @getHolderAddressOfNFT");
   }
 };
@@ -138,7 +146,7 @@ export const getFormattedHoldersInfo = async (arr: number[] | string[]) => {
     .then((result) =>
       result.map((res, idx) =>
         res.status === "fulfilled"
-          ? res.value 
+          ? res.value
           : {
               address: "error",
               assetId: arr[idx],
@@ -165,7 +173,7 @@ async function RateLimitedRequest(
     const chunk = Array.slice(i, i + chunkSize);
     const result = await Promise.allSettled(
       chunk.map((item) =>
-        callFunctionRecursively(getHolderAddressOfNFT, item, i,7)
+        callFunctionRecursively(getHolderAddressOfNFT, item, i, 7)
       )
     ).then((result) => {
       return result.map((res, idx) =>
@@ -229,4 +237,4 @@ type requestData = {
 // });
 
 // run a cron job every 5 minuite
-export {}
+export {};

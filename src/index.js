@@ -56,19 +56,24 @@ const getAssetInformation = async (props = { assetId: 381449561 }) => {
     console.log({ assetInfo });
     return assetInfo;
 };
-export const getHolderAddressOfNFT = async (assetId) => {
+export const getHolderAddressOfNFT = async (assetId, currentCall = 0) => {
     try {
         // console.log({ assetId });
         const assetData = await getAssetData(assetId);
         const { balances } = assetData;
         const filteredData = balances.filter(({ amount }) => amount === 1);
         if (!filteredData[0]?.address) {
-            throw new RangeError("Address key does not exist @ getHolderAddressOfNFT");
+            if (currentCall > 4) {
+                throw new RangeError("Address key does not exist @ getHolderAddressOfNFT");
+            }
+            console.log("trying again");
+            return getHolderAddressOfNFT(assetId, currentCall + 1);
         }
         const [{ address }] = filteredData;
         return { address, assetId };
     }
     catch (error) {
+        // return await getHolderAddressOfNFT(assetId, currentCall + 1);
         throw new Error("Error trying to get nft data @getHolderAddressOfNFT");
     }
 };
