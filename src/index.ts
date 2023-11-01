@@ -94,8 +94,8 @@ export const getHolderAddressOfNFT = async (
           "Address key does not exist @ getHolderAddressOfNFT"
         );
       }
-      console.log("trying again")
-      return getHolderAddressOfNFT(assetId, currentCall + 1);
+      console.log("trying again");
+      return getHolderAddressOfNFT(assetId, currentCall + 1) 
     }
     const [{ address }] = filteredData;
     return { address, assetId };

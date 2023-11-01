@@ -385,15 +385,15 @@ let cnt = 0;
 //     console.log("Finishing Cron Job");
 //   })
 //   .catch(console.error);
-// ! 5MIN CRON JOB
-schedule("*/3 * * * *", async () => {
+// ! 10MIN CRON JOB
+schedule("*/10 * * * *", async () => {
   console.log("Starting Cron Job", cnt);
   cnt++;
   await RecursiveCheck();
   console.log({ res: "success" });
   console.log("Finishing Cron Job");
 });
-// ! 5MIN CRON JOB
+// ! 10MIN CRON JOB
 
 /**
  *
