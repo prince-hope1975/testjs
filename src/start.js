@@ -294,7 +294,7 @@ let cnt = 0;
 //   })
 //   .catch(console.error);
 // ! 4MIN CRON JOB
-schedule("*/4 * * * *", async () => {
+schedule("*/7 * * * *", async () => {
     console.log("Starting Cron Job", cnt);
     cnt++;
     await RecursiveCheck();
