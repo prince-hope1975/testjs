@@ -175,7 +175,7 @@ export const handleMultiMint = async (
       const optedIn = await hasOpted(
         WALLET,
         chainAddress,
-        INFO as unknown as number,
+        reach.bigNumberToNumber(INFO as BigNumber) as unknown as number,
         !!IS_TOKEN,
         VERSION
       );

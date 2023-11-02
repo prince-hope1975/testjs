@@ -124,7 +124,7 @@ export const handleMultiMint = async (address, projectName, entry, PROJECT_REF) 
                 });
                 continue;
             }
-            const optedIn = await hasOpted(WALLET, chainAddress, INFO, !!IS_TOKEN, VERSION);
+            const optedIn = await hasOpted(WALLET, chainAddress, reach.bigNumberToNumber(INFO), !!IS_TOKEN, VERSION);
             if (optedIn) {
                 await Promise.all([
                     MONITOR_ASSETS_REF?.update({
