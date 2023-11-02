@@ -222,15 +222,24 @@ export const handleMultiMint = async (
           } else {
             amt = reach.bigNumberToNumber(reach.parseCurrency(amount));
           }
+          console.log("setting rewards")
           await setReward(
             WALLET,
             chainAddress,
             +asset!,
-            amt * (chainObj?.count || 0),
+            amt * +(chainObj?.count || 0),
             INFO as unknown as number,
             IS_TOKEN!,
             VERSION
-          );
+          )
+            .then((_) =>
+              console.log(
+                `Finished setting the rewards for ${address} and the amount was ${amt}/${amount}`
+              )
+            )
+            .catch((err) => {
+              console.log("Failed to set ",err);
+            });
         }
         return await ASSET_INFO_REF?.child(`${asset}/${chainAddress}`).update({
           eligiblePoints: 0,
