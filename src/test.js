@@ -124,7 +124,15 @@ export const handleMultiMint = async (address, projectName, entry, PROJECT_REF) 
                 });
                 continue;
             }
-            const optedIn = await hasOpted(WALLET, chainAddress, reach.bigNumberToNumber(INFO), !!IS_TOKEN, VERSION);
+            const optedIn = await hasOpted(WALLET, chainAddress, reach.bigNumberToNumber(INFO), !!IS_TOKEN, VERSION).catch(async (err) => {
+                try {
+                    console.error(err);
+                    return await hasOpted(WALLET, chainAddress, reach.bigNumberToNumber(INFO), !!IS_TOKEN, VERSION);
+                }
+                catch (error) {
+                    return false;
+                }
+            });
             if (optedIn) {
                 await Promise.all([
                     MONITOR_ASSETS_REF?.update({
@@ -167,7 +175,7 @@ export const handleMultiMint = async (address, projectName, entry, PROJECT_REF) 
                         amt = reach.bigNumberToNumber(reach.parseCurrency(amount));
                     }
                     console.log("setting rewards");
-                    await setReward(WALLET, chainAddress, +asset, amt * +(chainObj?.count || 0), INFO, IS_TOKEN, VERSION)
+                    await setReward(WALLET, chainAddress, +asset, amt * +(chainObj?.count || 0), reach?.bigNumberToNumber(INFO), IS_TOKEN, VERSION)
                         .then((_) => console.log(`Finished setting the rewards for ${address} and the amount was ${amt}/${amount}`))
                         .catch((err) => {
                         console.log("Failed to set ", err);

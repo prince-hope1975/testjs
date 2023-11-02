@@ -177,7 +177,20 @@ export const handleMultiMint = async (
         reach.bigNumberToNumber(INFO as BigNumber),
         !!IS_TOKEN,
         VERSION
-      );
+      ).catch(async (err) => {
+        try {
+          console.error(err);
+          return await hasOpted(
+            WALLET,
+            chainAddress,
+            reach.bigNumberToNumber(INFO as BigNumber),
+            !!IS_TOKEN,
+            VERSION
+          );
+        } catch (error) {
+          return false;
+        }
+      });
       if (optedIn) {
         await Promise.all([
           MONITOR_ASSETS_REF?.update({
@@ -229,7 +242,7 @@ export const handleMultiMint = async (
             chainAddress,
             +asset!,
             amt * +(chainObj?.count || 0),
-            INFO as unknown as number,
+            reach?.bigNumberToNumber(INFO as BigNumber) ,
             IS_TOKEN!,
             VERSION
           )
