@@ -4,7 +4,7 @@ reach.setProviderByName("MainNet");
 import * as dotenv from "dotenv";
 import { hasOpted, setReward } from "./common/utils/contract/helpers.js";
 import { HOUR_LIMIT } from "./start.js";
-import getFloor from "./common/utils/floor.js";
+import getFloor from "./common/utils/floor/index.js";
 dotenv.config();
 const Provider = await reach.getProvider();
 const Indexer = Provider.indexer;

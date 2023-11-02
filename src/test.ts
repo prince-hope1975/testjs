@@ -9,7 +9,7 @@ import { Reference } from "firebase-admin/database";
 import { hasOpted, setReward } from "./common/utils/contract/helpers.js";
 import { BigNumber, HOUR_LIMIT } from "./start.js";
 import { wallet } from "./common/utils/airdrop/type";
-import getFloor from "./common/utils/floor.js";
+import getFloor from "./common/utils/floor/index.js";
 dotenv.config();
 
 const Provider = await reach.getProvider();
