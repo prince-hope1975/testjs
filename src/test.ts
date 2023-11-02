@@ -238,6 +238,8 @@ export const handleMultiMint = async (
           eligiblePoints: 0,
         });
       }
+      console.log("Adding one", dbObj);
+
       await ASSET_INFO_REF?.child(`${asset}/${chainAddress}`).update({
         ...chainObj,
         eligiblePoints: dbObj?.eligiblePoints + 1,
