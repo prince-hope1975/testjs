@@ -31,8 +31,10 @@ export interface Project {
   socials: { discordLink?: string; twitterLink?: string; youtubeLink?: string };
   dailyRewardAmount?: number;
   isManual?: boolean;
-  paymentActivated?:boolean;
+  paymentActivated?: boolean;
+  backendType?: backendType;
 }
+type backendType="multi-mint"|"mono-mint"
 interface RetrievedData {
   [address: string]: {
     [projectName: string]: Project;

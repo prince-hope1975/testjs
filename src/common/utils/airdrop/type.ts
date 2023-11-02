@@ -1,6 +1,8 @@
+import { TokenMetadata } from "@reach-sh/stdlib/dist/types/shared_impl";
+
 export interface wallet {
   contract(...arg: any): any;
-  tokenMetadata(...arg: any): Promise<tokenMetadata>;
+  tokenMetadata(...arg: any): Promise<TokenMetadata>;
   getAddress(): Promise<string>;
   balanceOf(...arg: any): Promise<{ _hex: string; _isBigNumber: true }>;
   networkAccount: {
@@ -10,18 +12,6 @@ export interface wallet {
   tokenAccepted: (tok: string | number) => Promise<boolean>;
   tokenAccept: (tok: string | number) => Promise<any>;
 }
+export type version = "v3" | "v4";
 
-interface tokenMetadata {
-  clawback: string;
-  creator: string;
-  decimals: { _hex: string; _isBigNumber: true } | number;
-  defaultFrozen: boolean;
-  freeze: string;
-  manager: string;
-  metadata: any;
-  name: string;
-  reserve: string;
-  supply: { _hex: string; _isBigNumber: true } | number;
-  symbol: string;
-  url: string;
-}
+

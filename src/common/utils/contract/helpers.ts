@@ -1,5 +1,5 @@
 // @ts-ignore
-import { wallet } from "../airdrop/type.js";
+import { version, wallet } from "../airdrop/type.js";
 // @ts-ignore
 import * as _v1_backend from "../build/v1/index.main.mjs";
 // @ts-ignore
@@ -108,7 +108,56 @@ export const setReward = async (
   console.log({ result });
   return result;
 };
+export const getPoolBalance = async (
+  acc: wallet,
+  ctcInfo: BigNumber,
+  isToken?: boolean,
+  token?: BigNumber | number,
+  version: version = "v4"
+): Promise<number | string> => {
+  try {
+    let ctcUsers: any;
+    if (isToken == null || isToken == undefined) {
+      ctcUsers = acc.contract(_v1_backend, ctcInfo);
+    } else {
+      ctcUsers = acc.contract(versionManager[version][`${!!isToken}`], ctcInfo);
+    }
+    let total: string | number = 0;
+    const totalBalance = await ctcUsers.unsafeViews.Info.balance();
+    if (version == "v3") {
+      total = totalBalance;
+    } else {
+      total =
+        totalBalance -
+        ((await ctcUsers.unsafeViews.Info.totalCurrentAllocatoinToAllUsers()) ||
+          0);
+      // console.log({
+      //   totalBalance,
+      //   myBal:
+      //     await ctcUsers.unsafeViews.Info.totalCurrentAllocatoinToAllUsers(),
+      // });
+    }
+    // if (!BNTN(total as unknown as BigNumber)) {
+    //   total = await ctcUsers.unsafeViews.Info.balance();
+    //   console.log("balance", total);
+    // }
+    if (token) {
+      const meta = await acc.tokenMetadata(token);
+      total = reach.formatWithDecimals(
+        total,
+        reach.bigNumberToNumber(meta.decimals!)
+      );
+    } else {
+      // @ts-ignore
+      total = reach.formatCurrency(total);
+    }
 
+    return total;
+  } catch (err) {
+    console.error(err);
+    return 0;
+  }
+};
 export const contractBalance = async (
   acc: wallet,
   ctcInfo: BigNumber,

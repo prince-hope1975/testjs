@@ -37,25 +37,36 @@ export const getAssetData = async (assetId) => {
         return { balances: [] };
     }
 };
-const FormatData = (props, options) => {
-    if (options?.format === "cascade") {
-        return {
-            [props?.assetId || `${props.assetId}`]: {
-                ...props,
-            },
-        };
-    }
-    return props;
-};
-const getAssetInformation = async (props = { assetId: 381449561 }) => {
-    // if (options?.format === "cascade")
-    let assetInfo = await indexerClient
-        .searchForAssets()
-        .index(props.assetId)
-        .do();
-    console.log({ assetInfo });
-    return assetInfo;
-};
+// const FormatData = (
+//   props: {
+//     assetId: string | number | null;
+//     address: string | null;
+//     [any: string]: any | undefined;
+//   },
+//   options?: {
+//     format?: "default" | "cascade";
+//   }
+// ) => {
+//   if (options?.format === "cascade") {
+//     return {
+//       [props?.assetId || `${props.assetId}`]: {
+//         ...props,
+//       },
+//     };
+//   }
+//   return props;
+// };
+// const getAssetInformation = async (
+//   props: { assetId: number } = { assetId: 381449561 }
+// ) => {
+//   // if (options?.format === "cascade")
+//   let assetInfo = await indexerClient
+//     .searchForAssets()
+//     .index(props.assetId)
+//     .do();
+//   console.log({ assetInfo });
+//   return assetInfo;
+// };
 export const getHolderAddressOfNFT = async (assetId, currentCall = 0) => {
     try {
         // console.log({ assetId });

@@ -59,6 +59,50 @@ export const setReward = async (acc, address, token, amt, ctcInfo, isToken, vers
     console.log({ result });
     return result;
 };
+export const getPoolBalance = async (acc, ctcInfo, isToken, token, version = "v4") => {
+    try {
+        let ctcUsers;
+        if (isToken == null || isToken == undefined) {
+            ctcUsers = acc.contract(_v1_backend, ctcInfo);
+        }
+        else {
+            ctcUsers = acc.contract(versionManager[version][`${!!isToken}`], ctcInfo);
+        }
+        let total = 0;
+        const totalBalance = await ctcUsers.unsafeViews.Info.balance();
+        if (version == "v3") {
+            total = totalBalance;
+        }
+        else {
+            total =
+                totalBalance -
+                    ((await ctcUsers.unsafeViews.Info.totalCurrentAllocatoinToAllUsers()) ||
+                        0);
+            // console.log({
+            //   totalBalance,
+            //   myBal:
+            //     await ctcUsers.unsafeViews.Info.totalCurrentAllocatoinToAllUsers(),
+            // });
+        }
+        // if (!BNTN(total as unknown as BigNumber)) {
+        //   total = await ctcUsers.unsafeViews.Info.balance();
+        //   console.log("balance", total);
+        // }
+        if (token) {
+            const meta = await acc.tokenMetadata(token);
+            total = reach.formatWithDecimals(total, reach.bigNumberToNumber(meta.decimals));
+        }
+        else {
+            // @ts-ignore
+            total = reach.formatCurrency(total);
+        }
+        return total;
+    }
+    catch (err) {
+        console.error(err);
+        return 0;
+    }
+};
 export const contractBalance = async (acc, ctcInfo, isToken) => {
     try {
         let ctcUsers;

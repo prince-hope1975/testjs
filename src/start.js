@@ -1,15 +1,16 @@
 import { getFormattedHoldersInfo } from "./index.js";
 import { loadStdlib } from "@reach-sh/stdlib";
 import { readDataFromSnapShot, db, } from "./common/utils/backend/firebase/index.js";
-import { hasOpted, setReward } from "./common/utils/contract/helpers.js";
+import { getPoolBalance, hasOpted, setReward, } from "./common/utils/contract/helpers.js";
 import { schedule } from "node-cron";
 import dotenv from "dotenv";
 // import { BigNumber } from "@reach-sh/stdlib/shared_impl.js";
 import getFloor from "./common/utils/floor/index.js";
 // import { writeFile } from "fs";
 import { writeFile } from "fs/promises";
+import { handleMultiMint } from "./test.js";
 dotenv.config();
-const HOUR_LIMIT = 12;
+export const HOUR_LIMIT = 12;
 const backupDatabase = (data) => {
     const filePath = "db.json";
     try {
@@ -114,10 +115,16 @@ export const RecursiveCheck = async () => {
                 const VERSION = entry?.version || "v3";
                 const SHOULD_OVERRIDE_FLOOR = entry?.override || false;
                 const PAYMENT_ACTIVATED = entry?.paymentActivated;
+                const BACKEND_TYPE = entry?.backendType || "mono-mint";
                 const reach = loadStdlib("ALGO");
                 reach.setProviderByName(NETWORK);
                 const WALLET = await reach.newAccountFromMnemonic(process?.env?.MNEMONIC || "");
                 // const FREQUENCY = entry.frequency;
+                const poolB = await getPoolBalance(WALLET, INFO, !!IS_TOKEN, TOKEN?.value, VERSION);
+                console.log({ poolB });
+                if (poolB == 0) {
+                    continue;
+                }
                 /**
                  * We run this checks so we can premarturely end a project
                  * IF specific conditions are met
@@ -132,6 +139,10 @@ export const RecursiveCheck = async () => {
                     continue;
                 }
                 if (PAYMENT_ACTIVATED == false) {
+                    continue;
+                }
+                if (BACKEND_TYPE == "multi-mint") {
+                    await handleMultiMint(address, projectName, entry, PROJECT_REF);
                     continue;
                 }
                 const assetInfosFromChain = await getFormattedHoldersInfo(RETRIEVED_ASSETS);
