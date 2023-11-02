@@ -6,10 +6,10 @@ reach.setProviderByName("MainNet");
 import * as dotenv from "dotenv";
 import { Project } from "./common/datatypes/retireveddata";
 import { Reference } from "firebase-admin/database";
-import { hasOpted, setReward } from "./common/utils/contract/helpers";
-import { BigNumber, HOUR_LIMIT } from "./start";
+import { hasOpted, setReward } from "./common/utils/contract/helpers.js";
+import { BigNumber, HOUR_LIMIT } from "./start.js";
 import { wallet } from "./common/utils/airdrop/type";
-import getFloor from "./common/utils/floor";
+import getFloor from "./common/utils/floor.js";
 dotenv.config();
 
 const Provider = await reach.getProvider();
