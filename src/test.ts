@@ -118,8 +118,7 @@ export const handleMultiMint = async (
   const RETRIEVED_ASSET_INFO =
     entry?.assetInfo as unknown as retrievedAssetInfoForMultiMint;
   let INFO = entry?.info as BigNumber | number;
-  const RETRIEVED_ASSETS =
-    entry?.assets ;
+  const RETRIEVED_ASSETS = entry?.assets;
   const IS_TOKEN = entry?.isToken;
   const VERSION = entry?.version || "v4";
   const NETWORK = entry?.network;
@@ -175,7 +174,7 @@ export const handleMultiMint = async (
       const optedIn = await hasOpted(
         WALLET,
         chainAddress,
-        reach.bigNumberToNumber(INFO as BigNumber) as unknown as number,
+        reach.bigNumberToNumber(INFO as BigNumber),
         !!IS_TOKEN,
         VERSION
       );
