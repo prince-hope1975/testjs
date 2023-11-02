@@ -136,8 +136,10 @@ export const handleMultiMint = async (address, projectName, entry, PROJECT_REF) 
                 ]);
             }
             if (dbObj?.eligiblePoints + 1 >= HOUR_LIMIT) {
+                console.log("Eligible");
                 if (optedIn) {
                     let amount = 0;
+                    console.log("opted id");
                     // ! Todo Remove check for token alone and incorporate all checks
                     let FLOOR_PRICE = 0;
                     if (!IS_MANUAL) {

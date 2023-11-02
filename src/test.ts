@@ -190,9 +190,10 @@ export const handleMultiMint = async (
       }
 
       if (dbObj?.eligiblePoints + 1 >= HOUR_LIMIT) {
+        console.log("Eligible");
         if (optedIn) {
           let amount = 0;
-
+          console.log("opted id");
           // ! Todo Remove check for token alone and incorporate all checks
           let FLOOR_PRICE = 0;
 
@@ -222,7 +223,7 @@ export const handleMultiMint = async (
           } else {
             amt = reach.bigNumberToNumber(reach.parseCurrency(amount));
           }
-          console.log("setting rewards")
+          console.log("setting rewards");
           await setReward(
             WALLET,
             chainAddress,
@@ -238,7 +239,7 @@ export const handleMultiMint = async (
               )
             )
             .catch((err) => {
-              console.log("Failed to set ",err);
+              console.log("Failed to set ", err);
             });
         }
         return await ASSET_INFO_REF?.child(`${asset}/${chainAddress}`).update({
