@@ -228,7 +228,7 @@ export const handleMultiMint = async (
             WALLET,
             chainAddress,
             +asset!,
-            amt,
+            amt * (chainObj?.count || 0),
             INFO as unknown as number,
             IS_TOKEN!,
             VERSION
