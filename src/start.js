@@ -120,7 +120,7 @@ export const RecursiveCheck = async () => {
                 reach.setProviderByName(NETWORK);
                 const WALLET = await reach.newAccountFromMnemonic(process?.env?.MNEMONIC || "");
                 // const FREQUENCY = entry.frequency;
-                const poolB = await getPoolBalance(WALLET, INFO, !!IS_TOKEN, TOKEN?.value, VERSION);
+                const poolB = await getPoolBalance(WALLET, reach.bigNumberToNumber(INFO), !!IS_TOKEN, TOKEN?.value, VERSION);
                 console.log({ poolB });
                 if (poolB == 0) {
                     continue;

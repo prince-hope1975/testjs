@@ -165,7 +165,7 @@ export const RecursiveCheck = async () => {
         // const FREQUENCY = entry.frequency;
         const poolB = await getPoolBalance(
           WALLET,
-          INFO as unknown as number,
+          reach.bigNumberToNumber(INFO as BigNumber) as unknown as number,
           !!IS_TOKEN,
           TOKEN?.value,
           VERSION
