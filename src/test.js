@@ -93,9 +93,7 @@ export const handleMultiMint = async (address, projectName, entry, PROJECT_REF) 
     const reach = loadStdlib("ALGO");
     reach.setProviderByName(NETWORK);
     const WALLET = await reach.newAccountFromMnemonic(process?.env?.MNEMONIC || "");
-    const _assets = await getAllFormattedHoldersInfo([
-        1227091102, 1221207200, 1215598510, 1203555523,
-    ]);
+    const _assets = await getAllFormattedHoldersInfo(RETRIEVED_ASSETS);
     const main_assets = _assets
         .flatMap((res) => res)
         .reduce((prev, next) => {
@@ -115,7 +113,7 @@ export const handleMultiMint = async (address, projectName, entry, PROJECT_REF) 
         return;
     }
     for (let asset in main_assets) {
-        const _databaseAsset = RETRIEVED_ASSETS?.[asset];
+        const _databaseAsset = RETRIEVED_ASSET_INFO?.[asset];
         const _chainAsset = main_assets[asset];
         for (let chainAddress in _chainAsset) {
             const dbObj = _databaseAsset?.[chainAddress];

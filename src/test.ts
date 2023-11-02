@@ -115,10 +115,11 @@ export const handleMultiMint = async (
   entry: Project,
   PROJECT_REF: Reference
 ) => {
-  const RETRIEVED_ASSET_INFO = entry?.assetInfo;
+  const RETRIEVED_ASSET_INFO =
+    entry?.assetInfo as unknown as retrievedAssetInfoForMultiMint;
   let INFO = entry?.info as BigNumber | number;
   const RETRIEVED_ASSETS =
-    entry?.assets as unknown as retrievedAssetInfoForMultiMint;
+    entry?.assets ;
   const IS_TOKEN = entry?.isToken;
   const VERSION = entry?.version || "v4";
   const NETWORK = entry?.network;
@@ -137,9 +138,7 @@ export const handleMultiMint = async (
   const WALLET: wallet = await reach.newAccountFromMnemonic(
     process?.env?.MNEMONIC || ""
   );
-  const _assets = await getAllFormattedHoldersInfo([
-    1227091102, 1221207200, 1215598510, 1203555523,
-  ]);
+  const _assets = await getAllFormattedHoldersInfo(RETRIEVED_ASSETS);
 
   const main_assets = _assets
     .flatMap((res) => res)
@@ -162,7 +161,7 @@ export const handleMultiMint = async (
     return;
   }
   for (let asset in main_assets) {
-    const _databaseAsset = RETRIEVED_ASSETS?.[asset];
+    const _databaseAsset = RETRIEVED_ASSET_INFO?.[asset];
     const _chainAsset = main_assets[asset];
     for (let chainAddress in _chainAsset) {
       const dbObj = _databaseAsset?.[chainAddress];
