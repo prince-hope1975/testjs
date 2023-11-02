@@ -236,13 +236,13 @@ export const handleMultiMint = async (
           } else {
             amt = reach.bigNumberToNumber(reach.parseCurrency(amount));
           }
-          console.log("setting rewards");
+          console.log("setting rewards", dbObj, chainAddress);
           await setReward(
             WALLET,
             chainAddress,
             +asset!,
             amt * +(chainObj?.count || 0),
-            reach?.bigNumberToNumber(INFO as BigNumber) ,
+            reach?.bigNumberToNumber(INFO as BigNumber),
             IS_TOKEN!,
             VERSION
           )
@@ -259,7 +259,6 @@ export const handleMultiMint = async (
           eligiblePoints: 0,
         });
       }
-      console.log("Adding one", dbObj);
 
       await ASSET_INFO_REF?.child(`${asset}/${chainAddress}`).update({
         ...chainObj,

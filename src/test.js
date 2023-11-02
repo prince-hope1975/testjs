@@ -174,7 +174,7 @@ export const handleMultiMint = async (address, projectName, entry, PROJECT_REF) 
                     else {
                         amt = reach.bigNumberToNumber(reach.parseCurrency(amount));
                     }
-                    console.log("setting rewards");
+                    console.log("setting rewards", dbObj, chainAddress);
                     await setReward(WALLET, chainAddress, +asset, amt * +(chainObj?.count || 0), reach?.bigNumberToNumber(INFO), IS_TOKEN, VERSION)
                         .then((_) => console.log(`Finished setting the rewards for ${address} and the amount was ${amt}/${amount}`))
                         .catch((err) => {
@@ -185,7 +185,6 @@ export const handleMultiMint = async (address, projectName, entry, PROJECT_REF) 
                     eligiblePoints: 0,
                 });
             }
-            console.log("Adding one", dbObj);
             await ASSET_INFO_REF?.child(`${asset}/${chainAddress}`).update({
                 ...chainObj,
                 eligiblePoints: dbObj?.eligiblePoints + 1,
