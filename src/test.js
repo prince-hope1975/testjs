@@ -34,7 +34,7 @@ export const getAllHolderAddressOfNFT = async (assetId, currentCall = 0) => {
         const { balances } = assetData;
         const filteredData = balances.filter(({ amount }) => amount >= 1);
         if (!filteredData[0]?.address) {
-            if (currentCall > 4) {
+            if (currentCall > 2) {
                 throw new RangeError("Address key does not exist @ getHolderAddressOfNFT");
             }
             console.log("trying again");
