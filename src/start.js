@@ -295,26 +295,26 @@ let cnt = 0;
 //   .catch(console.error);
 // ! 4MIN CRON JOB
 // schedule("*/20 * * * *", async () => {
-//   console.log("Starting Cron Job", cnt);
-//   cnt++;
-//   await RecursiveCheck();
-//   console.log({ res: "success" });
-//   console.log("Finishing Cron Job");
+  console.log("Starting Cron Job", cnt);
+  cnt++;
+  await RecursiveCheck();
+  console.log({ res: "success" });
+  console.log("Finishing Cron Job");
 // });
 // ! 4MIN CRON JOB
 /**
  *
  * !MAIN cron job
  */
-schedule(`0 */2 * * *`, async () => {
-    console.log("Starting Cron Job", cnt);
-    cnt++;
-    await RecursiveCheck()
-        .then(() => {
-        console.log("Finishing Cron Job");
-    })
-        .catch(console.error);
-});
+// schedule(`0 */2 * * *`, async () => {
+//     console.log("Starting Cron Job", cnt);
+//     cnt++;
+//     await RecursiveCheck()
+//         .then(() => {
+//         console.log("Finishing Cron Job");
+//     })
+//         .catch(console.error);
+// });
 /**
  * !MAIN cron job
  */
