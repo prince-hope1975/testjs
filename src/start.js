@@ -294,13 +294,13 @@ let cnt = 0;
 //   })
 //   .catch(console.error);
 // ! 4MIN CRON JOB
-// schedule("*/20 * * * *", async () => {
+schedule("*/10 * * * *", async () => {
   console.log("Starting Cron Job", cnt);
   cnt++;
   await RecursiveCheck();
   console.log({ res: "success" });
   console.log("Finishing Cron Job");
-// });
+});
 // ! 4MIN CRON JOB
 /**
  *
