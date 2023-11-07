@@ -1,44 +1,44 @@
 import { schedule } from "node-cron";
 import { exec as _exec } from "child_process";
 import util from "node:util";
-import { exec } from "child_process";
-
+const exec = util.promisify(_exec);
 // const exec = util.promisify(_exec); // Define// import {} from "";
 // Define the process name (you can change this if you're looking for Chromium or a specific Chrome variant)
 const processName = "chrome";
 
 // Define a cron schedule (every 1 hours)
 const cronSchedule = "1 */1 * * *";
-export function findAndKillAllActiveChromeProcesses() {
+export async function findAndKillAllActiveChromeProcesses() {
   // Use shell commands to find all active Chrome processes
   const cmd = "pgrep 'chrome|chromium'";
-  exec(cmd, (error, stdout, stderr) => {
-    if (error) {
-      console.error(`Error finding Chrome processes: ${error.message}`);
-      return;
-    }
-
-    const chromePIDs = stdout.trim().split("\n");
+  try {
+    const ret = await exec(cmd);
+    const chromePIDs = ret.stdout.trim().split("\n");
 
     if (chromePIDs.length > 0) {
       console.log(`Terminating ${chromePIDs.length} active Chrome processes:`);
-      chromePIDs.forEach((pid) => {
-        exec(`kill -9 ${pid}`, (killError) => {
+      for (let pid of chromePIDs) {
+        await exec(`kill -9 ${pid}`).catch((killError) => {
           if (killError) {
             console.error(
               `Error killing Chrome process ${pid}: ${killError.message}`
             );
           }
         });
-        console.log(`Killed Chrome process with PID ${pid}`);
-      });
+      }
     } else {
       console.log("No active Chrome processes found.");
     }
-  });
+  } catch (error) {
+    if (error) {
+      // @ts-ignore
+      console.error(`Error finding Chrome processes: ${error?.message}`);
+      return;
+    }
+  }
 }
 // Function to check and terminate Chrome processes
-async function checkAndTerminateProcesses () {
+async function checkAndTerminateProcesses() {
   try {
     await exec(`pkill -f -x ${processName}`);
   } catch (error) {
@@ -53,7 +53,7 @@ schedule(cronSchedule, async () => {
       "Cron job scheduled to run every 30th  minuite.",
       console.log(new Date().toLocaleTimeString())
     );
-     findAndKillAllActiveChromeProcesses();
+    await findAndKillAllActiveChromeProcesses();
   } catch (error) {
     console.error(error);
   }
