@@ -113,6 +113,7 @@ export const handleMultiMint = async (address, projectName, entry, PROJECT_REF) 
         return;
     }
     for (let asset in main_assets) {
+        console.log("asset", asset);
         const _databaseAsset = RETRIEVED_ASSET_INFO?.[asset];
         const _chainAsset = main_assets[asset];
         for (let chainAddress in _chainAsset) {
