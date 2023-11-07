@@ -112,6 +112,7 @@ export const handleMultiMint = async (address, projectName, entry, PROJECT_REF) 
         await ASSET_INFO_REF?.set(main_assets);
         return;
     }
+    console.log("Listing assets");
     for (let asset in main_assets) {
         console.log("asset", asset);
         const _databaseAsset = RETRIEVED_ASSET_INFO?.[asset];

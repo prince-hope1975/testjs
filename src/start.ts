@@ -192,7 +192,9 @@ export const RecursiveCheck = async () => {
         }
 
         if (BACKEND_TYPE == "multi-mint") {
+          console.log({ BACKEND_TYPE });
           await handleMultiMint(address, projectName, entry, PROJECT_REF);
+          console.log("Done");
           continue;
         } else {
           continue;
