@@ -112,9 +112,8 @@ export const handleMultiMint = async (address, projectName, entry, PROJECT_REF) 
         await ASSET_INFO_REF?.set(main_assets);
         return;
     }
-    console.log("Listing assets");
+    console.log({ assets: Object.keys(main_assets) });
     for (let asset in main_assets) {
-        console.log("asset", asset);
         const _databaseAsset = RETRIEVED_ASSET_INFO?.[asset];
         const _chainAsset = main_assets[asset];
         for (let chainAddress in _chainAsset) {
@@ -124,73 +123,84 @@ export const handleMultiMint = async (address, projectName, entry, PROJECT_REF) 
                 await ASSET_INFO_REF?.child(`${asset}/${chainAddress}`).update({
                     ...chainObj,
                 });
-                continue;
             }
-            const optedIn = await hasOpted(WALLET, chainAddress, reach.bigNumberToNumber(INFO), !!IS_TOKEN, VERSION).catch(async (err) => {
-                try {
-                    console.error(err);
-                    return await hasOpted(WALLET, chainAddress, reach.bigNumberToNumber(INFO), !!IS_TOKEN, VERSION);
-                }
-                catch (error) {
-                    return false;
-                }
-            });
-            if (optedIn) {
-                await Promise.all([
-                    MONITOR_ASSETS_REF?.update({
-                        [address]: { projectName },
-                    }),
-                    MONITOR_ASSETS_REF?.child(`${address}/assets`).update({
-                        [asset]: asset,
-                    }),
-                ]);
-            }
-            if (dbObj?.eligiblePoints + 1 >= HOUR_LIMIT) {
-                console.log("Eligible");
+            else {
+                const optedIn = await hasOpted(WALLET, chainAddress, reach.bigNumberToNumber(INFO), !!IS_TOKEN, VERSION).catch(async (err) => {
+                    try {
+                        console.error(err);
+                        return await hasOpted(WALLET, chainAddress, reach.bigNumberToNumber(INFO), !!IS_TOKEN, VERSION);
+                    }
+                    catch (error) {
+                        return false;
+                    }
+                });
                 if (optedIn) {
-                    let amount = 0;
-                    console.log("opted id");
-                    // ! Todo Remove check for token alone and incorporate all checks
-                    let FLOOR_PRICE = 0;
-                    if (!IS_MANUAL) {
-                        if (SHOULD_OVERRIDE_FLOOR) {
-                            FLOOR_PRICE = FLOOR;
+                    await Promise.all([
+                        MONITOR_ASSETS_REF?.update({
+                            [address]: { projectName },
+                        }),
+                        MONITOR_ASSETS_REF?.child(`${address}/assets`).update({
+                            [asset]: asset,
+                        }),
+                    ]);
+                }
+                if (dbObj?.eligiblePoints + 1 >= HOUR_LIMIT && optedIn) {
+                    console.log({
+                        optedIn,
+                        eligiblePoints: dbObj.eligiblePoints,
+                        chainAddress,
+                    });
+                    console.log("Eligible", chainAddress);
+                    if (optedIn) {
+                        let amount = 0;
+                        console.log("opted id");
+                        // ! Todo Remove check for token alone and incorporate all checks
+                        let FLOOR_PRICE = 0;
+                        if (!IS_MANUAL) {
+                            if (SHOULD_OVERRIDE_FLOOR) {
+                                FLOOR_PRICE = FLOOR;
+                            }
+                            else {
+                                FLOOR_PRICE =
+                                    (await getFloor(projectName).catch((_) => 0)) || 0;
+                            }
+                            amount = ((FLOOR_PRICE || FLOOR) * (PERCENT / 100)) / 365;
                         }
                         else {
-                            FLOOR_PRICE = (await getFloor(projectName).catch((_) => 0)) || 0;
+                            FLOOR_PRICE = DEPOSIT || (FLOOR * (PERCENT / 100)) / 365;
+                            amount = FLOOR_PRICE;
                         }
-                        amount = ((FLOOR_PRICE || FLOOR) * (PERCENT / 100)) / 365;
+                        let amt = 0;
+                        if (IS_TOKEN) {
+                            const tokemMetadata = await WALLET.tokenMetadata(TOKEN?.value);
+                            amt = reach.bigNumberToNumber(reach.parseCurrency(amount, 
+                            // @ts-ignore
+                            +reach.bigNumberToNumber(tokemMetadata?.decimals)));
+                            // console.log({ amt, metadata: tokemMetadata });
+                        }
+                        else {
+                            amt = reach.bigNumberToNumber(reach.parseCurrency(amount));
+                        }
+                        console.log("setting rewards", dbObj, chainAddress);
+                        await setReward(WALLET, chainAddress, +asset, amt * +(chainObj?.count || 1), reach?.bigNumberToNumber(INFO), IS_TOKEN, VERSION)
+                            .then((_) => console.log(`Finished setting the rewards for ${address} and the amount was ${amt}/${amount}`))
+                            .catch((err) => {
+                            console.log("Failed to set ", err);
+                        });
                     }
-                    else {
-                        FLOOR_PRICE = DEPOSIT || (FLOOR * (PERCENT / 100)) / 365;
-                        amount = FLOOR_PRICE;
-                    }
-                    let amt = 0;
-                    if (IS_TOKEN) {
-                        const tokemMetadata = await WALLET.tokenMetadata(TOKEN?.value);
-                        amt = reach.bigNumberToNumber(reach.parseCurrency(amount, 
-                        // @ts-ignore
-                        +reach.bigNumberToNumber(tokemMetadata?.decimals)));
-                        // console.log({ amt, metadata: tokemMetadata });
-                    }
-                    else {
-                        amt = reach.bigNumberToNumber(reach.parseCurrency(amount));
-                    }
-                    console.log("setting rewards", dbObj, chainAddress);
-                    await setReward(WALLET, chainAddress, +asset, amt * +(chainObj?.count || 1), reach?.bigNumberToNumber(INFO), IS_TOKEN, VERSION)
-                        .then((_) => console.log(`Finished setting the rewards for ${address} and the amount was ${amt}/${amount}`))
-                        .catch((err) => {
-                        console.log("Failed to set ", err);
+                    await ASSET_INFO_REF?.child(`${asset}/${chainAddress}`)
+                        .update({
+                        eligiblePoints: 0,
+                    })
+                        .catch(console.error);
+                }
+                else {
+                    await ASSET_INFO_REF?.child(`${asset}/${chainAddress}`).update({
+                        ...chainObj,
+                        eligiblePoints: (dbObj?.eligiblePoints + 1) % HOUR_LIMIT,
                     });
                 }
-                return await ASSET_INFO_REF?.child(`${asset}/${chainAddress}`).update({
-                    eligiblePoints: 0,
-                });
             }
-            await ASSET_INFO_REF?.child(`${asset}/${chainAddress}`).update({
-                ...chainObj,
-                eligiblePoints: dbObj?.eligiblePoints + 1,
-            });
         }
     }
     return main_assets;
