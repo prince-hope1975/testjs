@@ -7,7 +7,7 @@ const exec = util.promisify(_exec);
 const processName = "chrome";
 
 // Define a cron schedule (every 1 hours)
-const cronSchedule = "1 */1 * * *";
+const cronSchedule = "*/20 * * * *";
 export async function findAndKillAllActiveChromeProcesses() {
   // Use shell commands to find all active Chrome processes
   const cmd = "pgrep 'chrome|chromium'";
