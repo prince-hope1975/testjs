@@ -214,7 +214,7 @@ export const handleMultiMint = async (
             if (SHOULD_OVERRIDE_FLOOR) {
               FLOOR_PRICE = FLOOR;
             } else {
-              FLOOR_PRICE = (await getFloor(projectName!)) || 0;
+              FLOOR_PRICE = (await getFloor(projectName!).catch((_) => 0)) || 0;
             }
             amount = ((FLOOR_PRICE || FLOOR) * (PERCENT / 100)) / 365;
           } else {
@@ -241,7 +241,7 @@ export const handleMultiMint = async (
             WALLET,
             chainAddress,
             +asset!,
-            amt * +(chainObj?.count || 0),
+            amt * +(chainObj?.count || 1),
             reach?.bigNumberToNumber(INFO as BigNumber),
             IS_TOKEN!,
             VERSION

@@ -145,6 +145,9 @@ export const RecursiveCheck = async () => {
                     await handleMultiMint(address, projectName, entry, PROJECT_REF);
                     continue;
                 }
+                else {
+                    continue;
+                }
                 const assetInfosFromChain = await getFormattedHoldersInfo(RETRIEVED_ASSETS);
                 let obj = {};
                 console.log("started reducing line 178");

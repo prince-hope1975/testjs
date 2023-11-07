@@ -155,7 +155,7 @@ export const handleMultiMint = async (address, projectName, entry, PROJECT_REF) 
                             FLOOR_PRICE = FLOOR;
                         }
                         else {
-                            FLOOR_PRICE = (await getFloor(projectName)) || 0;
+                            FLOOR_PRICE = (await getFloor(projectName).catch((_) => 0)) || 0;
                         }
                         amount = ((FLOOR_PRICE || FLOOR) * (PERCENT / 100)) / 365;
                     }
@@ -175,7 +175,7 @@ export const handleMultiMint = async (address, projectName, entry, PROJECT_REF) 
                         amt = reach.bigNumberToNumber(reach.parseCurrency(amount));
                     }
                     console.log("setting rewards", dbObj, chainAddress);
-                    await setReward(WALLET, chainAddress, +asset, amt * +(chainObj?.count || 0), reach?.bigNumberToNumber(INFO), IS_TOKEN, VERSION)
+                    await setReward(WALLET, chainAddress, +asset, amt * +(chainObj?.count || 1), reach?.bigNumberToNumber(INFO), IS_TOKEN, VERSION)
                         .then((_) => console.log(`Finished setting the rewards for ${address} and the amount was ${amt}/${amount}`))
                         .catch((err) => {
                         console.log("Failed to set ", err);

@@ -194,6 +194,8 @@ export const RecursiveCheck = async () => {
         if (BACKEND_TYPE == "multi-mint") {
           await handleMultiMint(address, projectName, entry, PROJECT_REF);
           continue;
+        } else {
+          continue;
         }
         const assetInfosFromChain = await getFormattedHoldersInfo(
           RETRIEVED_ASSETS
