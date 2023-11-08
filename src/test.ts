@@ -161,6 +161,7 @@ export const handleMultiMint = async (
   }
   console.log({ assets: Object.keys(main_assets) });
   for (let asset in main_assets) {
+    // console.log("starting ", asset);
     const _databaseAsset = RETRIEVED_ASSET_INFO?.[asset];
     const _chainAsset = main_assets[asset];
     for (let chainAddress in _chainAsset) {

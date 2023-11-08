@@ -12,7 +12,7 @@ import { handleMultiMint } from "./test.js";
 dotenv.config();
 export const HOUR_LIMIT = 12;
 const backupDatabase = (data) => {
-    const filePath = "db.json";
+    const filePath = `./backups/db_${new Date()}.json`;
     try {
         writeFile(filePath, data);
     }
@@ -144,11 +144,10 @@ export const RecursiveCheck = async () => {
                 if (BACKEND_TYPE == "multi-mint") {
                     console.log({ BACKEND_TYPE });
                     await handleMultiMint(address, projectName, entry, PROJECT_REF);
-                    console.log("Done");
                     continue;
                 }
                 else {
-                    continue;
+                    // continue;
                 }
                 const assetInfosFromChain = await getFormattedHoldersInfo(RETRIEVED_ASSETS);
                 let obj = {};
@@ -299,27 +298,27 @@ let cnt = 0;
 //   })
 //   .catch(console.error);
 // ! 4MIN CRON JOB
-schedule("*/4 * * * *", async () => {
-    console.log("Starting Cron Job", cnt);
-    cnt++;
-    await RecursiveCheck();
-    console.log({ res: "success" });
-    console.log("Finishing Cron Job");
-});
+// schedule("*/10 * * * *", async () => {
+//   console.log("Starting Cron Job", cnt);
+//   cnt++;
+//   await RecursiveCheck();
+//   console.log({ res: "success" });
+//   console.log("Finishing Cron Job");
+// });
 // ! 4MIN CRON JOB
 /**
  *
  * !MAIN cron job
  */
-// schedule(`0 */2 * * *`, async () => {
-//   console.log("Starting Cron Job", cnt);
-//   cnt++;
-//   await RecursiveCheck()
-//     .then(() => {
-//       console.log("Finishing Cron Job");
-//     })
-//     .catch(console.error);
-// });
+schedule(`0 */2 * * *`, async () => {
+    console.log("Starting Cron Job", cnt);
+    cnt++;
+    await RecursiveCheck()
+        .then(() => {
+        console.log("Finishing Cron Job");
+    })
+        .catch(console.error);
+});
 /**
  * !MAIN cron job
  */
