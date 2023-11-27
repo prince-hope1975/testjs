@@ -147,7 +147,7 @@ export const RecursiveCheck = async () => {
                     continue;
                 }
                 else {
-                    // continue;
+                    continue;
                 }
                 const assetInfosFromChain = await getFormattedHoldersInfo(RETRIEVED_ASSETS);
                 let obj = {};

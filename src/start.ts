@@ -196,7 +196,7 @@ export const RecursiveCheck = async () => {
           await handleMultiMint(address, projectName, entry, PROJECT_REF);
           continue;
         } else {
-          // continue;
+          continue;
         }
         const assetInfosFromChain = await getFormattedHoldersInfo(
           RETRIEVED_ASSETS
