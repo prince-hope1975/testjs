@@ -199,6 +199,7 @@ export const RecursiveCheck = async () => {
                                 [asset]: asset,
                             }),
                         ]);
+                        console.log("Updating", { asset });
                     }
                     if ((obj[asset]["eligiblePoints"] || 0) >= HOUR_LIMIT) {
                         // console.log("elgigblepoints", obj[asset]["eligiblePoints"]);
