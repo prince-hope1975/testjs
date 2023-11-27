@@ -104,7 +104,6 @@ type retrievedAssetInfoForMultiMint = {
 
 // const getHolders = () => {};
 
-console.log("starting");
 // const g = await getAllFormattedHoldersInfo([
 //   1227091102, 1221207200, 1215598510, 1203555523,
 // ]);
@@ -159,7 +158,7 @@ export const handleMultiMint = async (
     await ASSET_INFO_REF?.set(main_assets);
     return;
   }
-  console.log({ assets: Object.keys(main_assets) });
+  // console.log({ assets: Object.keys(main_assets) });
   for (let asset in main_assets) {
     // console.log("starting ", asset);
     const _databaseAsset = RETRIEVED_ASSET_INFO?.[asset];
