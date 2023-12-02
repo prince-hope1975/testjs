@@ -69,7 +69,6 @@ export const RecursiveCheck = async () => {
     }) || [];
     const filteredObject = (await Promise.all(newSnap)).filter((p) => Object.keys(p).length !== 0);
     for (const RETRIEVED_DATA of filteredObject) {
-        console.log("started retrieving");
         const entries = Object.entries(RETRIEVED_DATA);
         let infos = [];
         /**

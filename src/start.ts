@@ -95,7 +95,6 @@ export const RecursiveCheck = async () => {
   );
 
   for (const RETRIEVED_DATA of filteredObject) {
-    console.log("started retrieving");
     const entries = Object.entries(RETRIEVED_DATA);
     let infos: Array<{
       address: string;

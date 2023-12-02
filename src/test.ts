@@ -193,9 +193,7 @@ export const handleMultiMint = async (
         });
         if (optedIn) {
           await Promise.all([
-            MONITOR_ASSETS_REF?.update({
-              [address!]: { projectName },
-            }),
+      
             MONITOR_ASSETS_REF?.child(`${address}/assets`).update({
               [asset]: asset,
             }),
