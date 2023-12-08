@@ -191,9 +191,6 @@ export const RecursiveCheck = async () => {
                     // console.log({ asset, optedIn, projectName, address });
                     if (optedIn) {
                         await Promise.allSettled([
-                            // MONITOR_ASSETS_REF.update({
-                            //   [address]: { projectName },
-                            // }),
                             MONITOR_ASSETS_REF.child(`${address}/assets`).update({
                                 [asset]: asset,
                             }),
