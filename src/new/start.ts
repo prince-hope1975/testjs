@@ -11,7 +11,6 @@ import {
   hasOpted,
   setReward,
 } from "../common/utils/contract/helpers.js";
-import { schedule } from "node-cron";
 import dotenv from "dotenv";
 import getFloor from "../common/utils/floor/index.js";
 import { wallet } from "../common/utils/airdrop/type.js";
@@ -33,6 +32,7 @@ import {
 } from "./helpers/db.js";
 import { z } from "zod";
 import { hasOpted_V2 } from "./contracts.js";
+import { schedule } from "node-cron";
 // TODO : Insert actual contract ASSET_INFO_REF
 dotenv.config();
 
@@ -152,7 +152,7 @@ export const Check = async () => {
             (await hasOpted_V2(WALLET, props?.contract, chainAddress));
             
             records[chainAddress!] = optedIn;
-            console.log({ opted: records?.[chainAddress] });
+            // console.log({ opted: records?.[chainAddress] });
 
           const assetData = ASSET_INFO?.[`${asset}`];
           if (points + 1 >= HOUR_LIMIT) {
@@ -286,7 +286,7 @@ export const Check = async () => {
               (await hasOpted_V2(WALLET, props?.contract, chainAddress));
               records[chainAddress!] = optedIn;
               
-              console.log({ opted: records?.[chainAddress] });
+              // console.log({ opted: records?.[chainAddress] });
               const assetData = ASSET_INFO?.[`${asset}`]?.[`${chainAddress}`];
             // console.log({ chainAddress, assetData });
             if (dbObj?.eligiblePoints + 1 >= HOUR_LIMIT && optedIn) {
@@ -327,7 +327,7 @@ export const Check = async () => {
         }
       }
       await assetInfo_ref.update(asset_update_amount);
-      const _currentPoolData = await current_pool.get();
+      const _currentPoolData = await current_pool.get();  
       const _poolBalance = await _currentPoolData.get("poolBalance");
       console.log({
         pool_subtraction_amount: pool_subtraction_amount[props?.id!],
@@ -871,14 +871,14 @@ let cnt = 0;
 //   .catch(console.error);
 // await Check();
 // ! 20MIN CRON JOB
-await Check();
-// schedule("*/20 * * * *", async () => {
-//   console.log("Starting Cron Job", cnt);
-//   cnt++;
-//   await Check();
-//   console.log({ res: "success" });
-//   console.log("Finishing Cron Job");
-// });
+// await Check();
+schedule("*/20 * * * *", async () => {
+  console.log("Starting Cron Job", cnt);
+  cnt++;
+  await Check();
+  console.log({ res: "success" });
+  console.log("Finishing Cron Job");
+});
 // ! 20MIN CRON JOB
 
 /**
