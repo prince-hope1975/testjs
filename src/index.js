@@ -77,7 +77,7 @@ export const getHolderAddressOfNFT = async (assetId, currentCall = 0) => {
             if (currentCall > 4) {
                 throw new RangeError("Address key does not exist @ getHolderAddressOfNFT");
             }
-            console.log("trying again");
+            console.log("trying again", assetId);
             return getHolderAddressOfNFT(assetId, currentCall + 1);
         }
         const [{ address }] = filteredData;
@@ -118,7 +118,7 @@ export const getFormattedHoldersInfo = async (arr) => {
         // @ts-ignore
         throw new Error("Array Bounds Invalid", { cause: "Invalid Array Length" });
     }
-    const holders = await Promise.allSettled(await RateLimitedRequest(arr, 25))
+    const holders = await Promise.allSettled(await RateLimitedRequest(arr, 50))
         .then((result) => result.map((res, idx) => res.status === "fulfilled"
         ? res.value
         : {

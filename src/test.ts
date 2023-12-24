@@ -1,6 +1,6 @@
 import { data } from "./common/datatypes/types";
 import { loadStdlib } from "@reach-sh/stdlib";
-import { Indexer as indexer } from "algosdk";
+import { Indexer, Indexer as indexer } from "algosdk";
 export const reach = loadStdlib("ALGO");
 reach.setProviderByName("MainNet");
 import * as dotenv from "dotenv";
@@ -20,12 +20,12 @@ const Indexer: indexer = Provider.indexer;
 // const indexerClient = new algosdk.Indexer(token, indexerServer, port);
 // = new algosdk.Indexer(token, indexerServer, port);
 const indexerClient = Indexer;
-const getAssetData = async (assetId: string | number) => {
+const getAssetData = async (assetId: string | number, indexer?: Indexer) => {
   if (!assetId) {
     throw new Error("asset id is undefined");
   }
   try {
-    let assetInfo = await indexerClient
+    let assetInfo = await (indexer || indexerClient)
       .lookupAssetBalances(Number(assetId))
       .do();
     return assetInfo;
@@ -36,10 +36,11 @@ const getAssetData = async (assetId: string | number) => {
 };
 export const getAllHolderAddressOfNFT = async (
   assetId: number | string,
-  currentCall = 0
+  currentCall = 0,
+  indexer?: Indexer
 ): Promise<(data & { assetId: string | number })[]> => {
   try {
-    const assetData = await getAssetData(assetId);
+    const assetData = await getAssetData(assetId, indexer);
     const { balances } = assetData;
     const filteredData: Array<data> = balances.filter(
       ({ amount }: data) => amount >= 1
@@ -51,7 +52,7 @@ export const getAllHolderAddressOfNFT = async (
         );
       }
       console.log("trying again");
-      return getAllHolderAddressOfNFT(assetId, currentCall + 1);
+      return getAllHolderAddressOfNFT(assetId, currentCall + 1, indexer);
     }
     const data = filteredData.map((res) => ({ ...res, assetId }));
     return data;
@@ -61,19 +62,29 @@ export const getAllHolderAddressOfNFT = async (
   }
 };
 export const getAllFormattedHoldersInfo = async (arr: number[] | string[]) => {
+  const Provider = await reach.getProvider();
+  const Indexer: indexer = Provider.indexer;
+
+  const indexerClient = Indexer;
   if (arr.length === 0) {
     console.error("Empty Array @getHoldersAddresses");
     // @ts-ignore
     throw new Error("Array Bounds Invalid", { cause: "Invalid Array Length" });
   }
-  const holders = await processArrayChunks(arr, 25, getAllHolderAddressOfNFT);
+  const holders = await processArrayChunks(
+    arr,
+    25,
+    getAllHolderAddressOfNFT,
+    indexerClient
+  );
 
   return holders;
 };
 async function processArrayChunks<T, R>(
   inputArray: T[],
   chunkSize: number,
-  func: (chunk: T) => R
+  func: (chunk: T, ...rest: any) => R,
+  ...params: any
 ): Promise<Awaited<R>[]> {
   // Initialize an array to store the results
   let results: Awaited<R>[] = [];
@@ -85,7 +96,7 @@ async function processArrayChunks<T, R>(
 
     // Call the func on the chunk and store the result
     const response = await Promise?.all(
-      chunk.map(async (res) => await func(res))
+      chunk.map(async (res) => await func(res, ...params))
     );
     results = [...results, ...response];
   }
@@ -193,7 +204,6 @@ export const handleMultiMint = async (
         });
         if (optedIn) {
           await Promise.all([
-      
             MONITOR_ASSETS_REF?.child(`${address}/assets`).update({
               [asset]: asset,
             }),

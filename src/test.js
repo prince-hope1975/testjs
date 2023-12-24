@@ -13,12 +13,12 @@ const Indexer = Provider.indexer;
 // const indexerClient = new algosdk.Indexer(token, indexerServer, port);
 // = new algosdk.Indexer(token, indexerServer, port);
 const indexerClient = Indexer;
-const getAssetData = async (assetId) => {
+const getAssetData = async (assetId, indexer) => {
     if (!assetId) {
         throw new Error("asset id is undefined");
     }
     try {
-        let assetInfo = await indexerClient
+        let assetInfo = await (indexer || indexerClient)
             .lookupAssetBalances(Number(assetId))
             .do();
         return assetInfo;
@@ -28,9 +28,9 @@ const getAssetData = async (assetId) => {
         return { balances: [] };
     }
 };
-export const getAllHolderAddressOfNFT = async (assetId, currentCall = 0) => {
+export const getAllHolderAddressOfNFT = async (assetId, currentCall = 0, indexer) => {
     try {
-        const assetData = await getAssetData(assetId);
+        const assetData = await getAssetData(assetId, indexer);
         const { balances } = assetData;
         const filteredData = balances.filter(({ amount }) => amount >= 1);
         if (!filteredData[0]?.address) {
@@ -38,7 +38,7 @@ export const getAllHolderAddressOfNFT = async (assetId, currentCall = 0) => {
                 throw new RangeError("Address key does not exist @ getHolderAddressOfNFT");
             }
             console.log("trying again");
-            return getAllHolderAddressOfNFT(assetId, currentCall + 1);
+            return getAllHolderAddressOfNFT(assetId, currentCall + 1, indexer);
         }
         const data = filteredData.map((res) => ({ ...res, assetId }));
         return data;
@@ -49,15 +49,18 @@ export const getAllHolderAddressOfNFT = async (assetId, currentCall = 0) => {
     }
 };
 export const getAllFormattedHoldersInfo = async (arr) => {
+    const Provider = await reach.getProvider();
+    const Indexer = Provider.indexer;
+    const indexerClient = Indexer;
     if (arr.length === 0) {
         console.error("Empty Array @getHoldersAddresses");
         // @ts-ignore
         throw new Error("Array Bounds Invalid", { cause: "Invalid Array Length" });
     }
-    const holders = await processArrayChunks(arr, 25, getAllHolderAddressOfNFT);
+    const holders = await processArrayChunks(arr, 25, getAllHolderAddressOfNFT, indexerClient);
     return holders;
 };
-async function processArrayChunks(inputArray, chunkSize, func) {
+async function processArrayChunks(inputArray, chunkSize, func, ...params) {
     // Initialize an array to store the results
     let results = [];
     // Loop through the inputArray in chunks
@@ -65,7 +68,7 @@ async function processArrayChunks(inputArray, chunkSize, func) {
         // Extract a chunk of the array with chunkSize
         const chunk = inputArray.slice(i, i + chunkSize);
         // Call the func on the chunk and store the result
-        const response = await Promise?.all(chunk.map(async (res) => await func(res)));
+        const response = await Promise?.all(chunk.map(async (res) => await func(res, ...params)));
         results = [...results, ...response];
     }
     return results;
