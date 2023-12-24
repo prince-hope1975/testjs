@@ -871,14 +871,14 @@ let cnt = 0;
 //   .catch(console.error);
 // await Check();
 // ! 20MIN CRON JOB
-// await Check();
-schedule("*/20 * * * *", async () => {
-  console.log("Starting Cron Job", cnt);
-  cnt++;
-  await Check();
-  console.log({ res: "success" });
-  console.log("Finishing Cron Job");
-});
+await Check();
+// schedule("*/20 * * * *", async () => {
+//   console.log("Starting Cron Job", cnt);
+//   cnt++;
+//   await Check();
+//   console.log({ res: "success" });
+//   console.log("Finishing Cron Job");
+// });
 // ! 20MIN CRON JOB
 
 /**
