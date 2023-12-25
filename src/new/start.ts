@@ -15,8 +15,7 @@ import { _fireDb, _firestore_pool, firestore_pool } from "./helpers/db.js";
 import { z } from "zod";
 import { hasOpted_V2 } from "./contracts.js";
 import { wallet } from "../common/utils/airdrop/type.js";
-import { schedule } from "nodeexport default RecursiveCheck;
--cron";
+import { schedule } from "node-cron";
 // TODO : Insert actual contract ASSET_INFO_REF
 dotenv.config();
 

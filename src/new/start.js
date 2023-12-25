@@ -8,9 +8,7 @@ import { AssetInfoSchema, ZOD_PROJECT, multiMintAssetInfoSchema, } from "./zod.j
 import { _firestore_pool, firestore_pool } from "./helpers/db.js";
 import { z } from "zod";
 import { hasOpted_V2 } from "./contracts.js";
-import { schedule } from "nodeexport default RecursiveCheck;;
--cron;
-";;
+import { schedule } from "node-cron";
 // TODO : Insert actual contract ASSET_INFO_REF
 dotenv.config();
 export const HOUR_LIMIT = 12;
