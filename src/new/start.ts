@@ -1,5 +1,5 @@
 // Database handler
-import { getFormattedHoldersInfo, reach } from "./helpers/utils/index.js";
+import {  reach } from "./helpers/utils/index.js";
 import dotenv from "dotenv";
 import getFloor from "../common/utils/floor/index.js";
 // import { writeFile, open } from "fs/promises";
@@ -87,19 +87,26 @@ const Check = async () => {
     let _assetInfo = assetInfo.data();
 
     if (props.poolType == "mono-mint") {
-
       console.log({ mint: props?.poolType });
       let obj: uniqueQuery = {};
-      const assetInfosFromChain = await getFormattedHoldersInfo(props.assets);
-      // const chainAddressAndAssetId = assetInfosFromChain.reduce(
-      //   (a, v) => ({ ...a, ...v }),
-      //   {}
-      // );
-      for (let assetData of assetInfosFromChain) {
+      const _assets = await getAllFormattedHoldersInfo(props?.assets);
+      const main_assets = _assets
+        ?.map((res) => {
+          if (res?.[0]) {
+            return {
+              address: res?.[0]?.address,
+              assetId: res?.[0]?.assetId,
+            };
+          }
+          return null;
+        })
+        ?.filter((res) => res);
+    
+      for (let assetData of main_assets) {
         obj = {
           ...obj,
-          [assetData?.assetId]: {
-            ...assetData,
+          [assetData?.assetId!]: {
+            ...assetData!,
             eligiblePoints: 0,
             reward: 0,
             collected: 0,
@@ -209,7 +216,7 @@ const Check = async () => {
       }
       continue;
     } else {
-      continue
+      continue;
       console.log("mint", props?.poolType);
 
       const _assets = await getAllFormattedHoldersInfo(props?.assets);
@@ -525,7 +532,7 @@ schedule("*/5 * * * *", async () => {
 // schedule(`0 */2 * * *`, async () => {
 //   console.log("Starting Cron Job", cnt);
 //   cnt++;
-//    
+//
 //     .catch(console.error);
 // });
 /**
