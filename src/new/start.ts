@@ -518,7 +518,7 @@ type uniqueQuery = {
 // process?.exit(0)
 
 // ! 20MIN CRON JOB
-schedule("*/12 * * * *", async () => {
+schedule("0 */2 * * *", async () => {
   console.log("Starting Cron Job");
   await Check();
   console.log({ res: "success" });
