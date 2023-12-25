@@ -140,7 +140,7 @@ const Check = async () => {
           // console.log({ opted: records?.[chainAddress] });
 
           const assetData = ASSET_INFO?.[`${asset}`];
-          if (points + 1 >= HOUR_LIMIT) {
+          if (points + 1 >= HOUR_LIMIT && optedIn) {
             // console.log("poolBalance", poolBalance);
             const _floor =
               props?.rewardType == "manual"
@@ -185,9 +185,11 @@ const Check = async () => {
             asset_update_amount = {
               ...asset_update_amount,
               [`${asset}.eligiblePoints`]:
-                (asset_update_amount?.[`${asset}.eligiblePoints`] ??
+                ((asset_update_amount?.[`${asset}.eligiblePoints`] ??
                   assetData?.eligiblePoints ??
-                  0) + 1,
+                  0) +
+                  1) %
+                HOUR_LIMIT,
             };
           }
         }
@@ -305,7 +307,7 @@ const Check = async () => {
               asset_update_amount = {
                 ...asset_update_amount,
                 [`${asset}.${chainAddress}.eligiblePoints`]:
-                  (assetData?.eligiblePoints || 0) + 1,
+                  ((assetData?.eligiblePoints || 0) + 1) % HOUR_LIMIT,
               };
             }
           }
