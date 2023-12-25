@@ -307,7 +307,7 @@ const Check = async () => {
 // await Check();
 // process?.exit(0)
 // ! 20MIN CRON JOB
-schedule("*/10 * * * *", async () => {
+schedule("*/20 * * * *", async () => {
     console.log("Starting Cron Job");
     await Check();
     console.log({ res: "success" });
