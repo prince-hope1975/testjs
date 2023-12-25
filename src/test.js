@@ -49,6 +49,7 @@ export const getAllHolderAddressOfNFT = async (assetId, currentCall = 0, indexer
     }
 };
 export const getAllFormattedHoldersInfo = async (arr) => {
+    const reach = loadStdlib("ALGO");
     const Provider = await reach.getProvider();
     const Indexer = Provider.indexer;
     const indexerClient = Indexer;

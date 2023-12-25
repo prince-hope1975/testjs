@@ -1,5 +1,5 @@
 // Database handler
-import { getFormattedHoldersInfo, reach } from "../index.js";
+import { getFormattedHoldersInfo, reach } from "./helpers/utils/index.js";
 import dotenv from "dotenv";
 import getFloor from "../common/utils/floor/index.js";
 // import { writeFile, open } from "fs/promises";

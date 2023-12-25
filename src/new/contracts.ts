@@ -2,7 +2,7 @@
 // !update with new contract
 import { reach } from "../index.js";
 import { wallet } from "../common/utils/airdrop/type.js";
-import { BigNumber } from "../start.js";
+import { BigNumber } from "../BigNumber.js";
 // @ts-ignore
 import * as index from "./build/index.main.mjs";
 

@@ -29,7 +29,7 @@ const backupDatabase = (data) => {
 // The mmemonic handles the reward distribution for the user
 // Users will have to create their own contracts and have the mmemonic interact with the contract
 // Users will need to fund the contract and not the address
-export const RecursiveCheck = async () => {
+const RecursiveCheck = async () => {
     // Todo : Get the floor price from the contract
     // const floor = await fetch(
     //   "https://www.randswap.com/v1/listings/creator/YYWVXM6ITE2QBD2IOUNMO5DIAILK43ABMBDCE6PHAX3U6GOYO4XPA6JGLQ"

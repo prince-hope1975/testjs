@@ -1,4 +1,4 @@
-import { getFormattedHoldersInfo, reach } from "./index.js";
+import { getFormattedHoldersInfo } from "./index.js";
 import { loadStdlib } from "@reach-sh/stdlib";
 import {
   readDataFromSnapShot,
@@ -18,8 +18,7 @@ import { wallet } from "./common/utils/airdrop/type.js";
 // import { writeFile } from "fs";
 import { writeFile } from "fs/promises";
 import { handleMultiMint } from "./test.js";
-// TODO : Insert actual contract ASSET_INFO_REF
-export type BigNumber = ReturnType<typeof reach.bigNumberify>;
+import { BigNumber } from "./BigNumber.js";
 dotenv.config();
 
 export const HOUR_LIMIT = 12;
@@ -45,7 +44,7 @@ const backupDatabase = (data: string) => {
 // Users will have to create their own contracts and have the mmemonic interact with the contract
 // Users will need to fund the contract and not the address
 
-export const RecursiveCheck = async () => {
+ const RecursiveCheck = async () => {
   // Todo : Get the floor price from the contract
   // const floor = await fetch(
   //   "https://www.randswap.com/v1/listings/creator/YYWVXM6ITE2QBD2IOUNMO5DIAILK43ABMBDCE6PHAX3U6GOYO4XPA6JGLQ"

@@ -1,13 +1,14 @@
 import { data } from "./common/datatypes/types";
 import { loadStdlib } from "@reach-sh/stdlib";
-import { Indexer, Indexer as indexer } from "algosdk";
+import { Indexer as indexer } from "algosdk";
 export const reach = loadStdlib("ALGO");
 reach.setProviderByName("MainNet");
 import * as dotenv from "dotenv";
 import { Project } from "./common/datatypes/retireveddata";
 import { Reference } from "firebase-admin/database";
 import { hasOpted, setReward } from "./common/utils/contract/helpers.js";
-import { BigNumber, HOUR_LIMIT } from "./start.js";
+import { HOUR_LIMIT } from "./start.js";
+import { BigNumber } from "./BigNumber";
 import { wallet } from "./common/utils/airdrop/type";
 import getFloor from "./common/utils/floor/index.js";
 dotenv.config();
@@ -20,7 +21,7 @@ const Indexer: indexer = Provider.indexer;
 // const indexerClient = new algosdk.Indexer(token, indexerServer, port);
 // = new algosdk.Indexer(token, indexerServer, port);
 const indexerClient = Indexer;
-const getAssetData = async (assetId: string | number, indexer?: Indexer) => {
+const getAssetData = async (assetId: string | number, indexer?: indexer) => {
   if (!assetId) {
     throw new Error("asset id is undefined");
   }
@@ -37,7 +38,7 @@ const getAssetData = async (assetId: string | number, indexer?: Indexer) => {
 export const getAllHolderAddressOfNFT = async (
   assetId: number | string,
   currentCall = 0,
-  indexer?: Indexer
+  indexer?: indexer
 ): Promise<(data & { assetId: string | number })[]> => {
   try {
     const assetData = await getAssetData(assetId, indexer);
@@ -62,6 +63,7 @@ export const getAllHolderAddressOfNFT = async (
   }
 };
 export const getAllFormattedHoldersInfo = async (arr: number[] | string[]) => {
+  const reach = loadStdlib("ALGO");
   const Provider = await reach.getProvider();
   const Indexer: indexer = Provider.indexer;
 
