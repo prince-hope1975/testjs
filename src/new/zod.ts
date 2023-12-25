@@ -35,6 +35,7 @@ export const ZOD_PROJECT = z
 
     contract: z.number(),
     decimals: z.number().default(6).optional(),
+    users_count: z.number().optional(),
 
     createdAt: z.any().default(new Date()).optional(),
 
@@ -47,14 +48,24 @@ export const ZOD_PROJECT = z
     network: z.enum(["TestNet", "MainNet"]).default("MainNet"),
     percent: z.number().lt(101).gt(0).default(100),
     poolBalance: z.number(),
+    depositedBalance: z.number().optional(),
 
     profileImage: z.string().optional(),
     headerImage: z.string().optional(),
+
+    socials: z
+      .object({
+        twitter: z.string().optional(),
+        discord: z.string().optional(),
+        website: z.string().optional(),
+        shopping: z.string().optional(),
+      })
+      .optional(),
   })
   .and(
     z
       .object({
-        poolType: z.literal("mono-mint"),
+        poolType: z.literal("mono-mint").default("mono-mint"),
         assetInfo: z.record(AssetInfoSchema).optional(),
       })
       .or(
@@ -85,11 +96,11 @@ export const ZOD_PROJECT = z
       .or(
         z.object({
           rewardType: z.literal("floor"),
-          overrideFloor: z.boolean().optional(),
+          overrideFloor: z.boolean().default(false).optional(),
           floor: z.number(),
         })
       )
-  );
+  );  
 
 //   const d=ZOD_PROJECT.parse({})
 
