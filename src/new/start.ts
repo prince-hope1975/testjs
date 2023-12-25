@@ -87,6 +87,8 @@ const Check = async () => {
     let _assetInfo = assetInfo.data();
 
     if (props.poolType == "mono-mint") {
+      continue;
+
       console.log({ mint: props?.poolType });
       let obj: uniqueQuery = {};
       const _assets = await getAllFormattedHoldersInfo(props?.assets);
@@ -216,7 +218,6 @@ const Check = async () => {
       }
       continue;
     } else {
-      continue;
       console.log("mint", props?.poolType);
 
       const _assets = await getAllFormattedHoldersInfo(props?.assets);
