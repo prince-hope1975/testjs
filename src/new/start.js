@@ -324,10 +324,7 @@ schedule("*/7 * * * *", async () => {
 // schedule(`0 */2 * * *`, async () => {
 //   console.log("Starting Cron Job", cnt);
 //   cnt++;
-//   await RecursiveCheck()
-//     .then(() => {
-//       console.log("Finishing Cron Job");
-//     })
+//    
 //     .catch(console.error);
 // });
 /**
@@ -337,10 +334,5 @@ schedule("*/7 * * * *", async () => {
 // schedule("* * * * *", () => {
 //   console.log("Starting Cron Job", cnt);
 //   cnt++;${address}
-//   RecursiveCheck()
-//     .then(() => {
-//       console.log("Finishing Cron Job");
-//     })
-//     .catch(console.error);
 //   console.log("running a task every minute");
 // });
