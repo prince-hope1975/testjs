@@ -1,4 +1,3 @@
-
 // !update with new contract
 import { reach } from "../index.js";
 import { wallet } from "../common/utils/airdrop/type.js";
@@ -32,8 +31,10 @@ export const hasOpted_V2 = async (
   wallet?: string
 ): Promise<boolean> => {
   const ctcUsers = acc.contract(versionManager["v1"], ctcInfo);
-  return await ctcUsers.unsafeViews.Info.opted(wallet || acc);
+  return (await ctcUsers.unsafeViews?.Info.opted(wallet || acc))?.catch(
+    (err: any) => {
+      console.error(err);
+      return false;
+    }
+  );
 };
-
-
-

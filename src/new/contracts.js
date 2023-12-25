@@ -22,5 +22,8 @@ export const handleOptin_v2 = async (acc, ctcInfo) => {
 };
 export const hasOpted_V2 = async (acc, ctcInfo, wallet) => {
     const ctcUsers = acc.contract(versionManager["v1"], ctcInfo);
-    return await ctcUsers.unsafeViews.Info.opted(wallet || acc);
+    return (await ctcUsers.unsafeViews?.Info.opted(wallet || acc))?.catch((err) => {
+        console.error(err);
+        return false;
+    });
 };
