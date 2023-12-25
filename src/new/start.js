@@ -74,12 +74,16 @@ const Check = async () => {
             console.log({ mint: props?.poolType });
             let obj = {};
             const assetInfosFromChain = await getFormattedHoldersInfo(props.assets);
-            const chainAddressAndAssetId = assetInfosFromChain.reduce((a, v) => ({ ...a, ...v }), {});
-            for (let assetData in chainAddressAndAssetId) {
+            // const chainAddressAndAssetId = assetInfosFromChain.reduce(
+            //   (a, v) => ({ ...a, ...v }),
+            //   {}
+            // );
+            console.log({ assetInfosFromChain });
+            for (let assetData of assetInfosFromChain) {
                 obj = {
                     ...obj,
-                    [assetData]: {
-                        ...chainAddressAndAssetId[assetData],
+                    [assetData?.assetId]: {
+                        ...assetData,
                         eligiblePoints: 0,
                         reward: 0,
                         collected: 0,
@@ -178,6 +182,7 @@ const Check = async () => {
             continue;
         }
         else {
+            continue;
             console.log("mint", props?.poolType);
             const _assets = await getAllFormattedHoldersInfo(props?.assets);
             const main_assets = _assets
