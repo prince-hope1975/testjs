@@ -82,7 +82,7 @@ export const getAllFormattedHoldersInfo = async (arr: number[] | string[]) => {
 
   return holders;
 };
-async function processArrayChunks<T, R>(
+export async function processArrayChunks<T, R>(
   inputArray: T[],
   chunkSize: number,
   func: (chunk: T, ...rest: any) => R,

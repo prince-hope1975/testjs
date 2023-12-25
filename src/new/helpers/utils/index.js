@@ -1,6 +1,7 @@
 import * as dotenv from "dotenv";
 import { setAsyncTimeout } from "../../../common/utils/helpers/index.js";
 import { loadStdlib } from "@reach-sh/stdlib";
+import { processArrayChunks } from "../../../test.js";
 export const reach = loadStdlib("ALGO");
 reach.setProviderByName("MainNet");
 dotenv.config();
@@ -22,12 +23,12 @@ const port = ` `;
 // = new algosdk.Indexer(token, indexerServer, port);
 const indexerClient = Indexer;
 // This fun
-export const getAssetData = async (assetId) => {
+export const getAssetData = async (assetId, index) => {
     if (!assetId) {
         throw new Error("asset id is undefined");
     }
     try {
-        let assetInfo = await indexerClient
+        let assetInfo = await (index ?? indexerClient)
             .lookupAssetBalances(Number(assetId))
             .do();
         return assetInfo;
@@ -67,10 +68,10 @@ export const getAssetData = async (assetId) => {
 //   console.log({ assetInfo });
 //   return assetInfo;
 // };
-export const getHolderAddressOfNFT = async (assetId, currentCall = 0) => {
+export async function getHolderAddressOfNFT(assetId, currentCall = 0, ind) {
     try {
         // console.log({ assetId });
-        const assetData = await getAssetData(assetId);
+        const assetData = await getAssetData(assetId, ind);
         const { balances } = assetData;
         const filteredData = balances.filter(({ amount }) => amount === 1);
         if (!filteredData[0]?.address) {
@@ -87,7 +88,7 @@ export const getHolderAddressOfNFT = async (assetId, currentCall = 0) => {
         // return await getHolderAddressOfNFT(assetId, currentCall + 1);
         throw new Error("Error trying to get nft data @getHolderAddressOfNFT");
     }
-};
+}
 export const getHoldersInfo = async (arr) => {
     if (arr.length === 0) {
         console.error("Empty Array @getHoldersAddresses");
@@ -118,21 +119,12 @@ export const getFormattedHoldersInfo = async (arr) => {
         // @ts-ignore
         throw new Error("Array Bounds Invalid", { cause: "Invalid Array Length" });
     }
-    const holders = await Promise.allSettled(await RateLimitedRequest(arr, 50))
-        .then((result) => result.map((res, idx) => res.status === "fulfilled"
-        ? res.value
-        : {
-            address: "error",
-            assetId: arr[idx],
-        }))
-        .then((item) => item.map((data) => {
-        return {
-            [data.assetId]: {
-                ...data,
-            },
-        };
-    }));
-    return holders;
+    const reach = loadStdlib("ALGO");
+    const Provider = await reach.getProvider();
+    const Indexer = Provider.indexer;
+    const indexerClient = Indexer;
+    const _holders = await processArrayChunks(arr, 25, getHolderAddressOfNFT, indexerClient);
+    return _holders;
 };
 async function RateLimitedRequest(Array, chunkSize) {
     let data = [];

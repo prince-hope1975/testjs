@@ -61,7 +61,7 @@ export const getAllFormattedHoldersInfo = async (arr) => {
     const holders = await processArrayChunks(arr, 25, getAllHolderAddressOfNFT, indexerClient);
     return holders;
 };
-async function processArrayChunks(inputArray, chunkSize, func, ...params) {
+export async function processArrayChunks(inputArray, chunkSize, func, ...params) {
     // Initialize an array to store the results
     let results = [];
     // Loop through the inputArray in chunks

@@ -71,7 +71,6 @@ const Check = async () => {
         const assetInfo = await assetInfo_ref.get();
         let _assetInfo = assetInfo.data();
         if (props.poolType == "mono-mint") {
-            continue;
             console.log({ mint: props?.poolType });
             let obj = {};
             const assetInfosFromChain = await getFormattedHoldersInfo(props.assets);

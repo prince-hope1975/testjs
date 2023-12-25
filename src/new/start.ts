@@ -87,7 +87,6 @@ const Check = async () => {
     let _assetInfo = assetInfo.data();
 
     if (props.poolType == "mono-mint") {
-      continue;
 
       console.log({ mint: props?.poolType });
       let obj: uniqueQuery = {};
