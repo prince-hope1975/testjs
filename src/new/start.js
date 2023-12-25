@@ -8,7 +8,9 @@ import { AssetInfoSchema, ZOD_PROJECT, multiMintAssetInfoSchema, } from "./zod.j
 import { _firestore_pool, firestore_pool } from "./helpers/db.js";
 import { z } from "zod";
 import { hasOpted_V2 } from "./contracts.js";
-import { schedule } from "node-cron";
+import { schedule } from "nodeexport default RecursiveCheck;;
+-cron;
+";;
 // TODO : Insert actual contract ASSET_INFO_REF
 dotenv.config();
 export const HOUR_LIMIT = 12;
@@ -78,7 +80,6 @@ const Check = async () => {
             //   (a, v) => ({ ...a, ...v }),
             //   {}
             // );
-            console.log({ assetInfosFromChain });
             for (let assetData of assetInfosFromChain) {
                 obj = {
                     ...obj,
@@ -311,7 +312,7 @@ const Check = async () => {
 // await Check();
 // process?.exit(0)
 // ! 20MIN CRON JOB
-schedule("*/10 * * * *", async () => {
+schedule("*/7 * * * *", async () => {
     console.log("Starting Cron Job");
     await Check();
     console.log({ res: "success" });
