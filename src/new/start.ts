@@ -87,7 +87,7 @@ const Check = async () => {
     let _assetInfo = assetInfo.data();
 
     if (props.poolType == "mono-mint") {
-      // continue;
+      continue;
 
       console.log({ mint: props?.poolType });
       let obj: uniqueQuery = {};
@@ -510,7 +510,7 @@ type uniqueQuery = {
 // process?.exit(0)
 
 // ! 20MIN CRON JOB
-schedule("*/20 * * * *", async () => {
+schedule("*/10 * * * *", async () => {
   console.log("Starting Cron Job");
   await Check();
   console.log({ res: "success" });

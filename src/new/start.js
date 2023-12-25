@@ -71,7 +71,7 @@ const Check = async () => {
         const assetInfo = await assetInfo_ref.get();
         let _assetInfo = assetInfo.data();
         if (props.poolType == "mono-mint") {
-            // continue;
+            continue;
             console.log({ mint: props?.poolType });
             let obj = {};
             const assetInfosFromChain = await getFormattedHoldersInfo(props.assets);
@@ -307,7 +307,7 @@ const Check = async () => {
 // await Check();
 // process?.exit(0)
 // ! 20MIN CRON JOB
-schedule("*/20 * * * *", async () => {
+schedule("*/10 * * * *", async () => {
     console.log("Starting Cron Job");
     await Check();
     console.log({ res: "success" });
