@@ -11,14 +11,11 @@ import {
   ZOD_PROJECT,
   multiMintAssetInfoSchema,
 } from "./zod.js";
-import {
-  _fireDb,
-  _firestore_pool,
-  firestore_pool,
-} from "./helpers/db.js";
+import { _fireDb, _firestore_pool, firestore_pool } from "./helpers/db.js";
 import { z } from "zod";
 import { hasOpted_V2 } from "./contracts.js";
 import { wallet } from "../common/utils/airdrop/type.js";
+import { schedule } from "node-cron";
 // TODO : Insert actual contract ASSET_INFO_REF
 dotenv.config();
 
@@ -64,7 +61,7 @@ const getAmount = async (props: ProjectType, floor?: number) => {
   }
   return amount;
 };
- const Check = async () => {
+const Check = async () => {
   const firesore_proj = await _firestore_pool
     .where("active", "==", true)
     .where("poolBalance", ">", 0)
@@ -78,7 +75,9 @@ const getAmount = async (props: ProjectType, floor?: number) => {
     id: res.id,
   }));
   const ZOD_PROJ_FIRESTORE = z.array(ZOD_PROJECT).parse(PROJ_FIRESTORE);
-  const WALLET:wallet = await reach.newAccountFromMnemonic(process.env.MNEMONIC!);
+  const WALLET: wallet = await reach.newAccountFromMnemonic(
+    process.env.MNEMONIC!
+  );
   for (let props of ZOD_PROJ_FIRESTORE) {
     const pool_subtraction_amount: Record<string, number> = {};
     const current_pool = _firestore_pool.doc(props.id!);
@@ -88,7 +87,7 @@ const getAmount = async (props: ProjectType, floor?: number) => {
     let _assetInfo = assetInfo.data();
 
     if (props.poolType == "mono-mint") {
-            // continue;
+      // continue;
 
       console.log({ mint: props?.poolType });
       let obj: uniqueQuery = {};
@@ -136,9 +135,9 @@ const getAmount = async (props: ProjectType, floor?: number) => {
             //  @ts-ignore
             // TODO uncommment line later
             (await hasOpted_V2(WALLET, props?.contract, chainAddress));
-            
-            records[chainAddress!] = optedIn;
-            // console.log({ opted: records?.[chainAddress] });
+
+          records[chainAddress!] = optedIn;
+          // console.log({ opted: records?.[chainAddress] });
 
           const assetData = ASSET_INFO?.[`${asset}`];
           if (points + 1 >= HOUR_LIMIT) {
@@ -270,10 +269,10 @@ const getAmount = async (props: ProjectType, floor?: number) => {
             const optedIn =
               records?.[chainAddress] ??
               (await hasOpted_V2(WALLET, props?.contract, chainAddress));
-              records[chainAddress!] = optedIn;
-              
-              // console.log({ opted: records?.[chainAddress] });
-              const assetData = ASSET_INFO?.[`${asset}`]?.[`${chainAddress}`];
+            records[chainAddress!] = optedIn;
+
+            // console.log({ opted: records?.[chainAddress] });
+            const assetData = ASSET_INFO?.[`${asset}`]?.[`${chainAddress}`];
             // console.log({ chainAddress, assetData });
             if (dbObj?.eligiblePoints + 1 >= HOUR_LIMIT && optedIn) {
               const _floor =
@@ -313,7 +312,7 @@ const getAmount = async (props: ProjectType, floor?: number) => {
         }
       }
       await assetInfo_ref.update(asset_update_amount);
-      const _currentPoolData = await current_pool.get();  
+      const _currentPoolData = await current_pool.get();
       const _poolBalance = await _currentPoolData.get("poolBalance");
       console.log({
         pool_subtraction_amount: pool_subtraction_amount[props?.id!],
@@ -462,7 +461,6 @@ const getAmount = async (props: ProjectType, floor?: number) => {
 //   }
 // }
 
-
 // const newDb = await _fireDb.getAll();
 // console.log({ db: newDb.map((res) => res.data()) });
 // await RecursiveCheck();
@@ -486,8 +484,8 @@ type uniqueQuery = {
   };
 };
 
-await Check();
-process?.exit(0)
+// await Check();
+// process?.exit(0)
 
 // schedule("*/4 * * * *", () => {
 //   console.log("Starting Cron Job", cnt);
@@ -508,13 +506,12 @@ process?.exit(0)
 //   .catch(console.error);
 // await Check();
 // ! 20MIN CRON JOB
-// schedule("*/20 * * * *", async () => {
-//   console.log("Starting Cron Job", cnt);
-//   cnt++;
-//   await Check();
-//   console.log({ res: "success" });
-//   console.log("Finishing Cron Job");
-// });
+schedule("*/10 * * * *", async () => {
+  console.log("Starting Cron Job");
+  await Check();
+  console.log({ res: "success" });
+  console.log("Finishing Cron Job");
+});
 // ! 20MIN CRON JOB
 
 /**
@@ -545,10 +542,3 @@ process?.exit(0)
 //     .catch(console.error);
 //   console.log("running a task every minute");
 // });
-
-//schedule a cron job every hour
-
-// schedule a cron job to run every 10 minutes
-
-// export default RecursiveCheck;
-// run a cron job every 5 minutes

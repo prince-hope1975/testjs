@@ -5,9 +5,10 @@ import getFloor from "../common/utils/floor/index.js";
 // import { writeFile, open } from "fs/promises";
 import { getAllFormattedHoldersInfo } from "../test.js";
 import { AssetInfoSchema, ZOD_PROJECT, multiMintAssetInfoSchema, } from "./zod.js";
-import { _firestore_pool, firestore_pool, } from "./helpers/db.js";
+import { _firestore_pool, firestore_pool } from "./helpers/db.js";
 import { z } from "zod";
 import { hasOpted_V2 } from "./contracts.js";
+import { schedule } from "node-cron";
 // TODO : Insert actual contract ASSET_INFO_REF
 dotenv.config();
 export const HOUR_LIMIT = 12;
@@ -283,8 +284,8 @@ const Check = async () => {
         }
     }
 };
-await Check();
-process?.exit(0);
+// await Check();
+// process?.exit(0)
 // schedule("*/4 * * * *", () => {
 //   console.log("Starting Cron Job", cnt);
 //   cnt++;
@@ -303,13 +304,12 @@ process?.exit(0);
 //   .catch(console.error);
 // await Check();
 // ! 20MIN CRON JOB
-// schedule("*/20 * * * *", async () => {
-//   console.log("Starting Cron Job", cnt);
-//   cnt++;
-//   await Check();
-//   console.log({ res: "success" });
-//   console.log("Finishing Cron Job");
-// });
+schedule("*/10 * * * *", async () => {
+    console.log("Starting Cron Job");
+    await Check();
+    console.log({ res: "success" });
+    console.log("Finishing Cron Job");
+});
 // ! 20MIN CRON JOB
 /**
  *
@@ -338,7 +338,3 @@ process?.exit(0);
 //     .catch(console.error);
 //   console.log("running a task every minute");
 // });
-//schedule a cron job every hour
-// schedule a cron job to run every 10 minutes
-// export default RecursiveCheck;
-// run a cron job every 5 minutes
