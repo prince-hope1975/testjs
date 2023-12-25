@@ -1,22 +1,9 @@
 // Database handler
 import { getFormattedHoldersInfo, reach } from "../index.js";
-import { loadStdlib } from "@reach-sh/stdlib";
-import {
-  readDataFromSnapShot,
-  db as newDb,
-} from "../common/utils/backend/firebase/index.js";
-import RetrievedData, { Project } from "../common/datatypes/retireveddata.js";
-import {
-  getPoolBalance,
-  hasOpted,
-  setReward,
-} from "../common/utils/contract/helpers.js";
 import dotenv from "dotenv";
 import getFloor from "../common/utils/floor/index.js";
-import { wallet } from "../common/utils/airdrop/type.js";
-import { writeFile, open } from "fs/promises";
-import { getAllFormattedHoldersInfo, handleMultiMint } from "../test.js";
-import { BigNumber } from "../start.js";
+// import { writeFile, open } from "fs/promises";
+import { getAllFormattedHoldersInfo } from "../test.js";
 import {
   AssetInfoSchema,
   ProjectType,
@@ -27,26 +14,25 @@ import {
 import {
   _fireDb,
   _firestore_pool,
-  fireDb,
   firestore_pool,
 } from "./helpers/db.js";
 import { z } from "zod";
 import { hasOpted_V2 } from "./contracts.js";
-import { schedule } from "node-cron";
+import { wallet } from "../common/utils/airdrop/type.js";
 // TODO : Insert actual contract ASSET_INFO_REF
 dotenv.config();
 
 export const HOUR_LIMIT = 12;
 
-const backupDatabase = async (data: string) => {
-  const filePath = `/backups/db_${+new Date()}.json`;
-  try {
-    await open(filePath, "O_CREAT");
-    writeFile(filePath, data);
-  } catch (error) {
-    console.error(error);
-  }
-};
+// const backupDatabase = async (data: string) => {
+//   const filePath = `/backups/db_${+new Date()}.json`;
+//   try {
+//     await open(filePath, "O_CREAT");
+//     writeFile(filePath, data);
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };
 
 // we are trying to keep count of the number of times we have run this function
 // so we can stop it after a certain number of times
@@ -78,7 +64,7 @@ const getAmount = async (props: ProjectType, floor?: number) => {
   }
   return amount;
 };
-export const Check = async () => {
+ const Check = async () => {
   const firesore_proj = await _firestore_pool
     .where("active", "==", true)
     .where("poolBalance", ">", 0)
@@ -92,7 +78,7 @@ export const Check = async () => {
     id: res.id,
   }));
   const ZOD_PROJ_FIRESTORE = z.array(ZOD_PROJECT).parse(PROJ_FIRESTORE);
-  const WALLET = await reach.newAccountFromMnemonic(process.env.MNEMONIC!);
+  const WALLET:wallet = await reach.newAccountFromMnemonic(process.env.MNEMONIC!);
   for (let props of ZOD_PROJ_FIRESTORE) {
     const pool_subtraction_amount: Record<string, number> = {};
     const current_pool = _firestore_pool.doc(props.id!);
@@ -342,490 +328,141 @@ export const Check = async () => {
     }
   }
 };
-const count = async () => {
-  const firesore_proj = await firestore_pool
-    // .where("active", "==", true)
-    // .where("poolBalance", ">", 0)
-    // // .where("poolBalance", ">", "")
-    // .where("hide", "==", false)
-    // .where("paymentActivated", "==", true)
-    .get();
-  const p = await firesore_proj.docs.map(async (res) => ({
-    id: res.id,
-    assets: await res.get("assets"),
-  }));
-  const k = (await Promise.all(p)).map(async (res) => {
-    const assetInfo = await firestore_pool
-      .doc(res.id)
-      .collection("assetInfo")
-      .count();
-    const q = await assetInfo.get();
-    return { ...q.data(), res: res?.assets?.length };
-  });
-  return console.log({ k: await Promise.all(k) });
-};
-const Checking = async () => {
-  const firesore_proj = await firestore_pool
-    .where("active", "==", true)
-    .where("poolBalance", ">", 0)
-    // .where("poolBalance", ">", "")
-    .where("hide", "==", false)
-    .where("paymentActivated", "==", true)
-    // .select("assetInfo")
-    .get();
-  // const h = await firesore_proj
-  const p = firesore_proj.docs.map((res) => res?.id);
-  const data = firesore_proj.docs.map((res) => ({
-    id: res.id,
-    ...(res?.data() as { assetInfo: Record<string, any> }),
-  }));
-  for (let item of data) {
-    await batchAddDocumentsWithCustomIds(
-      Object.entries(item?.assetInfo).map((res) => ({ id: res[0], ...res[1] })),
-      firestore_pool.doc(item?.id).collection("assetInfo")
-    );
-  }
-  return;
-  const d = data
-    .map(async (res) => {
-      const assetInfo = await firestore_pool
-        .doc(res?.id)
-        .collection("assetInfo")
-        .get();
-      const data: Record<string, {}> = assetInfo.docs[0].data();
-      const entries = Object.entries(data);
-      const _entries = await Promise.all(
-        entries.map(async ([str, obj]) => {
-          await firestore_pool
-            .doc(res)
-            .collection("assetInfo")
-            .doc(str)
-            .set(obj);
-        })
-      );
-    })
-    .flatMap((res) => res);
-  const a = await Promise.all(d);
+// const count = async () => {
+//   const firesore_proj = await firestore_pool
+//     // .where("active", "==", true)
+//     // .where("poolBalance", ">", 0)
+//     // // .where("poolBalance", ">", "")
+//     // .where("hide", "==", false)
+//     // .where("paymentActivated", "==", true)
+//     .get();
+//   const p = await firesore_proj.docs.map(async (res) => ({
+//     id: res.id,
+//     assets: await res.get("assets"),
+//   }));
+//   const k = (await Promise.all(p)).map(async (res) => {
+//     const assetInfo = await firestore_pool
+//       .doc(res.id)
+//       .collection("assetInfo")
+//       .count();
+//     const q = await assetInfo.get();
+//     return { ...q.data(), res: res?.assets?.length };
+//   });
+//   return console.log({ k: await Promise.all(k) });
+// };
+// const Checking = async () => {
+//   const firesore_proj = await firestore_pool
+//     .where("active", "==", true)
+//     .where("poolBalance", ">", 0)
+//     // .where("poolBalance", ">", "")
+//     .where("hide", "==", false)
+//     .where("paymentActivated", "==", true)
+//     // .select("assetInfo")
+//     .get();
+//   // const h = await firesore_proj
+//   const p = firesore_proj.docs.map((res) => res?.id);
+//   const data = firesore_proj.docs.map((res) => ({
+//     id: res.id,
+//     ...(res?.data() as { assetInfo: Record<string, any> }),
+//   }));
+//   for (let item of data) {
+//     await batchAddDocumentsWithCustomIds(
+//       Object.entries(item?.assetInfo).map((res) => ({ id: res[0], ...res[1] })),
+//       firestore_pool.doc(item?.id).collection("assetInfo")
+//     );
+//   }
+//   return;
+//   const d = data
+//     .map(async (res) => {
+//       const assetInfo = await firestore_pool
+//         .doc(res?.id)
+//         .collection("assetInfo")
+//         .get();
+//       const data: Record<string, {}> = assetInfo.docs[0].data();
+//       const entries = Object.entries(data);
+//       const _entries = await Promise.all(
+//         entries.map(async ([str, obj]) => {
+//           await firestore_pool
+//             .doc(res)
+//             .collection("assetInfo")
+//             .doc(str)
+//             .set(obj);
+//         })
+//       );
+//     })
+//     .flatMap((res) => res);
+//   const a = await Promise.all(d);
 
-  console.log({ a, p });
-};
-async function batchAddDocumentsWithCustomIds(
-  dataArray: { id: string; [other: string]: any }[],
-  collectionRef: typeof firestore_pool
-) {
-  const batchSize = 500; // Batch size (Firestore limit is 500 writes per batch)
+//   console.log({ a, p });
+// };
+// async function batchAddDocumentsWithCustomIds(
+//   dataArray: { id: string; [other: string]: any }[],
+//   collectionRef: typeof firestore_pool
+// ) {
+//   const batchSize = 500; // Batch size (Firestore limit is 500 writes per batch)
 
-  // Create an array to store batches of write operations
-  const batches = [];
+//   // Create an array to store batches of write operations
+//   const batches = [];
 
-  // Loop through the data array and create batches
-  for (let i = 0; i < dataArray.length; i += batchSize) {
-    const batch = _fireDb.batch();
+//   // Loop through the data array and create batches
+//   for (let i = 0; i < dataArray.length; i += batchSize) {
+//     const batch = _fireDb.batch();
 
-    // Process a batch of data
-    for (let j = i; j < i + batchSize && j < dataArray.length; j++) {
-      const { id, ...rest } = dataArray[j];
-      const documentRef = collectionRef.doc(id); // Use custom ID
-      batch.set(documentRef, rest);
-    }
+//     // Process a batch of data
+//     for (let j = i; j < i + batchSize && j < dataArray.length; j++) {
+//       const { id, ...rest } = dataArray[j];
+//       const documentRef = collectionRef.doc(id); // Use custom ID
+//       batch.set(documentRef, rest);
+//     }
 
-    batches.push(batch);
-  }
+//     batches.push(batch);
+//   }
 
-  // Execute the batches sequentially
-  for (const batch of batches) {
-    try {
-      await batch.commit();
-      console.log("Batch write successful");
-    } catch (error) {
-      console.error("Error writing batch", error);
-    }
-  }
-}
-async function batchUpdateDocs(
-  dataArray: { id: string; [other: string]: any }[],
-  collectionRef: typeof firestore_pool
-) {
-  const batchSize = 500; // Batch size (Firestore limit is 500 writes per batch)
+//   // Execute the batches sequentially
+//   for (const batch of batches) {
+//     try {
+//       await batch.commit();
+//       console.log("Batch write successful");
+//     } catch (error) {
+//       console.error("Error writing batch", error);
+//     }
+//   }
+// }
+// async function batchUpdateDocs(
+//   dataArray: { id: string; [other: string]: any }[],
+//   collectionRef: typeof firestore_pool
+// ) {
+//   const batchSize = 500; // Batch size (Firestore limit is 500 writes per batch)
 
-  // Create an array to store batches of write operations
-  const batches = [];
+//   // Create an array to store batches of write operations
+//   const batches = [];
 
-  // Loop through the data array and create batches
-  for (let i = 0; i < dataArray.length; i += batchSize) {
-    const batch = fireDb.batch();
+//   // Loop through the data array and create batches
+//   for (let i = 0; i < dataArray.length; i += batchSize) {
+//     const batch = fireDb.batch();
 
-    // Process a batch of data
-    for (let j = i; j < i + batchSize && j < dataArray.length; j++) {
-      const { id, ...rest } = dataArray[j];
-      const documentRef = collectionRef.doc(id); // Use custom ID
-      batch.update(documentRef, rest);
-    }
+//     // Process a batch of data
+//     for (let j = i; j < i + batchSize && j < dataArray.length; j++) {
+//       const { id, ...rest } = dataArray[j];
+//       const documentRef = collectionRef.doc(id); // Use custom ID
+//       batch.update(documentRef, rest);
+//     }
 
-    batches.push(batch);
-  }
+//     batches.push(batch);
+//   }
 
-  // Execute the batches sequentially
-  for (const batch of batches) {
-    try {
-      await batch.commit();
-      console.log("Batch update successful");
-    } catch (error) {
-      console.error("Error writing batch", error);
-    }
-  }
-}
+//   // Execute the batches sequentially
+//   for (const batch of batches) {
+//     try {
+//       await batch.commit();
+//       console.log("Batch update successful");
+//     } catch (error) {
+//       console.error("Error writing batch", error);
+//     }
+//   }
+// }
 
-const RecursiveCheck = async () => {
-  console.log("beginning");
-  const USERS_REF = newDb.ref("/admins");
-  const ALL_COLLECTIONS_REF = newDb.ref("/allCollections");
-  const RETRIEVED_COLLECTION: { collection_name: string; wallet: string }[] =
-    await readDataFromSnapShot(ALL_COLLECTIONS_REF);
 
-  const newMap = RETRIEVED_COLLECTION.map(({ wallet, collection_name }) => {
-    return {
-      ref: USERS_REF.child(`/${wallet}/${collection_name}/isActive`),
-      wallet,
-      collection_name,
-    };
-  }).reverse();
-  const newSnap =
-    newMap.map(async ({ ref, wallet, collection_name }) => {
-      const isActive = await readDataFromSnapShot(ref);
-      if (isActive) {
-        return {
-          [wallet]: {
-            [collection_name]: await readDataFromSnapShot<Project>(
-              USERS_REF.child(`/${wallet}/${collection_name}/`)
-            ),
-          },
-        };
-      } else {
-        return {} as RetrievedData;
-      }
-    }) || [];
-  const filteredObject = (await Promise.all(newSnap)).filter(
-    (p) => Object.keys(p).length !== 0
-  );
-  console.log("middle 2");
-
-  for (const RETRIEVED_DATA of filteredObject) {
-    const entries = Object.entries(RETRIEVED_DATA);
-    let infos: Array<{
-      address: string;
-      amount: number;
-      isToken: boolean;
-      token?: number | string;
-      asset?: number;
-      eligiblePoints?: number;
-    }> = [];
-
-    /**
-     * We map through all the assets to be able to store the locally so we can use it in our server
-     * We use it for authentication to confirm if our user has the asset in their wallet
-     */
-
-    /**
-     * Map through both the data in the centralized database and that gotten from the chain and use that data
-     * We use both data points to validate our logic
-     */
-    for (const [address, objectEntry] of entries) {
-      console.log("started entries");
-
-      /* 
-    !TODO: edit the contents of the floor price funciton  to reflect the latest iterations
-      */
-      /* 
-    ! TODO: edit the contents of the floor price funciton  to reflect the latest iterations
-     */
-      for (const [projectName, entry] of Object.entries(
-        objectEntry
-      ).reverse()) {
-        console.log({ projectName, address });
-        // console.log({ projectName });
-        /**
-         * WE RETRIEVE THE ASSET INFO SO FROM THE FIREBASE DATABASE SO WE CAN
-         * COMPARE THE RECENT HOLDERS TO THOSE ALREADY IN OUR DATABASE
-         */
-        const PROJECT_REF = newDb.ref(`admins/${address}/${projectName}`);
-        // !
-        const MONITOR_ASSETS_REF = PROJECT_REF.child("MONITOR");
-        // !
-
-        const ASSET_INFO_REF = PROJECT_REF.child("assetInfo");
-        const RETRIEVED_ASSET_INFO = entry.assetInfo;
-        const RETRIEVED_ASSETS = entry.assets;
-        const IS_ACTIVE = entry.isActive;
-        const HIDE = entry?.hide;
-        let INFO = entry.info as BigNumber | number;
-        const FLOOR = entry?.floor?.value || 1;
-        const PERCENT = entry?.percentage?.value || 1;
-        const IS_TOKEN = entry?.isToken;
-        const DEPOSIT = entry?.dailyRewardAmount!;
-        const IS_MANUAL = entry?.isManual || false;
-        const TOKEN = entry?.token;
-        const NETWORK = entry?.network;
-        const VERSION = entry?.version || "v3";
-        const SHOULD_OVERRIDE_FLOOR = entry?.override || false;
-        const PAYMENT_ACTIVATED = entry?.paymentActivated;
-        const BACKEND_TYPE = entry?.backendType || "mono-mint";
-        const reach = loadStdlib("ALGO");
-        const WALLET: wallet = await reach.newAccountFromMnemonic(
-          process?.env?.MNEMONIC || ""
-        );
-        reach.setProviderByName(NETWORK);
-        // firestore_pool.add(h);
-        // const FREQUENCY = entry.frequency;
-        const poolB = await getPoolBalance(
-          WALLET,
-          reach.bigNumberToNumber(INFO as BigNumber) as unknown as number,
-          !!IS_TOKEN,
-          TOKEN?.value,
-          VERSION
-        );
-        console.log({ poolB });
-        // return console.log({
-        //   BACKEND_TYPE,
-        //   str: JSON.stringify(RETRIEVED_ASSET_INFO, null, 2),
-        // });
-
-        const z = ZOD_PROJECT.parse({
-          admin: address,
-          project: projectName,
-          active: IS_ACTIVE,
-          assets: RETRIEVED_ASSETS,
-          contract: reach.bigNumberToNumber(INFO as BigNumber),
-          poolType: BACKEND_TYPE,
-          assetInfo: RETRIEVED_ASSET_INFO as any,
-          network: NETWORK!,
-          percent: PERCENT,
-          poolBalance: +poolB,
-          type: IS_TOKEN ? "token" : "algo",
-          floor: !IS_TOKEN ? FLOOR : undefined,
-          token: IS_TOKEN ? TOKEN!?.value! : undefined,
-          rewardType: IS_MANUAL ? "manual" : "floor",
-          overrideFloor: !IS_MANUAL ? SHOULD_OVERRIDE_FLOOR! : undefined,
-          dailyReward: IS_MANUAL ? DEPOSIT : undefined,
-        } as ProjectType);
-
-        const { assetInfo, ...rest } = z;
-        console.log("Before batching", JSON.stringify(z, null, 2));
-        const deter = await _firestore_pool.add(rest);
-        await deter.collection("assetInfo").doc(deter.id).set(assetInfo!);
-        console.log("added to pool", deter.id);
-
-        console.log("After batching");
-        continue;
-        return;
-        if (poolB == 0) {
-          continue;
-        }
-        /**
-         * We run this checks so we can premarturely end a project
-         * IF specific conditions are met
-         */
-        if (!(typeof INFO == "undefined" || typeof INFO == undefined)) {
-          if (typeof INFO == "object") {
-            INFO = reach.bigNumberToNumber(INFO);
-          }
-        }
-        if (IS_ACTIVE == false || HIDE) {
-          console.log("Project is not active");
-          continue;
-        }
-        if (PAYMENT_ACTIVATED == false) {
-          continue;
-        }
-
-        if (BACKEND_TYPE == "multi-mint") {
-          console.log({ BACKEND_TYPE });
-          await handleMultiMint(address, projectName, entry, PROJECT_REF);
-          continue;
-        } else {
-          // continue;
-        }
-        const assetInfosFromChain = await getFormattedHoldersInfo(
-          RETRIEVED_ASSETS
-        );
-        let obj: uniqueQuery = {};
-        console.log("started reducing line 178");
-
-        const chainAddressAndAssetId = assetInfosFromChain.reduce(
-          (a, v) => ({ ...a, ...v }),
-          {}
-        );
-
-        for (let assetData in chainAddressAndAssetId) {
-          obj = {
-            ...obj,
-            [assetData]: {
-              ...chainAddressAndAssetId[assetData],
-              eligiblePoints: 0,
-            },
-          };
-        }
-
-        if (!RETRIEVED_ASSET_INFO) {
-          ASSET_INFO_REF.set(obj);
-          continue;
-        }
-
-        for (let asset of RETRIEVED_ASSETS) {
-          const dataBaseAddress = RETRIEVED_ASSET_INFO[asset]["address"];
-          const chainAddress = obj[asset]["address"];
-
-          if (chainAddress === dataBaseAddress) {
-            // TODO: Add later
-            // console.log("Same Address.....", projectName);
-            obj[asset] = {
-              ...obj[asset],
-              eligiblePoints:
-                (RETRIEVED_ASSET_INFO[asset]["eligiblePoints"] || 0) + 1,
-            };
-            // execute a call to the contract that allocates an amount of the reward to this address
-            // clear the value of the eligible points
-          } else {
-            const address = obj[asset]["address"];
-            obj[asset] = {
-              ...RETRIEVED_ASSET_INFO[asset],
-              address,
-              eligiblePoints: 0,
-            };
-          }
-          // console.log("Opting in 222")
-          const optedIn = await hasOpted(
-            WALLET,
-            chainAddress || dataBaseAddress,
-            INFO as unknown as number,
-            !!IS_TOKEN,
-            VERSION
-          );
-          // console.log({ asset, optedIn, projectName, address });
-
-          if (optedIn) {
-            await Promise.allSettled([
-              MONITOR_ASSETS_REF.child(`${address}/assets`).update({
-                [asset]: asset,
-              }),
-            ]);
-            console.log("Updating", { asset });
-          }
-          if ((obj[asset]["eligiblePoints"] || 0) >= HOUR_LIMIT) {
-            // console.log("elgigblepoints", obj[asset]["eligiblePoints"]);
-
-            if (optedIn) {
-              let amount = 0;
-
-              // ! Todo Remove check for token alone and incorporate all checks
-              let FLOOR_PRICE = 0;
-
-              if (!IS_MANUAL) {
-                if (SHOULD_OVERRIDE_FLOOR) {
-                  FLOOR_PRICE = FLOOR;
-                } else {
-                  FLOOR_PRICE = (await getFloor(projectName)) || 0;
-                }
-                amount = ((FLOOR_PRICE || FLOOR) * (PERCENT / 100)) / 365;
-              } else {
-                FLOOR_PRICE = DEPOSIT || (FLOOR * (PERCENT / 100)) / 365;
-                amount = FLOOR_PRICE;
-              }
-              // const canSet = await canSetReward(
-              //   WALLET,
-              //   amount,
-              //   INFO as unknown as number,
-              //   !!IS_TOKEN,
-              //   VERSION
-              // );
-
-              infos = [
-                ...infos,
-                {
-                  asset: asset,
-                  eligiblePoints: obj[asset]["eligiblePoints"] || 0,
-                  address: chainAddress || dataBaseAddress,
-                  amount,
-                  isToken: IS_TOKEN!,
-                  token: TOKEN?.value,
-                },
-              ];
-            }
-            obj[asset]["eligiblePoints"] = 0;
-          }
-          // Promise.allSettled(
-
-          await ASSET_INFO_REF.child(`${asset}`).set(obj[asset]);
-          // ]);
-        }
-
-        console.log({ length: infos.length, infos });
-        for (let item of infos) {
-          const { address, amount, isToken, token, asset } = item;
-          let amt = 0;
-          if (isToken) {
-            const tokemMetadata = await WALLET.tokenMetadata(token);
-            amt = reach.bigNumberToNumber(
-              reach.parseCurrency(
-                amount,
-                // @ts-ignore
-                +reach.bigNumberToNumber(tokemMetadata?.decimals)
-              )
-            );
-            // console.log({ amt, metadata: tokemMetadata });
-          } else {
-            amt = reach.bigNumberToNumber(reach.parseCurrency(amount));
-          }
-          await setReward(
-            WALLET,
-            address,
-            asset!,
-            amt,
-            INFO as unknown as number,
-            isToken,
-            VERSION
-          )
-            .then((_) =>
-              console.log(
-                `Finished setting the rewards for ${address} and the amount was ${amt}/${amount}`
-              )
-            )
-            .catch(async (err) => {
-              console.log(
-                "Error, when setting rewards for",
-                projectName,
-                "\n",
-                "Trying again in 5 seconds",
-                "\n",
-                err
-              );
-              await setReward(
-                WALLET,
-                address,
-                asset!,
-                amt,
-                INFO as unknown as number,
-                isToken
-              )
-                .then((_) =>
-                  console.log(
-                    `Finished setting the rewards for ${address} and the amount was ${amt}/${amount}`
-                  )
-                )
-                .catch(() => {
-                  console.log("Failed again");
-                });
-            });
-        }
-      }
-    }
-  }
-  try {
-    backupDatabase(JSON.stringify(RETRIEVED_COLLECTION));
-  } catch (error) {
-    console.error(error);
-  }
-};
 // const newDb = await _fireDb.getAll();
 // console.log({ db: newDb.map((res) => res.data()) });
 // await RecursiveCheck();
@@ -849,8 +486,8 @@ type uniqueQuery = {
   };
 };
 
-// const APY = 10 / 365 / 24;
-let cnt = 0;
+await Check();
+process?.exit(0)
 
 // schedule("*/4 * * * *", () => {
 //   console.log("Starting Cron Job", cnt);
@@ -871,7 +508,6 @@ let cnt = 0;
 //   .catch(console.error);
 // await Check();
 // ! 20MIN CRON JOB
-await Check();
 // schedule("*/20 * * * *", async () => {
 //   console.log("Starting Cron Job", cnt);
 //   cnt++;
