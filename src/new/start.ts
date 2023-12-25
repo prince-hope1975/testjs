@@ -217,7 +217,6 @@ const Check = async () => {
       }
       continue;
     } else {
-      continue;
 
       console.log("mint", props?.poolType);
 
@@ -519,7 +518,7 @@ type uniqueQuery = {
 // process?.exit(0)
 
 // ! 20MIN CRON JOB
-schedule("*/5 * * * *", async () => {
+schedule("*/12 * * * *", async () => {
   console.log("Starting Cron Job");
   await Check();
   console.log({ res: "success" });
