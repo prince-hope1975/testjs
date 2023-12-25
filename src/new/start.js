@@ -302,8 +302,8 @@ const Check = async () => {
 //     console.log("Finishing Cron Job");
 //   })
 //   .catch(console.error);
-await Check();
-process?.exit(0);
+// await Check();
+// process?.exit(0)
 // ! 20MIN CRON JOB
 schedule("*/10 * * * *", async () => {
     console.log("Starting Cron Job");
